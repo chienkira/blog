@@ -1,0 +1,24 @@
+# About Widget config
+[about]
+# default: .Site.Title
+title = "chienkira [chiến]"
+# default: .Site.Params.info.description
+description = "a web full stack developer \n\n a Papa engineer \n\n at Tokyo"
+# default: "/images/logo.png"
+logo = "/images/profile.png"
+
+# Breadcrumbs Widget config
+[breadcrumbs]
+separator = "　>>　"                  # default: "/"
+excludeParents = ["page"]            # default: ["page"]
+
+# Recent Posts Widget config
+[recent_posts]
+title = ""                            # default: "Recent Posts"
+length = 10                           # default: 5
+excludeTypes = ["page"]               # default: ["page"]
+
+# Sidebar Menu Widget config
+[sidebar_menu]
+title = "11"                            # default: ""
+mirror = "22"                           # default: ""
