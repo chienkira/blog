@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='API GatewayとLambda間の処理フロー APIGatewayとLambda間の処理フローは以下の図の通りです。  クライアントからHTTPリクエストがきた時に、[Method request] がそのリクエストを受け取って認証などを行う API Gatewayは必要に応じて [Integration Request]を使い、リクエストのデータを変換してから、Lambdaに転送する ※ 変換されたデータがLambda関数のevent変数に入ります。 次にAPI Gatewayは [Integration Response] を使い、Lambdaから返ってきた戻り値（処理結果）をまたデータ変換をしてから、[Method Response] に転送 最後に、API Gatewayが [Method Response]にてクライアントに返信する  → Integration Request と Integration Responseのデータ変換に関しては、以下の2選択肢があります。
+ ①AWSのLambda proxy integration（Lambda プロキシ統合）に任せるか ②データ変換に使われるマッピングテンプレートを自分で定義するか  Lambda proxy integration（Lambda プロキシ統合） AWSのLambda プロキシ統合の詳細説明 Lambda プロキシ統合を使用する場合、Lambda関数へのInputデータやLambda関数のOutputデータのフォーマットが決まってます。
+Lambda 関数の入力形式 以下のようにHTTPリクエスト全体をLambda 関数のevent変数にマッピングされます。 よく使うのは：
+ headers: リクエストのヘッダデータ httpMethod: リクエストのメソッド情報 pathParameters: GETリクエストのパスパラメータ 例）/hoge/{group}/{user}のようなリクエストの場合、pathParameters には、groupとuserが入ってきます。 queryStringParameters: GETリクエストのクエリパラメータ 例）/hoge/{user}?page=5のようなリクエストの場合、queryStringParameters には、pageが入ってきます。 body: POSTリクエストのPostデータ  { &#34;resource&#34;: &#34;Resource path&#34;, &#34;path&#34;: &#34;Path parameter&#34;, &#34;httpMethod&#34;: &#34;Incoming request&#39;s method name&#34; &#34;headers&#34;: {String containing incoming request headers} &#34;multiValueHeaders&#34;: {List of strings containing incoming request headers} &#34;queryStringParameters&#34;: {query string parameters } &#34;multiValueQueryStringParameters&#34;: {List of query string parameters} &#34;pathParameters&#34;: {path parameters} &#34;stageVariables&#34;: {Applicable stage variables} &#34;requestContext&#34;: {Request context, including authorizer-returned key-value pairs} &#34;body&#34;: &#34;A JSON string of the request payload.'>
+<meta name='theme-color' content='#ffcd00'>
+
+<meta property='og:title' content='Cơ Bản Về Api Gateway • Chienkira'>
+<meta property='og:description' content='API GatewayとLambda間の処理フロー APIGatewayとLambda間の処理フローは以下の図の通りです。  クライアントからHTTPリクエストがきた時に、[Method request] がそのリクエストを受け取って認証などを行う API Gatewayは必要に応じて [Integration Request]を使い、リクエストのデータを変換してから、Lambdaに転送する ※ 変換されたデータがLambda関数のevent変数に入ります。 次にAPI Gatewayは [Integration Response] を使い、Lambdaから返ってきた戻り値（処理結果）をまたデータ変換をしてから、[Method Response] に転送 最後に、API Gatewayが [Method Response]にてクライアントに返信する  → Integration Request と Integration Responseのデータ変換に関しては、以下の2選択肢があります。
+ ①AWSのLambda proxy integration（Lambda プロキシ統合）に任せるか ②データ変換に使われるマッピングテンプレートを自分で定義するか  Lambda proxy integration（Lambda プロキシ統合） AWSのLambda プロキシ統合の詳細説明 Lambda プロキシ統合を使用する場合、Lambda関数へのInputデータやLambda関数のOutputデータのフォーマットが決まってます。
+Lambda 関数の入力形式 以下のようにHTTPリクエスト全体をLambda 関数のevent変数にマッピングされます。 よく使うのは：
+ headers: リクエストのヘッダデータ httpMethod: リクエストのメソッド情報 pathParameters: GETリクエストのパスパラメータ 例）/hoge/{group}/{user}のようなリクエストの場合、pathParameters には、groupとuserが入ってきます。 queryStringParameters: GETリクエストのクエリパラメータ 例）/hoge/{user}?page=5のようなリクエストの場合、queryStringParameters には、pageが入ってきます。 body: POSTリクエストのPostデータ  { &#34;resource&#34;: &#34;Resource path&#34;, &#34;path&#34;: &#34;Path parameter&#34;, &#34;httpMethod&#34;: &#34;Incoming request&#39;s method name&#34; &#34;headers&#34;: {String containing incoming request headers} &#34;multiValueHeaders&#34;: {List of strings containing incoming request headers} &#34;queryStringParameters&#34;: {query string parameters } &#34;multiValueQueryStringParameters&#34;: {List of query string parameters} &#34;pathParameters&#34;: {path parameters} &#34;stageVariables&#34;: {Applicable stage variables} &#34;requestContext&#34;: {Request context, including authorizer-returned key-value pairs} &#34;body&#34;: &#34;A JSON string of the request payload.'>
+<meta property='og:url' content='http://www.example.com/posts/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway/'>
+<meta property='og:site_name' content='Chienkira'>
+<meta property='og:type' content='article'><meta property='article:section' content='posts'><meta property='article:tag' content='aws'><meta property='article:tag' content='serverless'><meta property='article:tag' content='SAM'><meta property='article:tag' content='api gateway'><meta property='article:tag' content='lambda'><meta property='article:published_time' content='2019-02-12T15:45:04&#43;09:00'/><meta property='article:modified_time' content='2019-02-12T15:45:04&#43;09:00'/><meta name='twitter:card' content='summary'>
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+  <title>Cơ Bản Về Api Gateway • Chienkira</title>
+  <link rel='canonical' href='http://www.example.com/posts/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway/'>
+  
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='/assets/css/main.4a10984a.css'><link rel='stylesheet' href='/css/custom.css'><style>
+:root{--color-accent:#ffcd00;}
+</style>
+
+  
+
+</head>
+<body class='page type-posts has-sidebar'>
+
+  <div class='site'><div id='sidebar' class='sidebar'>
+  <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
+
+  <div class='container'><section class='widget widget-about sep-after'>
+  <header>
+    
+    <div class='logo'>
+      <a href='/'>
+        <img src='/images/profile.png'>
+      </a>
+    </div>
+    
+    <h2 class='title site-title '>
+    chienkira [chiến]
+    </h2>
+    <div class='desc'>
+    <p>a web full stack developer</p>
+
+<p>a Papa engineer</p>
+
+<p>at Tokyo</p>
+
+    </div>
+  </header>
+
+</section>
+<section class='widget widget-taxonomy_cloud sep-after'>
+  <header>
+    <h4 class='title widget-title'>Tags</h4>
+  </header>
+
+  <div class='container list-container'>
+  <ul class='list taxonomy-cloud'><li>
+        <a href='/tags/sam/' style='font-size:2em'>SAM</a>
+      </li><li>
+        <a href='/tags/api-gateway/' style='font-size:1em'>api gateway</a>
+      </li><li>
+        <a href='/tags/aws/' style='font-size:2em'>aws</a>
+      </li><li>
+        <a href='/tags/docker/' style='font-size:1em'>docker</a>
+      </li><li>
+        <a href='/tags/dynamodb-local/' style='font-size:1em'>dynamodb local</a>
+      </li><li>
+        <a href='/tags/lambda/' style='font-size:1em'>lambda</a>
+      </li><li>
+        <a href='/tags/pycharm/' style='font-size:1em'>pycharm</a>
+      </li><li>
+        <a href='/tags/python/' style='font-size:1em'>python</a>
+      </li><li>
+        <a href='/tags/serverless/' style='font-size:2em'>serverless</a>
+      </li></ul>
+</div>
+
+
+</section>
+</div>
+
+  <div class='sidebar-overlay'></div>
+</div><div class='main'><nav id='main-menu' class='menu main-menu' aria-label='Main Menu'>
+  <div class='container'>
+    <a class='screen-reader-text' href='#content'>Skip to Content</a>
+
+<button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
+  <span class='screen-reader-text'>Toggle Sidebar</span>
+  <span class='open'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="3" y1="12" x2="21" y2="12" />
+  <line x1="3" y1="6" x2="21" y2="6" />
+  <line x1="3" y1="18" x2="21" y2="18" />
+  
+</svg>
+</span>
+  <span class='close'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+  
+</svg>
+</span>
+</button>
+    <ul><li class='item'>
+        <a href='/'>Home　</a>
+      </li><li class='item'>
+        <a href='https://chienkira.github.io'>My portfolio　</a>
+      </li><li class='item'>
+        <a href='/about'>About　</a>
+      </li></ul>
+  </div>
+</nav><div class='header-widgets'>
+        <div class='container'>
+    
+    <style>.widget-breadcrumbs li:after{content:'　\3e\3e　'}</style>
+  <section class='widget widget-breadcrumbs sep-after'>
+    <nav id='breadcrumbs'>
+      <ol><li><a href='/'>Chienkira</a></li><li><a href='/posts/'>Posts</a></li><li><span>Cơ Bản Về Api Gateway</span></li></ol>
+    </nav>
+  </section></div>
+      </div>
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>Chienkira</p><p class='desc site-desc'>chienkira | a web full stack engineer | personal blog about tech and life in Japan</p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>Cơ Bản Về Api Gateway</h1>
+      
+
+    </div>
+    <div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2019-02-12T15:45:04&#43;09:00'>2019, Feb 12</time>
+</span>
+
+  
+  
+<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+  
+</svg>
+2 mins read
+</span>
+
+
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+
+  <div class='container entry-content'>
+  
+
+<h1 id="api-gatewayとlambda間の処理フロー">API GatewayとLambda間の処理フロー</h1>
+
+<p>APIGatewayとLambda間の処理フローは以下の図の通りです。
+<img src="https://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-create-api-by-importing-example-post-method-execution.png" alt="LINK" /></p>
+
+<ol>
+<li>クライアントからHTTPリクエストがきた時に、[Method request] がそのリクエストを受け取って認証などを行う</li>
+<li>API Gatewayは必要に応じて [Integration Request]を使い、リクエストのデータを変換してから、Lambdaに転送する
+※ 変換されたデータがLambda関数のevent変数に入ります。</li>
+<li>次にAPI Gatewayは [Integration Response] を使い、Lambdaから返ってきた戻り値（処理結果）をまたデータ変換をしてから、[Method Response] に転送</li>
+<li>最後に、API Gatewayが [Method Response]にてクライアントに返信する</li>
+</ol>
+
+<p>→ <strong>Integration Request</strong> と <strong>Integration Response</strong>のデータ変換に関しては、以下の2選択肢があります。</p>
+
+<ul>
+<li>①AWSのLambda proxy integration（Lambda プロキシ統合）に任せるか</li>
+<li>②データ変換に使われるマッピングテンプレートを自分で定義するか</li>
+</ul>
+
+<h1 id="lambda-proxy-integration-lambda-プロキシ統合">Lambda proxy integration（Lambda プロキシ統合）</h1>
+
+<p><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html" target="_blank">AWSのLambda プロキシ統合の詳細説明</a>
+Lambda プロキシ統合を使用する場合、Lambda関数へのInputデータやLambda関数のOutputデータのフォーマットが決まってます。</p>
+
+<h2 id="lambda-関数の入力形式">Lambda 関数の入力形式</h2>
+
+<p>以下のようにHTTPリクエスト全体をLambda 関数のevent変数にマッピングされます。
+よく使うのは：</p>
+
+<ul>
+<li>headers: リクエストのヘッダデータ</li>
+<li>httpMethod: リクエストのメソッド情報</li>
+<li>pathParameters: GETリクエストのパスパラメータ
+例）/hoge/{group}/{user}のようなリクエストの場合、pathParameters には、groupとuserが入ってきます。</li>
+<li>queryStringParameters: GETリクエストのクエリパラメータ
+例）/hoge/{user}?page=5のようなリクエストの場合、queryStringParameters には、pageが入ってきます。</li>
+<li>body: POSTリクエストのPostデータ</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;resource&#34;</span>: <span style="color:#e6db74">&#34;Resource path&#34;</span>,
+    <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;Path parameter&#34;</span>,
+    <span style="color:#f92672">&#34;httpMethod&#34;</span>: <span style="color:#e6db74">&#34;Incoming request&#39;s method name&#34;</span>
+    <span style="color:#e6db74">&#34;headers&#34;</span>: {<span style="color:#960050;background-color:#1e0010">String</span> <span style="color:#960050;background-color:#1e0010">containing</span> <span style="color:#960050;background-color:#1e0010">incoming</span> <span style="color:#960050;background-color:#1e0010">request</span> <span style="color:#960050;background-color:#1e0010">headers</span>}
+    <span style="color:#e6db74">&#34;multiValueHeaders&#34;</span>: {<span style="color:#960050;background-color:#1e0010">List</span> <span style="color:#960050;background-color:#1e0010">of</span> <span style="color:#960050;background-color:#1e0010">strings</span> <span style="color:#960050;background-color:#1e0010">containing</span> <span style="color:#960050;background-color:#1e0010">incoming</span> <span style="color:#960050;background-color:#1e0010">request</span> <span style="color:#960050;background-color:#1e0010">headers</span>}
+    <span style="color:#e6db74">&#34;queryStringParameters&#34;</span>: {<span style="color:#960050;background-color:#1e0010">query</span> <span style="color:#960050;background-color:#1e0010">string</span> <span style="color:#960050;background-color:#1e0010">parameters</span> }
+    <span style="color:#e6db74">&#34;multiValueQueryStringParameters&#34;</span>: {<span style="color:#960050;background-color:#1e0010">List</span> <span style="color:#960050;background-color:#1e0010">of</span> <span style="color:#960050;background-color:#1e0010">query</span> <span style="color:#960050;background-color:#1e0010">string</span> <span style="color:#960050;background-color:#1e0010">parameters</span>}
+    <span style="color:#e6db74">&#34;pathParameters&#34;</span>:  {<span style="color:#960050;background-color:#1e0010">path</span> <span style="color:#960050;background-color:#1e0010">parameters</span>}
+    <span style="color:#e6db74">&#34;stageVariables&#34;</span>: {<span style="color:#960050;background-color:#1e0010">Applicable</span> <span style="color:#960050;background-color:#1e0010">stage</span> <span style="color:#960050;background-color:#1e0010">variables</span>}
+    <span style="color:#e6db74">&#34;requestContext&#34;</span>: {<span style="color:#960050;background-color:#1e0010">Request</span> <span style="color:#960050;background-color:#1e0010">context,</span> <span style="color:#960050;background-color:#1e0010">including</span> <span style="color:#960050;background-color:#1e0010">authorizer-returned</span> <span style="color:#960050;background-color:#1e0010">key-value</span> <span style="color:#960050;background-color:#1e0010">pairs</span>}
+    <span style="color:#e6db74">&#34;body&#34;</span>: <span style="color:#e6db74">&#34;A JSON string of the request payload.&#34;</span>
+    <span style="color:#e6db74">&#34;isBase64Encoded&#34;</span>: <span style="color:#e6db74">&#34;A boolean flag to indicate if the applicable request payload is Base64-encode&#34;</span>
+}</code></pre></div>
+<p>参照: (<a href="https://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-input-format" target="_blank">https://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-input-format</a>)</p>
+
+<h2 id="lambda-関数の出力形式">Lambda 関数の出力形式</h2>
+
+<p>クライアントに正常に正しいHTTPステータスコードやレスポンスデータを返すために、以下の JSON 形式に従ってLambdaがデータを返却する必要があります。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;isBase64Encoded&#34;</span>: <span style="color:#66d9ef">true</span><span style="color:#960050;background-color:#1e0010">|</span><span style="color:#66d9ef">false</span>,
+    <span style="color:#f92672">&#34;statusCode&#34;</span>: <span style="color:#960050;background-color:#1e0010">httpStatusCode</span>,
+    <span style="color:#f92672">&#34;headers&#34;</span>: { <span style="color:#f92672">&#34;headerName&#34;</span>: <span style="color:#e6db74">&#34;headerValue&#34;</span>, <span style="color:#960050;background-color:#1e0010">...</span> },
+    <span style="color:#f92672">&#34;multiValueHeaders&#34;</span>: { <span style="color:#f92672">&#34;headerName&#34;</span>: [<span style="color:#e6db74">&#34;headerValue&#34;</span>, <span style="color:#e6db74">&#34;headerValue2&#34;</span>, <span style="color:#960050;background-color:#1e0010">...</span>], <span style="color:#960050;background-color:#1e0010">...</span> },
+    <span style="color:#f92672">&#34;body&#34;</span>: <span style="color:#e6db74">&#34;...&#34;</span>
+}</code></pre></div>
+<p>参照: (<a href="https://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-output-format" target="_blank">https://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-output-format</a>)</p>
+
+<p>メモ：
+もしLambda プロキシ統合の方で決まっているフォーマットと違いデータをLambda関数が返した場合、
+API Gatewayの中でエラーが発生し、クライアントに502 Bad Gateway エラーを返します。</p>
+
+<h1 id="mapping-template">Mapping template</h1>
+
+<p>Lambda プロキシ統合を使用しない場合、どうAPI Gatewayにデータ変換してほしいか定義する必要がります。
+その定義はMapping templateと言います。
+データ変換は2箇所（Lambda関数のInputデータの変換とLambda関数のOutputデータの変換）があるため、
+Mapping templateも [Integration Request] と [Integration Response] の2箇所で定義しなければなりません。</p>
+
+<p>詳しいはこちらのリンクをご参考ください。
+(<a href="https://dev.classmethod.jp/cloud/aws/api-gateway-mapping-template/" target="_blank">https://dev.classmethod.jp/cloud/aws/api-gateway-mapping-template/</a>)
+(<a href="https://knackforge.com/blog/aws-api-gateway-request-response-mapping" target="_blank">https://knackforge.com/blog/aws-api-gateway-request-response-mapping</a>)</p>
+
+<p>コードのサンプル（SAMのテンプレート式）
+Mapping templateに書ける言語は <a href="https://qiita.com/yoshidasts/items/ddab0ef7b983b7c5260b" target="_blank">Apache VTL</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">requestTemplates:
+  application/json: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">    {</span>
+        <span style="color:#75715e">#foreach($key in $input.params().querystring.keySet())</span>
+        <span style="color:#e6db74">&#34;$key&#34;</span>: <span style="color:#e6db74">&#34;$util.escapeJavaScript($input.params().querystring.get($key))&#34;</span> <span style="color:#75715e">#if($foreach.hasNext),#end</span>
+        <span style="color:#75715e">#end</span>
+    }</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">responseTemplates:
+  application/json: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">    {</span>
+        $util.parseJson($input.json(<span style="color:#e6db74">&#39;$.body&#39;</span>))
+        <span style="color:#75715e">#set($Integer = 0)</span>
+        <span style="color:#75715e">#set($status_code = $input.json(&#34;$.statusCode&#34;))</span>
+        <span style="color:#75715e">#set($status_code = $Integer.parseInt($status_code))</span>
+        <span style="color:#75715e">#set($context.responseOverride.status = $status_code)</span>
+    }</code></pre></div>
+<h1 id="corsについて">CORSについて</h1>
+
+<h2 id="cors-cross-origin-resource-sharing-とは">CORS（Cross Origin Resource Sharing）とは</h2>
+
+<p>各ブラウザはクロスドメイン通信を拒否する仕組み（<a href="https://www.w3.org/Security/wiki/Same_Origin_Policy" target="_blank">same-origin policy</a>）になっています。
+その為、例えば<code>domain111.com</code>のサイトから<code>domain222.com</code>のAPIを叩いてデータ取得することが基本的にはできません。
+しかし実際に他のドメインにAPIのアクセスを許可しなければならない時もあります。
+その際は、CORSを設定すれば実現できます。</p>
+
+<h2 id="ブラウザのcorsチェックについて">ブラウザのCORSチェックについて</h2>
+
+<p>クライアント（ブラウザ）から送信するHTTPリクエストは以下の2週類で分類されます。</p>
+
+<ul>
+<li>Simpleリクエスト
+リクエストのメソッドやContent-Typeなどの色々な条件に満たさないとSimpleリクエストと認められません。
+実際にAPIを叩く時のリクエストはほとんどSimpleリクストではありません。
+参考：(<a href="https://developer.mozilla.org/ja/docs/Web/HTTP/CORS#Simple_requests" target="_blank">https://developer.mozilla.org/ja/docs/Web/HTTP/CORS#Simple_requests</a>)</li>
+<li>Not Simpleリクエスト
+Simpleリクエストの条件に満たさない全部のリクエストです。
+参考：(<a href="https://developer.mozilla.org/ja/docs/Web/HTTP/CORS#Preflighted_requests" target="_blank">https://developer.mozilla.org/ja/docs/Web/HTTP/CORS#Preflighted_requests</a>)</li>
+</ul>
+
+<p>リクエストの種類によって、ブラウザのCORSチェックが異なります。</p>
+
+<ul>
+<li>Simpleリクエストの場合
+ブラウザがリクエストのレスポンスHeadersを見て、以下のHeaderをチェックします。
+このHeaderがない場合又は、Headerの値にオリジンドメインが入っていない場合は
+クロスドメイン通信が拒否されます。</li>
+</ul>
+
+<pre><code>Access-Control-Allow-Origin: http://api.bob.com
+</code></pre>
+
+<ul>
+<li>Not Simpleリクエストの場合
+対象のリクエストを送信する前に、ブラウザが勝手にCORSチェックのリクスト（pre-flightリクスト）を送信します。
+pre-flightリクエストのレスポンスを確認した上で、通信可能な場合のみ対象のリクエストを送信するという順番です。
+※ pre-flightリクエストはOPTIONSメソッドで送信されます。</li>
+</ul>
+
+<pre><code>Access-Control-Allow-Origin: http://api.bob.com
+Access-Control-Allow-Methods: GET, POST, PUT
+Access-Control-Allow-Headers: X-Custom-Header
+</code></pre>
+
+<h2 id="cors設定方法-samの場合">CORS設定方法（SAMの場合）</h2>
+
+<ul>
+<li>Headerの対応
+Lambda関数の処理の方で、以下のHeaderを加えて返す必要があります。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">headers <span style="color:#f92672">=</span> {
+            <span style="color:#75715e"># CORS support</span>
+            <span style="color:#e6db74">&#39;Access-Control-Allow-Origin&#39;</span>: <span style="color:#e6db74">&#39;*&#39;</span>,
+        }</code></pre></div>
+<ul>
+<li>Pre-flightリクエストの対応
+SAMの場合は以下のようにtemplate.ymlよりAPI Gatewayの記述で簡単に対応できます。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">HogeApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Dev
+      Cors:
+        AllowMethods: <span style="color:#e6db74">&#34;&#39;*&#39;&#34;</span>
+        AllowHeaders: <span style="color:#e6db74">&#34;&#39;*&#39;&#34;</span>
+        AllowOrigin: <span style="color:#e6db74">&#34;&#39;*&#39;&#34;</span>
+      Auth:
+&lt;省略&gt;</code></pre></div>
+<p><strong>注意点：</strong>
+API Gatewayにカスタムオーソライザの設定があった場合、
+以下のようにDefaultAuthorizerを記述するとpre-flightリクスト対応のOPTIONSメソッドにも認証が付いてしまう為、
+pre-flightが通らなくなります。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">Auth:
+        DefaultAuthorizer: MyTokenAuthorizer
+        Authorizers:
+          MyTokenAuthorizer:
+&lt;省略&gt;</code></pre></div>
+<p>→対応方法：
+DefaultAuthorizerの記述を消して、各Lambda関数のところにAuthorizerを指定するようにすれば、
+認証がOPTIONSメソッドから外されます。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">HogeFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      &lt;省略<span style="color:#e6db74">&gt;
+</span><span style="color:#e6db74">      Events:</span>
+        GetResource:
+          Type: Api
+          Properties:
+            &lt;省略<span style="color:#e6db74">&gt;
+</span><span style="color:#e6db74">            Auth:</span>
+              Authorizer: MyTokenAuthorizer</code></pre></div>
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'><div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/aws/'>aws</a>, <a class='tag' href='/tags/serverless/'>serverless</a>, <a class='tag' href='/tags/sam/'>SAM</a>, <a class='tag' href='/tags/api-gateway/'>api gateway</a>, <a class='tag' href='/tags/lambda/'>lambda</a></div>
+
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/posts/tips-c%C3%A0i-%C4%91%E1%BA%B7t-pycharm-%C4%91%E1%BB%83-code-python/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader-text'>Previous post: </span>Tips Cài Đặt Pycharm Để Code Python</a>
+    </div><div class='next-entry sep-before'>
+      <a href='/posts/th%C3%B4ng-m%E1%BA%A1ng-cho-aws-sam-v%C3%A0-dynamodb-local/'>
+        <span class='screen-reader-text'>Next post: </span>&#34;Thông&#34; Mạng Cho Aws SAM Và Dynamodb Local<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+<section id='comments' class='comments'>
+  <div class='container sep-before'>
+    <div class='comments-area'><div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "kirachien" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+  </div>
+</section>
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'><section class='widget widget-social_menu sep-after'><nav aria-label='Social Menu'>
+    <ul><li>
+        <a href='https://github.com/chienkira' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://facebook.com/chienkira' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Facebook account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://twitter.com/chienkira' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://instagram.com/chienkira' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Instagram account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+  <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='mailto:chienhedspi@gmail.com' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+  <polyline points="22,6 12,13 2,6"/>
+  
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</section><div class='copyright'>
+  <p> &copy; 2019 Chien Kira </p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><script>window.__public_path__='\/assets\/js\/'</script>
+
+<script src='/assets/js/main.fae8ed32.js'></script><script src='/js/custom.js'></script>
+
+</body>
+
+</html>
+

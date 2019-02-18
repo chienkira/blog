@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://www.example.com/posts/th%C3%B4ng-m%E1%BA%A1ng-cho-aws-sam-v%C3%A0-dynamodb-local/</loc>
+    <lastmod>2019-02-13T15:50:07+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/posts/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway/</loc>
+    <lastmod>2019-02-12T15:45:04+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/posts/tips-c%C3%A0i-%C4%91%E1%BA%B7t-pycharm-%C4%91%E1%BB%83-code-python/</loc>
+    <lastmod>2019-02-08T15:49:01+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/</loc>
+    <lastmod>2019-02-13T15:50:07+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/chienkira/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/posts/</loc>
+    <lastmod>2019-02-13T15:50:07+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/sam/</loc>
+    <lastmod>2019-02-13T15:50:07+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/series/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/</loc>
+    <lastmod>2019-02-13T15:50:07+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/api-gateway/</loc>
+    <lastmod>2019-02-12T15:45:04+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/aws/</loc>
+    <lastmod>2019-02-13T15:50:07+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/docker/</loc>
+    <lastmod>2019-02-13T15:50:07+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/dynamodb-local/</loc>
+    <lastmod>2019-02-13T15:50:07+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/lambda/</loc>
+    <lastmod>2019-02-12T15:45:04+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/pycharm/</loc>
+    <lastmod>2019-02-08T15:49:01+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/python/</loc>
+    <lastmod>2019-02-08T15:49:01+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.example.com/tags/serverless/</loc>
+    <lastmod>2019-02-13T15:50:07+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='PycharmのInterpreterの設定方法 python仮想環境を使い、開発する際にはPycharmがそのpython仮想環境を認識させる必要があります。
+※ 認識させないと、Pycharmの方がインストールされているライブラリが分からずimportのエラーなどが出てしまいます。
+ ① Python仮想環境の場所を確認
+pipenvの場合はこのコマンドで確認できます。 pipenv --venv
+output例： /Users/kira/.local/share/virtualenvs/project_name-Qr43IEm2
+ ② Pycharmの方でプロジェクトのInterpreterを設定
+ PycharmのPreferences画面を開く
+ 左側のメニューから「Project: プロジェクト名」=&gt;「Project Interpreter」を選択
+ Project Interpreterのドロップダウンから「Show All」を選択し、「&#43;」の追加ボタンを押す
+ 左側のメニューから「System Interpreter」を選択し、「&hellip;」ボタンをクリックして①で確認できたパスを指定
+※ 注意：bin/pythonX.Xまで指定してください。   PycharmのSources Root設定方法 開発ソースコードがプロジェクトの直下にはなく、srcフォルダーなどの中に置かれる場合が多いです。
+※ CodeUriが./srcで設定される場合が多いです。
+例えば以下のようなファイル構成の場合
+|--template.yaml |--src | |--app | | |--__init__.py | | |--common | | | |--__init__.py | | | |--helper.py | | |--handlers | | | |--__init__.py | | | |--purchase.py purchase.pyファイルでapp/common/helper.pyのモジュールなどをimportするところのfrom app.common.helper import some_helper にPycharmがエラーを表示します。'>
+<meta name='theme-color' content='#ffcd00'>
+
+<meta property='og:title' content='Tips Cài Đặt Pycharm Để Code Python • Chienkira'>
+<meta property='og:description' content='PycharmのInterpreterの設定方法 python仮想環境を使い、開発する際にはPycharmがそのpython仮想環境を認識させる必要があります。
+※ 認識させないと、Pycharmの方がインストールされているライブラリが分からずimportのエラーなどが出てしまいます。
+ ① Python仮想環境の場所を確認
+pipenvの場合はこのコマンドで確認できます。 pipenv --venv
+output例： /Users/kira/.local/share/virtualenvs/project_name-Qr43IEm2
+ ② Pycharmの方でプロジェクトのInterpreterを設定
+ PycharmのPreferences画面を開く
+ 左側のメニューから「Project: プロジェクト名」=&gt;「Project Interpreter」を選択
+ Project Interpreterのドロップダウンから「Show All」を選択し、「&#43;」の追加ボタンを押す
+ 左側のメニューから「System Interpreter」を選択し、「&hellip;」ボタンをクリックして①で確認できたパスを指定
+※ 注意：bin/pythonX.Xまで指定してください。   PycharmのSources Root設定方法 開発ソースコードがプロジェクトの直下にはなく、srcフォルダーなどの中に置かれる場合が多いです。
+※ CodeUriが./srcで設定される場合が多いです。
+例えば以下のようなファイル構成の場合
+|--template.yaml |--src | |--app | | |--__init__.py | | |--common | | | |--__init__.py | | | |--helper.py | | |--handlers | | | |--__init__.py | | | |--purchase.py purchase.pyファイルでapp/common/helper.pyのモジュールなどをimportするところのfrom app.common.helper import some_helper にPycharmがエラーを表示します。'>
+<meta property='og:url' content='http://www.example.com/posts/tips-c%C3%A0i-%C4%91%E1%BA%B7t-pycharm-%C4%91%E1%BB%83-code-python/'>
+<meta property='og:site_name' content='Chienkira'>
+<meta property='og:type' content='article'><meta property='article:section' content='posts'><meta property='article:tag' content='python'><meta property='article:tag' content='pycharm'><meta property='article:published_time' content='2019-02-08T15:49:01&#43;09:00'/><meta property='article:modified_time' content='2019-02-08T15:49:01&#43;09:00'/><meta name='twitter:card' content='summary'>
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+  <title>Tips Cài Đặt Pycharm Để Code Python • Chienkira</title>
+  <link rel='canonical' href='http://www.example.com/posts/tips-c%C3%A0i-%C4%91%E1%BA%B7t-pycharm-%C4%91%E1%BB%83-code-python/'>
+  
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='/assets/css/main.4a10984a.css'><link rel='stylesheet' href='/css/custom.css'><style>
+:root{--color-accent:#ffcd00;}
+</style>
+
+  
+
+</head>
+<body class='page type-posts has-sidebar'>
+
+  <div class='site'><div id='sidebar' class='sidebar'>
+  <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
+
+  <div class='container'><section class='widget widget-about sep-after'>
+  <header>
+    
+    <div class='logo'>
+      <a href='/'>
+        <img src='/images/profile.png'>
+      </a>
+    </div>
+    
+    <h2 class='title site-title '>
+    chienkira [chiến]
+    </h2>
+    <div class='desc'>
+    <p>a web full stack developer</p>
+
+<p>a Papa engineer</p>
+
+<p>at Tokyo</p>
+
+    </div>
+  </header>
+
+</section>
+<section class='widget widget-taxonomy_cloud sep-after'>
+  <header>
+    <h4 class='title widget-title'>Tags</h4>
+  </header>
+
+  <div class='container list-container'>
+  <ul class='list taxonomy-cloud'><li>
+        <a href='/tags/sam/' style='font-size:2em'>SAM</a>
+      </li><li>
+        <a href='/tags/api-gateway/' style='font-size:1em'>api gateway</a>
+      </li><li>
+        <a href='/tags/aws/' style='font-size:2em'>aws</a>
+      </li><li>
+        <a href='/tags/docker/' style='font-size:1em'>docker</a>
+      </li><li>
+        <a href='/tags/dynamodb-local/' style='font-size:1em'>dynamodb local</a>
+      </li><li>
+        <a href='/tags/lambda/' style='font-size:1em'>lambda</a>
+      </li><li>
+        <a href='/tags/pycharm/' style='font-size:1em'>pycharm</a>
+      </li><li>
+        <a href='/tags/python/' style='font-size:1em'>python</a>
+      </li><li>
+        <a href='/tags/serverless/' style='font-size:2em'>serverless</a>
+      </li></ul>
+</div>
+
+
+</section>
+</div>
+
+  <div class='sidebar-overlay'></div>
+</div><div class='main'><nav id='main-menu' class='menu main-menu' aria-label='Main Menu'>
+  <div class='container'>
+    <a class='screen-reader-text' href='#content'>Skip to Content</a>
+
+<button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
+  <span class='screen-reader-text'>Toggle Sidebar</span>
+  <span class='open'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="3" y1="12" x2="21" y2="12" />
+  <line x1="3" y1="6" x2="21" y2="6" />
+  <line x1="3" y1="18" x2="21" y2="18" />
+  
+</svg>
+</span>
+  <span class='close'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+  
+</svg>
+</span>
+</button>
+    <ul><li class='item'>
+        <a href='/'>Home　</a>
+      </li><li class='item'>
+        <a href='https://chienkira.github.io'>My portfolio　</a>
+      </li><li class='item'>
+        <a href='/about'>About　</a>
+      </li></ul>
+  </div>
+</nav><div class='header-widgets'>
+        <div class='container'>
+    
+    <style>.widget-breadcrumbs li:after{content:'　\3e\3e　'}</style>
+  <section class='widget widget-breadcrumbs sep-after'>
+    <nav id='breadcrumbs'>
+      <ol><li><a href='/'>Chienkira</a></li><li><a href='/posts/'>Posts</a></li><li><span>Tips Cài Đặt Pycharm Để Code Python</span></li></ol>
+    </nav>
+  </section></div>
+      </div>
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>Chienkira</p><p class='desc site-desc'>chienkira | a web full stack engineer | personal blog about tech and life in Japan</p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>Tips Cài Đặt Pycharm Để Code Python</h1>
+      
+
+    </div>
+    <div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2019-02-08T15:49:01&#43;09:00'>2019, Feb 08</time>
+</span>
+
+  
+  
+<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+  
+</svg>
+One min read
+</span>
+
+
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+
+  <div class='container entry-content'>
+  
+
+<h3 id="pycharmのinterpreterの設定方法">PycharmのInterpreterの設定方法</h3>
+
+<p>python仮想環境を使い、開発する際にはPycharmがそのpython仮想環境を認識させる必要があります。<br />
+※ 認識させないと、Pycharmの方がインストールされているライブラリが分からずimportのエラーなどが出てしまいます。</p>
+
+<ul>
+<li>① Python仮想環境の場所を確認<br />
+pipenvの場合はこのコマンドで確認できます。 <code>pipenv --venv</code><br />
+output例： <code>/Users/kira/.local/share/virtualenvs/project_name-Qr43IEm2</code><br /></li>
+<li>② Pycharmの方でプロジェクトのInterpreterを設定<br />
+
+<ul>
+<li>PycharmのPreferences画面を開く<br /></li>
+<li>左側のメニューから「Project: プロジェクト名」=&gt;「Project Interpreter」を選択<br /></li>
+<li>Project Interpreterのドロップダウンから「Show All」を選択し、「+」の追加ボタンを押す<br /></li>
+<li>左側のメニューから「System Interpreter」を選択し、「&hellip;」ボタンをクリックして①で確認できたパスを指定<br />
+※ 注意：bin/pythonX.Xまで指定してください。</li>
+</ul></li>
+</ul>
+
+<h3 id="pycharmのsources-root設定方法">PycharmのSources Root設定方法</h3>
+
+<p>開発ソースコードがプロジェクトの直下にはなく、srcフォルダーなどの中に置かれる場合が多いです。<br />
+※ CodeUriが./srcで設定される場合が多いです。</p>
+
+<p>例えば以下のようなファイル構成の場合</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">|--template.yaml
+|--src
+|  |--app
+|  |  |--__init__.py
+|  |  |--common
+|  |  |  |--__init__.py
+|  |  |  |--helper.py
+|  |  |--handlers
+|  |  |  |--__init__.py
+|  |  |  |--purchase.py</code></pre></div>
+<p>purchase.pyファイルで<code>app/common/helper.py</code>のモジュールなどをimportするところの<code>from app.common.helper import some_helper</code>
+にPycharmがエラーを表示します。</p>
+
+<p>エラー解消にはソースコードのルートフォルダーをsrcでPycharmに認識させる必要があります。
+- Pycharmでsrcフォルダーを右クリック
+- Mark Directory asの「Sources Root」を選択</p>
+
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'><div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/python/'>python</a>, <a class='tag' href='/tags/pycharm/'>pycharm</a></div>
+
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='next-entry sep-before'>
+      <a href='/posts/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway/'>
+        <span class='screen-reader-text'>Next post: </span>Cơ Bản Về Api Gateway<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+<section id='comments' class='comments'>
+  <div class='container sep-before'>
+    <div class='comments-area'><div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "kirachien" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+  </div>
+</section>
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'><section class='widget widget-social_menu sep-after'><nav aria-label='Social Menu'>
+    <ul><li>
+        <a href='https://github.com/chienkira' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://facebook.com/chienkira' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Facebook account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://twitter.com/chienkira' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://instagram.com/chienkira' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Instagram account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+  <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='mailto:chienhedspi@gmail.com' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+  <polyline points="22,6 12,13 2,6"/>
+  
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</section><div class='copyright'>
+  <p> &copy; 2019 Chien Kira </p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><script>window.__public_path__='\/assets\/js\/'</script>
+
+<script src='/assets/js/main.fae8ed32.js'></script><script src='/js/custom.js'></script>
+
+</body>
+
+</html>
+
