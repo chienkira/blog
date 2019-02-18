@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Chienkira</title>
-    <link>http://www.example.com/</link>
+    <link>https://chienkira.github.io/blog/</link>
     <description>Recent content on Chienkira</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 13 Feb 2019 15:50:07 +0900</lastBuildDate>
     
-	<atom:link href="http://www.example.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chienkira.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>&#34;Thông&#34; Mạng Cho Aws SAM Và Dynamodb Local</title>
-      <link>http://www.example.com/posts/th%C3%B4ng-m%E1%BA%A1ng-cho-aws-sam-v%C3%A0-dynamodb-local/</link>
+      <link>https://chienkira.github.io/blog/posts/th%C3%B4ng-m%E1%BA%A1ng-cho-aws-sam-v%C3%A0-dynamodb-local/</link>
       <pubDate>Wed, 13 Feb 2019 15:50:07 +0900</pubDate>
       
-      <guid>http://www.example.com/posts/th%C3%B4ng-m%E1%BA%A1ng-cho-aws-sam-v%C3%A0-dynamodb-local/</guid>
+      <guid>https://chienkira.github.io/blog/posts/th%C3%B4ng-m%E1%BA%A1ng-cho-aws-sam-v%C3%A0-dynamodb-local/</guid>
       <description>Dynamodb localを使いローカルで開発時 SAM localのstart-apiやinvokeコマンドを使い、Lambda関数をローカルで実行する時は、
 - Lambda関数がSAMのDockerコンテナ上で実行され - Dynamodb localが別のDockerコンテナ上で動く
 そのため、Lambda関数がDynamodb localへアクセルできるように、 2つのDockerコンテナを同じネットワークに繋がせる必要があります。
@@ -32,10 +32,10 @@ sam local start-api --docker-network aws_local_network
     
     <item>
       <title>Cơ Bản Về Api Gateway</title>
-      <link>http://www.example.com/posts/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway/</link>
+      <link>https://chienkira.github.io/blog/posts/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway/</link>
       <pubDate>Tue, 12 Feb 2019 15:45:04 +0900</pubDate>
       
-      <guid>http://www.example.com/posts/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway/</guid>
+      <guid>https://chienkira.github.io/blog/posts/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway/</guid>
       <description>API GatewayとLambda間の処理フロー APIGatewayとLambda間の処理フローは以下の図の通りです。  クライアントからHTTPリクエストがきた時に、[Method request] がそのリクエストを受け取って認証などを行う API Gatewayは必要に応じて [Integration Request]を使い、リクエストのデータを変換してから、Lambdaに転送する ※ 変換されたデータがLambda関数のevent変数に入ります。 次にAPI Gatewayは [Integration Response] を使い、Lambdaから返ってきた戻り値（処理結果）をまたデータ変換をしてから、[Method Response] に転送 最後に、API Gatewayが [Method Response]にてクライアントに返信する  → Integration Request と Integration Responseのデータ変換に関しては、以下の2選択肢があります。
  ①AWSのLambda proxy integration（Lambda プロキシ統合）に任せるか ②データ変換に使われるマッピングテンプレートを自分で定義するか  Lambda proxy integration（Lambda プロキシ統合） AWSのLambda プロキシ統合の詳細説明 Lambda プロキシ統合を使用する場合、Lambda関数へのInputデータやLambda関数のOutputデータのフォーマットが決まってます。
 Lambda 関数の入力形式 以下のようにHTTPリクエスト全体をLambda 関数のevent変数にマッピングされます。 よく使うのは：
@@ -44,10 +44,10 @@ Lambda 関数の入力形式 以下のようにHTTPリクエスト全体をLambd
     
     <item>
       <title>Tips Cài Đặt Pycharm Để Code Python</title>
-      <link>http://www.example.com/posts/tips-c%C3%A0i-%C4%91%E1%BA%B7t-pycharm-%C4%91%E1%BB%83-code-python/</link>
+      <link>https://chienkira.github.io/blog/posts/tips-c%C3%A0i-%C4%91%E1%BA%B7t-pycharm-%C4%91%E1%BB%83-code-python/</link>
       <pubDate>Fri, 08 Feb 2019 15:49:01 +0900</pubDate>
       
-      <guid>http://www.example.com/posts/tips-c%C3%A0i-%C4%91%E1%BA%B7t-pycharm-%C4%91%E1%BB%83-code-python/</guid>
+      <guid>https://chienkira.github.io/blog/posts/tips-c%C3%A0i-%C4%91%E1%BA%B7t-pycharm-%C4%91%E1%BB%83-code-python/</guid>
       <description>PycharmのInterpreterの設定方法 python仮想環境を使い、開発する際にはPycharmがそのpython仮想環境を認識させる必要があります。
 ※ 認識させないと、Pycharmの方がインストールされているライブラリが分からずimportのエラーなどが出てしまいます。
  ① Python仮想環境の場所を確認

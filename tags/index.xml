@@ -2,92 +2,92 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Chienkira</title>
-    <link>http://www.example.com/tags/</link>
+    <link>https://chienkira.github.io/blog/tags/</link>
     <description>Recent content in Tags on Chienkira</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 13 Feb 2019 15:50:07 +0900</lastBuildDate>
     
-	<atom:link href="http://www.example.com/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chienkira.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>SAM</title>
-      <link>http://www.example.com/tags/sam/</link>
+      <link>https://chienkira.github.io/blog/tags/sam/</link>
       <pubDate>Wed, 13 Feb 2019 15:50:07 +0900</pubDate>
       
-      <guid>http://www.example.com/tags/sam/</guid>
+      <guid>https://chienkira.github.io/blog/tags/sam/</guid>
       <description></description>
     </item>
     
     <item>
       <title>api gateway</title>
-      <link>http://www.example.com/tags/api-gateway/</link>
+      <link>https://chienkira.github.io/blog/tags/api-gateway/</link>
       <pubDate>Tue, 12 Feb 2019 15:45:04 +0900</pubDate>
       
-      <guid>http://www.example.com/tags/api-gateway/</guid>
+      <guid>https://chienkira.github.io/blog/tags/api-gateway/</guid>
       <description></description>
     </item>
     
     <item>
       <title>aws</title>
-      <link>http://www.example.com/tags/aws/</link>
+      <link>https://chienkira.github.io/blog/tags/aws/</link>
       <pubDate>Wed, 13 Feb 2019 15:50:07 +0900</pubDate>
       
-      <guid>http://www.example.com/tags/aws/</guid>
+      <guid>https://chienkira.github.io/blog/tags/aws/</guid>
       <description></description>
     </item>
     
     <item>
       <title>docker</title>
-      <link>http://www.example.com/tags/docker/</link>
+      <link>https://chienkira.github.io/blog/tags/docker/</link>
       <pubDate>Wed, 13 Feb 2019 15:50:07 +0900</pubDate>
       
-      <guid>http://www.example.com/tags/docker/</guid>
+      <guid>https://chienkira.github.io/blog/tags/docker/</guid>
       <description></description>
     </item>
     
     <item>
       <title>dynamodb local</title>
-      <link>http://www.example.com/tags/dynamodb-local/</link>
+      <link>https://chienkira.github.io/blog/tags/dynamodb-local/</link>
       <pubDate>Wed, 13 Feb 2019 15:50:07 +0900</pubDate>
       
-      <guid>http://www.example.com/tags/dynamodb-local/</guid>
+      <guid>https://chienkira.github.io/blog/tags/dynamodb-local/</guid>
       <description></description>
     </item>
     
     <item>
       <title>lambda</title>
-      <link>http://www.example.com/tags/lambda/</link>
+      <link>https://chienkira.github.io/blog/tags/lambda/</link>
       <pubDate>Tue, 12 Feb 2019 15:45:04 +0900</pubDate>
       
-      <guid>http://www.example.com/tags/lambda/</guid>
+      <guid>https://chienkira.github.io/blog/tags/lambda/</guid>
       <description></description>
     </item>
     
     <item>
       <title>pycharm</title>
-      <link>http://www.example.com/tags/pycharm/</link>
+      <link>https://chienkira.github.io/blog/tags/pycharm/</link>
       <pubDate>Fri, 08 Feb 2019 15:49:01 +0900</pubDate>
       
-      <guid>http://www.example.com/tags/pycharm/</guid>
+      <guid>https://chienkira.github.io/blog/tags/pycharm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>python</title>
-      <link>http://www.example.com/tags/python/</link>
+      <link>https://chienkira.github.io/blog/tags/python/</link>
       <pubDate>Fri, 08 Feb 2019 15:49:01 +0900</pubDate>
       
-      <guid>http://www.example.com/tags/python/</guid>
+      <guid>https://chienkira.github.io/blog/tags/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>serverless</title>
-      <link>http://www.example.com/tags/serverless/</link>
+      <link>https://chienkira.github.io/blog/tags/serverless/</link>
       <pubDate>Wed, 13 Feb 2019 15:50:07 +0900</pubDate>
       
-      <guid>http://www.example.com/tags/serverless/</guid>
+      <guid>https://chienkira.github.io/blog/tags/serverless/</guid>
       <description></description>
     </item>
     

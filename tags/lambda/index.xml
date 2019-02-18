@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>lambda on Chienkira</title>
-    <link>http://www.example.com/tags/lambda/</link>
+    <link>https://chienkira.github.io/blog/tags/lambda/</link>
     <description>Recent content in lambda on Chienkira</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 12 Feb 2019 15:45:04 +0900</lastBuildDate>
     
-	<atom:link href="http://www.example.com/tags/lambda/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chienkira.github.io/blog/tags/lambda/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Cơ Bản Về Api Gateway</title>
-      <link>http://www.example.com/posts/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway/</link>
+      <link>https://chienkira.github.io/blog/posts/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway/</link>
       <pubDate>Tue, 12 Feb 2019 15:45:04 +0900</pubDate>
       
-      <guid>http://www.example.com/posts/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway/</guid>
+      <guid>https://chienkira.github.io/blog/posts/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway/</guid>
       <description>API GatewayとLambda間の処理フロー APIGatewayとLambda間の処理フローは以下の図の通りです。  クライアントからHTTPリクエストがきた時に、[Method request] がそのリクエストを受け取って認証などを行う API Gatewayは必要に応じて [Integration Request]を使い、リクエストのデータを変換してから、Lambdaに転送する ※ 変換されたデータがLambda関数のevent変数に入ります。 次にAPI Gatewayは [Integration Response] を使い、Lambdaから返ってきた戻り値（処理結果）をまたデータ変換をしてから、[Method Response] に転送 最後に、API Gatewayが [Method Response]にてクライアントに返信する  → Integration Request と Integration Responseのデータ変換に関しては、以下の2選択肢があります。
  ①AWSのLambda proxy integration（Lambda プロキシ統合）に任せるか ②データ変換に使われるマッピングテンプレートを自分で定義するか  Lambda proxy integration（Lambda プロキシ統合） AWSのLambda プロキシ統合の詳細説明 Lambda プロキシ統合を使用する場合、Lambda関数へのInputデータやLambda関数のOutputデータのフォーマットが決まってます。
 Lambda 関数の入力形式 以下のようにHTTPリクエスト全体をLambda 関数のevent変数にマッピングされます。 よく使うのは：

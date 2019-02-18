@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>python on Chienkira</title>
-    <link>http://www.example.com/tags/python/</link>
+    <link>https://chienkira.github.io/blog/tags/python/</link>
     <description>Recent content in python on Chienkira</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 08 Feb 2019 15:49:01 +0900</lastBuildDate>
     
-	<atom:link href="http://www.example.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chienkira.github.io/blog/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Tips Cài Đặt Pycharm Để Code Python</title>
-      <link>http://www.example.com/posts/tips-c%C3%A0i-%C4%91%E1%BA%B7t-pycharm-%C4%91%E1%BB%83-code-python/</link>
+      <link>https://chienkira.github.io/blog/posts/tips-c%C3%A0i-%C4%91%E1%BA%B7t-pycharm-%C4%91%E1%BB%83-code-python/</link>
       <pubDate>Fri, 08 Feb 2019 15:49:01 +0900</pubDate>
       
-      <guid>http://www.example.com/posts/tips-c%C3%A0i-%C4%91%E1%BA%B7t-pycharm-%C4%91%E1%BB%83-code-python/</guid>
+      <guid>https://chienkira.github.io/blog/posts/tips-c%C3%A0i-%C4%91%E1%BA%B7t-pycharm-%C4%91%E1%BB%83-code-python/</guid>
       <description>PycharmのInterpreterの設定方法 python仮想環境を使い、開発する際にはPycharmがそのpython仮想環境を認識させる必要があります。
 ※ 認識させないと、Pycharmの方がインストールされているライブラリが分からずimportのエラーなどが出てしまいます。
  ① Python仮想環境の場所を確認
