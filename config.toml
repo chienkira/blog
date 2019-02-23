@@ -4,7 +4,7 @@ copyright = "" # for smart copyright line, leave this blank and check [params.co
 
 theme = "minimo"
 disqusShortname = "kirachien"
-googleAnalytics = ""
+googleAnalytics = "UA-135034755-1"
 Paginate = 5
 preserveTaxonomyNames = true
 enableRobotsTXT = true # generate robots.txt
