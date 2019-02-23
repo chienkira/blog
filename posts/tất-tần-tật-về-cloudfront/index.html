@@ -348,8 +348,9 @@ CloudFront がユーザに返すカスタムエラーページのパス (例: /e
 
 <h1 id="cloudfrontの料金">CloudFrontの料金</h1>
 
-<p>##CloudFrontの料金
-合計料金 = インターネットへのデータ転送アウト料金 + オリジンへのデータ転送アウト料金 + リクエスト料金</p>
+<h2 id="cloudfrontの料金-1">CloudFrontの料金</h2>
+
+<p>合計料金 = インターネットへのデータ転送アウト料金 + オリジンへのデータ転送アウト料金 + リクエスト料金</p>
 
 <p>各料金はリージョン別で異なる。
 以下はJapanリージョンの場合の料金情報となる。</p>
@@ -359,14 +360,51 @@ CloudFront がユーザに返すカスタムエラーページのパス (例: /e
 月の転送データ量によって、1 GBあたりの料金が異なる。</li>
 </ul>
 
-<p>&mdash;&mdash;&mdash;&mdash;- | &mdash;&mdash;&mdash;&mdash;-
-  月10 TB まで   | 0.114 USD
-  月10 TB 超 50 TB まで   | 0.089 USD<br />
-  月50 TB 超 150 TB まで  | 0.086 USD<br />
-  月150 TB 超 500 TB まで   | 0.084 USD
-  月500 TB 超 1,024 TB まで   | 0.080 USD<br />
-  月1 PB 超 5 PB まで   | 0.070 USD
-  月 5 PB 超  | 0.060 USD</p>
+<table>
+<thead>
+<tr>
+<th>転送データ量</th>
+<th>1GBあたりの料</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>月10 TB まで</td>
+<td>0.114 USD</td>
+</tr>
+
+<tr>
+<td>月10 TB 超 50 TB まで</td>
+<td>0.089 USD</td>
+</tr>
+
+<tr>
+<td>月50 TB 超 150 TB まで</td>
+<td>0.086 USD</td>
+</tr>
+
+<tr>
+<td>月150 TB 超 500 TB まで</td>
+<td>0.084 USD</td>
+</tr>
+
+<tr>
+<td>月500 TB 超 1,024 TB まで</td>
+<td>0.080 USD</td>
+</tr>
+
+<tr>
+<td>月1 PB 超 5 PB まで</td>
+<td>0.070 USD</td>
+</tr>
+
+<tr>
+<td>月 5 PB 超</td>
+<td>0.060 USD</td>
+</tr>
+</tbody>
+</table>
 
 <ul>
 <li>オリジンへのデータ転送アウト料金
@@ -376,8 +414,9 @@ HTTP リクエスト1 万件あたり0.0090 USD
 HTTPS リクエスト1 万件あたり0.0125 USD</li>
 </ul>
 
-<p>##Lambda @Edgeの料金
-合計料金 = コンピューティング料金 ＋ リクエスト料金</p>
+<h2 id="lambda-edgeの料金">Lambda @Edgeの料金</h2>
+
+<p>合計料金 = コンピューティング料金 ＋ リクエスト料金</p>
 
 <ul>
 <li>コンピューティング料金
