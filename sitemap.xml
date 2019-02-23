@@ -91,6 +91,12 @@
   </url>
   
   <url>
+    <loc>https://chienkira.github.io/blog/tags/driving-license/</loc>
+    <lastmod>2019-02-23T16:42:28+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/tags/dynamodb-local/</loc>
     <lastmod>2019-02-13T15:50:07+09:00</lastmod>
     <priority>0</priority>
@@ -103,6 +109,12 @@
   </url>
   
   <url>
+    <loc>https://chienkira.github.io/blog/tags/life/</loc>
+    <lastmod>2019-02-23T16:42:28+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/tags/pycharm/</loc>
     <lastmod>2019-02-08T15:49:01+09:00</lastmod>
     <priority>0</priority>
@@ -111,6 +123,12 @@
   <url>
     <loc>https://chienkira.github.io/blog/tags/python/</loc>
     <lastmod>2019-02-08T15:49:01+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/review/</loc>
+    <lastmod>2019-02-23T16:42:28+09:00</lastmod>
     <priority>0</priority>
   </url>
   
