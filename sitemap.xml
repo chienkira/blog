@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chienkira.github.io/blog/posts/t%E1%BA%A5t-t%E1%BA%A7n-t%E1%BA%ADt-v%E1%BB%81-cloudfront/</loc>
+    <lastmod>2019-02-21T16:33:07+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/posts/th%C3%B4ng-m%E1%BA%A1ng-cho-aws-sam-v%C3%A0-dynamodb-local/</loc>
     <lastmod>2019-02-13T15:50:07+09:00</lastmod>
   </url>
@@ -24,7 +29,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/</loc>
-    <lastmod>2019-02-13T15:50:07+09:00</lastmod>
+    <lastmod>2019-02-21T16:33:07+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -35,7 +40,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/posts/</loc>
-    <lastmod>2019-02-13T15:50:07+09:00</lastmod>
+    <lastmod>2019-02-21T16:33:07+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -64,7 +69,13 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/aws/</loc>
-    <lastmod>2019-02-13T15:50:07+09:00</lastmod>
+    <lastmod>2019-02-21T16:33:07+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/cloudfront/</loc>
+    <lastmod>2019-02-21T16:33:07+09:00</lastmod>
     <priority>0</priority>
   </url>
   
