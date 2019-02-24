@@ -96,14 +96,14 @@ weight = -100
 url = "/"
 
 [[menu.main]]
+name = "All posts　"
+weight = -30
+url = "/posts"
+
+[[menu.main]]
 name = "My portfolio　"
 weight = -20
 url = "https://chienkira.github.io"
-
-[[menu.main]]
-name = "About　"
-weight = -10
-url = "/about"
 
 [blackfriday]
 hrefTargetBlank = true
