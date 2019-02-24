@@ -31,7 +31,7 @@ sam local start-api --docker-network aws_local_network
     </item>
     
     <item>
-      <title>Cơ Bản Về Api Gateway</title>
+      <title>Tìm Hiểu Về Api Gateway</title>
       <link>https://chienkira.github.io/blog/posts/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway/</link>
       <pubDate>Tue, 12 Feb 2019 15:45:04 +0900</pubDate>
       
