@@ -1,5 +1,5 @@
 ---
-title: "Cơ Bản Về Api Gateway"
+title: "Tìm Hiểu Về Api Gateway"
 date: 2019-02-12T15:45:04+09:00
 draft: no
 tags: [aws, serverless, SAM, api gateway, lambda]
