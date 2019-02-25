@@ -4,14 +4,15 @@ date: 2019-02-23T16:42:28+09:00
 draft: no
 tags: [life, driving license, review]
 language: vietnamese
+toc: true
 ---
 
-Mình mới lấy xong bằng lái oto ở Nhật (thực ra là lấy được 1 tháng rồi :smile:), nhận ra có nhiều thông tin hữu ích có thể chia sẻ với ai đó đang cũng có ý định học nên chờ gì nữa nhỉ viết bài này thôi.
+**Mình mới lấy xong bằng lái oto ở Nhật (thực ra là lấy được 1 tháng rồi :smile:), nhận ra có nhiều thông tin hữu ích có thể chia sẻ với ai đó đang cũng có ý định học nên chờ gì nữa nhỉ viết bài này thôi.**
 
 *↓↓↓ Ảnh khu vực học thực hành lái ở trong trường ↓↓↓*
 {{< instagram Bse48UkB6M8 hidecaption >}}
 
-Mình sẽ trình bày theo kiểu top-down nhé. Các bước chính, các thông tin cần thiết trước rồi luyên thuyên ở bên dưới sau.
+**Mình sẽ trình bày theo kiểu top-down nhé. Các bước chính, các thông tin cần thiết trước rồi luyên thuyên ở bên dưới sau.**
 
 # Các cách lấy bằng
 ---
@@ -20,12 +21,12 @@ Cái này là cái đầu tiên nên tìm hiểu, tùy trường hợp của m�
 
 1. Đổi bằng lái
 
-    Nếu bạn có bằng lái quốc tế rồi ở Việt Nam chẳng hạn, tức là bạn có kỹ năng lái xe ok. Việc bạn cần làm là đến trung tâm bằng lái của địa phương mình ở (ví dụ ở Saitama thì đến　免許センター của Saitama) rồi dự thi dể được cấp bằng.
+    Nếu bạn có bằng lái quốc tế rồi ở Việt Nam chẳng hạn, tức là bạn có kỹ năng lái xe ok. Việc bạn cần làm là đến trung tâm bằng lái của địa phương mình ở (ví dụ ở Saitama thì đến　免許センター của Saitama) rồi dự thi để được cấp bằng.
     Kỳ thi này khó dễ ra sao, lệ phí thế nào mình không rõ. Trường hợp kiểu này hiếm nên  cũng không có thông tin gì từ xung quanh.
 
 2. Học tập trung （合宿）
 
-    Bạn sẽ phải đi đến 1 trường dạy lái（教習所）ở địa phương xa nơi mình ở, ăn ngủ sinh hoạt ở đó rồi học liên tục trong khoảng 14, 15 ngày.  Học xong và đỗ thi tốt nghiệp của trường thì về  trung tâm bằng lái của địa phương mình dự thi để lấy bằng.
+    Bạn sẽ phải đi đến 1 trường dạy lái（教習所）ở địa phương xa nơi mình ở, ăn ngủ sinh hoạt ở đó rồi học liên tục trong khoảng 14, 15 ngày.  Học xong và đỗ thi tốt nghiệp của trường thì về trung tâm bằng lái của địa phương mình dự thi để lấy bằng.
   
     Ưu điểm của cách này đầu tiên là rẻ, có chỗ ở bao tiền điện nước nữa mà chỉ khoảng 20 ~ 25 man. Ưu điểm thứ 2 là tập trung trong thời gian ngắn nên nhớ lý thuyết và quen xe dễ hơn học bình thường.
 
