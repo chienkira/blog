@@ -5,6 +5,7 @@ draft: no
 tags: [aws, cloudfront]
 language: japanese
 toc: true
+authors: [chienkira]
 ---
 
 # CloudFrontとは

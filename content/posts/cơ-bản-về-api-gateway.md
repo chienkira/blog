@@ -5,6 +5,7 @@ draft: no
 tags: [aws, serverless, SAM, api gateway, lambda]
 language: japanese
 toc: true
+authors: [chienkira]
 ---
 
 # API GatewayとLambda間の処理フロー

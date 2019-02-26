@@ -4,6 +4,7 @@ date: 2019-02-13T15:50:07+09:00
 draft: no
 tags: [aws, serverless, SAM, dynamodb local, docker]
 language: japanese
+authors: [chienkira]
 ---
 
 ### Dynamodb localを使いローカルで開発時

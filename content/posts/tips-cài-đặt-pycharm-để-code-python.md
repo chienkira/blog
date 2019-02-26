@@ -4,6 +4,7 @@ date: 2019-02-08T15:49:01+09:00
 draft: no
 tags: [python, pycharm]
 language: japanese
+authors: [chienkira]
 ---
 
 ### PycharmのInterpreterの設定方法

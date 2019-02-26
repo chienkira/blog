@@ -5,6 +5,7 @@ draft: no
 tags: [life, driving license, review]
 language: vietnamese
 toc: true
+authors: [chienkira]
 ---
 
 **Mình mới lấy xong bằng lái oto ở Nhật (thực ra là lấy được 1 tháng rồi :smile:), nhận ra có nhiều thông tin hữu ích có thể chia sẻ với ai đó đang cũng có ý định học nên chờ gì nữa nhỉ viết bài này thôi.**

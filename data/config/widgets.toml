@@ -20,5 +20,5 @@ excludeTypes = ["page"]               # default: ["page"]
 
 # Sidebar Menu Widget config
 [sidebar_menu]
-title = "11"                            # default: ""
-mirror = "22"                           # default: ""
+title = ""                            # default: ""
+mirror = ""                           # default: ""
