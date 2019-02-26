@@ -105,6 +105,11 @@ name = "My portfolio　"
 weight = -20
 url = "https://chienkira.github.io"
 
+[[menu.main]]
+name = "Rss　"
+weight = -19
+url = "/index.xml"
+
 [blackfriday]
 hrefTargetBlank = true
 
