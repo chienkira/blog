@@ -5,10 +5,22 @@
     <link>https://chienkira.github.io/blog/posts/</link>
     <description>Recent content in Posts on Chienkira</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 23 Feb 2019 16:42:28 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 26 Feb 2019 21:10:31 +0900</lastBuildDate>
     
 	<atom:link href="https://chienkira.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kinh Nghiệm Xin Vào Nhà Trẻ Ở Nhật</title>
+      <link>https://chienkira.github.io/blog/posts/kinh-nghi%E1%BB%87m-xin-v%C3%A0o-nh%C3%A0-tr%E1%BA%BB-%E1%BB%9F-nh%E1%BA%ADt/</link>
+      <pubDate>Tue, 26 Feb 2019 21:10:31 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/kinh-nghi%E1%BB%87m-xin-v%C3%A0o-nh%C3%A0-tr%E1%BA%BB-%E1%BB%9F-nh%E1%BA%ADt/</guid>
+      <description>Kể chuyện đi nộp hồ sơ xin vào nhà trẻ ở Nhật.
+Hôm trước (1 tháng trước rồi mà lười viết quá) em đi nộp hồ sơ xin vào nhà trẻ cho con, mà thấy giống thi đại học, vui quá nên muốn chia sẻ với các anh chị cô bác.
+bài viết ở thời điểm tháng 12&amp;frasl;2018
+Các nhà trẻ, mẫu giáo ở Nhật đồng loạt nhập học kỳ tháng 4 (mùa anh đào) và nộp hồ sơ tháng 11 hàng năm.</description>
+    </item>
     
     <item>
       <title>Học Bằng Lái Xe Oto Ở Nhật</title>
@@ -91,6 +103,17 @@ output例： /Users/kira/.local/share/virtualenvs/project_name-Qr43IEm2
 ※ CodeUriが./srcで設定される場合が多いです。
 例えば以下のようなファイル構成の場合
 |--template.yaml |--src | |--app | | |--__init__.py | | |--common | | | |--__init__.py | | | |--helper.py | | |--handlers | | | |--__init__.py | | | |--purchase.py purchase.pyファイルでapp/common/helper.pyのモジュールなどをimportするところのfrom app.common.helper import some_helper にPycharmがエラーを表示します。</description>
+    </item>
+    
+    <item>
+      <title>Làm Cottage Cheese Cho Bé Ăn Dặm</title>
+      <link>https://chienkira.github.io/blog/posts/l%C3%A0m-cottage-cheese-cho-b%C3%A9-%C4%83n-d%E1%BA%B7m/</link>
+      <pubDate>Tue, 01 Jan 2019 22:07:58 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/l%C3%A0m-cottage-cheese-cho-b%C3%A9-%C4%83n-d%E1%BA%B7m/</guid>
+      <description>Tự làm cottage cheese cho bé ăn dặm
+Trẻ dưới 1t được khuyến khích không ăn thức ăn có nêm muối, nên sử dụng phô mai để nấu ăn cho bé cũng bị hạn chế, do phô mai có chứa muối. Nhưng các mẹ hoàn toàn có thể tự làm phô mai cottage cho bé từ 7 tháng tuổi trở lên, rất ngon bổ rẻ.
+Em đã tự làm và bản thân ăn cũng thấy ngon.</description>
     </item>
     
   </channel>
