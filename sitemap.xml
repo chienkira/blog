@@ -38,6 +38,19 @@
   </url>
   
   <url>
+    <loc>https://chienkira.github.io/blog/authors/akikaori/</loc>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/authors/chienkira/</loc>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/authors/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/categories/</loc>
     <priority>0</priority>
   </url>
