@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chienkira.github.io/blog/posts/b%E1%BA%AFt-%C4%91%E1%BA%A7u-vi%E1%BA%BFt-blog/</loc>
+    <lastmod>2019-02-28T16:07:28+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/posts/kinh-nghi%E1%BB%87m-xin-v%C3%A0o-nh%C3%A0-tr%E1%BA%BB-%E1%BB%9F-nh%E1%BA%ADt/</loc>
     <lastmod>2019-02-26T21:10:31+09:00</lastmod>
   </url>
@@ -57,7 +62,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/</loc>
-    <lastmod>2019-02-26T21:10:31+09:00</lastmod>
+    <lastmod>2019-02-28T16:07:28+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -68,7 +73,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/posts/</loc>
-    <lastmod>2019-02-26T21:10:31+09:00</lastmod>
+    <lastmod>2019-02-28T16:07:28+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -98,6 +103,12 @@
   <url>
     <loc>https://chienkira.github.io/blog/tags/aws/</loc>
     <lastmod>2019-02-21T16:33:07+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/career/</loc>
+    <lastmod>2019-02-28T16:07:28+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -139,7 +150,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/life/</loc>
-    <lastmod>2019-02-23T16:42:28+09:00</lastmod>
+    <lastmod>2019-02-28T16:07:28+09:00</lastmod>
     <priority>0</priority>
   </url>
   
