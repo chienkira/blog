@@ -10,6 +10,8 @@ authors: [chienkira]
 
 **Như đã giới thiệu ở bài viết trước [[chia sẻ kinh nghiệm học lấy bằng lái xe ô tô]](https://chienkira.github.io/blog/posts/h%E1%BB%8Dc-b%E1%BA%B1ng-l%C3%A1i-xe-oto-%E1%BB%9F-nh%E1%BA%ADt/), hôm nay mình sẽ viết về các dịch vụ thuê xe ô tô ở Nhật. Các bạn sau khi có bằng, không mua xe thì hãy tham khảo thử nhé!**
 
+![](/blog/images/driving_honda_vezel.png)
+
 ## Các loại dịch vụ thuê xe ở Nhật
 
 Hiện tại ở Nhật tồn tại 2 hình thức thuê xe chứ không phải là một. Vì thế mà chúng ta hay nghe được thấy hai từ là `レンタカー` (gọi tắt của Rental car) và `カーシェア` (Car share).
