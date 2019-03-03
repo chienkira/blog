@@ -3,7 +3,7 @@ title: "Review Các Dịch Vụ Thuê Xe Ở Nhật"
 date: 2019-03-03T09:18:57+09:00
 draft: no
 tags: [driving, review]
-language: vietnamese
+language: vi
 toc: false
 authors: [chienkira]
 ---

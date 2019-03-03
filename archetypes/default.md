@@ -3,7 +3,7 @@ title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 draft: true
 tags: []
-language: vietnamese
+language: vi
 toc: true
 authors: [chienkira]
 ---
