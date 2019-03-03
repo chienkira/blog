@@ -2,7 +2,7 @@
 title: "Học Bằng Lái Xe Oto Ở Nhật"
 date: 2019-02-23T16:42:28+09:00
 draft: no
-tags: [life, driving license, review]
+tags: [life, driving, license, review]
 language: vietnamese
 toc: true
 authors: [chienkira]
@@ -153,3 +153,5 @@ Cuối cùng
 Sau khi có bằng, chúc mừng nhé vì bạn có thể lái xe rồi. Tuy nhiên chắc không nhiều người sẽ chọn mua xe để đi dù xe oto ở Nhật **rất là rẻ luôn**, lý do thì có nhiều lắm, đặc biệt là chi phí và các thủ tục phiền hà để duy trì cái xe đó.
 Do đó lựa chọn dùng các dịch vụ Car sharing hay Rental Car sẽ hợp lý hơn cả.
 Phần tiếp theo mình dự định sẽ giới thiệu và chia sẻ kinh nghiệm sử dụng dịch vụ Car Sharing.
+
+*Update: bài viết về các dịch vụ thuê xe đã có ở đây [Các Dịch Vụ Thuê Xe Ở Nhật](/blog/posts/các-dịch-vụ-thuê-xe-ở-nhật/)*

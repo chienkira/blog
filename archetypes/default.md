@@ -8,7 +8,7 @@ toc: true
 authors: [chienkira]
 ---
 
-**Insert Lead paragraph here.****
+**Insert Lead paragraph here.**
 
 ## New Cool Posts
 
