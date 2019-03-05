@@ -1,10 +1,16 @@
 ---
-title: "Blue Green Deployment"
+title: "Am Hiểu Blue Green Deployment Trong 5 Phút"
 date: 2019-02-25T15:07:37+09:00
 draft: true
-tags: []
-language: vietnamese
+tags: [aws, sre, infra]
+language: vi
+toc: true
+authors: [chienkira]
 ---
+
+**Insert Lead paragraph here.**
+
+## New Cool Posts
 
 ```bash
                             S3 <--> API G <----> 
