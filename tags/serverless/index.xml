@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>serverless on Chienkira</title>
+    <link>https://chienkira.github.io/blog/tags/serverless/</link>
+    <description>Recent content in serverless on Chienkira</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 13 Feb 2019 15:50:07 +0900</lastBuildDate>
+    
+	<atom:link href="https://chienkira.github.io/blog/tags/serverless/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>&#34;Thông&#34; Mạng Cho Aws SAM Và Dynamodb Local</title>
+      <link>https://chienkira.github.io/blog/posts/th%C3%B4ng-m%E1%BA%A1ng-cho-aws-sam-v%C3%A0-dynamodb-local/</link>
+      <pubDate>Wed, 13 Feb 2019 15:50:07 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/th%C3%B4ng-m%E1%BA%A1ng-cho-aws-sam-v%C3%A0-dynamodb-local/</guid>
+      <description>Dynamodb localを使いローカルで開発時 SAM localのstart-apiやinvokeコマンドを使い、Lambda関数をローカルで実行する時は、
+- Lambda関数がSAMのDockerコンテナ上で実行され - Dynamodb localが別のDockerコンテナ上で動く
+そのため、Lambda関数がDynamodb localへアクセルできるように、 2つのDockerコンテナを同じネットワークに繋がせる必要があります。
+対応方法は以下の通りです。
+まずはDynamodb localのDockerセットアップ file: docker-compose.yml
+services: dynamodb: container_name: dynamodb #重要：コンテナ名を指定 image: amazon/dynamodb-local networks: - aws_local_network #繋がるネットワークを指定 &amp;lt;省略&amp;gt; networks: aws_local_network: name: aws_local_network #重要：ネットワーク名を強制的に指定 そして、モデルのソースコードを以下のように修正
+if os.environ.get(&amp;#39;AWS_SESSION_TOKEN&amp;#39;) is None: host = &amp;#34;http://dynamodb:8000&amp;#34; 　解説： AWS_SESSION_TOKEN 環境変数には、実際のAWS環境で実行する時にしか値がないので
+ローカルで実行しているかどうなの判別に使えます。
+また、http://dynamodb:8000のdynamodbはDynamodb localのコンテナ名です。
+最後に、Lambda関数をローカルで実行する時 --docker-network aws_local_network を追加で指定
+sam local start-api --docker-network aws_local_network
+又は、sam local invoke HogeFunction -e event.json --docker-network aws_local_network</description>
+    </item>
+    
+    <item>
+      <title>Tìm Hiểu Về Api Gateway</title>
+      <link>https://chienkira.github.io/blog/posts/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway/</link>
+      <pubDate>Tue, 12 Feb 2019 15:45:04 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway/</guid>
+      <description>API GatewayとLambda間の処理フロー APIGatewayとLambda間の処理フローは以下の図の通りです。  クライアントからHTTPリクエストがきた時に、[Method request] がそのリクエストを受け取って認証などを行う API Gatewayは必要に応じて [Integration Request]を使い、リクエストのデータを変換してから、Lambdaに転送する ※ 変換されたデータがLambda関数のevent変数に入ります。 次にAPI Gatewayは [Integration Response] を使い、Lambdaから返ってきた戻り値（処理結果）をまたデータ変換をしてから、[Method Response] に転送 最後に、API Gatewayが [Method Response]にてクライアントに返信する  → Integration Request と Integration Responseのデータ変換に関しては、以下の2選択肢があります。
+ ①AWSのLambda proxy integration（Lambda プロキシ統合）に任せるか ②データ変換に使われるマッピングテンプレートを自分で定義するか  Lambda proxy integration（Lambda プロキシ統合） AWSのLambda プロキシ統合の詳細説明 Lambda プロキシ統合を使用する場合、Lambda関数へのInputデータやLambda関数のOutputデータのフォーマットが決まってます。
+Lambda 関数の入力形式 以下のようにHTTPリクエスト全体をLambda 関数のevent変数にマッピングされます。 よく使うのは：
+ headers: リクエストのヘッダデータ httpMethod: リクエストのメソッド情報 pathParameters: GETリクエストのパスパラメータ 例）/hoge/{group}/{user}のようなリクエストの場合、pathParameters には、groupとuserが入ってきます。 queryStringParameters: GETリクエストのクエリパラメータ 例）/hoge/{user}?page=5のようなリクエストの場合、queryStringParameters には、pageが入ってきます。 body: POSTリクエストのPostデータ  { &amp;#34;resource&amp;#34;: &amp;#34;Resource path&amp;#34;, &amp;#34;path&amp;#34;: &amp;#34;Path parameter&amp;#34;, &amp;#34;httpMethod&amp;#34;: &amp;#34;Incoming request&amp;#39;s method name&amp;#34; &amp;#34;headers&amp;#34;: {String containing incoming request headers} &amp;#34;multiValueHeaders&amp;#34;: {List of strings containing incoming request headers} &amp;#34;queryStringParameters&amp;#34;: {query string parameters } &amp;#34;multiValueQueryStringParameters&amp;#34;: {List of query string parameters} &amp;#34;pathParameters&amp;#34;: {path parameters} &amp;#34;stageVariables&amp;#34;: {Applicable stage variables} &amp;#34;requestContext&amp;#34;: {Request context, including authorizer-returned key-value pairs} &amp;#34;body&amp;#34;: &amp;#34;A JSON string of the request payload.</description>
+    </item>
+    
+  </channel>
+</rss>

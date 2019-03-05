@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dynamodb local on Chienkira</title>
+    <link>https://chienkira.github.io/blog/tags/dynamodb-local/</link>
+    <description>Recent content in dynamodb local on Chienkira</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 13 Feb 2019 15:50:07 +0900</lastBuildDate>
+    
+	<atom:link href="https://chienkira.github.io/blog/tags/dynamodb-local/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>&#34;Thông&#34; Mạng Cho Aws SAM Và Dynamodb Local</title>
+      <link>https://chienkira.github.io/blog/posts/th%C3%B4ng-m%E1%BA%A1ng-cho-aws-sam-v%C3%A0-dynamodb-local/</link>
+      <pubDate>Wed, 13 Feb 2019 15:50:07 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/th%C3%B4ng-m%E1%BA%A1ng-cho-aws-sam-v%C3%A0-dynamodb-local/</guid>
+      <description>Dynamodb localを使いローカルで開発時 SAM localのstart-apiやinvokeコマンドを使い、Lambda関数をローカルで実行する時は、
+- Lambda関数がSAMのDockerコンテナ上で実行され - Dynamodb localが別のDockerコンテナ上で動く
+そのため、Lambda関数がDynamodb localへアクセルできるように、 2つのDockerコンテナを同じネットワークに繋がせる必要があります。
+対応方法は以下の通りです。
+まずはDynamodb localのDockerセットアップ file: docker-compose.yml
+services: dynamodb: container_name: dynamodb #重要：コンテナ名を指定 image: amazon/dynamodb-local networks: - aws_local_network #繋がるネットワークを指定 &amp;lt;省略&amp;gt; networks: aws_local_network: name: aws_local_network #重要：ネットワーク名を強制的に指定 そして、モデルのソースコードを以下のように修正
+if os.environ.get(&amp;#39;AWS_SESSION_TOKEN&amp;#39;) is None: host = &amp;#34;http://dynamodb:8000&amp;#34; 　解説： AWS_SESSION_TOKEN 環境変数には、実際のAWS環境で実行する時にしか値がないので
+ローカルで実行しているかどうなの判別に使えます。
+また、http://dynamodb:8000のdynamodbはDynamodb localのコンテナ名です。
+最後に、Lambda関数をローカルで実行する時 --docker-network aws_local_network を追加で指定
+sam local start-api --docker-network aws_local_network
+又は、sam local invoke HogeFunction -e event.json --docker-network aws_local_network</description>
+    </item>
+    
+  </channel>
+</rss>
