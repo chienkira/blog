@@ -1,8 +1,8 @@
 ---
 title: "Am Hiểu Blue Green Deployment Trong 5 Phút"
-date: 2019-02-25T15:07:37+09:00
+date: 2019-03-06T09:29:32+09:00
 draft: true
-tags: [aws, sre, infra]
+tags: [aws, sre, infra]
 language: vi
 toc: true
 authors: [chienkira]
@@ -12,12 +12,4 @@ authors: [chienkira]
 
 ## New Cool Posts
 
-```bash
-                            S3 <--> API G <----> 
-                            ↑                   ↓
-Client <--> Cloudfront <----                   DB 
-            ↓  ↑            ↓                   ↑
-            ↓  ↑            S3 <--> API G <-->
-         Lambda@edge^
 
-```
