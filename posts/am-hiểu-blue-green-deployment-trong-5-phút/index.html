@@ -3,12 +3,12 @@
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta name='description' content='Blue green deployment là cái khỉ ho gì? Nó có gì hay và có &ldquo;ngon&rdquo; không? Nếu bạn đang có câu hỏi tương tự trong đầu thì hãy thử đọc hết bài viết này nhé. Đây cũng là chia sẻ thực tế của mình sau khi được giao cho task thiết kế Blue green deployment áp dụng lên hệ thống trong công ty.
-Giới thiệu Blue Green deployment từ giờ viết gọn là B/G deploy'>
+1. Giới thiệu Blue Green deployment ※ Từ giờ viết gọn là B/G deploy'>
 <meta name='theme-color' content='#ffcd00'>
 
 <meta property='og:title' content='Am Hiểu Blue Green Deployment Trong 5 Phút • Chien Kira'>
 <meta property='og:description' content='Blue green deployment là cái khỉ ho gì? Nó có gì hay và có &ldquo;ngon&rdquo; không? Nếu bạn đang có câu hỏi tương tự trong đầu thì hãy thử đọc hết bài viết này nhé. Đây cũng là chia sẻ thực tế của mình sau khi được giao cho task thiết kế Blue green deployment áp dụng lên hệ thống trong công ty.
-Giới thiệu Blue Green deployment từ giờ viết gọn là B/G deploy'>
+1. Giới thiệu Blue Green deployment ※ Từ giờ viết gọn là B/G deploy'>
 <meta property='og:url' content='https://chienkira.github.io/blog/posts/am-hi%E1%BB%83u-blue-green-deployment-trong-5-ph%C3%BAt/'>
 <meta property='og:site_name' content='Chienkira'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/00e439e7376596f2760b4ef9a28df93b?s=256'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='aws'><meta property='article:tag' content='sre'><meta property='article:tag' content='infra'><meta property='article:tag' content='blue green deploy'><meta property='article:published_time' content='2019-03-06T09:29:32&#43;09:00'/><meta property='article:modified_time' content='2019-03-06T09:29:32&#43;09:00'/><meta name='twitter:card' content='summary'><meta name='twitter:creator' content='@chienkira'>
@@ -343,21 +343,21 @@ if (!doNotTrack) {
   </summary>
   <nav id="TableOfContents">
 <ul>
-<li><a href="#giới-thiệu-blue-green-deployment">Giới thiệu Blue Green deployment</a>
+<li><a href="#1-giới-thiệu-blue-green-deployment">1. Giới thiệu Blue Green deployment</a>
 <ul>
-<li><a href="#ưu-điểm">Ưu điểm</a></li>
-<li><a href="#thắt-cổ-chai-nhược-điểm">&ldquo;Thắt cổ chai&rdquo; - nhược điểm</a></li>
+<li><a href="#1-1-ưu-điểm">1.1. Ưu điểm</a></li>
+<li><a href="#1-2-thắt-cổ-chai-nhược-điểm">1.2. &ldquo;Thắt cổ chai&rdquo; - nhược điểm</a></li>
 </ul></li>
-<li><a href="#chia-sẻ-thiết-kế-b-g-deploy-trong-thực-tế">Chia sẻ thiết kế B/G deploy trong thực tế</a>
+<li><a href="#2-chia-sẻ-thiết-kế-b-g-deploy-trong-thực-tế">2. Chia sẻ thiết kế B/G deploy trong thực tế</a>
 <ul>
-<li><a href="#bối-cảnh-quyết-định-áp-dụng-b-g-deploy">Bối cảnh quyết định áp dụng B/G deploy</a></li>
-<li><a href="#quá-trình-thiết-kế">Quá trình thiết kế</a>
+<li><a href="#2-1-bối-cảnh-quyết-định-áp-dụng-b-g-deploy">2.1. Bối cảnh quyết định áp dụng B/G deploy</a></li>
+<li><a href="#2-2-quá-trình-thiết-kế">2.2. Quá trình thiết kế</a>
 <ul>
 <li><a href="#bản-nháp-ý-tưởng">Bản nháp ý tưởng</a></li>
 <li><a href="#thiết-kế-cuối-cùng">Thiết kế cuối cùng</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#thông-tin-bên-lề-biết-được-thêm-khi-tìm-hiểu-về-b-g-deploy">Thông tin bên lề biết được thêm khi tìm hiểu về B/G deploy</a></li>
+<li><a href="#3-thông-tin-bên-lề-biết-được-thêm-khi-tìm-hiểu-về-b-g-deploy">3. Thông tin bên lề biết được thêm khi tìm hiểu về B/G deploy</a></li>
 </ul>
 </nav>
 </details>
@@ -369,9 +369,11 @@ if (!doNotTrack) {
 <p><strong>Blue green deployment là cái khỉ ho gì? Nó có gì hay và có &ldquo;ngon&rdquo; không?</strong>
 <strong>Nếu bạn đang có câu hỏi tương tự trong đầu thì hãy thử đọc hết bài viết này nhé. Đây cũng là chia sẻ thực tế của mình sau khi được giao cho task thiết kế Blue green deployment áp dụng lên hệ thống trong công ty.</strong></p>
 
-<h1 id="giới-thiệu-blue-green-deployment">Giới thiệu Blue Green deployment</h1>
+<h1 id="1-giới-thiệu-blue-green-deployment">1. Giới thiệu Blue Green deployment</h1>
 
-<p><em>từ giờ viết gọn là B/G deploy</em></p>
+<hr />
+
+<p><em>※ Từ giờ viết gọn là B/G deploy</em></p>
 
 <p>Trước tiên cùng hình dung về infra của một hệ thống truyền thống. Trừ phục vụ cho môi trường dev hay stage ra, để cung cấp service cho users sử dụng - môi trường production, chúng ta thường sẽ sử dụng một nguồn tài nguyên phần cứng đúng không các bạn. Khi deploy một phiên bản mới, chúng ta deploy lên chính phần cứng đó - nơi service đang chạy.</p>
 
@@ -390,51 +392,44 @@ if (!doNotTrack) {
 
 <p>Ở đây mình có lượm được từ google một hình vẽ khá là trực quan.</p>
 
-<p><img src="/static/images/bluegreen_deploy1.png" alt="blue-green-deploy" />
+<p><img src="/blog/images/bluegreen_deploy1.png" alt="blue-green-deploy" />
 <em>credit: <a href="https://www.blazemeter.com/blog/five-blue-green-deployment-best-practices-for-a-smooth-release" target="_blank">https://www.blazemeter.com/blog/five-blue-green-deployment-best-practices-for-a-smooth-release</a></em></p>
 
-<h2 id="ưu-điểm">Ưu điểm</h2>
+<h2 id="1-1-ưu-điểm">1.1. Ưu điểm</h2>
 
 <ul>
-<li>Giảm thời gian downtime</li>
+<li><p>Giảm thời gian downtime<br />
+Như các bạn đã thấy ở phần giới thiệu phía trên, thời gian downtime do deployment đã được giải quyết. Users vẫn sử dụng service bình thường trong quá trình deploy, khi phiên bản mới sẵn sàng trên môi trường dự bị (green hay blue) thì request của users được route qua môi trường mới mà thôi. Quá trình deploy diễn ra mượt mà và không hề tạo ra bất kì phiền hà nào trong trải nghiệm với users.</p></li>
+
+<li><p>Dễ dàng rollback khi gặp trouble<br />
+Bời vì chúng ta có sẵn hai môi trường production nên sau khi deploy, dù sự cố bất ngờ có phát sinh thì đường rút lui cũng luôn bật đèn xanh chờ sẵn. 😉</p></li>
 </ul>
 
-<p>Như các bạn đã thấy ở phần giới thiệu phía trên, thời gian downtime do deployment đã được giải quyết. Users vẫn sử dụng service bình thường trong quá trình deploy, khi phiên bản mới sẵn sàng trên môi trường dự bị (green hay blue) thì request của users được route qua môi trường mới mà thôi. Quá trình deploy diễn ra mượt mà và không hề tạo ra bất kì phiền hà nào trong trải nghiệm với users.</p>
+<h2 id="1-2-thắt-cổ-chai-nhược-điểm">1.2. &ldquo;Thắt cổ chai&rdquo; - nhược điểm</h2>
 
 <ul>
-<li>Dễ dàng rollback khi gặp trouble</li>
+<li><p>Đắt đỏ<br />
+Việc sử dụng đến hai môi trường production sẽ kéo theo vấn đề chi phí. Do đó quy mô service và ngân sách không hợp lý thì việc triển khai B/G deploy đôi khi biến thành &ldquo;lợi bất cập hại&rdquo;.</p></li>
+
+<li><p>Deployment sẽ rất khó khăn khi có sự thay đổi lớn với database<br />
+Phần database rất khó để cũng tách ra riêng biệt cho hai môi trường blue/green, do đó nó thường là phần giữ nguyên, không được switch khi deploy. Dẫn đến một việc là nếu trong lần release, schema của bảng dữ liệu có nhiều thay đổi thì deploy sẽ càng phức tạp. Có thể hình dung là đầu tiên ta phải thiết kế logic phía ứng dụng phiên bản mới sao cho tương thích với cả schema cũ, rồi deploy, rồi sau đó mới chỉnh sửa bỏ schema cũ để chỉ support với schema mới v&hellip;v&hellip;</p></li>
 </ul>
 
-<p>Bời vì chúng ta có sẵn hai môi trường production nên sau khi deploy, dù sự cố bất ngờ có phát sinh thì đường rút lui cũng luôn bật đèn xanh chờ sẵn. 😉</p>
+<h1 id="2-chia-sẻ-thiết-kế-b-g-deploy-trong-thực-tế">2. Chia sẻ thiết kế B/G deploy trong thực tế</h1>
 
-<h2 id="thắt-cổ-chai-nhược-điểm">&ldquo;Thắt cổ chai&rdquo; - nhược điểm</h2>
-
-<ul>
-<li>Đắt đỏ
-<br /></li>
-</ul>
-
-<p>Việc sử dụng đến hai môi trường production sẽ kéo theo vấn đề chi phí. Do đó quy mô service và ngân sách không hợp lý thì việc triển khai B/G deploy đôi khi biến thành &ldquo;lợi bất cập hại&rdquo;.</p>
-
-<ul>
-<li>Deployment sẽ rất khó khăn khi có sự thay đổi lớn với database</li>
-</ul>
-
-<p>Phần database rất khó để cũng tách ra riêng biệt cho hai môi trường blue/green, do đó nó thường là phần giữ nguyên, không được switch khi deploy. Dẫn đến một việc là nếu trong lần release, schema của bảng dữ liệu có nhiều thay đổi thì deploy sẽ càng phức tạp. Có thể hình dung là đầu tiên ta phải thiết kế logic phía ứng dụng phiên bản mới sao cho tương thích với cả schema cũ, rồi deploy, rồi sau đó mới chỉnh sửa bỏ schema cũ để chỉ support với schema mới v&hellip;v&hellip;</p>
-
-<h1 id="chia-sẻ-thiết-kế-b-g-deploy-trong-thực-tế">Chia sẻ thiết kế B/G deploy trong thực tế</h1>
+<hr />
 
 <p>Vào công ty, mình join vào team #SRE (Site Reliability Engineering) nên chẳng được tham gia vào phát triển product. Thay vào đó là làm mấy việc liên quan đến cải tiến quy trình nói chung, support team làm product, hay 1 số task pha chút devOps. Nói chung là chính mình cũng còn mơ hồ về công việc của team này 😊</p>
 
 <p>Thế rồi lúc vẫn chân ướt chân ráo, task đầu tiên mình được giao là áp dụng B/G deploy vào 1 số product của công ty. Từ đây mình mới đi tìm hiểu nó là cái vẹo gì rồi thiết kế và kiểm chứng mô hình có hoạt động hay không. Qua quá trình này, mình muốn chia sẻ những thông tin thực tế nhất mình hiểu được khi triển khai một B/G deploy.</p>
 
-<h2 id="bối-cảnh-quyết-định-áp-dụng-b-g-deploy">Bối cảnh quyết định áp dụng B/G deploy</h2>
+<h2 id="2-1-bối-cảnh-quyết-định-áp-dụng-b-g-deploy">2.1. Bối cảnh quyết định áp dụng B/G deploy</h2>
 
 <p>Hệ thống của công ty mình thì toàn bộ nằm ở trên AWS, lại xây dựng theo kiến trúc serverless nên <em>pay as you go</em> trở thành một điểm cộng rất lớn khi triển khai B/G deploy. Bởi vì sao, vì chúng ta chỉ cần trả cho phần phát sinh sử dụng (tính theo số request, thời gian thực thi hàm lambda, lượng dữ liệu trung chuyển vân vân) chứ không phải trả khi tạo thêm tài nguyên. Do đó không chỉ blue và green, thậm chí tạo thêm red và brown cũng được. 👍</p>
 
 <p>Ngoài ra database sử dụng phần lớn là DynamoDB, đặc trưng của nó là schema không cố định, linh hoạt trên từng row (trừ thông tin key) nên vốn dĩ vụ release cũng không trở lên phức tạp nhiều khi có dependent database đi nữa.</p>
 
-<h2 id="quá-trình-thiết-kế">Quá trình thiết kế</h2>
+<h2 id="2-2-quá-trình-thiết-kế">2.2. Quá trình thiết kế</h2>
 
 <h3 id="bản-nháp-ý-tưởng">Bản nháp ý tưởng</h3>
 
@@ -454,7 +449,7 @@ if (!doNotTrack) {
 
 <p>Trong lúc vẽ nháp, mình còn ngộ ra một chỗ rất &ldquo;ăn điểm&rdquo; trong thiết kế này. Đó là flag lưu trong Parameter store có thể dùng làm luôn định vị để cấu hình cho CircleCI tự động biết deploy lên môi trường không active. Tự động hóa hết rồi, vậy là chỉ việc dev và dev đến chết, lúc nào cần switch môi trường để release thì cập nhật cái flag là ok thôi.</p>
 
-<p><img src="/static/images/bluegreen_deploy_draft1.jpg" alt="blue-green-prototype" /></p>
+<p><img src="/blog/images/bluegreen_deploy_draft1.jpg" alt="blue-green-prototype" /></p>
 
 <h3 id="thiết-kế-cuối-cùng">Thiết kế cuối cùng</h3>
 
@@ -462,7 +457,7 @@ if (!doNotTrack) {
 
 <p>Cơ bản thì thiết kế như bản nháp trên mình đã giới thiệu, mình chỉ đưa thêm một feature nhỏ dạng backdoor vào để team dev product dễ dàng tùy ý kiểm thử môi trường blue/green hơn thôi. Các bạn cũng biết đó, không check thử tí nào mà switch môi trường production thì khá là mạo hiểm mà.</p>
 
-<h1 id="thông-tin-bên-lề-biết-được-thêm-khi-tìm-hiểu-về-b-g-deploy">Thông tin bên lề biết được thêm khi tìm hiểu về B/G deploy</h1>
+<h1 id="3-thông-tin-bên-lề-biết-được-thêm-khi-tìm-hiểu-về-b-g-deploy">3. Thông tin bên lề biết được thêm khi tìm hiểu về B/G deploy</h1>
 
 <ul>
 <li>Canary releases (Canary nghĩa là chim hoàng yến)</li>
