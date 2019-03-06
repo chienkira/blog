@@ -8,11 +8,11 @@ toc: true
 authors: [chienkira]
 ---
 
-**Blue green deployment (ở dưới mình sẽ gọi tắt là B/G deploy) là cái khỉ ho gì? Nó có gì hay và có "ngon" không?**
+**Blue green deployment là cái khỉ ho gì? Nó có gì hay và có "ngon" không?**
+**Nếu bạn đang có câu hỏi tương tự trong đầu thì hãy thử đọc hết bài viết này nhé. Đây cũng là chia sẻ thực tế của mình sau khi được giao cho task thiết kế Blue green deployment áp dụng lên hệ thống trong công ty.**
 
-**Nếu bạn đang có câu hỏi tương tự trong đầu thì hãy thử đọc hết bài viết này nhé. Đây cũng là chia sẻ thực tế của mình sau khi được giao cho task thiết kế B/G deploy áp dụng lên hệ thống trong công ty.**
-
-# Giới thiệu B/G deploy
+# Giới thiệu Blue Green deployment
+  *từ giờ viết gọn là B/G deploy*
 
 Trước tiên cùng hình dung về infra của một hệ thống truyền thống. Trừ phục vụ cho môi trường dev hay stage ra, để cung cấp service cho users sử dụng - môi trường production, chúng ta thường sẽ sử dụng một nguồn tài nguyên phần cứng đúng không các bạn. Khi deploy một phiên bản mới, chúng ta deploy lên chính phần cứng đó - nơi service đang chạy.
 
@@ -32,7 +32,7 @@ Các bạn thấy đó, vấn đề Downtime đã được giải quyết triệ
 ![blue-green-deploy](/static/images/bluegreen_deploy1.png)
 *credit: https://www.blazemeter.com/blog/five-blue-green-deployment-best-practices-for-a-smooth-release*
 
-### Ưu điểm
+## Ưu điểm
 
 * Giảm thời gian downtime
 
@@ -42,7 +42,7 @@ Các bạn thấy đó, vấn đề Downtime đã được giải quyết triệ
 
   Bời vì chúng ta có sẵn hai môi trường production nên sau khi deploy, dù sự cố bất ngờ có phát sinh thì đường rút lui cũng luôn bật đèn xanh chờ sẵn. ;)
 
-### "Thắt cổ chai" - nhược điểm
+## "Thắt cổ chai" - nhược điểm
 
 * Đắt đỏ
   
@@ -58,10 +58,41 @@ Vào công ty, mình join vào team #SRE (Site Reliability Engineering) nên ch�
 
 Thế rồi lúc vẫn chân ướt chân ráo, task đầu tiên mình được giao là áp dụng B/G deploy vào 1 số product của công ty. Từ đây mình mới đi tìm hiểu nó là cái vẹo gì rồi thiết kế và kiểm chứng mô hình có hoạt động hay không. Qua quá trình này, mình muốn chia sẻ những thông tin thực tế nhất mình hiểu được khi triển khai một B/G deploy.
 
-### Bối cảnh quyết định áp dụng B/G deploy
+## Bối cảnh quyết định áp dụng B/G deploy
 
 Hệ thống của công ty mình thì toàn bộ nằm ở trên AWS, lại xây dựng theo kiến trúc serverless nên *pay as you go* trở thành một điểm cộng rất lớn khi triển khai B/G deploy. Bởi vì sao, vì chúng ta chỉ cần trả cho phần phát sinh sử dụng (tính theo số request, thời gian thực thi hàm lambda, lượng dữ liệu trung chuyển vân vân) chứ không phải trả khi tạo thêm tài nguyên. Do đó không chỉ blue và green, thậm chí tạo thêm red và brown cũng được. :))
 
-Ngoài ra database sử dụng phần lớn là DynamoDB, đặc trưng của nó là schema không cố định, linh hoạt trên từng row (trừ thông tin key) nên vốn dĩ vụ release cũng không trở lên phức tạp khi có dependent database đi nữa.
+Ngoài ra database sử dụng phần lớn là DynamoDB, đặc trưng của nó là schema không cố định, linh hoạt trên từng row (trừ thông tin key) nên vốn dĩ vụ release cũng không trở lên phức tạp nhiều khi có dependent database đi nữa.
 
-### Quá trình thiết kế 
+## Quá trình thiết kế 
+
+### Bản nháp ý tưởng
+
+Mấu chốt của B/G deploy là làm sao xây dựng ra cơ chế cho phép ta tùy ý route (chuyển) các requests từ users tới 1 trong 2 môi trường Blue và Green.
+
+Sau khi đào bới thông tin trên internet một hồi, mình nhận ra rằng cách phổ biến để xử lý việc routing request này là thông qua DNS. Cụ thể là với Route53 của AWS, ta có thể thực hiện cơ chế trên như sau:
+- giả sử domain truy cập service là https://example.com , và ta có 2 CloudFront ứng với 2 môi trường Blue Green có domain tương ứng là https://d000blue.cloudfront.net và https://d000green.cloudfront.net
+- ta cài đặt 2 weighted DNS CNAME record trỏ đến 2 CloudFront trên
+- khi cần route đến môi trường blue, ta điều chỉnh `weight` của 2 DNS record trên thành `weight: 100` ứng với https://d000blue.cloudfront.net và `weight: 0` ứng với domain còn lại
+- ngược lại khi cần đổi lại môi trường green, ta lại điều chỉnh giá trị `weight` thành `100` cho record trỏ đến https://d000green.cloudfront.net là xong
+
+Cách giải quyết này khá là dễ hiểu và thực hiện. Tuy nhiên cũng có một điểm hơi khiến mình băn khoăn đó là, lợi dụng setting của DNS thì sẽ bị phụ thuộc vào spec của DNS server. Cụ thể hơn, mình băn khoăn ở chỗ, thời gian cần thiết để thay đổi DNS setting có hiệu lực với toàn bộ người dùng ở đây là không kiểm soát được. Mình không thích "mất kiểm soát" như vậy. :))
+
+Đi tìm cách khác để thực hiện cơ chế routing này, mình nhớ đến ứng viên mà mình đã thấy rất tiềm năng khi tìm hiểu về CloudFront - **Lambda@Edge**. CloudFront cho phép trigger Lambda@Edge mỗi khi nó request nội dung từ origin để phục vụ users. Ý tưởng ở đây sẽ là thực hiện việc routing ở trong Lambda@Edge, nghĩa là ta sẽ điều hướng CloudFront lấy content từ origin mà ta muốn (origin của môi trường Blue hoặc Green). Flag để xác định môi trường Blue hay Green đang active thì mình dùng 1 biến lưu trong Parameter store, vừa dễ tham chiếu lại vừa dễ thay đổi ;)
+
+Thiết kế cuối cùng mà mình nghĩ ra như trong bản nháp dưới đây.
+
+Trong lúc vẽ nháp, mình còn ngộ ra một chỗ rất "ăn điểm" trong thiết kế này. Đó là flag lưu trong Parameter store có thể dùng làm luôn định vị để cấu hình cho CircleCI tự động biết deploy lên môi trường không active. Tự động hóa hết rồi, vậy là chỉ việc dev và dev đến chết, lúc nào cần switch môi trường để release thì cập nhật cái flag là ok thôi.
+
+![blue-green-prototype](/static/images/bluegreen_deploy_draft1.jpg_)
+
+### Thiết kế cuối cùng
+
+Lúc đầu mình định đưa lên đây ảnh architecture đẹp đẽ đã vẽ, nhưng nghĩ lại đó rốt cục là cũng là tài liệu thiết kế trong công ty nên không public thì tốt hơn.
+
+Cơ bản thì thiết kế như bản nháp trên mình đã giới thiệu, mình chỉ đưa thêm một feature nhỏ dạng backdoor vào để team dev product dễ dàng tùy ý kiểm thử môi trường blue/green hơn thôi. Các bạn cũng biết đó, không check thử tí nào mà switch môi trường production thì khá là mạo hiểm mà.
+
+# Thông tin bên lề biết được thêm khi tìm hiểu về B/G deploy
+
+* A/B testing
+* Canary test
