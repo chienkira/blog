@@ -31,9 +31,18 @@
     <item>
       <title>aws</title>
       <link>https://chienkira.github.io/blog/tags/aws/</link>
-      <pubDate>Thu, 21 Feb 2019 16:33:07 +0900</pubDate>
+      <pubDate>Wed, 06 Mar 2019 09:29:32 +0900</pubDate>
       
       <guid>https://chienkira.github.io/blog/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blue green deploy</title>
+      <link>https://chienkira.github.io/blog/tags/blue-green-deploy/</link>
+      <pubDate>Wed, 06 Mar 2019 09:29:32 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/tags/blue-green-deploy/</guid>
       <description></description>
     </item>
     
@@ -88,6 +97,15 @@
       <pubDate>Wed, 13 Feb 2019 15:50:07 +0900</pubDate>
       
       <guid>https://chienkira.github.io/blog/tags/dynamodb-local/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>infra</title>
+      <link>https://chienkira.github.io/blog/tags/infra/</link>
+      <pubDate>Wed, 06 Mar 2019 09:29:32 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/tags/infra/</guid>
       <description></description>
     </item>
     
@@ -169,6 +187,15 @@
       <pubDate>Wed, 13 Feb 2019 15:50:07 +0900</pubDate>
       
       <guid>https://chienkira.github.io/blog/tags/serverless/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sre</title>
+      <link>https://chienkira.github.io/blog/tags/sre/</link>
+      <pubDate>Wed, 06 Mar 2019 09:29:32 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/tags/sre/</guid>
       <description></description>
     </item>
     

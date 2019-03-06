@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chienkira.github.io/blog/posts/am-hi%E1%BB%83u-blue-green-deployment-trong-5-ph%C3%BAt/</loc>
+    <lastmod>2019-03-06T09:29:32+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/posts/c%C3%A1c-d%E1%BB%8Bch-v%E1%BB%A5-thu%C3%AA-xe-%E1%BB%9F-nh%E1%BA%ADt/</loc>
     <lastmod>2019-03-03T09:18:57+09:00</lastmod>
   </url>
@@ -67,7 +72,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/</loc>
-    <lastmod>2019-03-03T09:18:57+09:00</lastmod>
+    <lastmod>2019-03-06T09:29:32+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -78,7 +83,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/posts/</loc>
-    <lastmod>2019-03-03T09:18:57+09:00</lastmod>
+    <lastmod>2019-03-06T09:29:32+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -107,7 +112,13 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/aws/</loc>
-    <lastmod>2019-02-21T16:33:07+09:00</lastmod>
+    <lastmod>2019-03-06T09:29:32+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/blue-green-deploy/</loc>
+    <lastmod>2019-03-06T09:29:32+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -144,6 +155,12 @@
   <url>
     <loc>https://chienkira.github.io/blog/tags/dynamodb-local/</loc>
     <lastmod>2019-02-13T15:50:07+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/infra/</loc>
+    <lastmod>2019-03-06T09:29:32+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -198,6 +215,12 @@
   <url>
     <loc>https://chienkira.github.io/blog/tags/serverless/</loc>
     <lastmod>2019-02-13T15:50:07+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/sre/</loc>
+    <lastmod>2019-03-06T09:29:32+09:00</lastmod>
     <priority>0</priority>
   </url>
   
