@@ -11,8 +11,9 @@ authors: [chienkira]
 **Blue green deployment là cái khỉ ho gì? Nó có gì hay và có "ngon" không?**
 **Nếu bạn đang có câu hỏi tương tự trong đầu thì hãy thử đọc hết bài viết này nhé. Đây cũng là chia sẻ thực tế của mình sau khi được giao cho task thiết kế Blue green deployment áp dụng lên hệ thống trong công ty.**
 
-# Giới thiệu Blue Green deployment
-  *từ giờ viết gọn là B/G deploy*
+# 1. Giới thiệu Blue Green deployment
+---
+  *※ Từ giờ viết gọn là B/G deploy*
 
 Trước tiên cùng hình dung về infra của một hệ thống truyền thống. Trừ phục vụ cho môi trường dev hay stage ra, để cung cấp service cho users sử dụng - môi trường production, chúng ta thường sẽ sử dụng một nguồn tài nguyên phần cứng đúng không các bạn. Khi deploy một phiên bản mới, chúng ta deploy lên chính phần cứng đó - nơi service đang chạy.
 
@@ -29,42 +30,39 @@ Các bạn thấy đó, vấn đề Downtime đã được giải quyết triệ
 
 Ở đây mình có lượm được từ google một hình vẽ khá là trực quan.
 
-![blue-green-deploy](/static/images/bluegreen_deploy1.png)
+![blue-green-deploy](/blog/images/bluegreen_deploy1.png)
 *credit: https://www.blazemeter.com/blog/five-blue-green-deployment-best-practices-for-a-smooth-release*
 
-## Ưu điểm
+## 1.1. Ưu điểm
 
-* Giảm thời gian downtime
-
+* Giảm thời gian downtime  
   Như các bạn đã thấy ở phần giới thiệu phía trên, thời gian downtime do deployment đã được giải quyết. Users vẫn sử dụng service bình thường trong quá trình deploy, khi phiên bản mới sẵn sàng trên môi trường dự bị (green hay blue) thì request của users được route qua môi trường mới mà thôi. Quá trình deploy diễn ra mượt mà và không hề tạo ra bất kì phiền hà nào trong trải nghiệm với users.
 
-* Dễ dàng rollback khi gặp trouble
-
+* Dễ dàng rollback khi gặp trouble  
   Bời vì chúng ta có sẵn hai môi trường production nên sau khi deploy, dù sự cố bất ngờ có phát sinh thì đường rút lui cũng luôn bật đèn xanh chờ sẵn. :wink:
 
-## "Thắt cổ chai" - nhược điểm
+## 1.2. "Thắt cổ chai" - nhược điểm
 
-* Đắt đỏ
-  
+* Đắt đỏ  
   Việc sử dụng đến hai môi trường production sẽ kéo theo vấn đề chi phí. Do đó quy mô service và ngân sách không hợp lý thì việc triển khai B/G deploy đôi khi biến thành "lợi bất cập hại".
 
-* Deployment sẽ rất khó khăn khi có sự thay đổi lớn với database
-
+* Deployment sẽ rất khó khăn khi có sự thay đổi lớn với database  
   Phần database rất khó để cũng tách ra riêng biệt cho hai môi trường blue/green, do đó nó thường là phần giữ nguyên, không được switch khi deploy. Dẫn đến một việc là nếu trong lần release, schema của bảng dữ liệu có nhiều thay đổi thì deploy sẽ càng phức tạp. Có thể hình dung là đầu tiên ta phải thiết kế logic phía ứng dụng phiên bản mới sao cho tương thích với cả schema cũ, rồi deploy, rồi sau đó mới chỉnh sửa bỏ schema cũ để chỉ support với schema mới v...v...
 
-# Chia sẻ thiết kế B/G deploy trong thực tế
+# 2. Chia sẻ thiết kế B/G deploy trong thực tế
+---
 
 Vào công ty, mình join vào team #SRE (Site Reliability Engineering) nên chẳng được tham gia vào phát triển product. Thay vào đó là làm mấy việc liên quan đến cải tiến quy trình nói chung, support team làm product, hay 1 số task pha chút devOps. Nói chung là chính mình cũng còn mơ hồ về công việc của team này :blush:
 
 Thế rồi lúc vẫn chân ướt chân ráo, task đầu tiên mình được giao là áp dụng B/G deploy vào 1 số product của công ty. Từ đây mình mới đi tìm hiểu nó là cái vẹo gì rồi thiết kế và kiểm chứng mô hình có hoạt động hay không. Qua quá trình này, mình muốn chia sẻ những thông tin thực tế nhất mình hiểu được khi triển khai một B/G deploy.
 
-## Bối cảnh quyết định áp dụng B/G deploy
+## 2.1. Bối cảnh quyết định áp dụng B/G deploy
 
 Hệ thống của công ty mình thì toàn bộ nằm ở trên AWS, lại xây dựng theo kiến trúc serverless nên *pay as you go* trở thành một điểm cộng rất lớn khi triển khai B/G deploy. Bởi vì sao, vì chúng ta chỉ cần trả cho phần phát sinh sử dụng (tính theo số request, thời gian thực thi hàm lambda, lượng dữ liệu trung chuyển vân vân) chứ không phải trả khi tạo thêm tài nguyên. Do đó không chỉ blue và green, thậm chí tạo thêm red và brown cũng được. :thumbsup:
 
 Ngoài ra database sử dụng phần lớn là DynamoDB, đặc trưng của nó là schema không cố định, linh hoạt trên từng row (trừ thông tin key) nên vốn dĩ vụ release cũng không trở lên phức tạp nhiều khi có dependent database đi nữa.
 
-## Quá trình thiết kế 
+## 2.2. Quá trình thiết kế 
 
 ### Bản nháp ý tưởng
 
@@ -84,7 +82,7 @@ Thiết kế cuối cùng mà mình nghĩ ra như trong bản nháp dưới đâ
 
 Trong lúc vẽ nháp, mình còn ngộ ra một chỗ rất "ăn điểm" trong thiết kế này. Đó là flag lưu trong Parameter store có thể dùng làm luôn định vị để cấu hình cho CircleCI tự động biết deploy lên môi trường không active. Tự động hóa hết rồi, vậy là chỉ việc dev và dev đến chết, lúc nào cần switch môi trường để release thì cập nhật cái flag là ok thôi.
 
-![blue-green-prototype](/static/images/bluegreen_deploy_draft1.jpg)
+![blue-green-prototype](/blog/images/bluegreen_deploy_draft1.jpg)
 
 ### Thiết kế cuối cùng
 
@@ -92,7 +90,7 @@ Lúc đầu mình định đưa lên đây ảnh architecture đẹp đẽ đã 
 
 Cơ bản thì thiết kế như bản nháp trên mình đã giới thiệu, mình chỉ đưa thêm một feature nhỏ dạng backdoor vào để team dev product dễ dàng tùy ý kiểm thử môi trường blue/green hơn thôi. Các bạn cũng biết đó, không check thử tí nào mà switch môi trường production thì khá là mạo hiểm mà.
 
-# Thông tin bên lề biết được thêm khi tìm hiểu về B/G deploy
+# 3. Thông tin bên lề biết được thêm khi tìm hiểu về B/G deploy
 
 * Canary releases (Canary nghĩa là chim hoàng yến)
 
