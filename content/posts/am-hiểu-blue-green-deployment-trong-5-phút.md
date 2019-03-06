@@ -1,8 +1,8 @@
 ---
 title: "Am Hiểu Blue Green Deployment Trong 5 Phút"
 date: 2019-03-06T09:29:32+09:00
-draft: true
-tags: [aws, sre, infra]
+draft: no
+tags: [aws, sre, infra, blue green deploy]
 language: vi
 toc: true
 authors: [chienkira]
@@ -40,7 +40,7 @@ Các bạn thấy đó, vấn đề Downtime đã được giải quyết triệ
 
 * Dễ dàng rollback khi gặp trouble
 
-  Bời vì chúng ta có sẵn hai môi trường production nên sau khi deploy, dù sự cố bất ngờ có phát sinh thì đường rút lui cũng luôn bật đèn xanh chờ sẵn. ;)
+  Bời vì chúng ta có sẵn hai môi trường production nên sau khi deploy, dù sự cố bất ngờ có phát sinh thì đường rút lui cũng luôn bật đèn xanh chờ sẵn. :wink:
 
 ## "Thắt cổ chai" - nhược điểm
 
@@ -54,13 +54,13 @@ Các bạn thấy đó, vấn đề Downtime đã được giải quyết triệ
 
 # Chia sẻ thiết kế B/G deploy trong thực tế
 
-Vào công ty, mình join vào team #SRE (Site Reliability Engineering) nên chẳng được tham gia vào phát triển product. Thay vào đó là làm mấy việc liên quan đến cải tiến quy trình nói chung, support team làm product, hay 1 số task pha chút devOps. Nói chung là chính mình cũng còn mơ hồ về công việc của team này :))
+Vào công ty, mình join vào team #SRE (Site Reliability Engineering) nên chẳng được tham gia vào phát triển product. Thay vào đó là làm mấy việc liên quan đến cải tiến quy trình nói chung, support team làm product, hay 1 số task pha chút devOps. Nói chung là chính mình cũng còn mơ hồ về công việc của team này :blush:
 
 Thế rồi lúc vẫn chân ướt chân ráo, task đầu tiên mình được giao là áp dụng B/G deploy vào 1 số product của công ty. Từ đây mình mới đi tìm hiểu nó là cái vẹo gì rồi thiết kế và kiểm chứng mô hình có hoạt động hay không. Qua quá trình này, mình muốn chia sẻ những thông tin thực tế nhất mình hiểu được khi triển khai một B/G deploy.
 
 ## Bối cảnh quyết định áp dụng B/G deploy
 
-Hệ thống của công ty mình thì toàn bộ nằm ở trên AWS, lại xây dựng theo kiến trúc serverless nên *pay as you go* trở thành một điểm cộng rất lớn khi triển khai B/G deploy. Bởi vì sao, vì chúng ta chỉ cần trả cho phần phát sinh sử dụng (tính theo số request, thời gian thực thi hàm lambda, lượng dữ liệu trung chuyển vân vân) chứ không phải trả khi tạo thêm tài nguyên. Do đó không chỉ blue và green, thậm chí tạo thêm red và brown cũng được. :))
+Hệ thống của công ty mình thì toàn bộ nằm ở trên AWS, lại xây dựng theo kiến trúc serverless nên *pay as you go* trở thành một điểm cộng rất lớn khi triển khai B/G deploy. Bởi vì sao, vì chúng ta chỉ cần trả cho phần phát sinh sử dụng (tính theo số request, thời gian thực thi hàm lambda, lượng dữ liệu trung chuyển vân vân) chứ không phải trả khi tạo thêm tài nguyên. Do đó không chỉ blue và green, thậm chí tạo thêm red và brown cũng được. :thumbsup:
 
 Ngoài ra database sử dụng phần lớn là DynamoDB, đặc trưng của nó là schema không cố định, linh hoạt trên từng row (trừ thông tin key) nên vốn dĩ vụ release cũng không trở lên phức tạp nhiều khi có dependent database đi nữa.
 
@@ -76,15 +76,15 @@ Sau khi đào bới thông tin trên internet một hồi, mình nhận ra rằn
 - khi cần route đến môi trường blue, ta điều chỉnh `weight` của 2 DNS record trên thành `weight: 100` ứng với https://d000blue.cloudfront.net và `weight: 0` ứng với domain còn lại
 - ngược lại khi cần đổi lại môi trường green, ta lại điều chỉnh giá trị `weight` thành `100` cho record trỏ đến https://d000green.cloudfront.net là xong
 
-Cách giải quyết này khá là dễ hiểu và thực hiện. Tuy nhiên cũng có một điểm hơi khiến mình băn khoăn đó là, lợi dụng setting của DNS thì sẽ bị phụ thuộc vào spec của DNS server. Cụ thể hơn, mình băn khoăn ở chỗ, thời gian cần thiết để thay đổi DNS setting có hiệu lực với toàn bộ người dùng ở đây là không kiểm soát được. Mình không thích "mất kiểm soát" như vậy. :))
+Cách giải quyết này khá là dễ hiểu và thực hiện. Tuy nhiên cũng có một điểm hơi khiến mình băn khoăn đó là, lợi dụng setting của DNS thì sẽ bị phụ thuộc vào spec của DNS server. Cụ thể hơn, mình băn khoăn ở chỗ, thời gian cần thiết để thay đổi DNS setting có hiệu lực với toàn bộ người dùng ở đây là không kiểm soát được. Mình không thích "mất kiểm soát" như vậy. :stuck_out_tongue_winking_eye:
 
-Đi tìm cách khác để thực hiện cơ chế routing này, mình nhớ đến ứng viên mà mình đã thấy rất tiềm năng khi tìm hiểu về CloudFront - **Lambda@Edge**. CloudFront cho phép trigger Lambda@Edge mỗi khi nó request nội dung từ origin để phục vụ users. Ý tưởng ở đây sẽ là thực hiện việc routing ở trong Lambda@Edge, nghĩa là ta sẽ điều hướng CloudFront lấy content từ origin mà ta muốn (origin của môi trường Blue hoặc Green). Flag để xác định môi trường Blue hay Green đang active thì mình dùng 1 biến lưu trong Parameter store, vừa dễ tham chiếu lại vừa dễ thay đổi ;)
+Đi tìm cách khác để thực hiện cơ chế routing này, mình nhớ đến ứng viên mà mình đã thấy rất tiềm năng khi tìm hiểu về CloudFront - **Lambda@Edge**. CloudFront cho phép trigger Lambda@Edge mỗi khi nó request nội dung từ origin để phục vụ users. Ý tưởng ở đây sẽ là thực hiện việc routing ở trong Lambda@Edge, nghĩa là ta sẽ điều hướng CloudFront lấy content từ origin mà ta muốn (origin của môi trường Blue hoặc Green). Flag để xác định môi trường Blue hay Green đang active thì mình dùng 1 biến lưu trong Parameter store, vừa dễ tham chiếu lại vừa dễ thay đổi :wink:
 
 Thiết kế cuối cùng mà mình nghĩ ra như trong bản nháp dưới đây.
 
 Trong lúc vẽ nháp, mình còn ngộ ra một chỗ rất "ăn điểm" trong thiết kế này. Đó là flag lưu trong Parameter store có thể dùng làm luôn định vị để cấu hình cho CircleCI tự động biết deploy lên môi trường không active. Tự động hóa hết rồi, vậy là chỉ việc dev và dev đến chết, lúc nào cần switch môi trường để release thì cập nhật cái flag là ok thôi.
 
-![blue-green-prototype](/static/images/bluegreen_deploy_draft1.jpg_)
+![blue-green-prototype](/static/images/bluegreen_deploy_draft1.jpg)
 
 ### Thiết kế cuối cùng
 
@@ -94,5 +94,11 @@ Cơ bản thì thiết kế như bản nháp trên mình đã giới thiệu, m�
 
 # Thông tin bên lề biết được thêm khi tìm hiểu về B/G deploy
 
-* A/B testing
-* Canary test
+* Canary releases (Canary nghĩa là chim hoàng yến)
+
+  Cụm từ này cũng hay được nhắc đến song hành với B/G deploy nhưng nó lại chỉ về một kỹ thuật khác hoàn toàn. 
+  Xét theo khía cạnh infra thì cấu trúc của nó tương đồng với B/G deploy ở chỗ là, cũng có 2 môi trường production nằm độc lập. Tuy nhiên cách vận hành và mục đích của chúng thì khác nhau. Canary release sẽ không route người dùng vào 1 trong 2 môi trường production mà sẽ phân tán vào cả 2 cùng một lúc (có thể theo tỉ lệ 1-9 hay 3-7 vân vân), mục đích là thăm dò và đánh giá phản ứng của người dùng với 2 phiên bản khác nhau trước khi thực sự release.
+  
+  Có thể hình dung vui là thả ra một con chim long lanh trước khi thả hết ra cả lồng chim :heart_eyes:
+
+  Thiên hạ cũng đồn các ông lớn như Facebook, Google là những nơi tiến hành Canary release nhiều nhất. Họ thường release tính năng mới cho người dùng ở Mỹ chẳng hạn, trước khi release ra cho toàn bộ dân đen trên trái đất. 
