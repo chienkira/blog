@@ -117,7 +117,7 @@ other = "says"
 other = "Search"
 
 [searchResultEmpty]
-other = "Nothing found!"
+other = "Không tìm thấy!"
 
 [searching]
 other = "Searching"
