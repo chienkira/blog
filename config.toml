@@ -91,23 +91,28 @@ tag = "tags"
 page = "/:slug/"
 
 [[menu.main]]
-name = "Home　"
+name = "~/　"
 weight = -100
 url = "/"
 
 [[menu.main]]
-name = "All posts　"
+name = "~/Posts　"
 weight = -30
 url = "/posts"
 
 [[menu.main]]
-name = "My portfolio　"
+name = "Musyc ♪　"
 weight = -20
+url = "https://chienkira.github.io/musyc/dist/"
+
+[[menu.main]]
+name = "Portfolio ♀　"
+weight = -15
 url = "https://chienkira.github.io"
 
 [[menu.main]]
-name = "Rss　"
-weight = -19
+name = "Rss ‡　"
+weight = -10
 url = "/index.xml"
 
 [blackfriday]
