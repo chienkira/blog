@@ -14,7 +14,7 @@ excludeParents = ["page"]            # default: ["page"]
 
 # Recent Posts Widget config
 [recent_posts]
-title = ""                            # default: "Recent Posts"
+title = "Bài viết mới"                # default: "Recent Posts"
 length = 30                           # default: 5
 excludeTypes = ["page"]               # default: ["page"]
 

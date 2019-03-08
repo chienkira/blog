@@ -98,8 +98,8 @@ other = "Previous post"
 other = "Posted on"
 
 [readingTime]
-one = "One min read"
-other = "{{ .Count }} mins read"
+one = "1 min đọc"
+other = "{{ .Count }} mins đọc"
 
 [recentPosts]
 other = "Recent Posts"
@@ -142,7 +142,7 @@ other = "Social Menu"
 other = "Comment!"
 
 [tableOfContents]
-other = "Table of Contents"
+other = "Mục lục"
 
 [tag]
 one = "Tag"
