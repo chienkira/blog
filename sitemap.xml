@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chienkira.github.io/blog/posts/t%E1%BB%B1-t%E1%BA%A1o-ch%C6%B0%C6%A1ng-tr%C3%ACnh-cli-c%E1%BB%A7a-ch%C3%ADnh-m%C3%ACnh-kh%C3%B4ng-%C4%91%E1%BB%A5ng-h%C3%A0ng/</loc>
+    <lastmod>2019-03-13T23:04:57+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/posts/am-hi%E1%BB%83u-blue-green-deployment-trong-5-ph%C3%BAt/</loc>
     <lastmod>2019-03-06T09:29:32+09:00</lastmod>
   </url>
@@ -72,7 +77,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/</loc>
-    <lastmod>2019-03-06T09:29:32+09:00</lastmod>
+    <lastmod>2019-03-13T23:04:57+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -83,7 +88,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/posts/</loc>
-    <lastmod>2019-03-06T09:29:32+09:00</lastmod>
+    <lastmod>2019-03-13T23:04:57+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -125,6 +130,12 @@
   <url>
     <loc>https://chienkira.github.io/blog/tags/career/</loc>
     <lastmod>2019-02-28T16:07:28+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/cli/</loc>
+    <lastmod>2019-03-13T23:04:57+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -202,7 +213,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/python/</loc>
-    <lastmod>2019-02-08T15:49:01+09:00</lastmod>
+    <lastmod>2019-03-13T23:04:57+09:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -5,10 +5,21 @@
     <link>https://chienkira.github.io/blog/posts/</link>
     <description>Recent content in Posts on Chienkira</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 06 Mar 2019 09:29:32 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 13 Mar 2019 23:04:57 +0900</lastBuildDate>
     
 	<atom:link href="https://chienkira.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tự Tạo Chương Trình CLI Của Chính Mình Không Đụng Hàng</title>
+      <link>https://chienkira.github.io/blog/posts/t%E1%BB%B1-t%E1%BA%A1o-ch%C6%B0%C6%A1ng-tr%C3%ACnh-cli-c%E1%BB%A7a-ch%C3%ADnh-m%C3%ACnh-kh%C3%B4ng-%C4%91%E1%BB%A5ng-h%C3%A0ng/</link>
+      <pubDate>Wed, 13 Mar 2019 23:04:57 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/t%E1%BB%B1-t%E1%BA%A1o-ch%C6%B0%C6%A1ng-tr%C3%ACnh-cli-c%E1%BB%A7a-ch%C3%ADnh-m%C3%ACnh-kh%C3%B4ng-%C4%91%E1%BB%A5ng-h%C3%A0ng/</guid>
+      <description>Lập trình viên không sớm thì muộn cũng sẽ yêu cái máy tính không khác gì yêu vợ. Rồi ngày qua ngày tiếp xúc với cửa sổ dòng lệnh, mắt lập trình viên dần thấy quen và ưng cái giao diện command line (CLI) hơn cả GUI màu sắc :))
+CLI: command line interface
+Mở đầu Từ vài năm trước, sau khi chuyển qua sử dụng Mac thì thói quen sử dụng command line của mình đã được cải thiện rõ rệt.</description>
+    </item>
     
     <item>
       <title>Am Hiểu Blue Green Deployment Trong 5 Phút</title>
