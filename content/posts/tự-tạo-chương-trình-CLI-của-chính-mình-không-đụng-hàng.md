@@ -180,9 +180,12 @@ Tool mình chọn sử dụng là [**setuptools**](https://setuptools.readthedoc
 
     Các bạn có thể xem chi tiết file functions.py ở github repository này. [github.com/chienkira/kira-cli/.../functions.py](https://github.com/chienkira/kira-cli/blob/master/weather/functions.py)
 
-    Các bạn cũng có thể tự tải về cài vào máy chạy của mình thử nhé. Chỉ cần máy có cài đặt python nhé, ai dùng Mac rồi thì có sẵn luôn python không phải làm gì thêm.
+    Các bạn cũng có thể tự tải về cài vào máy chạy của mình dùng thử nhé. Chỉ cần máy có cài đặt python 3.
+    ※ Chú ý là máy mac thì đang mặc định python 2 thôi nên sẽ lỗi, khuyên các bạn cài pyenv rồi đổi qua python 3.6.
+
     ```bash
     git clone https://github.com/chienkira/kira-cli.git && cd kira-cli
     python setup.py install
     weather tokyo
     ```
+    
