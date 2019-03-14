@@ -172,6 +172,7 @@ Tool mình chọn sử dụng là [**setuptools**](https://setuptools.readthedoc
     Ồ cũng xịn không kém gì git hay aws-cli rồi! :smiley:
 
 4. Hoàn thành logic lấy thông tin thời tiết
+
     Logic của nó không có gì đặc biệt.
     
     Mình tóm tắt lại là ban đầu dùng 1 API để lấy ra tọa độ địa lý của argument đầu vào city, sau đó gọi API của darksky với tọa độ đó để lấy về thông tin thời tiết.
@@ -186,6 +187,7 @@ Tool mình chọn sử dụng là [**setuptools**](https://setuptools.readthedoc
     ```bash
     git clone https://github.com/chienkira/kira-cli.git && cd kira-cli
     python setup.py install
+    # hoặc nếu ở máy bạn python 3 vẫn được cài ở `python3` thì chạy lệnh: `python3 setup.py install` 
     weather tokyo
     ```
     
