@@ -6,12 +6,15 @@ tags: [cli, python]
 language: vi
 toc: true
 authors: [chienkira]
-cover: /blog/images/kira-cli-weather-demo.gif
+cover: /blog/images/kira-cli-weather-demo.png
 ---
 
-**Lập trình viên không sớm thì muộn cũng sẽ yêu cái máy tính không khác gì yêu vợ. Rồi ngày qua ngày tiếp xúc với cửa sổ dòng lệnh, mắt lập trình viên dần thấy quen và ưng cái giao diện command line (CLI) hơn cả GUI màu sắc :))**
+**Lập trình viên không sớm thì muộn cũng sẽ yêu cái máy tính không khác gì yêu vợ. Rồi ngày qua ngày tiếp xúc với cửa sổ dòng lệnh, mắt lập trình viên dần thấy quen và ưng cái giao diện command line (CLI) hơn cả GUI màu sắc :joy:**
 
 *CLI: command line interface*
+
+*Đây là live action cái CLI mình đã làm thử ra.*
+![](/blog/images/kira-cli-weather-demo.gif)
 
 # Mở đầu
 Từ vài năm trước, sau khi chuyển qua sử dụng Mac thì thói quen sử dụng command line của mình đã được cải thiện rõ rệt. Mình nhận thấy hiệu quả công việc thực sự được nâng cao nếu vừa biết sử dụng thuần thục command line lại vừa chăm chỉ cài đặt alias, viết script tự động hóa vân vân.
@@ -176,9 +179,6 @@ Tool mình chọn sử dụng là [**setuptools**](https://setuptools.readthedoc
     Cuối cùng dùng colorama và print khéo léo ra màn hình cho dễ nhìn thôi.
 
     Các bạn có thể xem chi tiết file functions.py ở github repository này. [github.com/chienkira/kira-cli/.../functions.py](https://github.com/chienkira/kira-cli/blob/master/weather/functions.py)
-
-    Kết quả cuối cùng nhận được như thế này.
-    ![](/blog/images/kira-cli-weather-demo.png)
 
     Các bạn cũng có thể tự tải về cài vào máy chạy của mình thử nhé. Chỉ cần máy có cài đặt python nhé, ai dùng Mac rồi thì có sẵn luôn python không phải làm gì thêm.
     ```bash
