@@ -531,8 +531,9 @@ Options:
 --help           Show this message and exit.</code></pre></div>
 <p>Ồ cũng xịn không kém gì git hay aws-cli rồi! 😃</p></li>
 
-<li><p>Hoàn thành logic lấy thông tin thời tiết
-Logic của nó không có gì đặc biệt.</p>
+<li><p>Hoàn thành logic lấy thông tin thời tiết</p>
+
+<p>Logic của nó không có gì đặc biệt.</p>
 
 <p>Mình tóm tắt lại là ban đầu dùng 1 API để lấy ra tọa độ địa lý của argument đầu vào city, sau đó gọi API của darksky với tọa độ đó để lấy về thông tin thời tiết.</p>
 
@@ -544,6 +545,7 @@ Logic của nó không có gì đặc biệt.</p>
 ※ Chú ý là máy mac thì đang mặc định python 2 thôi nên sẽ lỗi, khuyên các bạn cài pyenv rồi đổi qua python 3.6.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone https://github.com/chienkira/kira-cli.git <span style="color:#f92672">&amp;&amp;</span> cd kira-cli
 python setup.py install
+<span style="color:#75715e"># hoặc nếu ở máy bạn python 3 vẫn được cài ở `python3` thì chạy lệnh: `python3 setup.py install`</span> 
 weather tokyo</code></pre></div></li>
 </ol>
 
