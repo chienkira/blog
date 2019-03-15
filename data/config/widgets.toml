@@ -5,7 +5,7 @@ title = "chienkira [chiến]"
 # default: .Site.Params.info.description
 description = "a web full stack developer \n\n a Papa engineer \n\n at Tokyo"
 # default: "/images/logo.png"
-logo = "/images/profile.png"
+logo = "/images/chienkira.png"
 
 # Breadcrumbs Widget config
 [breadcrumbs]
