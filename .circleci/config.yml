@@ -16,6 +16,7 @@ jobs:
           command: |
             git config --global user.email "chienhedspi@gmail.com"
             git config --global user.name "chienkira"
+            echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
       - run:
           name: build site and push to github-pages
           command: sh publish.sh
