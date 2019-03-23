@@ -1,0 +1,10 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: andthensome/alpine-hugo-git-bash
+    steps:
+      - checkout
+      - run:
+          name: build site and push to github-pages
+          command: sh publish.sh
