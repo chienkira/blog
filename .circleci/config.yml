@@ -8,6 +8,7 @@ jobs:
       - run:
           name: upgrade hugo
           command: |
+            apk update && apk add ca-certificates && update-ca-certificates && apk add openssl
             wget https://github.com/gohugoio/hugo/releases/download/v0.50/hugo_0.50_linux-64bit.tar.gz
             tar xzf hugo_0.50_linux-64bit.tar.gz -C /usr/local/bin/ 
       - run:
