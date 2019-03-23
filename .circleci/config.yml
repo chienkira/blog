@@ -6,5 +6,15 @@ jobs:
     steps:
       - checkout
       - run:
+          name: upgrade hugo
+          command: |
+            wget https://github.com/gohugoio/hugo/releases/download/v0.50/hugo_0.50_linux-64bit.tar.gz
+            tar xzf hugo_0.50_linux-64bit.tar.gz -C /usr/local/bin/ 
+      - run:
+          name: git config
+          command: |
+            git config --global user.email "chienhedspi@gmail.com"
+            git config --global user.name "chienkira"
+      - run:
           name: build site and push to github-pages
           command: sh publish.sh
