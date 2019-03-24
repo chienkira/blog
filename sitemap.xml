@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chienkira.github.io/blog/posts/nh%E1%BA%ADt-b%E1%BA%A3n-thi%C3%AAn-%C4%91%C6%B0%E1%BB%9Dng-c%E1%BB%A7a-th%E1%BB%B1c-ph%E1%BA%A9m-low-carb/</loc>
+    <lastmod>2019-03-24T22:37:08+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/posts/%C3%A1p-d%E1%BB%A5ng-circle-ci/</loc>
     <lastmod>2019-03-23T21:40:43+09:00</lastmod>
   </url>
@@ -88,7 +93,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/</loc>
-    <lastmod>2019-03-23T21:40:43+09:00</lastmod>
+    <lastmod>2019-03-24T22:37:08+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -105,7 +110,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/posts/</loc>
-    <lastmod>2019-03-23T21:40:43+09:00</lastmod>
+    <lastmod>2019-03-24T22:37:08+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -164,7 +169,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/cooking/</loc>
-    <lastmod>2019-01-01T22:07:58+09:00</lastmod>
+    <lastmod>2019-03-24T22:37:08+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -206,7 +211,13 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/life/</loc>
-    <lastmod>2019-02-28T16:07:28+09:00</lastmod>
+    <lastmod>2019-03-24T22:37:08+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/low-carb/</loc>
+    <lastmod>2019-03-24T22:37:08+09:00</lastmod>
     <priority>0</priority>
   </url>
   
