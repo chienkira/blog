@@ -26,6 +26,7 @@ Như ở trên đề cập, nó là 1 tool để giúp ta hiện thực hóa CI.
 Bản chất Circle CI là sử dụng docker, trong cấu hình Circle CI ta sẽ chỉ định các docker `image` sẽ sử dụng và các `job`, trong các job lại có các `step`, trong các step là cụ thể các `command`. Ngoài ra còn có cấu hình `filter` giúp ta linh hoạt điều chỉnh sao cho chỉ run các job khi có merge/push vào 1 số branch nhất định vân vân.
 
 Mô tả quá trình run 1 job trên Circle CI:
+
 1. Developer chỉ cần push hoặc merge vào 1 branch, Circle CI tự động biết event đó và khởi động lên job đã được cài đặt tương ứng.
 2. Ban đầu Circle CI pull docker image về và run lên trên môi trường cloud của nó
 3. Tiếp theo nó chạy các `step` đã được cài đặt trong docker container, thông thường step đầu tiên luôn là `checkout` tức là git checkout lấy source về (mặc định lưu trong thư mục `~/project`)
