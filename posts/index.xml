@@ -5,10 +5,20 @@
     <link>https://chienkira.github.io/blog/posts/</link>
     <description>Recent content in Posts on Chienkira</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 13 Mar 2019 23:04:57 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 23 Mar 2019 21:40:43 +0900</lastBuildDate>
     
 	<atom:link href="https://chienkira.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Áp Dụng Circle Ci</title>
+      <link>https://chienkira.github.io/blog/posts/%C3%A1p-d%E1%BB%A5ng-circle-ci/</link>
+      <pubDate>Sat, 23 Mar 2019 21:40:43 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/%C3%A1p-d%E1%BB%A5ng-circle-ci/</guid>
+      <description>Lúc đầu trang blog này mình định deploy bằng tay vì nó đơn giản, thao tác cũng chẳng có gì - chạy cái shell script xong trong nháy mắt thôi. Nhưng mà tuần này chưa có gì hay ho để viết nên mình quyết định cài đặt CI cho em nó rồi lấy ý để viết bài này giới thiệu về CI luôn.
+Giới thiệu CI và Circle CI CI CI viết tắt của Continuous Integration (Tích hợp liên tục) Trong quy trình làm phần mềm, lỗi lầm lớn nhất có thể xảy ra không phải là khi developer code ra cái gì tởm lợm!</description>
+    </item>
     
     <item>
       <title>Tự Tạo Chương Trình CLI Của Chính Mình Không Đụng Hàng</title>

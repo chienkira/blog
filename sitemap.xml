@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chienkira.github.io/blog/posts/%C3%A1p-d%E1%BB%A5ng-circle-ci/</loc>
+    <lastmod>2019-03-23T21:40:43+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/posts/t%E1%BB%B1-t%E1%BA%A1o-ch%C6%B0%C6%A1ng-tr%C3%ACnh-cli-c%E1%BB%A7a-ch%C3%ADnh-m%C3%ACnh-kh%C3%B4ng-%C4%91%E1%BB%A5ng-h%C3%A0ng/</loc>
     <lastmod>2019-03-13T23:04:57+09:00</lastmod>
   </url>
@@ -71,13 +76,19 @@
   </url>
   
   <url>
+    <loc>https://chienkira.github.io/blog/tags/ci/</loc>
+    <lastmod>2019-03-23T21:40:43+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://chienkira.github.io/blog/</loc>
-    <lastmod>2019-03-13T23:04:57+09:00</lastmod>
+    <lastmod>2019-03-23T21:40:43+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -87,8 +98,14 @@
   </url>
   
   <url>
+    <loc>https://chienkira.github.io/blog/tags/circle-ci/</loc>
+    <lastmod>2019-03-23T21:40:43+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/posts/</loc>
-    <lastmod>2019-03-13T23:04:57+09:00</lastmod>
+    <lastmod>2019-03-23T21:40:43+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -105,7 +122,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/</loc>
-    <lastmod>2019-02-13T15:50:07+09:00</lastmod>
+    <lastmod>2019-03-23T21:40:43+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -153,7 +170,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/docker/</loc>
-    <lastmod>2019-02-13T15:50:07+09:00</lastmod>
+    <lastmod>2019-03-23T21:40:43+09:00</lastmod>
     <priority>0</priority>
   </url>
   

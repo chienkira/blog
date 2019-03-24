@@ -5,10 +5,28 @@
     <link>https://chienkira.github.io/blog/tags/</link>
     <description>Recent content in Tags on Chienkira</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 13 Feb 2019 15:50:07 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 23 Mar 2019 21:40:43 +0900</lastBuildDate>
     
 	<atom:link href="https://chienkira.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CI</title>
+      <link>https://chienkira.github.io/blog/tags/ci/</link>
+      <pubDate>Sat, 23 Mar 2019 21:40:43 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/tags/ci/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Circle CI</title>
+      <link>https://chienkira.github.io/blog/tags/circle-ci/</link>
+      <pubDate>Sat, 23 Mar 2019 21:40:43 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/tags/circle-ci/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>SAM</title>
@@ -85,7 +103,7 @@
     <item>
       <title>docker</title>
       <link>https://chienkira.github.io/blog/tags/docker/</link>
-      <pubDate>Wed, 13 Feb 2019 15:50:07 +0900</pubDate>
+      <pubDate>Sat, 23 Mar 2019 21:40:43 +0900</pubDate>
       
       <guid>https://chienkira.github.io/blog/tags/docker/</guid>
       <description></description>
