@@ -396,12 +396,15 @@ Trong quy trình làm phần mềm, lỗi lầm lớn nhất có thể xảy ra 
 
 <p>Bản chất Circle CI là sử dụng docker, trong cấu hình Circle CI ta sẽ chỉ định các docker <code>image</code> sẽ sử dụng và các <code>job</code>, trong các job lại có các <code>step</code>, trong các step là cụ thể các <code>command</code>. Ngoài ra còn có cấu hình <code>filter</code> giúp ta linh hoạt điều chỉnh sao cho chỉ run các job khi có merge/push vào 1 số branch nhất định vân vân.</p>
 
-<p>Mô tả quá trình run 1 job trên Circle CI:
-1. Developer chỉ cần push hoặc merge vào 1 branch, Circle CI tự động biết event đó và khởi động lên job đã được cài đặt tương ứng.
-2. Ban đầu Circle CI pull docker image về và run lên trên môi trường cloud của nó
-3. Tiếp theo nó chạy các <code>step</code> đã được cài đặt trong docker container, thông thường step đầu tiên luôn là <code>checkout</code> tức là git checkout lấy source về (mặc định lưu trong thư mục <code>~/project</code>)
-4. Các step tiếp theo được chạy tùy vào độ sáng tạo của bạn, ví dụ job để build thì thường là <code>npm install</code> rồi <code>npm run abcxyz</code> hay job để deploy thì có thể là <code>aws s3 sync</code> hay <code>serverless deploy</code>&hellip;
-5. Sau khi tất cả các step đã chạy xong, job kết thúc. Nếu exit code của job là error thì mặc định ta sẽ nhận được mail thông báo failed nữa.</p>
+<p>Mô tả quá trình run 1 job trên Circle CI:</p>
+
+<ol>
+<li>Developer chỉ cần push hoặc merge vào 1 branch, Circle CI tự động biết event đó và khởi động lên job đã được cài đặt tương ứng.</li>
+<li>Ban đầu Circle CI pull docker image về và run lên trên môi trường cloud của nó</li>
+<li>Tiếp theo nó chạy các <code>step</code> đã được cài đặt trong docker container, thông thường step đầu tiên luôn là <code>checkout</code> tức là git checkout lấy source về (mặc định lưu trong thư mục <code>~/project</code>)</li>
+<li>Các step tiếp theo được chạy tùy vào độ sáng tạo của bạn, ví dụ job để build thì thường là <code>npm install</code> rồi <code>npm run abcxyz</code> hay job để deploy thì có thể là <code>aws s3 sync</code> hay <code>serverless deploy</code>&hellip;</li>
+<li>Sau khi tất cả các step đã chạy xong, job kết thúc. Nếu exit code của job là error thì mặc định ta sẽ nhận được mail thông báo failed nữa.</li>
+</ol>
 
 <p>Nói tóm lại, sau khi cài đặt và cấu hình ta chỉ việc dev còn các công việc như build, chạy test, deploy vân vân được tự động hóa hoàn toàn và chạy tức thì trên môi trường cloud mạnh mẽ miễn phí của Circle CI.</p>
 
