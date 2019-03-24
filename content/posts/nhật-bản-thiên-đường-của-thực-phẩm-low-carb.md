@@ -26,7 +26,7 @@ Ghi chú : trong tiếng Nhật, tinh bột là 炭水化物, nhưng với ngư�
 
 (Bánh mì carb off có thể dễ dàng tìm mua tại Lawson)
 
-Bản thân mình rất thích ăn bánh mì, nhưng khi hạn chế tính bột thì mình phải  say goodbye với bánh mì, vì 1 lát bánh mì sandwich (食パン) thôi đã chứa tới 26,6g đường. Tuy nhiên, nếu bạn tìm mua bánh mì ブランパン ở Lawson thì sẽ hạn chế được tối đa lượng đường hấp thụ mà vẫn được ăn bánh mì nhé. Lý do là vì ブランパン được làm từ vỏ lúa mì, nên hàm lượng đường rất thấp, như 2 chiếc nhỏ ở trên thì mỗi chiếc chứa 2.2g đường nhé. Tất nhiên là hơi khó ăn hơn các loại bánh mì sandwih bình thường nhưng mà vẫn có vị bánh mì, vẫn khá ngon nhé. 
+Bản thân mình rất thích ăn bánh mì, nhưng khi hạn chế tinh bột thì mình phải  say goodbye với bánh mì, vì 1 lát bánh mì sandwich (食パン) thôi đã chứa tới 26,6g đường. Tuy nhiên, nếu bạn tìm mua bánh mì ブランパン ở Lawson thì sẽ hạn chế được tối đa lượng đường hấp thụ mà vẫn được ăn bánh mì nhé. Lý do là vì ブランパン được làm từ vỏ lúa mì, nên hàm lượng đường rất thấp, như 2 chiếc nhỏ ở trên thì mỗi chiếc chứa 2.2g đường nhé. Tất nhiên là hơi khó ăn hơn các loại bánh mì sandwich bình thường nhưng mà vẫn có vị bánh mì, vẫn khá ngon. 
 
 Ngoài ra các hãng bánh mì nổi tiếng như ヤマザキ cũng có các sản phẩm bánh mì với lượng đường thấp, khoảng 6g/lát mà chúng ta có thể dễ dàng tìm mua ở các siêu thị. Siêu thị bình dân gần nhà mình như The Price mà còn có nữa mà.
 
@@ -45,6 +45,7 @@ Tuy nhiên muốn diet thì phải giảm đồ ngọt nhé. Nhưng khi vừa mu
 
 - Kem carb off Sunao của Glico
 Loại kem này chỉ có 80kcal/cây, 9,6g đường do được làm từ sữa đậu nành, và có thể dễ dàng tìm mua tại các của hàng tiện lợi. Kem có đủ các vị vani, maccha, socola.
+![](/blog/images/sunao01.jpg)
 - Các sản phẩm donut hoặc bánh cuộn kem sử dụng đường nhân tạo tại Lawson
 - Các sản phẩm đồ ngọt tại Familimart liên kết sản xuất với Rizap.
 
