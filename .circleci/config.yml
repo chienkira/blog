@@ -1,9 +1,6 @@
 version: 2
 jobs:
-  build:
-    branches:
-      only:
-        - master
+  publish:
     docker:
       - image: andthensome/alpine-hugo-git-bash
     steps:
@@ -25,3 +22,11 @@ jobs:
       - run:
           name: build site and push to github-pages
           command: sh publish.sh
+workflows:
+  version: 2
+  build_site_and_publish:
+    jobs:
+      - publish:
+          filters:
+            branches:
+              only: master
