@@ -55,4 +55,4 @@ Trong đó Careco là hãng mình muốn recommend nhất, bởi vì số lượ
 
 Tuy nhiên Careco thì đáng tiếc là không cho phép bằng lái dưới 1 năm đăng ký thành viên. Rất buồn! Ở thời điểm hiện tại mình cũng không dùng được mặc dù có 1 cái station ngay gần nhà và nhiều xe ổn nữa. Thay vào đó mình đang dùng Orix thông qua service [D-カーシェア](https://carshare.dmkt-sp.jp/portal/). Dùng cái này rất tiện lợi ở chỗ là thông qua 1 mình nó thôi nhưng mà check xe và thuê được của nhiều công ty khác nhau (Careco, Orix...) luôn. Ngoài ra phí thành viên hàng tháng cũng được miễn phí luôn :thumbsup:
 
-Kết thúc ở đây cho ngắn gọn. Nếu có thông tin hữu ích hoặc câu hỏi, hãy comment ở bên dưới nhé các bạn.
+Kết thúc ở đây cho ngắn gọn. Nếu có thông tin hữu ích hoặc câu hỏi, các bạn hãy comment ở bên dưới nhé!
