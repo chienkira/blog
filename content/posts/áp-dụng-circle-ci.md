@@ -1,5 +1,5 @@
 ---
-title: "Áp Dụng Circle Ci"
+title: "Giới thiệu CI và áp dụng thực tế tool Circle CI"
 date: 2019-03-23T21:40:43+09:00
 draft: no
 tags: [CI, Circle CI, docker]
