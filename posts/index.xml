@@ -5,10 +5,21 @@
     <link>https://chienkira.github.io/blog/posts/</link>
     <description>Recent content in Posts on Chienkira</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 24 Mar 2019 22:37:08 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 05 Apr 2019 10:38:57 +0900</lastBuildDate>
     
 	<atom:link href="https://chienkira.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Thủ Thuật Unpack Trong Python</title>
+      <link>https://chienkira.github.io/blog/posts/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python/</link>
+      <pubDate>Fri, 05 Apr 2019 10:38:57 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python/</guid>
+      <description>Ký tự * ngoài là toán tử multiplication (phép nhân) và string replication ra, trong Python nó còn có một tác dụng khác khá xịn xò - unpack (một số người còn gọi là splat).
+Ký hiệu * Unpack chỉ có thể áp dụng lên một object loại interable, để áp dụng việc cần làm là đặt ký hiệu * lên liền ngay trước object đó.
+ Ví dụ:</description>
+    </item>
     
     <item>
       <title>Nhật Bản Thiên Đường Của Thực Phẩm Low Carb</title>
