@@ -21,6 +21,7 @@ Unpack chỉ có thể áp dụng lên một object loại interable, để áp 
 Phép unpack với ký hiệu `*` sẽ sinh ra *"các phần tử"*, được tách ra từ iterable object ban đầu.
 
 Ví dụ như
+
 - Nếu áp dụng lên một object kiểu list, ta sẽ nhận được các phần tử có trong list đó.
 - Nếu áp dụng lên một object kiểu dictionary, ta sẽ nhận được các keys (chỉ key thôi, không có value) có trong dictionary đó.
 
