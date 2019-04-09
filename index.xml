@@ -17,7 +17,7 @@
       
       <guid>https://chienkira.github.io/blog/posts/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python/</guid>
       <description>Ký tự * ngoài là toán tử multiplication (phép nhân) và string replication ra, trong Python nó còn có một tác dụng khác khá xịn xò - unpack (một số người còn gọi là splat).
-Ký hiệu * Unpack chỉ có thể áp dụng lên một object loại interable, để áp dụng việc cần làm là đặt ký hiệu * lên liền ngay trước object đó.
+Ký hiệu * Unpack chỉ có thể áp dụng lên một object loại iterable, để áp dụng việc cần làm là đặt ký hiệu * lên liền ngay trước object đó.
  Ví dụ:</description>
     </item>
     
