@@ -12,7 +12,7 @@ authors: [chienkira]
 
 ## Ký hiệu `*`
 
-Unpack chỉ có thể áp dụng lên một object loại interable, để áp dụng việc cần làm là đặt ký hiệu `*` lên liền ngay trước object đó.
+Unpack chỉ có thể áp dụng lên một object loại iterable, để áp dụng việc cần làm là đặt ký hiệu `*` lên liền ngay trước object đó.
 
 > Ví dụ:  
 > Dùng trực tiếp với biến: `*list_variable`  
