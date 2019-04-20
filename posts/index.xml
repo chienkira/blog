@@ -5,10 +5,20 @@
     <link>https://chienkira.github.io/blog/posts/</link>
     <description>Recent content in Posts on Chienkira</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 05 Apr 2019 10:38:57 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 15 Apr 2019 17:37:58 +0900</lastBuildDate>
     
 	<atom:link href="https://chienkira.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Giới Hạn Code Storage Trong Aws Lambda</title>
+      <link>https://chienkira.github.io/blog/posts/gi%E1%BB%9Bi-h%E1%BA%A1n-code-storage-trong-aws-lambda/</link>
+      <pubDate>Mon, 15 Apr 2019 17:37:58 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/gi%E1%BB%9Bi-h%E1%BA%A1n-code-storage-trong-aws-lambda/</guid>
+      <description>Cọ xát thực tế mới ngộ ra được bản chất của cái limit code storage trong AWS lambda. Bài này muốn chia sẻ lại một chút kiến thức biết được với mọi người.
+Bối cảnh Công ty đang làm service chủ yếu theo kiến trúc serverless, nên dùng tương đối nhiều AWS Lambda functions. - Số lượng Lambda: 238 - Code size của Lambda: average 20MB ~ max 50MB</description>
+    </item>
     
     <item>
       <title>Thủ Thuật Unpack Trong Python</title>
