@@ -2,7 +2,7 @@
 title: "Giới Hạn Code Storage Trong Aws Lambda"
 date: 2019-04-15T17:37:58+09:00
 draft: no
-tags: [til, aws, lambda]
+tags: [til, aws, lambda, serverless]
 language: vi
 toc: false
 authors: [chienkira]
