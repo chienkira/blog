@@ -45,7 +45,7 @@ test(*list)
 # b = 2
 # c = 3
 ```
-Unpack đã giúp tách độc lập các phần từ có trong object `list` ra, do đó method `test` nhận vào được đúng 3 params a, b và c tương ứng với 3 phần tử trong object `list`.
+Unpack đã giúp tách độc lập các phần tử có trong object `list` ra, do đó method `test` nhận vào được đúng 3 params a, b và c tương ứng với 3 phần tử trong object `list`.
 
 Đến đây thì nếu liên tưởng chút, ta sẽ thấy cách viết quen thuộc sau hiện lên ở trong đầu.
 ```python

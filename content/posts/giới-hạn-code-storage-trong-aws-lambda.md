@@ -13,6 +13,7 @@ cover: /blog/images/lambda_dashboard_limits_cover.png
 
 ## Bối cảnh
 Công ty đang làm service chủ yếu theo kiến trúc serverless, nên dùng tương đối nhiều AWS Lambda functions.
+
 - Số lượng Lambda: 238
 - Code size của Lambda: average 20MB ~ max 50MB
 
