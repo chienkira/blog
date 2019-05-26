@@ -2,23 +2,21 @@
 <html lang='en'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='Ký tự * ngoài là toán tử multiplication (phép nhân) và string replication ra, trong Python nó còn có một tác dụng khác khá xịn xò - unpack (một số người còn gọi là splat).
-Ký hiệu * Unpack chỉ có thể áp dụng lên một object loại iterable, để áp dụng việc cần làm là đặt ký hiệu * lên liền ngay trước object đó.
- Ví dụ:'>
+<meta name='description' content='Sau khi sinh em bé xong thì cân nặng của mình tăng khá nhiều so với thời con gái. Dù đã cố gắng cho con bú nhưng vẫn không thể giảm được là bao nhiêu. Vì thế mình bắt đầu tìm hiểu về giảm cân, và tổng hợp những gì mình tìm hiểu được ở đây, hy vọng giúp ích được cho mọi người phần nào.
+Giảm cân là giảm cái gì ?'>
 <meta name='theme-color' content='#ffcd00'>
 
-<meta property='og:title' content='Thủ Thuật Unpack Trong Python • Chien Kira'>
-<meta property='og:description' content='Ký tự * ngoài là toán tử multiplication (phép nhân) và string replication ra, trong Python nó còn có một tác dụng khác khá xịn xò - unpack (một số người còn gọi là splat).
-Ký hiệu * Unpack chỉ có thể áp dụng lên một object loại iterable, để áp dụng việc cần làm là đặt ký hiệu * lên liền ngay trước object đó.
- Ví dụ:'>
-<meta property='og:url' content='https://chienkira.github.io/blog/posts/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python/'>
+<meta property='og:title' content='Dành Cho Những Ai Muốn Giảm Cân • Thu Hương'>
+<meta property='og:description' content='Sau khi sinh em bé xong thì cân nặng của mình tăng khá nhiều so với thời con gái. Dù đã cố gắng cho con bú nhưng vẫn không thể giảm được là bao nhiêu. Vì thế mình bắt đầu tìm hiểu về giảm cân, và tổng hợp những gì mình tìm hiểu được ở đây, hy vọng giúp ích được cho mọi người phần nào.
+Giảm cân là giảm cái gì ?'>
+<meta property='og:url' content='https://chienkira.github.io/blog/posts/d%C3%A0nh-cho-nh%E1%BB%AFng-ai-mu%E1%BB%91n-gi%E1%BA%A3m-c%C3%A2n/'>
 <meta property='og:site_name' content='Chienkira'>
-<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/00e439e7376596f2760b4ef9a28df93b?s=256'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='tech'><meta property='article:tag' content='python'><meta property='article:tag' content='programing'><meta property='article:tag' content='TIL'><meta property='article:published_time' content='2019-04-05T10:38:57&#43;09:00'/><meta property='article:modified_time' content='2019-04-05T10:38:57&#43;09:00'/><meta name='twitter:card' content='summary'><meta name='twitter:creator' content='@chienkira'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://chienkira.github.io/blog/images/diet-how-to.jpg'><meta property='article:author' content='https://facebook.com/akikaori'><meta property='article:section' content='posts'><meta property='article:tag' content='diet'><meta property='article:tag' content='life'><meta property='article:published_time' content='2019-05-26T22:19:42&#43;09:00'/><meta property='article:modified_time' content='2019-05-26T22:19:42&#43;09:00'/><meta name='twitter:card' content='summary_large_image'><meta name='twitter:creator' content='@akikaori'><meta property='twitter:image' content='https://chienkira.github.io/blog/images/diet-how-to.jpg'>
 
 <meta name="generator" content="Hugo 0.50" />
 
-  <title>Thủ Thuật Unpack Trong Python • Chien Kira</title>
-  <link rel='canonical' href='https://chienkira.github.io/blog/posts/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python/'>
+  <title>Dành Cho Những Ai Muốn Giảm Cân • Thu Hương</title>
+  <link rel='canonical' href='https://chienkira.github.io/blog/posts/d%C3%A0nh-cho-nh%E1%BB%AFng-ai-mu%E1%BB%91n-gi%E1%BA%A3m-c%C3%A2n/'>
   
   
   <link rel='icon' href='/blog/favicon.ico'>
@@ -40,7 +38,7 @@ if (!doNotTrack) {
   
 
 </head>
-<body class='page type-posts has-sidebar'>
+<body class='page type-posts has-cover has-sidebar'>
 
   <div class='site'><div id='sidebar' class='sidebar'>
   <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
@@ -182,7 +180,7 @@ if (!doNotTrack) {
     <style>.widget-breadcrumbs li:after{content:'　\3e\3e　'}</style>
   <section class='widget widget-breadcrumbs sep-after'>
     <nav id='breadcrumbs'>
-      <ol><li><a href='/blog/'>Chienkira</a></li><li><a href='/blog/posts/'>Posts</a></li><li><span>Thủ Thuật Unpack Trong Python</span></li></ol>
+      <ol><li><a href='/blog/'>Chienkira</a></li><li><a href='/blog/posts/'>Posts</a></li><li><span>Dành Cho Những Ai Muốn Giảm Cân</span></li></ol>
     </nav>
   </section></div>
       </div>
@@ -201,7 +199,7 @@ if (!doNotTrack) {
   <header class='header entry-header'>
   <div class='container sep-after'>
     <div class='header-info'>
-      <h1 class='title'>Thủ Thuật Unpack Trong Python</h1>
+      <h1 class='title'>Dành Cho Những Ai Muốn Giảm Cân</h1>
       
 
     </div>
@@ -215,7 +213,7 @@ if (!doNotTrack) {
   
 </svg>
 <span class='screen-reader-text'>Posted on </span>
-  <time class='entry-date' datetime='2019-04-05T10:38:57&#43;09:00'>2019, Apr 05</time>
+  <time class='entry-date' datetime='2019-05-26T22:19:42&#43;09:00'>2019, May 26</time>
 </span>
 
   <span class='byline'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
@@ -224,7 +222,7 @@ if (!doNotTrack) {
   <path d="M16,6.37A4,4,0,1,1,12.63,3,4,4,0,0,1,16,6.37Z"/>
   
 </svg>
-<span class='screen-reader-text'> by </span><a href='/blog/authors/chienkira'>Chien Kira</a></span>
+<span class='screen-reader-text'> by </span><a href='/blog/authors/akikaori'>Thu Hương</a></span>
   
 <span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
@@ -232,7 +230,7 @@ if (!doNotTrack) {
   <polyline points="12 6 12 12 15 15"/>
   
 </svg>
-4 mins đọc
+8 mins đọc
 </span>
 
 
@@ -333,21 +331,21 @@ if (!doNotTrack) {
 
 <div id="share-buttons">
     <div class="facebook" title="Share this on Facebook"
-        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python\/');">
+        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/d%C3%A0nh-cho-nh%E1%BB%AFng-ai-mu%E1%BB%91n-gi%E1%BA%A3m-c%C3%A2n\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z" /></svg></div>
     <div class="twitter" title="Share this on Twitter"
-        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python\/&amp;text=Thủ Thuật Unpack Trong Python&amp;via=');">
+        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/d%C3%A0nh-cho-nh%E1%BB%AFng-ai-mu%E1%BB%91n-gi%E1%BA%A3m-c%C3%A2n\/&amp;text=Dành Cho Những Ai Muốn Giảm Cân&amp;via=');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z" /></svg></div>
     <div class="linkedin" title="Share this on Linkedin"
-        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python\/&amp;title=Thủ Thuật Unpack Trong Python');"><svg
+        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/d%C3%A0nh-cho-nh%E1%BB%AFng-ai-mu%E1%BB%91n-gi%E1%BA%A3m-c%C3%A2n\/&amp;title=Dành Cho Những Ai Muốn Giảm Cân');"><svg
             viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z" /></svg></div>
     
     <div class="gplus" title="Share this on Google Plus"
-        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python\/');"><svg viewBox="0 0 2304 1792"
+        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/d%C3%A0nh-cho-nh%E1%BB%AFng-ai-mu%E1%BB%91n-gi%E1%BA%A3m-c%C3%A2n\/');"><svg viewBox="0 0 2304 1792"
             xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z" /></svg>
     </div>
     <div class="mail" title="Share this through Email"
-        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python\/');">
+        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/d%C3%A0nh-cho-nh%E1%BB%AFng-ai-mu%E1%BB%91n-gi%E1%BA%A3m-c%C3%A2n\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z" /></svg>
     </div>
 </div>
@@ -357,94 +355,101 @@ if (!doNotTrack) {
   </div>
 </header>
 
+  <div class='entry-cover'>
+  <figure class='container cover-normal'>
+    <img src='/blog/images/diet-how-to.jpg'/>
+    
+  </figure>
+</div>
   
-  
+<details class='container entry-toc'>
+  <summary class='title'>
+    <span>Mục lục</span>
+  </summary>
+  <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#giảm-cân-là-giảm-cái-gì">Giảm cân là giảm cái gì ?</a></li>
+<li><a href="#vậy-làm-thế-nào-để-giảm-mỡ">Vậy làm thế nào để giảm mỡ ?</a></li>
+<li><a href="#vận-động">Vận động</a></li>
+<li><a href="#chế-độ-ăn">Chế độ ăn</a></li>
+</ul></li>
+</ul>
+</nav>
+</details>
+
 
   <div class='container entry-content'>
   
 
-<p><strong>Ký tự <code>*</code> ngoài là toán tử multiplication (phép nhân) và string replication ra, trong Python nó còn có một tác dụng khác khá xịn xò - unpack (một số người còn gọi là splat).</strong></p>
+<p><strong>Sau khi sinh em bé xong thì cân nặng của mình tăng khá nhiều so với thời con gái. Dù đã cố gắng cho con bú nhưng vẫn không thể giảm được là bao nhiêu. Vì thế mình bắt đầu tìm hiểu về giảm cân, và tổng hợp những gì mình tìm hiểu được ở đây, hy vọng giúp ích được cho mọi người phần nào.</strong></p>
 
-<h2 id="ký-hiệu">Ký hiệu <code>*</code></h2>
+<h2 id="giảm-cân-là-giảm-cái-gì">Giảm cân là giảm cái gì ?</h2>
 
-<p>Unpack chỉ có thể áp dụng lên một object loại iterable, để áp dụng việc cần làm là đặt ký hiệu <code>*</code> lên liền ngay trước object đó.</p>
-
-<blockquote>
-<p>Ví dụ:<br />
-Dùng trực tiếp với biến: <code>*list_variable</code><br />
-Dùng với biểu thức: <code>*[i*2 for i in some_array]</code></p>
-</blockquote>
-
-<p>Phép unpack với ký hiệu <code>*</code> sẽ sinh ra <em>&ldquo;các phần tử&rdquo;</em>, được tách ra từ iterable object ban đầu.</p>
-
-<p>Ví dụ như</p>
+<p>Khi giảm cân, chúng ta sẽ giảm 1, hoặc 2, hoặc cả 3 yếu tố sau:</p>
 
 <ul>
-<li>Nếu áp dụng lên một object kiểu list, ta sẽ nhận được các phần tử có trong list đó.</li>
-<li>Nếu áp dụng lên một object kiểu dictionary, ta sẽ nhận được các keys (chỉ key thôi, không có value) có trong dictionary đó.</li>
+<li>Giảm nước</li>
+<li>Giảm cơ</li>
+<li>Giảm mỡ</li>
 </ul>
 
-<p>Cùng xem qua đoạn code ví dụ sau để hình dung rõ hơn công dụng của unpack.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Method test nhận vào 3 params</span>
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test</span>(a, b, c):
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;a =&#34;</span>, a)
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;b =&#34;</span>, b)
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;c =&#34;</span>, c)
+<p>Đầu tiên là <strong>giảm nước</strong>. Sau khi vào phòng tắm hơi, chúng ta thường thấy mình nhẹ đi, lý do là vì chúng ta mất nước do nhiệt độ cao. Tuy nhiên sau khi bù nước cơ thể sẽ lại tăng cân như ban đầu, nên giảm cân bằng cách giảm nước không hiệu quả. Dù vậy vẫn có một số loại thuốc xổ làm cho chúng ta mất nước và được quảng cáo là thuốc giảm cân!</p>
 
-<span style="color:#75715e"># object này có 3 phần tử</span>
-list <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>]
+<p>Thứ 2 là <strong>giảm cơ</strong>. Cơ hiểu nôm na là “thịt nạc” trong cơ thể. Giảm cơ sẽ dẫn tới việc giảm “mức chuyển hóa cơ bản”, tức là chỉ số năng lượng (kcal) tối thiểu con người cần mỗi ngày cho việc trao đổi chất, duy trì các hoạt động trong cơ thể, mức chuyển hóa cơ bản càng cao có nghĩa càng nhiều năng lượng được tiêu hao. Giảm cơ, giảm mức chuyển hóa cơ bản sẽ làm giảm khả năng đốt cháy năng lượng của cơ thể. Do đó nên tránh giảm cân bằng việc giảm cơ, đừng chỉ chú ý vào cân nặng của mình mà cần phải để ý tới tỷ lệ mỡ của cơ thể, tức là tỷ lệ giữa khối lượng mỡ và khối lượng toàn cơ thể. Mức an toàn được cho là từ 20-25%, dĩ nhiên là càng giảm thì cơ thể bạn càng săn chắc.</p>
 
-test(list)
-<span style="color:#75715e"># Sẽ bị lỗi TypeError: test() missing 2 required positional arguments: &#39;b&#39; and &#39;c&#39;</span>
+<p>Thứ 3, đó là <strong>giảm mỡ</strong>, là việc ai cũng muốn làm. Mỡ bao gồm mỡ tích dưới da và mỡ tích trong nội tạng. Nữ giới tích mỡ dưới da nhiều hơn nam giới, và nam giới tích mỡ nội tạng nhiều hơn nữ giới. Đó là lý do vì sao rất nhiều quý ông mắc bệnh gan nhiễm mỡ.</p>
 
-test(<span style="color:#f92672">*</span>list)
-<span style="color:#75715e"># a = 1</span>
-<span style="color:#75715e"># b = 2</span>
-<span style="color:#75715e"># c = 3</span></code></pre></div>
-<p>Unpack đã giúp tách độc lập các phần tử có trong object <code>list</code> ra, do đó method <code>test</code> nhận vào được đúng 3 params a, b và c tương ứng với 3 phần tử trong object <code>list</code>.</p>
+<h2 id="vậy-làm-thế-nào-để-giảm-mỡ">Vậy làm thế nào để giảm mỡ ?</h2>
 
-<p>Đến đây thì nếu liên tưởng chút, ta sẽ thấy cách viết quen thuộc sau hiện lên ở trong đầu.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">my_method</span>(<span style="color:#f92672">*</span>args):
-    <span style="color:#75715e">#do something</span></code></pre></div>
-<p>Vâng chính là nó rồi đó ạ, <code>*args</code> quen thuộc ở đây bản chất là một trick sử dụng phép unpack. Unpack biến <code>args</code> tương đương với chuỗi các param truyền vào method. Vì thế mà trong method khi truy cập biến <code>args</code>, ta nhận được list chứa toàn bộ các params. Mình hay gọi cái này là phép nghịch đảo của unpack cho dễ hiểu.</p>
+<p><em>“Mình muốn giảm mỡ bụng. Hãy cho mình biết cách giảm mỡ bụng, chỉ bụng mà thôi !”</em></p>
 
-<p>Nhắc đến <code>*args</code> rồi thì lại phải nhắc đến họ hàng của nó là <code>**kwargs</code> :)) Vậy thì ta chuyển sang mục tiếp theo <em>Ký hiệu <code>**</code></em> thôi!</p>
+<p>Trước khi giảm cân, chúng ta cần hiểu ra một sự thật khá chát, đó là mỡ tích tụ ở mọi nơi trên cơ thể, tùy mỗi người mà nó tích nhiều ở những chỗ khác nhau. Có người ở bụng, người ở mông, người ở ngực… Và khi giảm mỡ thì mỡ giảm đều trên toàn cơ thể, chỉ cơ thể của bạn mới có thể quyết định là giảm mỡ ở đâu, chứ không phải là bạn. Nên đừng hy vọng có một bài tập nào, thức ăn nào giúp giảm mỗi mỡ bụng nhé!</p>
 
-<h2 id="ký-hiệu-1">Ký hiệu <code>**</code></h2>
+<p>Giảm mỡ được thực hiện qua 2 phương thức, đó là luyện tập và ăn uống. Cũng có một sự thật là luyện tập chỉ chiếm tới 30% hiệu quả giảm cân, còn lại 70% là do  ăn uống (diet). Tuy nhiên đừng vì thế mà chỉ chú tâm vào chế độ ăn mà không chịu luyện tập. Một chế độ ăn kiêng quá độ sẽ khiến cho cơ thể rơi vào chế độ phòng vệ, hạn chế việc giảm cân, cố gắng tích tụ mỡ nhiều hơn. Vận động cũng giúp giảm mỡ nội tạng, giúp cơ thể chúng ta săn chắc, khỏe mạnh hơn.</p>
 
-<p>Unpack khi sử dụng ký hiệu <code>**</code> có hiệu quả khác với khi sử dụng ký hiệu <code>*</code> ở chỗ, nó chuyên tách object kiểu dictionary thành các cặp key-value độc lập.</p>
+<h2 id="vận-động">Vận động</h2>
 
-<p>Nó giúp việc truyền một dict vào một method mà chỉ nhận keyword params dễ dàng hơn rất nhiều.</p>
+<ol>
+<li><p>Vận động để đốt cháy mỡ</p>
 
-<p>Đoạn code demo ví dụ sau sẽ dễ hiểu hơn mọi giải thích dài dòng 😃</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Method test nhận vào 3 keyword params</span>
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test</span>(a<span style="color:#f92672">=</span>a, b<span style="color:#f92672">=</span>b, c<span style="color:#f92672">=</span>c):
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;a =&#34;</span>, a)
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;b =&#34;</span>, b)
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;c =&#34;</span>, c)
+<p>Các bài tập đốt cháy mỡ được gọi là cardio, trong tiếng Nhật gọi là有酸素運動, tức là bài tập cần oxy. Các bài tập này bao gồm chạy, đi bộ, bơi lội, leo cầu thang, đạp xe… Khi tiến hành các bài tập này, cần chú ý tới nhịp tim và lượng oxy đưa vào cơ thể. Bài tập cardio được cho là có hiệu quả đốt cháy mỡ khi bạn đạt nhịp tim 60-70% nhịp tim tối đa của bạn. Người ta cũng đưa ra công thức tính nhịp tim tối đa, đó là lấy 220 trừ đi số tuổi.</p>
 
-<span style="color:#75715e"># dict này có 3 key, thứ tự có thể không cần giống thứ tự keyword trong method test</span>
-dict <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;a&#34;</span>: <span style="color:#ae81ff">11</span>, <span style="color:#e6db74">&#34;c&#34;</span>: <span style="color:#ae81ff">22</span>, <span style="color:#e6db74">&#34;b&#34;</span>: <span style="color:#ae81ff">33</span>}
+<p>Cách tính ngưỡng nhịp tim đốt cháy mỡ</p>
 
-test(dict)
-<span style="color:#75715e"># Sẽ bị lỗi TypeError: test() missing 2 required positional arguments: &#39;b&#39; and &#39;c&#39;</span>
+<p><em>Công thức tính:</em></p>
 
-test(<span style="color:#f92672">**</span>dict)
-<span style="color:#75715e"># a = 11</span>
-<span style="color:#75715e"># b = 22</span>
-<span style="color:#75715e"># c = 33</span></code></pre></div>
-<h2 id="unpack-trong-các-ngôn-ngữ-khác">Unpack trong các ngôn ngữ khác</h2>
+<pre><code>Ngưỡng thấp nhịp tim đốt cháy mỡ = (220 – số tuổi ) x 0.6
+Ngưỡng cao nhịp tim đốt cháy mỡ  =  (220 – số tuổi ) x 0.7
+</code></pre>
 
-<p>Javascript ES 6 cũng đã hỗ trợ phép unpack nhưng với tên gọi khác là <strong>spread</strong>, và sử dụng ký hiệu <code>...</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">numbers</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">999</span>]
-Math.<span style="color:#a6e22e">max</span>(...<span style="color:#a6e22e">numbers</span>)
-</code></pre></div>
-<p>Còn trong ruby thì gọi là phép splat, về mặt ký hiệu và cách dùng nó giống như python.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">people <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;Rudy&#34;</span>, <span style="color:#e6db74">&#34;Sarah&#34;</span>, <span style="color:#e6db74">&#34;Thomas&#34;</span><span style="color:#f92672">]</span>
-say <span style="color:#f92672">*</span>people</code></pre></div>
+<p>Ví dụ bạn 28 tuổi thì ngưỡng thấp nhịp tim để đốt cháy mỡ là vào khoảng <code>(220 - 28) x 0.6 = 115</code>, và ngưỡng cao nhịp tim đốt cháy mỡ là 134. Đi bộ nhàng nhàng trong 1 tiếng đồng hồ cũng không có hiệu quả giảm mỡ đâu nhé.</p>
+
+<p>Ngoài ra người ta nhận ra rằng, trong 20 phút đầu tiên khi vận động, cơ thể chỉ đốt cháy đường trong cơ thể. Từ phút thứ 20 trở đi, cơ thể mới bắt đầu đốt cháy mỡ thừa. Chính vì thế để đạt hiệu quả đốt cháy mỡ, thời gian tối thiểu cho một bài tập cardio là 20 phút.</p></li>
+
+<li><p>Vận động để tăng cơ</p>
+
+<p>Tăng cơ giúp tăng mức chuyển hóa cơ bản để đốt cháy calo, giảm tỷ lệ mỡ cơ thể, nên vận động để tăng cơ rất được khuyến khích bên cạnh các bài tập cardio. Đến phòng tập thì bạn tập với máy, hỗ trợ rất tốt việc tập cho các nhóm cơ. Ở nhà thì có thể squat để tập nhóm cơ chân, hít đất cho nhóm cơ tay, ngực, gập bụng tập cơ bụng… Nhưng nên nhớ cơ cần 48 tiếng để nghỉ ngơi và hồi phục, nên nếu hôm nay tập cơ chân, bụng, thì ngày mai tập cơ tay, ngực nha.</p></li>
+</ol>
+
+<h2 id="chế-độ-ăn">Chế độ ăn</h2>
+
+<p>Do chủ trương giảm mỡ, tăng cơ nên mình khá trung thành với chế độ low-carb, giảm lượng đường nạp vào cơ thể.</p>
+
+<p>Low-carb là chế độ ăn cắt giảm tinh bột đã quá quen thuộc với không ít bạn có ý muốn giảm cân. Carb ở đây là viết tắt của carbonhydrate, được cơ thể chúng ta hấp thụ qua các loại đồ ăn chứa tinh bột và đường. Ăn low-carb tức là giảm, thậm chí cắt tinh bột và đường trong khẩu phần ăn, nhưng có thể tăng lượng đạm và chất béo tùy thích. Nhưng tại sao làm như vậy lại có tác dụng giảm cân ? Lý do là cơ thể luôn ưu tiên dùng carb để sinh năng lượng cho mọi hoạt động của cơ thể trước, rồi sau đó mới dùng đến mỡ mà cơ thể dự trữ.</p>
+
+<p>Bạn cũng biết rồi đấy, muốn giảm cân thì cần phải giảm mỡ, nhưng lại phải tăng khối lượng cơ. Và low-carb làm rất tốt điều này : giảm tinh bột để cơ thể sử dụng mỡ dự trữ tạo năng lượng, tăng đạm để tăng cơ, tức tăng mức chuyển hóa cơ bản.</p>
+
+<p>Bản thân mình không cổ súy các menu diet cắt hoàn toàn tinh bột vì dù sao chúng ta cũng nên ăn tất cả các nhóm chất để có một cơ thể khỏe mạnh. Mình nghĩ chúng ta chỉ nên giảm 1 phần tinh bột trong khẩu phần ăn để có một chế độ giảm cân bền vững. Người ta nói rằng 40g carb 1 ngày là 1 con số lý tưởng để có một chế độ ăn kiêng khỏe mạnh. 40g thấy nhiều mà khó lắm đó. 1 bát cơm trắng đã chứa tới 55g carb, 1 lát bánh mì sandwich chứa 26g carb, nên 1 ngày ăn 2 lát bánh mì sandwich là thấy vượt 40g rồi.</p>
+
+<p>Không chỉ các thực phẩm chứa tinh bột mà bánh kẹo, nước có ga, trà sữa, các thức ăn có đường khác cũng nên hạn chế. Có rất nhiều thực đơn low carb mà bạn có thể dễ dàng tìm trên internet (chứ nói về low carb không thơi thì dài lắm) nên bạn chịu khó tìm tòi nhé. Cũng có thể tham khảo bài viết về thực phẩm carb off tại Nhật của mình.</p>
+
+<p>Nói ngắn gọn lại về low carb thì bạn nên giảm nhiều nhất có thể tinh bột, tăng rau xanh và thịt nạc. À, nhớ ăn theo trình tự rau -&gt; thịt -&gt; tinh bột để cơ thể hấp thụ hiệu quả nha.</p>
+
 <hr />
 
-<p>Sử dụng lâu rồi nhưng không hiểu bản chất bên dưới của nhiều đoạn code là phép unpack này, thật là xấu hổ quá. Bài này chủ yếu mang tính sắp xếp lại kiến thức của bản thân. Nếu bạn nào trót vào đọc và thấy chả có khỉ gì thì rất xin lỗi ạ!</p>
+<p>Giảm cân là một quá trình đòi hỏi sự kiên trì, và kiên định, cố gắng theo đuổi mục tiêu đã đề ra. Hy vọng bài viết này giúp ích phần nào cho các bạn đang muốn giảm cân một cách khỏe mạnh. Lưu ý là bài viết dựa trên trải nghiệm của cá nhân mình, dựa trên các kiến thức mình thu thập được, không phải là kết quả của một công trình nghiên cứu nào để các bạn lấy ra soi nha.</p>
 
 </div>
 
@@ -456,7 +461,7 @@ say <span style="color:#f92672">*</span>people</code></pre></div>
   <line x1="7" y1="7" x2="7" y2="7"/>
   
 </svg>
-<span class='screen-reader-text'>Tags: </span><a class='tag' href='/blog/tags/tech/'>tech</a>, <a class='tag' href='/blog/tags/python/'>python</a>, <a class='tag' href='/blog/tags/programing/'>programing</a>, <a class='tag' href='/blog/tags/til/'>TIL</a></div>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/blog/tags/diet/'>diet</a>, <a class='tag' href='/blog/tags/life/'>life</a></div>
 
   <div><span>Share on: </span>
 
@@ -555,21 +560,21 @@ say <span style="color:#f92672">*</span>people</code></pre></div>
 
 <div id="share-buttons">
     <div class="facebook" title="Share this on Facebook"
-        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python\/');">
+        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/d%C3%A0nh-cho-nh%E1%BB%AFng-ai-mu%E1%BB%91n-gi%E1%BA%A3m-c%C3%A2n\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z" /></svg></div>
     <div class="twitter" title="Share this on Twitter"
-        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python\/&amp;text=Thủ Thuật Unpack Trong Python&amp;via=');">
+        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/d%C3%A0nh-cho-nh%E1%BB%AFng-ai-mu%E1%BB%91n-gi%E1%BA%A3m-c%C3%A2n\/&amp;text=Dành Cho Những Ai Muốn Giảm Cân&amp;via=');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z" /></svg></div>
     <div class="linkedin" title="Share this on Linkedin"
-        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python\/&amp;title=Thủ Thuật Unpack Trong Python');"><svg
+        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/d%C3%A0nh-cho-nh%E1%BB%AFng-ai-mu%E1%BB%91n-gi%E1%BA%A3m-c%C3%A2n\/&amp;title=Dành Cho Những Ai Muốn Giảm Cân');"><svg
             viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z" /></svg></div>
     
     <div class="gplus" title="Share this on Google Plus"
-        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python\/');"><svg viewBox="0 0 2304 1792"
+        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/d%C3%A0nh-cho-nh%E1%BB%AFng-ai-mu%E1%BB%91n-gi%E1%BA%A3m-c%C3%A2n\/');"><svg viewBox="0 0 2304 1792"
             xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z" /></svg>
     </div>
     <div class="mail" title="Share this through Email"
-        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python\/');">
+        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/d%C3%A0nh-cho-nh%E1%BB%AFng-ai-mu%E1%BB%91n-gi%E1%BA%A3m-c%C3%A2n\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z" /></svg>
     </div>
 </div></div>
@@ -581,7 +586,7 @@ say <span style="color:#f92672">*</span>people</code></pre></div>
 
 <nav class='entry-nav'>
   <div class='container'><div class='prev-entry sep-before'>
-      <a href='/blog/posts/nh%E1%BA%ADt-b%E1%BA%A3n-thi%C3%AAn-%C4%91%C6%B0%E1%BB%9Dng-c%E1%BB%A7a-th%E1%BB%B1c-ph%E1%BA%A9m-low-carb/'>
+      <a href='/blog/posts/gi%E1%BB%9Bi-h%E1%BA%A1n-code-storage-trong-aws-lambda/'>
         <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="20" y1="12" x2="4" y2="12"/>
@@ -589,17 +594,7 @@ say <span style="color:#f92672">*</span>people</code></pre></div>
   
 </svg>
  Previous</span>
-        <span class='screen-reader-text'>Previous post: </span>Nhật Bản Thiên Đường Của Thực Phẩm Low Carb</a>
-    </div><div class='next-entry sep-before'>
-      <a href='/blog/posts/gi%E1%BB%9Bi-h%E1%BA%A1n-code-storage-trong-aws-lambda/'>
-        <span class='screen-reader-text'>Next post: </span>Giới Hạn Code Storage Trong Aws Lambda<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <line x1="4" y1="12" x2="20" y2="12"/>
-  <polyline points="14 6 20 12 14 18"/>
-  
-</svg>
-</span>
-      </a>
+        <span class='screen-reader-text'>Previous post: </span>Giới Hạn Code Storage Trong Aws Lambda</a>
     </div></div>
 </nav>
 
