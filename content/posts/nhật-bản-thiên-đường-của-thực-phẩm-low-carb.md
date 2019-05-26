@@ -2,7 +2,7 @@
 title: "Nhật Bản Thiên Đường Của Thực Phẩm Low Carb"
 date: 2019-03-24T22:37:08+09:00
 draft: no
-tags: [life, low-carb, cooking]
+tags: [life, low-carb, cooking, diet]
 language: vi
 toc: false
 authors: [akikaori]
