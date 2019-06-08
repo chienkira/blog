@@ -1,5 +1,5 @@
 ---
-title: "Tips Cài Đặt Pycharm Để Code Python"
+title: "Tips Cài Đặt Pycharm Để Code Python(日本語)"
 date: 2019-02-08T15:49:01+09:00
 draft: no
 tags: [python, pycharm]

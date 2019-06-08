@@ -1,5 +1,5 @@
 ---
-title: "Tất Tần Tật Về Cloudfront"
+title: "Tất Tần Tật Về Cloudfront(日本語)"
 date: 2019-02-21T16:33:07+09:00
 draft: no
 tags: [aws, cloudfront]
