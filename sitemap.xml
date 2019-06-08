@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chienkira.github.io/blog/posts/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes/</loc>
+    <lastmod>2019-06-08T11:12:01+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/posts/d%C3%A0nh-cho-nh%E1%BB%AFng-ai-mu%E1%BB%91n-gi%E1%BA%A3m-c%C3%A2n/</loc>
     <lastmod>2019-05-26T22:19:42+09:00</lastmod>
   </url>
@@ -108,7 +113,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/</loc>
-    <lastmod>2019-05-26T22:19:42+09:00</lastmod>
+    <lastmod>2019-06-08T11:12:01+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -124,8 +129,14 @@
   </url>
   
   <url>
+    <loc>https://chienkira.github.io/blog/tags/kubernetes/</loc>
+    <lastmod>2019-06-08T11:12:01+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/posts/</loc>
-    <lastmod>2019-05-26T22:19:42+09:00</lastmod>
+    <lastmod>2019-06-08T11:12:01+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -160,7 +171,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/aws/</loc>
-    <lastmod>2019-04-15T17:37:58+09:00</lastmod>
+    <lastmod>2019-06-08T11:12:01+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -202,7 +213,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/docker/</loc>
-    <lastmod>2019-03-23T21:40:43+09:00</lastmod>
+    <lastmod>2019-06-08T11:12:01+09:00</lastmod>
     <priority>0</priority>
   </url>
   

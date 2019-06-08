@@ -5,10 +5,23 @@
     <link>https://chienkira.github.io/blog/tags/aws/</link>
     <description>Recent content in aws on Chienkira</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 15 Apr 2019 17:37:58 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 08 Jun 2019 11:12:01 +0900</lastBuildDate>
     
 	<atom:link href="https://chienkira.github.io/blog/tags/aws/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hiểu Khái Niệm Cơ Bản Của Kubernetes(日本語)</title>
+      <link>https://chienkira.github.io/blog/posts/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes/</link>
+      <pubDate>Sat, 08 Jun 2019 11:12:01 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes/</guid>
+      <description> Kubernetesとは Dockerは開発環境として使うのがすごく便利ですが、本番環境で使うと色々な問題が考えられます。
+ コンテナがもし死んだら直ちに検知してコンテナを再起動したりして回復しないといけない リクエストが大量になる時、スケールをしないといけない 複数コンテナがあるなら、ロードバランシングをしないといけない 等々  ↑の問題を解決してくれるのがKubernetesの役割です。
+Kubernetes（K8s）はコンテナオーケストレーションシステムです。
+ Googleが2014年に公開しました。 Googleの長きにわたるコンテナ運用の知見が詰まっているらしいです。 K8sのメイン機能としては、コンテナ化されたアプリケーションを以下のこと自動的に行うことです。  デプロイ コンテナ管理 スケール   イメージは、K8sがコンテナの管理をいい感じにやってくれるので、 私たちはただK8sに「こんな感じでシステムを運用して」と注文書（マニフェスト）を投げつけるだけです。 それ以外はK8sに任せて良いです。
+Kubernetesの構成を理解 クラスター  クラスター本体  ノード  クラスターに属するマシンを表すオブジェクト クラスターには、Masterノード１個と複数Workerノードがある Workerノードは私たちが開発したアプリケーションの実行環境となる（コンテナ群の実行環境） Masterノードは、私たちの命令に従って、各Workerノードにコンテナをデプロイしたりして、いい感じに監視・維持してくれる Masterノードは１つ、Workerノードは複数がある  Pod  Workerノード上に生成されるオブジェクト K8sの最小デプロイ単位であり、スケールする時はPod単位で生成／破棄される Pod内にコンテナが１つ以上ある  ReplicaSet（RS）とDeployment  RS  同じ仕様のPodが指定した数だけ存在するよう生成・管理する 例えば、Podが死んだ時マニフェストで指定した数になるよう自動回復してくれる  Deployment  新しいバージョンのリリースを管理するための仕組み   Service  クラスター内外からのリクエストをPodにルーティングするオブジェクト 複数のPodに対するロードバランシングの役割を持つ  </description>
+    </item>
     
     <item>
       <title>Giới Hạn Code Storage Trong Aws Lambda</title>
@@ -32,7 +45,7 @@ Bối cảnh Công ty đang làm service chủ yếu theo kiến trúc serverles
     </item>
     
     <item>
-      <title>Tất Tần Tật Về Cloudfront</title>
+      <title>Tất Tần Tật Về Cloudfront(日本語)</title>
       <link>https://chienkira.github.io/blog/posts/t%E1%BA%A5t-t%E1%BA%A7n-t%E1%BA%ADt-v%E1%BB%81-cloudfront/</link>
       <pubDate>Thu, 21 Feb 2019 16:33:07 +0900</pubDate>
       
@@ -51,7 +64,7 @@ Bối cảnh Công ty đang làm service chủ yếu theo kiến trúc serverles
     </item>
     
     <item>
-      <title>&#34;Thông&#34; Mạng Cho Aws SAM Và Dynamodb Local</title>
+      <title>&#34;Thông&#34; Mạng Cho Aws SAM Và Dynamodb Local(日本語)</title>
       <link>https://chienkira.github.io/blog/posts/th%C3%B4ng-m%E1%BA%A1ng-cho-aws-sam-v%C3%A0-dynamodb-local/</link>
       <pubDate>Wed, 13 Feb 2019 15:50:07 +0900</pubDate>
       
@@ -71,7 +84,7 @@ sam local start-api --docker-network aws_local_network
     </item>
     
     <item>
-      <title>Tìm Hiểu Về Api Gateway</title>
+      <title>Tìm Hiểu Về Api Gateway(日本語)</title>
       <link>https://chienkira.github.io/blog/posts/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway/</link>
       <pubDate>Tue, 12 Feb 2019 15:45:04 +0900</pubDate>
       

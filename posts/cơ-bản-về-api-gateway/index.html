@@ -8,7 +8,7 @@ Lambda 関数の入力形式 以下のようにHTTPリクエスト全体をLambd
  headers: リクエストのヘッダデータ httpMethod: リクエストのメソッド情報 pathParameters: GETリクエストのパスパラメータ 例）/hoge/{group}/{user}のようなリクエストの場合、pathParameters には、groupとuserが入ってきます。 queryStringParameters: GETリクエストのクエリパラメータ 例）/hoge/{user}?page=5のようなリクエストの場合、queryStringParameters には、pageが入ってきます。 body: POSTリクエストのPostデータ  { &#34;resource&#34;: &#34;Resource path&#34;, &#34;path&#34;: &#34;Path parameter&#34;, &#34;httpMethod&#34;: &#34;Incoming request&#39;s method name&#34; &#34;headers&#34;: {String containing incoming request headers} &#34;multiValueHeaders&#34;: {List of strings containing incoming request headers} &#34;queryStringParameters&#34;: {query string parameters } &#34;multiValueQueryStringParameters&#34;: {List of query string parameters} &#34;pathParameters&#34;: {path parameters} &#34;stageVariables&#34;: {Applicable stage variables} &#34;requestContext&#34;: {Request context, including authorizer-returned key-value pairs} &#34;body&#34;: &#34;A JSON string of the request payload.'>
 <meta name='theme-color' content='#ffcd00'>
 
-<meta property='og:title' content='Tìm Hiểu Về Api Gateway • Chien Kira'>
+<meta property='og:title' content='Tìm Hiểu Về Api Gateway(日本語) • Chien Kira'>
 <meta property='og:description' content='API GatewayとLambda間の処理フロー APIGatewayとLambda間の処理フローは以下の図の通りです。  クライアントからHTTPリクエストがきた時に、[Method request] がそのリクエストを受け取って認証などを行う API Gatewayは必要に応じて [Integration Request]を使い、リクエストのデータを変換してから、Lambdaに転送する ※ 変換されたデータがLambda関数のevent変数に入ります。 次にAPI Gatewayは [Integration Response] を使い、Lambdaから返ってきた戻り値（処理結果）をまたデータ変換をしてから、[Method Response] に転送 最後に、API Gatewayが [Method Response]にてクライアントに返信する  → Integration Request と Integration Responseのデータ変換に関しては、以下の2選択肢があります。
  ①AWSのLambda proxy integration（Lambda プロキシ統合）に任せるか ②データ変換に使われるマッピングテンプレートを自分で定義するか  Lambda proxy integration（Lambda プロキシ統合） AWSのLambda プロキシ統合の詳細説明 Lambda プロキシ統合を使用する場合、Lambda関数へのInputデータやLambda関数のOutputデータのフォーマットが決まってます。
 Lambda 関数の入力形式 以下のようにHTTPリクエスト全体をLambda 関数のevent変数にマッピングされます。 よく使うのは：
@@ -19,7 +19,7 @@ Lambda 関数の入力形式 以下のようにHTTPリクエスト全体をLambd
 
 <meta name="generator" content="Hugo 0.50" />
 
-  <title>Tìm Hiểu Về Api Gateway • Chien Kira</title>
+  <title>Tìm Hiểu Về Api Gateway(日本語) • Chien Kira</title>
   <link rel='canonical' href='https://chienkira.github.io/blog/posts/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway/'>
   
   
@@ -81,7 +81,9 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
       </li><li>
-        <a href='/blog/tags/sam/' style='font-size:1.25em'>SAM</a>
+        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
+      </li><li>
+        <a href='/blog/tags/sam/' style='font-size:1.2em'>SAM</a>
       </li><li>
         <a href='/blog/tags/til/' style='font-size:1em'>TIL</a>
       </li><li>
@@ -97,39 +99,39 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/cloudfront/' style='font-size:1em'>cloudfront</a>
       </li><li>
-        <a href='/blog/tags/cooking/' style='font-size:1.25em'>cooking</a>
+        <a href='/blog/tags/cooking/' style='font-size:1.2em'>cooking</a>
       </li><li>
-        <a href='/blog/tags/diet/' style='font-size:1.25em'>diet</a>
+        <a href='/blog/tags/diet/' style='font-size:1.2em'>diet</a>
       </li><li>
-        <a href='/blog/tags/docker/' style='font-size:1.25em'>docker</a>
+        <a href='/blog/tags/docker/' style='font-size:1.4em'>docker</a>
       </li><li>
-        <a href='/blog/tags/driving/' style='font-size:1.25em'>driving</a>
+        <a href='/blog/tags/driving/' style='font-size:1.2em'>driving</a>
       </li><li>
         <a href='/blog/tags/dynamodb-local/' style='font-size:1em'>dynamodb local</a>
       </li><li>
         <a href='/blog/tags/infra/' style='font-size:1em'>infra</a>
       </li><li>
-        <a href='/blog/tags/lambda/' style='font-size:1.25em'>lambda</a>
+        <a href='/blog/tags/lambda/' style='font-size:1.2em'>lambda</a>
       </li><li>
         <a href='/blog/tags/license/' style='font-size:1em'>license</a>
       </li><li>
-        <a href='/blog/tags/life/' style='font-size:1.75em'>life</a>
+        <a href='/blog/tags/life/' style='font-size:1.6em'>life</a>
       </li><li>
         <a href='/blog/tags/low-carb/' style='font-size:1em'>low-carb</a>
       </li><li>
         <a href='/blog/tags/nh%C3%A0-tr%E1%BA%BB/' style='font-size:1em'>nhà trẻ</a>
       </li><li>
-        <a href='/blog/tags/nu%C3%B4i-con/' style='font-size:1.25em'>nuôi con</a>
+        <a href='/blog/tags/nu%C3%B4i-con/' style='font-size:1.2em'>nuôi con</a>
       </li><li>
         <a href='/blog/tags/programing/' style='font-size:1em'>programing</a>
       </li><li>
         <a href='/blog/tags/pycharm/' style='font-size:1em'>pycharm</a>
       </li><li>
-        <a href='/blog/tags/python/' style='font-size:1.5em'>python</a>
+        <a href='/blog/tags/python/' style='font-size:1.4em'>python</a>
       </li><li>
-        <a href='/blog/tags/review/' style='font-size:1.5em'>review</a>
+        <a href='/blog/tags/review/' style='font-size:1.4em'>review</a>
       </li><li>
-        <a href='/blog/tags/serverless/' style='font-size:1.5em'>serverless</a>
+        <a href='/blog/tags/serverless/' style='font-size:1.4em'>serverless</a>
       </li><li>
         <a href='/blog/tags/sre/' style='font-size:1em'>sre</a>
       </li><li>
@@ -184,7 +186,7 @@ if (!doNotTrack) {
     <style>.widget-breadcrumbs li:after{content:'　\3e\3e　'}</style>
   <section class='widget widget-breadcrumbs sep-after'>
     <nav id='breadcrumbs'>
-      <ol><li><a href='/blog/'>Chienkira</a></li><li><a href='/blog/posts/'>Posts</a></li><li><span>Tìm Hiểu Về Api Gateway</span></li></ol>
+      <ol><li><a href='/blog/'>Chienkira</a></li><li><a href='/blog/posts/'>Posts</a></li><li><span>Tìm Hiểu Về Api Gateway(日本語)</span></li></ol>
     </nav>
   </section></div>
       </div>
@@ -203,7 +205,7 @@ if (!doNotTrack) {
   <header class='header entry-header'>
   <div class='container sep-after'>
     <div class='header-info'>
-      <h1 class='title'>Tìm Hiểu Về Api Gateway</h1>
+      <h1 class='title'>Tìm Hiểu Về Api Gateway(日本語)</h1>
       
 
     </div>
@@ -338,10 +340,10 @@ if (!doNotTrack) {
         onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z" /></svg></div>
     <div class="twitter" title="Share this on Twitter"
-        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway\/&amp;text=Tìm Hiểu Về Api Gateway&amp;via=');">
+        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway\/&amp;text=Tìm Hiểu Về Api Gateway(日本語)&amp;via=');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z" /></svg></div>
     <div class="linkedin" title="Share this on Linkedin"
-        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway\/&amp;title=Tìm Hiểu Về Api Gateway');"><svg
+        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway\/&amp;title=Tìm Hiểu Về Api Gateway(日本語)');"><svg
             viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z" /></svg></div>
     
     <div class="gplus" title="Share this on Google Plus"
@@ -693,10 +695,10 @@ DefaultAuthorizerの記述を消して、各Lambda関数のところにAuthorize
         onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z" /></svg></div>
     <div class="twitter" title="Share this on Twitter"
-        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway\/&amp;text=Tìm Hiểu Về Api Gateway&amp;via=');">
+        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway\/&amp;text=Tìm Hiểu Về Api Gateway(日本語)&amp;via=');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z" /></svg></div>
     <div class="linkedin" title="Share this on Linkedin"
-        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway\/&amp;title=Tìm Hiểu Về Api Gateway');"><svg
+        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway\/&amp;title=Tìm Hiểu Về Api Gateway(日本語)');"><svg
             viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z" /></svg></div>
     
     <div class="gplus" title="Share this on Google Plus"
@@ -724,10 +726,10 @@ DefaultAuthorizerの記述を消して、各Lambda関数のところにAuthorize
   
 </svg>
  Previous</span>
-        <span class='screen-reader-text'>Previous post: </span>Tips Cài Đặt Pycharm Để Code Python</a>
+        <span class='screen-reader-text'>Previous post: </span>Tips Cài Đặt Pycharm Để Code Python(日本語)</a>
     </div><div class='next-entry sep-before'>
       <a href='/blog/posts/th%C3%B4ng-m%E1%BA%A1ng-cho-aws-sam-v%C3%A0-dynamodb-local/'>
-        <span class='screen-reader-text'>Next post: </span>&#34;Thông&#34; Mạng Cho Aws SAM Và Dynamodb Local<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+        <span class='screen-reader-text'>Next post: </span>&#34;Thông&#34; Mạng Cho Aws SAM Và Dynamodb Local(日本語)<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="4" y1="12" x2="20" y2="12"/>
   <polyline points="14 6 20 12 14 18"/>
