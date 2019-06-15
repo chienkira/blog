@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>serverless on Chienkira</title>
+    <title>serverless on Chienkira my blog</title>
     <link>https://chienkira.github.io/blog/tags/serverless/</link>
-    <description>Recent content in serverless on Chienkira</description>
+    <description>Recent content in serverless on Chienkira my blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 15 Apr 2019 17:37:58 +0900</lastBuildDate>
     

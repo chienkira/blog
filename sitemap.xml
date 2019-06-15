@@ -112,13 +112,13 @@
   </url>
   
   <url>
-    <loc>https://chienkira.github.io/blog/</loc>
-    <lastmod>2019-06-08T11:12:01+09:00</lastmod>
+    <loc>https://chienkira.github.io/blog/chienkira/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://chienkira.github.io/blog/chienkira/</loc>
+    <loc>https://chienkira.github.io/blog/</loc>
+    <lastmod>2019-06-08T11:12:01+09:00</lastmod>
     <priority>0</priority>
   </url>
   

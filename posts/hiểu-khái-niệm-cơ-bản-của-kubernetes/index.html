@@ -9,19 +9,19 @@ Kubernetes（K8s）はコンテナオーケストレーションシステムで�
 Kubernetesの構成を理解 クラスター  クラスター本体  ノード  クラスターに属するマシンを表すオブジェクト クラスターには、Masterノード１個と複数Workerノードがある Workerノードは私たちが開発したアプリケーションの実行環境となる（コンテナ群の実行環境） Masterノードは、私たちの命令に従って、各Workerノードにコンテナをデプロイしたりして、いい感じに監視・維持してくれる Masterノードは１つ、Workerノードは複数がある  Pod  Workerノード上に生成されるオブジェクト K8sの最小デプロイ単位であり、スケールする時はPod単位で生成／破棄される Pod内にコンテナが１つ以上ある  ReplicaSet（RS）とDeployment  RS  同じ仕様のPodが指定した数だけ存在するよう生成・管理する 例えば、Podが死んだ時マニフェストで指定した数になるよう自動回復してくれる  Deployment  新しいバージョンのリリースを管理するための仕組み   Service  クラスター内外からのリクエストをPodにルーティングするオブジェクト 複数のPodに対するロードバランシングの役割を持つ  '>
 <meta name='theme-color' content='#ffcd00'>
 
-<meta property='og:title' content='Hiểu Khái Niệm Cơ Bản Của Kubernetes(日本語) • Chien Kira'>
+<meta property='og:title' content='Hiểu Khái Niệm Cơ Bản Của Kubernetes(日本語) | Chien Kira'>
 <meta property='og:description' content=' Kubernetesとは Dockerは開発環境として使うのがすごく便利ですが、本番環境で使うと色々な問題が考えられます。
  コンテナがもし死んだら直ちに検知してコンテナを再起動したりして回復しないといけない リクエストが大量になる時、スケールをしないといけない 複数コンテナがあるなら、ロードバランシングをしないといけない 等々  ↑の問題を解決してくれるのがKubernetesの役割です。
 Kubernetes（K8s）はコンテナオーケストレーションシステムです。
  Googleが2014年に公開しました。 Googleの長きにわたるコンテナ運用の知見が詰まっているらしいです。 K8sのメイン機能としては、コンテナ化されたアプリケーションを以下のこと自動的に行うことです。  デプロイ コンテナ管理 スケール   イメージは、K8sがコンテナの管理をいい感じにやってくれるので、 私たちはただK8sに「こんな感じでシステムを運用して」と注文書（マニフェスト）を投げつけるだけです。 それ以外はK8sに任せて良いです。
 Kubernetesの構成を理解 クラスター  クラスター本体  ノード  クラスターに属するマシンを表すオブジェクト クラスターには、Masterノード１個と複数Workerノードがある Workerノードは私たちが開発したアプリケーションの実行環境となる（コンテナ群の実行環境） Masterノードは、私たちの命令に従って、各Workerノードにコンテナをデプロイしたりして、いい感じに監視・維持してくれる Masterノードは１つ、Workerノードは複数がある  Pod  Workerノード上に生成されるオブジェクト K8sの最小デプロイ単位であり、スケールする時はPod単位で生成／破棄される Pod内にコンテナが１つ以上ある  ReplicaSet（RS）とDeployment  RS  同じ仕様のPodが指定した数だけ存在するよう生成・管理する 例えば、Podが死んだ時マニフェストで指定した数になるよう自動回復してくれる  Deployment  新しいバージョンのリリースを管理するための仕組み   Service  クラスター内外からのリクエストをPodにルーティングするオブジェクト 複数のPodに対するロードバランシングの役割を持つ  '>
 <meta property='og:url' content='https://chienkira.github.io/blog/posts/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes/'>
-<meta property='og:site_name' content='Chienkira'>
+<meta property='og:site_name' content='Chienkira my blog'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/00e439e7376596f2760b4ef9a28df93b?s=256'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='Kubernetes'><meta property='article:tag' content='aws'><meta property='article:tag' content='docker'><meta property='article:published_time' content='2019-06-08T11:12:01&#43;09:00'/><meta property='article:modified_time' content='2019-06-08T11:12:01&#43;09:00'/><meta name='twitter:card' content='summary'><meta name='twitter:creator' content='@chienkira'>
 
 <meta name="generator" content="Hugo 0.50" />
 
-  <title>Hiểu Khái Niệm Cơ Bản Của Kubernetes(日本語) • Chien Kira</title>
+  <title>Hiểu Khái Niệm Cơ Bản Của Kubernetes(日本語) | Chien Kira</title>
   <link rel='canonical' href='https://chienkira.github.io/blog/posts/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes/'>
   
   
@@ -188,14 +188,14 @@ if (!doNotTrack) {
     <style>.widget-breadcrumbs li:after{content:'　\3e\3e　'}</style>
   <section class='widget widget-breadcrumbs sep-after'>
     <nav id='breadcrumbs'>
-      <ol><li><a href='/blog/'>Chienkira</a></li><li><a href='/blog/posts/'>Posts</a></li><li><span>Hiểu Khái Niệm Cơ Bản Của Kubernetes(日本語)</span></li></ol>
+      <ol><li><a href='/blog/'>Chienkira my blog</a></li><li><a href='/blog/posts/'>Posts</a></li><li><span>Hiểu Khái Niệm Cơ Bản Của Kubernetes(日本語)</span></li></ol>
     </nav>
   </section></div>
       </div>
 
       <header id='header' class='header site-header'>
         <div class='container sep-after'>
-          <div class='header-info'><p class='site-title title'>Chienkira</p><p class='desc site-desc'>chienkira | a web full stack engineer | personal blog about tech and life in Japan</p>
+          <div class='header-info'><p class='site-title title'>Chienkira my blog</p><p class='desc site-desc'>chienkira | a web full stack engineer | personal blog about tech and life in Japan</p>
           </div>
         </div>
       </header>
@@ -221,7 +221,7 @@ if (!doNotTrack) {
   
 </svg>
 <span class='screen-reader-text'>Posted on </span>
-  <time class='entry-date' datetime='2019-06-08T11:12:01&#43;09:00'>2019, Jun 08</time>
+  <time class='entry-date' datetime='2019-06-08T11:12:01&#43;09:00'>2019-06-08</time>
 </span>
 
   <span class='byline'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>

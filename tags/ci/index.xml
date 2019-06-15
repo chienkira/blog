@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>CI on Chienkira</title>
+    <title>CI on Chienkira my blog</title>
     <link>https://chienkira.github.io/blog/tags/ci/</link>
-    <description>Recent content in CI on Chienkira</description>
+    <description>Recent content in CI on Chienkira my blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 23 Mar 2019 21:40:43 +0900</lastBuildDate>
     
