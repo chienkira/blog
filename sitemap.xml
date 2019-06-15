@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chienkira.github.io/blog/posts/coolbiz-trang-ph%E1%BB%A5c-c%C3%B4ng-s%E1%BB%9F-cho-ng%C3%A0y-h%C3%A8/</loc>
+    <lastmod>2019-06-15T09:35:23+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/posts/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes/</loc>
     <lastmod>2019-06-08T11:12:01+09:00</lastmod>
   </url>
@@ -118,7 +123,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/</loc>
-    <lastmod>2019-06-08T11:12:01+09:00</lastmod>
+    <lastmod>2019-06-15T09:35:23+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -136,7 +141,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/posts/</loc>
-    <lastmod>2019-06-08T11:12:01+09:00</lastmod>
+    <lastmod>2019-06-15T09:35:23+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -236,6 +241,12 @@
   </url>
   
   <url>
+    <loc>https://chienkira.github.io/blog/tags/japan/</loc>
+    <lastmod>2019-06-15T09:35:23+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/tags/lambda/</loc>
     <lastmod>2019-04-15T17:37:58+09:00</lastmod>
     <priority>0</priority>
@@ -249,7 +260,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/life/</loc>
-    <lastmod>2019-05-26T22:19:42+09:00</lastmod>
+    <lastmod>2019-06-15T09:35:23+09:00</lastmod>
     <priority>0</priority>
   </url>
   

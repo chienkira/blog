@@ -2,23 +2,19 @@
 <html lang='en'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='Ký tự * ngoài là toán tử multiplication (phép nhân) và string replication ra, trong Python nó còn có một tác dụng khác khá xịn xò - unpack (một số người còn gọi là splat).
-Ký hiệu * Unpack chỉ có thể áp dụng lên một object loại iterable, để áp dụng việc cần làm là đặt ký hiệu * lên liền ngay trước object đó.
- Ví dụ:'>
+<meta name='description' content='Cool Biz là quy định về trang phục công sở được đặt ra tại Nhật Bản nhằm tiết kiệm điện sau khi thảm họa động đất sóng thần ngày 11&frasl;3 xảy ra. Bình thường các công ty Nhật rất chỉn chu về trang phục khi đi làm, đi gặp đối tác trong kinh doanh : mặc áo vest, thắt cà vạt. Tuy nhiên để tiết kiệm điện, nhà nước kêu gọi mọi người không cần cà vạt, không cần áo vest trong thời gian từ cuối mùa xuân đến đầu mùa thu, nhằm giảm lượng điện sử dụng cho máy lạnh.'>
 <meta name='theme-color' content='#ffcd00'>
 
-<meta property='og:title' content='Thủ Thuật Unpack Trong Python | Chien Kira'>
-<meta property='og:description' content='Ký tự * ngoài là toán tử multiplication (phép nhân) và string replication ra, trong Python nó còn có một tác dụng khác khá xịn xò - unpack (một số người còn gọi là splat).
-Ký hiệu * Unpack chỉ có thể áp dụng lên một object loại iterable, để áp dụng việc cần làm là đặt ký hiệu * lên liền ngay trước object đó.
- Ví dụ:'>
-<meta property='og:url' content='https://chienkira.github.io/blog/posts/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python/'>
+<meta property='og:title' content='Cool Biz - Trang Phục Công Sở Cho Ngày Hè | Thu Hương'>
+<meta property='og:description' content='Cool Biz là quy định về trang phục công sở được đặt ra tại Nhật Bản nhằm tiết kiệm điện sau khi thảm họa động đất sóng thần ngày 11&frasl;3 xảy ra. Bình thường các công ty Nhật rất chỉn chu về trang phục khi đi làm, đi gặp đối tác trong kinh doanh : mặc áo vest, thắt cà vạt. Tuy nhiên để tiết kiệm điện, nhà nước kêu gọi mọi người không cần cà vạt, không cần áo vest trong thời gian từ cuối mùa xuân đến đầu mùa thu, nhằm giảm lượng điện sử dụng cho máy lạnh.'>
+<meta property='og:url' content='https://chienkira.github.io/blog/posts/coolbiz-trang-ph%E1%BB%A5c-c%C3%B4ng-s%E1%BB%9F-cho-ng%C3%A0y-h%C3%A8/'>
 <meta property='og:site_name' content='Chienkira my blog'>
-<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/00e439e7376596f2760b4ef9a28df93b?s=256'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='tech'><meta property='article:tag' content='python'><meta property='article:tag' content='programing'><meta property='article:tag' content='TIL'><meta property='article:published_time' content='2019-04-05T10:38:57&#43;09:00'/><meta property='article:modified_time' content='2019-04-05T10:38:57&#43;09:00'/><meta name='twitter:card' content='summary'><meta name='twitter:creator' content='@chienkira'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://chienkira.github.io/blog/images/coolbiz.png'><meta property='article:author' content='https://facebook.com/akikaori'><meta property='article:section' content='posts'><meta property='article:tag' content='life'><meta property='article:tag' content='japan'><meta property='article:published_time' content='2019-06-15T09:35:23&#43;09:00'/><meta property='article:modified_time' content='2019-06-15T09:35:23&#43;09:00'/><meta name='twitter:card' content='summary_large_image'><meta name='twitter:creator' content='@akikaori'><meta property='twitter:image' content='https://chienkira.github.io/blog/images/coolbiz.png'>
 
 <meta name="generator" content="Hugo 0.50" />
 
-  <title>Thủ Thuật Unpack Trong Python | Chien Kira</title>
-  <link rel='canonical' href='https://chienkira.github.io/blog/posts/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python/'>
+  <title>Cool Biz - Trang Phục Công Sở Cho Ngày Hè | Thu Hương</title>
+  <link rel='canonical' href='https://chienkira.github.io/blog/posts/coolbiz-trang-ph%E1%BB%A5c-c%C3%B4ng-s%E1%BB%9F-cho-ng%C3%A0y-h%C3%A8/'>
   
   
   <link rel='icon' href='/blog/favicon.ico'>
@@ -40,7 +36,7 @@ if (!doNotTrack) {
   
 
 </head>
-<body class='page type-posts has-sidebar'>
+<body class='page type-posts has-cover has-sidebar'>
 
   <div class='site'><div id='sidebar' class='sidebar'>
   <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
@@ -186,7 +182,7 @@ if (!doNotTrack) {
     <style>.widget-breadcrumbs li:after{content:'　\3e\3e　'}</style>
   <section class='widget widget-breadcrumbs sep-after'>
     <nav id='breadcrumbs'>
-      <ol><li><a href='/blog/'>Chienkira my blog</a></li><li><a href='/blog/posts/'>Posts</a></li><li><span>Thủ Thuật Unpack Trong Python</span></li></ol>
+      <ol><li><a href='/blog/'>Chienkira my blog</a></li><li><a href='/blog/posts/'>Posts</a></li><li><span>Cool Biz - Trang Phục Công Sở Cho Ngày Hè</span></li></ol>
     </nav>
   </section></div>
       </div>
@@ -205,7 +201,7 @@ if (!doNotTrack) {
   <header class='header entry-header'>
   <div class='container sep-after'>
     <div class='header-info'>
-      <h1 class='title'>Thủ Thuật Unpack Trong Python</h1>
+      <h1 class='title'>Cool Biz - Trang Phục Công Sở Cho Ngày Hè</h1>
       
 
     </div>
@@ -219,7 +215,7 @@ if (!doNotTrack) {
   
 </svg>
 <span class='screen-reader-text'>Posted on </span>
-  <time class='entry-date' datetime='2019-04-05T10:38:57&#43;09:00'>2019-04-05</time>
+  <time class='entry-date' datetime='2019-06-15T09:35:23&#43;09:00'>2019-06-15</time>
 </span>
 
   <span class='byline'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
@@ -228,7 +224,7 @@ if (!doNotTrack) {
   <path d="M16,6.37A4,4,0,1,1,12.63,3,4,4,0,0,1,16,6.37Z"/>
   
 </svg>
-<span class='screen-reader-text'> by </span><a href='/blog/authors/chienkira'>Chien Kira</a></span>
+<span class='screen-reader-text'> by </span><a href='/blog/authors/akikaori'>Thu Hương</a></span>
   
 <span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
@@ -236,7 +232,7 @@ if (!doNotTrack) {
   <polyline points="12 6 12 12 15 15"/>
   
 </svg>
-4 mins đọc
+2 mins đọc
 </span>
 
 
@@ -337,21 +333,21 @@ if (!doNotTrack) {
 
 <div id="share-buttons">
     <div class="facebook" title="Share this on Facebook"
-        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python\/');">
+        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/coolbiz-trang-ph%E1%BB%A5c-c%C3%B4ng-s%E1%BB%9F-cho-ng%C3%A0y-h%C3%A8\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z" /></svg></div>
     <div class="twitter" title="Share this on Twitter"
-        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python\/&amp;text=Thủ Thuật Unpack Trong Python&amp;via=');">
+        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/coolbiz-trang-ph%E1%BB%A5c-c%C3%B4ng-s%E1%BB%9F-cho-ng%C3%A0y-h%C3%A8\/&amp;text=Cool Biz - Trang Phục Công Sở Cho Ngày Hè&amp;via=');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z" /></svg></div>
     <div class="linkedin" title="Share this on Linkedin"
-        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python\/&amp;title=Thủ Thuật Unpack Trong Python');"><svg
+        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/coolbiz-trang-ph%E1%BB%A5c-c%C3%B4ng-s%E1%BB%9F-cho-ng%C3%A0y-h%C3%A8\/&amp;title=Cool Biz - Trang Phục Công Sở Cho Ngày Hè');"><svg
             viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z" /></svg></div>
     
     <div class="gplus" title="Share this on Google Plus"
-        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python\/');"><svg viewBox="0 0 2304 1792"
+        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/coolbiz-trang-ph%E1%BB%A5c-c%C3%B4ng-s%E1%BB%9F-cho-ng%C3%A0y-h%C3%A8\/');"><svg viewBox="0 0 2304 1792"
             xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z" /></svg>
     </div>
     <div class="mail" title="Share this through Email"
-        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python\/');">
+        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/coolbiz-trang-ph%E1%BB%A5c-c%C3%B4ng-s%E1%BB%9F-cho-ng%C3%A0y-h%C3%A8\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z" /></svg>
     </div>
 </div>
@@ -361,94 +357,65 @@ if (!doNotTrack) {
   </div>
 </header>
 
-  
+  <div class='entry-cover'>
+  <figure class='container cover-normal'>
+    <img src='/blog/images/coolbiz.png'/>
+    
+  </figure>
+</div>
   
 
   <div class='container entry-content'>
-  
+  <p><strong>Cool Biz là quy định về trang phục công sở được đặt ra tại Nhật Bản nhằm tiết kiệm điện sau khi thảm họa động đất sóng thần ngày <sup>11</sup>&frasl;<sub>3</sub> xảy ra. Bình thường các công ty Nhật rất chỉn chu về trang phục khi đi làm, đi gặp đối tác trong kinh doanh : mặc áo vest, thắt cà vạt. Tuy nhiên để tiết kiệm điện, nhà nước kêu gọi mọi người không cần cà vạt, không cần áo vest trong thời gian từ cuối mùa xuân đến đầu mùa thu, nhằm giảm lượng điện sử dụng cho máy lạnh.</strong></p>
 
-<p><strong>Ký tự <code>*</code> ngoài là toán tử multiplication (phép nhân) và string replication ra, trong Python nó còn có một tác dụng khác khá xịn xò - unpack (một số người còn gọi là splat).</strong></p>
+<p>Và dưới đây là quy định về Cool Biz của một công ty nọ, xin được giới thiệu với các bạn.</p>
 
-<h2 id="ký-hiệu">Ký hiệu <code>*</code></h2>
-
-<p>Unpack chỉ có thể áp dụng lên một object loại iterable, để áp dụng việc cần làm là đặt ký hiệu <code>*</code> lên liền ngay trước object đó.</p>
-
-<blockquote>
-<p>Ví dụ:<br />
-Dùng trực tiếp với biến: <code>*list_variable</code><br />
-Dùng với biểu thức: <code>*[i*2 for i in some_array]</code></p>
-</blockquote>
-
-<p>Phép unpack với ký hiệu <code>*</code> sẽ sinh ra <em>&ldquo;các phần tử&rdquo;</em>, được tách ra từ iterable object ban đầu.</p>
-
-<p>Ví dụ như</p>
+<ol>
+<li><p>Thời gian</p>
 
 <ul>
-<li>Nếu áp dụng lên một object kiểu list, ta sẽ nhận được các phần tử có trong list đó.</li>
-<li>Nếu áp dụng lên một object kiểu dictionary, ta sẽ nhận được các keys (chỉ key thôi, không có value) có trong dictionary đó.</li>
+<li><p>2019/5/1~2019/10/31</p></li>
+
+<li><p>“Không cà vạt”, “Không áo vest” trong giới hạn không gây ảnh hưởng tới công việc.</p></li>
+</ul></li>
+
+<li><p>Quy định về trang phục.</p>
+
+<ul>
+<li>Phương châm
+Sử dụng trang phục không gây khó chịu cho khách hàng, đối tác</li>
+
+<li><p>️Trang phục
+Trang phục không có hoa văn.</p>
+
+<p>Không mặc đồ màu sắc lòe loẹt, quần áo hở da thịt nhiều, quần áo quá ngắn, quá dài.</p>
+
+<ul>
+<li><p>Các loại quần áo có thể mặc:</p>
+
+<ul>
+<li>Áo sơ mi cộc tay</li>
+<li>Áo polo</li>
+<li>Quần Khaki</li>
+</ul></li>
+
+<li><p>Các loại quần áo không được mặc:</p>
+
+<ul>
+<li>Áo thun</li>
+<li>Áo aloha (áo hoa hòe)</li>
+<li>Quần jeans</li>
+<li>Quần đùi</li>
+<li>Dép xăng đan
+<br /></li>
 </ul>
 
-<p>Cùng xem qua đoạn code ví dụ sau để hình dung rõ hơn công dụng của unpack.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Method test nhận vào 3 params</span>
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test</span>(a, b, c):
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;a =&#34;</span>, a)
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;b =&#34;</span>, b)
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;c =&#34;</span>, c)
+<p>※ Có thể đi xăng đan trong văn phòng nhưng phải đi giày nếu ra ngoài văn phòng.</p></li>
+</ul></li>
+</ul></li>
+</ol>
 
-<span style="color:#75715e"># object này có 3 phần tử</span>
-list <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>]
-
-test(list)
-<span style="color:#75715e"># Sẽ bị lỗi TypeError: test() missing 2 required positional arguments: &#39;b&#39; and &#39;c&#39;</span>
-
-test(<span style="color:#f92672">*</span>list)
-<span style="color:#75715e"># a = 1</span>
-<span style="color:#75715e"># b = 2</span>
-<span style="color:#75715e"># c = 3</span></code></pre></div>
-<p>Unpack đã giúp tách độc lập các phần tử có trong object <code>list</code> ra, do đó method <code>test</code> nhận vào được đúng 3 params a, b và c tương ứng với 3 phần tử trong object <code>list</code>.</p>
-
-<p>Đến đây thì nếu liên tưởng chút, ta sẽ thấy cách viết quen thuộc sau hiện lên ở trong đầu.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">my_method</span>(<span style="color:#f92672">*</span>args):
-    <span style="color:#75715e">#do something</span></code></pre></div>
-<p>Vâng chính là nó rồi đó ạ, <code>*args</code> quen thuộc ở đây bản chất là một trick sử dụng phép unpack. Unpack biến <code>args</code> tương đương với chuỗi các param truyền vào method. Vì thế mà trong method khi truy cập biến <code>args</code>, ta nhận được list chứa toàn bộ các params. Mình hay gọi cái này là phép nghịch đảo của unpack cho dễ hiểu.</p>
-
-<p>Nhắc đến <code>*args</code> rồi thì lại phải nhắc đến họ hàng của nó là <code>**kwargs</code> :)) Vậy thì ta chuyển sang mục tiếp theo <em>Ký hiệu <code>**</code></em> thôi!</p>
-
-<h2 id="ký-hiệu-1">Ký hiệu <code>**</code></h2>
-
-<p>Unpack khi sử dụng ký hiệu <code>**</code> có hiệu quả khác với khi sử dụng ký hiệu <code>*</code> ở chỗ, nó chuyên tách object kiểu dictionary thành các cặp key-value độc lập.</p>
-
-<p>Nó giúp việc truyền một dict vào một method mà chỉ nhận keyword params dễ dàng hơn rất nhiều.</p>
-
-<p>Đoạn code demo ví dụ sau sẽ dễ hiểu hơn mọi giải thích dài dòng 😃</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Method test nhận vào 3 keyword params</span>
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test</span>(a<span style="color:#f92672">=</span>a, b<span style="color:#f92672">=</span>b, c<span style="color:#f92672">=</span>c):
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;a =&#34;</span>, a)
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;b =&#34;</span>, b)
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;c =&#34;</span>, c)
-
-<span style="color:#75715e"># dict này có 3 key, thứ tự có thể không cần giống thứ tự keyword trong method test</span>
-dict <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;a&#34;</span>: <span style="color:#ae81ff">11</span>, <span style="color:#e6db74">&#34;c&#34;</span>: <span style="color:#ae81ff">22</span>, <span style="color:#e6db74">&#34;b&#34;</span>: <span style="color:#ae81ff">33</span>}
-
-test(dict)
-<span style="color:#75715e"># Sẽ bị lỗi TypeError: test() missing 2 required positional arguments: &#39;b&#39; and &#39;c&#39;</span>
-
-test(<span style="color:#f92672">**</span>dict)
-<span style="color:#75715e"># a = 11</span>
-<span style="color:#75715e"># b = 22</span>
-<span style="color:#75715e"># c = 33</span></code></pre></div>
-<h2 id="unpack-trong-các-ngôn-ngữ-khác">Unpack trong các ngôn ngữ khác</h2>
-
-<p>Javascript ES 6 cũng đã hỗ trợ phép unpack nhưng với tên gọi khác là <strong>spread</strong>, và sử dụng ký hiệu <code>...</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">numbers</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">999</span>]
-Math.<span style="color:#a6e22e">max</span>(...<span style="color:#a6e22e">numbers</span>)
-</code></pre></div>
-<p>Còn trong ruby thì gọi là phép splat, về mặt ký hiệu và cách dùng nó giống như python.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">people <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;Rudy&#34;</span>, <span style="color:#e6db74">&#34;Sarah&#34;</span>, <span style="color:#e6db74">&#34;Thomas&#34;</span><span style="color:#f92672">]</span>
-say <span style="color:#f92672">*</span>people</code></pre></div>
-<hr />
-
-<p>Sử dụng lâu rồi nhưng không hiểu bản chất bên dưới của nhiều đoạn code là phép unpack này, thật là xấu hổ quá. Bài này chủ yếu mang tính sắp xếp lại kiến thức của bản thân. Nếu bạn nào trót vào đọc và thấy chả có khỉ gì thì rất xin lỗi ạ!</p>
+<p>Ở Việt Nam, không cần quy định về Cool Biz thì mọi người cũng mặc rất “cool” rồi ha các bạn. ;)</p>
 
 </div>
 
@@ -460,7 +427,7 @@ say <span style="color:#f92672">*</span>people</code></pre></div>
   <line x1="7" y1="7" x2="7" y2="7"/>
   
 </svg>
-<span class='screen-reader-text'>Tags: </span><a class='tag' href='/blog/tags/tech/'>tech</a>, <a class='tag' href='/blog/tags/python/'>python</a>, <a class='tag' href='/blog/tags/programing/'>programing</a>, <a class='tag' href='/blog/tags/til/'>TIL</a></div>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/blog/tags/life/'>life</a>, <a class='tag' href='/blog/tags/japan/'>japan</a></div>
 
   <div><span>Share on: </span>
 
@@ -559,21 +526,21 @@ say <span style="color:#f92672">*</span>people</code></pre></div>
 
 <div id="share-buttons">
     <div class="facebook" title="Share this on Facebook"
-        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python\/');">
+        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/coolbiz-trang-ph%E1%BB%A5c-c%C3%B4ng-s%E1%BB%9F-cho-ng%C3%A0y-h%C3%A8\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z" /></svg></div>
     <div class="twitter" title="Share this on Twitter"
-        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python\/&amp;text=Thủ Thuật Unpack Trong Python&amp;via=');">
+        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/coolbiz-trang-ph%E1%BB%A5c-c%C3%B4ng-s%E1%BB%9F-cho-ng%C3%A0y-h%C3%A8\/&amp;text=Cool Biz - Trang Phục Công Sở Cho Ngày Hè&amp;via=');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z" /></svg></div>
     <div class="linkedin" title="Share this on Linkedin"
-        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python\/&amp;title=Thủ Thuật Unpack Trong Python');"><svg
+        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/coolbiz-trang-ph%E1%BB%A5c-c%C3%B4ng-s%E1%BB%9F-cho-ng%C3%A0y-h%C3%A8\/&amp;title=Cool Biz - Trang Phục Công Sở Cho Ngày Hè');"><svg
             viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z" /></svg></div>
     
     <div class="gplus" title="Share this on Google Plus"
-        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python\/');"><svg viewBox="0 0 2304 1792"
+        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/coolbiz-trang-ph%E1%BB%A5c-c%C3%B4ng-s%E1%BB%9F-cho-ng%C3%A0y-h%C3%A8\/');"><svg viewBox="0 0 2304 1792"
             xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z" /></svg>
     </div>
     <div class="mail" title="Share this through Email"
-        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python\/');">
+        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/coolbiz-trang-ph%E1%BB%A5c-c%C3%B4ng-s%E1%BB%9F-cho-ng%C3%A0y-h%C3%A8\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z" /></svg>
     </div>
 </div></div>
@@ -585,7 +552,7 @@ say <span style="color:#f92672">*</span>people</code></pre></div>
 
 <nav class='entry-nav'>
   <div class='container'><div class='prev-entry sep-before'>
-      <a href='/blog/posts/nh%E1%BA%ADt-b%E1%BA%A3n-thi%C3%AAn-%C4%91%C6%B0%E1%BB%9Dng-c%E1%BB%A7a-th%E1%BB%B1c-ph%E1%BA%A9m-low-carb/'>
+      <a href='/blog/posts/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes/'>
         <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="20" y1="12" x2="4" y2="12"/>
@@ -593,17 +560,7 @@ say <span style="color:#f92672">*</span>people</code></pre></div>
   
 </svg>
  Previous</span>
-        <span class='screen-reader-text'>Previous post: </span>Nhật Bản Thiên Đường Của Thực Phẩm Low Carb</a>
-    </div><div class='next-entry sep-before'>
-      <a href='/blog/posts/gi%E1%BB%9Bi-h%E1%BA%A1n-code-storage-trong-aws-lambda/'>
-        <span class='screen-reader-text'>Next post: </span>Giới Hạn Code Storage Trong Aws Lambda<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <line x1="4" y1="12" x2="20" y2="12"/>
-  <polyline points="14 6 20 12 14 18"/>
-  
-</svg>
-</span>
-      </a>
+        <span class='screen-reader-text'>Previous post: </span>Hiểu Khái Niệm Cơ Bản Của Kubernetes(日本語)</a>
     </div></div>
 </nav>
 
