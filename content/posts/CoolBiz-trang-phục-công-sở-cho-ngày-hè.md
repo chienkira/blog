@@ -1,7 +1,7 @@
 ---
 title: "Cool Biz - Trang Phục Công Sở Cho Ngày Hè"
 date: 2019-06-15T09:35:23+09:00
-draft: true
+draft: false
 tags: [life, japan]
 language: vi
 toc: false
