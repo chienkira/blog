@@ -1,11 +1,11 @@
 baseURL = "https://chienkira.github.io/blog"
-title = "Chienkira"
+title = "Chienkira my blog"
 copyright = "" # for smart copyright line, leave this blank and check [params.copyright]
 
 theme = "minimo"
 disqusShortname = "chienkira-github-io"
 googleAnalytics = "UA-135034755-1"
-Paginate = 7
+Paginate = 8
 preserveTaxonomyNames = true
 enableRobotsTXT = true # generate robots.txt
 pygmentsCodefences = true # Syntax Highlighting ( https://gohugo.io/content-management/syntax-highlighting/ )
@@ -31,9 +31,9 @@ suffix = ""
 
 [params.settings]
 # date & time format: https://golang.org/pkg/time/
-dateFormat = "2006, Jan 02"
-listDateFormat = "2006, Jan 02"
-archiveDateFormat = "2006, Jan 02"
+dateFormat = "2006-01-02"
+listDateFormat = "2006-01-02"
+archiveDateFormat = "2006-01-02"
 hideEntryNavigation = ["page"] # boolean / array of sections
 hideEntryMeta = ["page"] # boolean / array of sections
 showReadingTime = true
@@ -61,7 +61,7 @@ page = "" # Twitter page username
 
 [params.seo]
 # Title Separator: - – — · • * ⋆ | ~ « » < >
-titleSeparator = "•"
+titleSeparator = "|"
 
 [params.social]
 email = "chienhedspi@gmail.com"
