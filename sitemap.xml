@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chienkira.github.io/blog/posts/deploy-nhi%E1%BB%81u-m%C3%B4i-tr%C6%B0%E1%BB%9Dng-v%E1%BB%9Bi-terraform/</loc>
+    <lastmod>2019-06-15T10:28:15+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/posts/coolbiz-trang-ph%E1%BB%A5c-c%C3%B4ng-s%E1%BB%9F-cho-ng%C3%A0y-h%C3%A8/</loc>
     <lastmod>2019-06-15T09:35:23+09:00</lastmod>
   </url>
@@ -123,7 +128,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/</loc>
-    <lastmod>2019-06-15T09:35:23+09:00</lastmod>
+    <lastmod>2019-06-15T10:28:15+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -141,13 +146,19 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/posts/</loc>
-    <lastmod>2019-06-15T09:35:23+09:00</lastmod>
+    <lastmod>2019-06-15T10:28:15+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/sam/</loc>
     <lastmod>2019-02-13T15:50:07+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/sre/</loc>
+    <lastmod>2019-06-15T10:28:15+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -176,7 +187,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/aws/</loc>
-    <lastmod>2019-06-08T11:12:01+09:00</lastmod>
+    <lastmod>2019-06-15T10:28:15+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -236,7 +247,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/infra/</loc>
-    <lastmod>2019-03-06T09:29:32+09:00</lastmod>
+    <lastmod>2019-06-15T10:28:15+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -321,6 +332,12 @@
   <url>
     <loc>https://chienkira.github.io/blog/tags/tech/</loc>
     <lastmod>2019-04-05T10:38:57+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/terraform/</loc>
+    <lastmod>2019-06-15T10:28:15+09:00</lastmod>
     <priority>0</priority>
   </url>
   

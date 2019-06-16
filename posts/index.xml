@@ -5,10 +5,20 @@
     <link>https://chienkira.github.io/blog/posts/</link>
     <description>Recent content in Posts on Chienkira my blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 15 Jun 2019 09:35:23 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 15 Jun 2019 10:28:15 +0900</lastBuildDate>
     
 	<atom:link href="https://chienkira.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Áp Dụng Terraform Module deploy lên nhiều môi trường</title>
+      <link>https://chienkira.github.io/blog/posts/deploy-nhi%E1%BB%81u-m%C3%B4i-tr%C6%B0%E1%BB%9Dng-v%E1%BB%9Bi-terraform/</link>
+      <pubDate>Sat, 15 Jun 2019 10:28:15 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/deploy-nhi%E1%BB%81u-m%C3%B4i-tr%C6%B0%E1%BB%9Dng-v%E1%BB%9Bi-terraform/</guid>
+      <description>Vào mùa mưa rồi, ngày cuối tuần bị nó hành cho suốt luôn. Vừa mưa còn vừa lạnh, ai nghĩ đây là mùa hè chứ!!. Tuy nhiên cũng nhờ thế mà nhớ đến cái sở thích 地味 này 😂 Trong bài viết này, mình muốn giới thiệu về module trong terraform, và cách sử dụng nó để deploy lên nhiều môi trường dev-stg-prod khác nhau.
+TL;DR  Các lệnh của terraform mặc định chỉ xử lý các file *.</description>
+    </item>
     
     <item>
       <title>Cool Biz - Trang Phục Công Sở Cho Ngày Hè</title>
