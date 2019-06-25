@@ -2,27 +2,19 @@
 <html lang='en'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content=' Kubernetesとは Dockerは開発環境として使うのがすごく便利ですが、本番環境で使うと色々な問題が考えられます。
- コンテナがもし死んだら直ちに検知してコンテナを再起動したりして回復しないといけない リクエストが大量になる時、スケールをしないといけない 複数コンテナがあるなら、ロードバランシングをしないといけない 等々  ↑の問題を解決してくれるのがKubernetesの役割です。
-Kubernetes（K8s）はコンテナオーケストレーションシステムです。
- Googleが2014年に公開しました。 Googleの長きにわたるコンテナ運用の知見が詰まっているらしいです。 K8sのメイン機能としては、コンテナ化されたアプリケーションを以下のこと自動的に行うことです。  デプロイ コンテナ管理 スケール   イメージは、K8sがコンテナの管理をいい感じにやってくれるので、 私たちはただK8sに「こんな感じでシステムを運用して」と注文書（マニフェスト）を投げつけるだけです。 それ以外はK8sに任せて良いです。
-Kubernetesの構成を理解 クラスター  クラスター本体  ノード  クラスターに属するマシンを表すオブジェクト クラスターには、Masterノード１個と複数Workerノードがある Workerノードは私たちが開発したアプリケーションの実行環境となる（コンテナ群の実行環境） Masterノードは、私たちの命令に従って、各Workerノードにコンテナをデプロイしたりして、いい感じに監視・維持してくれる Masterノードは１つ、Workerノードは複数がある  Pod  Workerノード上に生成されるオブジェクト K8sの最小デプロイ単位であり、スケールする時はPod単位で生成／破棄される Pod内にコンテナが１つ以上ある  ReplicaSet（RS）とDeployment  RS  同じ仕様のPodが指定した数だけ存在するよう生成・管理する 例えば、Podが死んだ時マニフェストで指定した数になるよう自動回復してくれる  Deployment  新しいバージョンのリリースを管理するための仕組み   Service  クラスター内外からのリクエストをPodにルーティングするオブジェクト 複数のPodに対するロードバランシングの役割を持つ  '>
+<meta name='description' content='Vì thường ưu tiên tốc độ, chỉ tập trung làm sao đạt được output mong muốn trong thời gian ngắn nhất, mà từ bao giờ mình đã quá quen với việc &ldquo;tái sử dụng&rdquo; vô tội vạ các mã code Google được. Dẫn đến ngày nọ, mình nhận ra mình hơi bị mất niềm tin vào chính bản thân. Để khắc phục điều này, mình quyết định lâu lâu sẽ ôn tập củng cố lại kiến thức lập trình cơ bản, nhất là những tính năng độc đáo có chất đặc thù một tí của từng ngôn ngữ.'>
 <meta name='theme-color' content='#ffcd00'>
 
-<meta property='og:title' content='Hiểu Khái Niệm Cơ Bản Của Kubernetes(日本語) | Chien Kira'>
-<meta property='og:description' content=' Kubernetesとは Dockerは開発環境として使うのがすごく便利ですが、本番環境で使うと色々な問題が考えられます。
- コンテナがもし死んだら直ちに検知してコンテナを再起動したりして回復しないといけない リクエストが大量になる時、スケールをしないといけない 複数コンテナがあるなら、ロードバランシングをしないといけない 等々  ↑の問題を解決してくれるのがKubernetesの役割です。
-Kubernetes（K8s）はコンテナオーケストレーションシステムです。
- Googleが2014年に公開しました。 Googleの長きにわたるコンテナ運用の知見が詰まっているらしいです。 K8sのメイン機能としては、コンテナ化されたアプリケーションを以下のこと自動的に行うことです。  デプロイ コンテナ管理 スケール   イメージは、K8sがコンテナの管理をいい感じにやってくれるので、 私たちはただK8sに「こんな感じでシステムを運用して」と注文書（マニフェスト）を投げつけるだけです。 それ以外はK8sに任せて良いです。
-Kubernetesの構成を理解 クラスター  クラスター本体  ノード  クラスターに属するマシンを表すオブジェクト クラスターには、Masterノード１個と複数Workerノードがある Workerノードは私たちが開発したアプリケーションの実行環境となる（コンテナ群の実行環境） Masterノードは、私たちの命令に従って、各Workerノードにコンテナをデプロイしたりして、いい感じに監視・維持してくれる Masterノードは１つ、Workerノードは複数がある  Pod  Workerノード上に生成されるオブジェクト K8sの最小デプロイ単位であり、スケールする時はPod単位で生成／破棄される Pod内にコンテナが１つ以上ある  ReplicaSet（RS）とDeployment  RS  同じ仕様のPodが指定した数だけ存在するよう生成・管理する 例えば、Podが死んだ時マニフェストで指定した数になるよう自動回復してくれる  Deployment  新しいバージョンのリリースを管理するための仕組み   Service  クラスター内外からのリクエストをPodにルーティングするオブジェクト 複数のPodに対するロードバランシングの役割を持つ  '>
-<meta property='og:url' content='https://chienkira.github.io/blog/posts/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes/'>
+<meta property='og:title' content='Giải thích Mixin và sử dụng Mixin với Python | Chien Kira'>
+<meta property='og:description' content='Vì thường ưu tiên tốc độ, chỉ tập trung làm sao đạt được output mong muốn trong thời gian ngắn nhất, mà từ bao giờ mình đã quá quen với việc &ldquo;tái sử dụng&rdquo; vô tội vạ các mã code Google được. Dẫn đến ngày nọ, mình nhận ra mình hơi bị mất niềm tin vào chính bản thân. Để khắc phục điều này, mình quyết định lâu lâu sẽ ôn tập củng cố lại kiến thức lập trình cơ bản, nhất là những tính năng độc đáo có chất đặc thù một tí của từng ngôn ngữ.'>
+<meta property='og:url' content='https://chienkira.github.io/blog/posts/%C3%B4n-t%E1%BA%ADp-l%E1%BA%A1i-mixin-c%C3%B9ng-v%E1%BB%9Bi-python/'>
 <meta property='og:site_name' content='Chienkira my blog'>
-<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/00e439e7376596f2760b4ef9a28df93b?s=256'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='Kubernetes'><meta property='article:tag' content='aws'><meta property='article:tag' content='docker'><meta property='article:published_time' content='2019-06-08T11:12:01&#43;09:00'/><meta property='article:modified_time' content='2019-06-08T11:12:01&#43;09:00'/><meta name='twitter:card' content='summary'><meta name='twitter:creator' content='@chienkira'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/00e439e7376596f2760b4ef9a28df93b?s=256'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='python'><meta property='article:tag' content='programing'><meta property='article:tag' content='mixin'><meta property='article:published_time' content='2019-06-25T10:25:00&#43;09:00'/><meta property='article:modified_time' content='2019-06-25T10:25:00&#43;09:00'/><meta name='twitter:card' content='summary'><meta name='twitter:creator' content='@chienkira'>
 
 <meta name="generator" content="Hugo 0.50" />
 
-  <title>Hiểu Khái Niệm Cơ Bản Của Kubernetes(日本語) | Chien Kira</title>
-  <link rel='canonical' href='https://chienkira.github.io/blog/posts/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes/'>
+  <title>Giải thích Mixin và sử dụng Mixin với Python | Chien Kira</title>
+  <link rel='canonical' href='https://chienkira.github.io/blog/posts/%C3%B4n-t%E1%BA%ADp-l%E1%BA%A1i-mixin-c%C3%B9ng-v%E1%BB%9Bi-python/'>
   
   
   <link rel='icon' href='/blog/favicon.ico'>
@@ -196,7 +188,7 @@ if (!doNotTrack) {
     <style>.widget-breadcrumbs li:after{content:'　\3e\3e　'}</style>
   <section class='widget widget-breadcrumbs sep-after'>
     <nav id='breadcrumbs'>
-      <ol><li><a href='/blog/'>Chienkira my blog</a></li><li><a href='/blog/posts/'>Posts</a></li><li><span>Hiểu Khái Niệm Cơ Bản Của Kubernetes(日本語)</span></li></ol>
+      <ol><li><a href='/blog/'>Chienkira my blog</a></li><li><a href='/blog/posts/'>Posts</a></li><li><span>Giải thích Mixin và sử dụng Mixin với Python</span></li></ol>
     </nav>
   </section></div>
       </div>
@@ -215,7 +207,7 @@ if (!doNotTrack) {
   <header class='header entry-header'>
   <div class='container sep-after'>
     <div class='header-info'>
-      <h1 class='title'>Hiểu Khái Niệm Cơ Bản Của Kubernetes(日本語)</h1>
+      <h1 class='title'>Giải thích Mixin và sử dụng Mixin với Python</h1>
       
 
     </div>
@@ -229,7 +221,7 @@ if (!doNotTrack) {
   
 </svg>
 <span class='screen-reader-text'>Posted on </span>
-  <time class='entry-date' datetime='2019-06-08T11:12:01&#43;09:00'>2019-06-08</time>
+  <time class='entry-date' datetime='2019-06-25T10:25:00&#43;09:00'>2019-06-25</time>
 </span>
 
   <span class='byline'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
@@ -246,7 +238,7 @@ if (!doNotTrack) {
   <polyline points="12 6 12 12 15 15"/>
   
 </svg>
-1 min đọc
+5 mins đọc
 </span>
 
 
@@ -347,21 +339,21 @@ if (!doNotTrack) {
 
 <div id="share-buttons">
     <div class="facebook" title="Share this on Facebook"
-        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes\/');">
+        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/%C3%B4n-t%E1%BA%ADp-l%E1%BA%A1i-mixin-c%C3%B9ng-v%E1%BB%9Bi-python\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z" /></svg></div>
     <div class="twitter" title="Share this on Twitter"
-        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes\/&amp;text=Hiểu Khái Niệm Cơ Bản Của Kubernetes(日本語)&amp;via=');">
+        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/%C3%B4n-t%E1%BA%ADp-l%E1%BA%A1i-mixin-c%C3%B9ng-v%E1%BB%9Bi-python\/&amp;text=Giải thích Mixin và sử dụng Mixin với Python&amp;via=');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z" /></svg></div>
     <div class="linkedin" title="Share this on Linkedin"
-        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes\/&amp;title=Hiểu Khái Niệm Cơ Bản Của Kubernetes(日本語)');"><svg
+        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/%C3%B4n-t%E1%BA%ADp-l%E1%BA%A1i-mixin-c%C3%B9ng-v%E1%BB%9Bi-python\/&amp;title=Giải thích Mixin và sử dụng Mixin với Python');"><svg
             viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z" /></svg></div>
     
     <div class="gplus" title="Share this on Google Plus"
-        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes\/');"><svg viewBox="0 0 2304 1792"
+        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/%C3%B4n-t%E1%BA%ADp-l%E1%BA%A1i-mixin-c%C3%B9ng-v%E1%BB%9Bi-python\/');"><svg viewBox="0 0 2304 1792"
             xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z" /></svg>
     </div>
     <div class="mail" title="Share this through Email"
-        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes\/');">
+        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/%C3%B4n-t%E1%BA%ADp-l%E1%BA%A1i-mixin-c%C3%B9ng-v%E1%BB%9Bi-python\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z" /></svg>
     </div>
 </div>
@@ -373,113 +365,122 @@ if (!doNotTrack) {
 
   
   
-<details class='container entry-toc'>
-  <summary class='title'>
-    <span>Mục lục</span>
-  </summary>
-  <nav id="TableOfContents">
-<ul>
-<li><a href="#kubernetesとは">Kubernetesとは</a></li>
-<li><a href="#kubernetesの構成を理解">Kubernetesの構成を理解</a>
-<ul>
-<li>
-<ul>
-<li><a href="#クラスター">クラスター</a></li>
-<li><a href="#ノード">ノード</a></li>
-<li><a href="#pod">Pod</a></li>
-<li><a href="#replicaset-rs-とdeployment">ReplicaSet（RS）とDeployment</a></li>
-<li><a href="#service">Service</a></li>
-</ul></li>
-</ul></li>
-</ul>
-</nav>
-</details>
-
 
   <div class='container entry-content'>
   
 
-<h1 id="kubernetesとは">Kubernetesとは</h1>
+<p><strong>Vì thường ưu tiên tốc độ, chỉ tập trung làm sao đạt được output mong muốn trong thời gian ngắn nhất, mà từ bao giờ mình đã quá quen với việc &ldquo;tái sử dụng&rdquo; vô tội vạ các mã code Google được. Dẫn đến ngày nọ, mình nhận ra mình hơi bị mất niềm tin vào chính bản thân. Để khắc phục điều này, mình quyết định lâu lâu sẽ ôn tập củng cố lại kiến thức lập trình cơ bản, nhất là những tính năng độc đáo có chất đặc thù một tí của từng ngôn ngữ. Lần này chủ đề sẽ là Mixin và Python!</strong></p>
 
-<p>Dockerは開発環境として使うのがすごく便利ですが、本番環境で使うと色々な問題が考えられます。</p>
+<h2 id="mixin-là-gì">Mixin là gì</h2>
+
+<h4 id="đầu-tiên-rất-là-cơ-bản-vỡ-lòng-thôi-cách-đọc-của-mixin">Đầu tiên rất là cơ bản vỡ lòng thôi, cách đọc của &ldquo;mixin&rdquo;!</h4>
+
+<p>Mình khá là gà khi một thời gian đầu cứ nghĩ rằng nó đọc là &ldquo;mờ i mi, sờ in sin, mi sin!&rdquo;.
+Đây là cách đọc sai nhé ạ, mặc dù dễ đọc với mình ra phết!
+Để đọc đúng, đầu tiên chúng ta phải hiểu rằng bản chất mixin nó được ghép từ 2 từ tiếng anh là &ldquo;mix&rdquo; và &ldquo;in&rdquo;.
+Vì thế cách đọc chuẩn phải là &ldquo;mích in&rdquo; 😂 nghĩa nôm na là &ldquo;nhào trộn vào&rdquo; nha!</p>
+
+<h4 id="giải-thích-mixin">Giải thích Mixin</h4>
+
+<p>Mixin xuất hiện trong nhiều hình dạng khác nhau với từng ngôn ngữ lập trình, nhưng điểm chung của nó là đều ám chỉ về một kỹ thuật giúp tái sử dụng code, khiến code ngắn gọn cô đọng hơn.</p>
+
+<p>Một ví dụ sử dụng mixin ở trong SASS(CSS) như sau. Code ngắn hơn, khoa học hơn và đảm bảo khi code bự ra thì cách dùng mixin sẽ dễ sửa chữa hơn nhá!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-CSS" data-lang="CSS"><span style="color:#75715e">/* Định nghĩa mixin size */</span>
+@<span style="color:#66d9ef">mixin</span> <span style="color:#f92672">size</span><span style="color:#f92672">($</span><span style="color:#f92672">width</span><span style="color:#f92672">,</span> <span style="color:#f92672">$</span><span style="color:#f92672">height</span><span style="color:#f92672">:</span> <span style="color:#f92672">$</span><span style="color:#f92672">width</span><span style="color:#f92672">)</span> {
+  <span style="color:#f92672">width</span><span style="color:#f92672">:</span> <span style="color:#f92672">$</span><span style="color:#f92672">width</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">height</span><span style="color:#f92672">:</span> <span style="color:#f92672">$</span><span style="color:#f92672">height</span><span style="color:#f92672">;</span>
+}
+
+<span style="color:#75715e">/* Ví dụ sử dụng mixin size */</span>
+.<span style="color:#a6e22e">tiny-box</span> {
+  <span style="color:#75715e">@include size(10px, 20px);</span>
+}
+.<span style="color:#a6e22e">huge-box</span> {
+  <span style="color:#75715e">@include size(1000px, 2000px);</span>
+}</code></pre></div>
+<p>Tuy nhiên cách hiểu rộng rãi và phổ biến nhất của mixin thì lại được biết đến thông qua các ngôn ngữ lập trình hướng đối tượng. Nhắc đến mixin, người ta thường nghĩ đến kỹ thuật để thêm vào nhiều class một tập các thuộc tính/method sẵn có.</p>
+
+<p>Và đặc biệt Python với việc hỗ trợ tính năng đa kế thừa, thực sự là một đất diễn cho các cao thủ nào mê mẩn &ldquo;mích in&rdquo; 😃</p>
 
 <ul>
-<li>コンテナがもし死んだら直ちに検知してコンテナを再起動したりして回復しないといけない</li>
-<li>リクエストが大量になる時、スケールをしないといけない</li>
-<li>複数コンテナがあるなら、ロードバランシングをしないといけない</li>
-<li>等々</li>
+<li><p><em>Đa kế thừa có nghĩa là một class có thể khai báo kế thừa cùng 1 lúc nhiều hơn 2 class cha, so sánh với các ngôn ngữ khác như Java hay PHP và cả Ruby chỉ có đơn kế thừa mà thôi.</em></p></li>
+
+<li><p><em>À riêng Ruby là một ngôn ngữ mình khá yêu thích do đó mình đã tìm hiểu qua để minh oan cho em nó. Ruby có cách làm riêng của ruby để cho các anh chị tha hồ mà &ldquo;mích in&rdquo; nhé, cụ thể là khai báo module rồi include nó vào class ạ. Ruby không cùi đâu! :))</em></p></li>
 </ul>
 
-<p>↑の問題を解決してくれるのがKubernetesの役割です。</p>
+<p>Ví dụ có code cho dễ hình dung thôi nào. Gì thì theo mình, anh em lập trình
+nói chuyện với nhau qua dòng code vẫn là cách truyền đạt hiệu quả nhất!</p>
 
-<p><strong>Kubernetes（K8s）はコンテナオーケストレーションシステムです。</strong></p>
+<hr />
 
-<ul>
-<li>Googleが2014年に公開しました。</li>
-<li>Googleの長きにわたるコンテナ運用の知見が詰まっているらしいです。</li>
-<li>K8sのメイン機能としては、コンテナ化されたアプリケーションを以下のこと自動的に行うことです。
+<p>Đầu tiên ta khai báo một mixin, thực chất là một class. Chúng ta nên đặt tên class kết thúc với từ khóa Mixin, để tránh sau này khi đa kế thừa không biết đâu là đang kế thừa class đâu là đang ốp mixin vào nữa!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> logging
 
-<ul>
-<li>デプロイ</li>
-<li>コンテナ管理</li>
-<li>スケール</li>
-</ul></li>
-</ul>
 
-<p>イメージは、K8sがコンテナの管理をいい感じにやってくれるので、
-私たちはただK8sに「こんな感じでシステムを運用して」と注文書（マニフェスト）を投げつけるだけです。
-それ以外はK8sに任せて良いです。</p>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LoggerMixin</span>(object):
+    <span style="color:#a6e22e">@property</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">logger</span>(self):
+        name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;.&#39;</span><span style="color:#f92672">.</span>join([
+            self<span style="color:#f92672">.</span>__module__,
+            self<span style="color:#f92672">.</span>__class__<span style="color:#f92672">.</span>__name__
+        ])
+        <span style="color:#66d9ef">return</span> logging<span style="color:#f92672">.</span>getLogger(name)
 
-<h1 id="kubernetesの構成を理解">Kubernetesの構成を理解</h1>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">log_exception</span>(self, e):
+        self<span style="color:#f92672">.</span>logger<span style="color:#f92672">.</span>error(str(e))</code></pre></div>
+<p>Mục đích của mixin này là cung cấp một thuộc tính <code>logger</code> và một method <code>log_exception</code>.</p>
 
-<p><img src="/blog/images/k8s_architecture.png" alt="k8s architecture" /></p>
+<p>Giờ ta thử sử dụng mixin trên.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FirstClass</span>(LoggerMixin, BaseClass):
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">do_some_thing</span>(self):
+        <span style="color:#66d9ef">try</span>:
+            <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">Exception</span>(<span style="color:#e6db74">&#34;oh no&#34;</span>)
+        <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+            self<span style="color:#f92672">.</span>log_exception(e)
 
-<h3 id="クラスター">クラスター</h3>
 
-<ul>
-<li>クラスター本体</li>
-</ul>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AnotherClass</span>(LoggerMixin, BaseClass):
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">do_another_thing</span>(self):
+        <span style="color:#66d9ef">try</span>:
+            <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">Exception</span>(<span style="color:#e6db74">&#34;oh no!!!&#34;</span>)
+        <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+            self<span style="color:#f92672">.</span>logger<span style="color:#f92672">.</span>debug(<span style="color:#e6db74">&#34;don&#39;t worry!&#34;</span>)</code></pre></div>
+<p>2 class <code>FirstClass</code> và <code>AnotherClass</code> sử dụng <code>LoggerMixin</code> nên được thừa hưởng &ldquo;khối tài sản khổng lồ&rdquo; và suốt đời tha hồ <code>self.logger</code> hay <code>self.log_exception</code> :)) Tuyệt vời không các bạn, giờ các bạn có thể tùy thích &ldquo;mích&rdquo; LoggerMixin vào mọi class mà bạn muốn. Và vì là đa kế thừa, nên ta có thể &ldquo;mích&rdquo; nhiều hơn 2 mixin cùng một lúc, không chỉ vậy vừa &ldquo;mích in&rdquo; ta vẫn vừa có thể kế thừa các class cha nữa! Python xịn xò quá hà! 😂</p>
 
-<h3 id="ノード">ノード</h3>
+<h2 id="chú-ý-khi-sử-dụng-mixin-với-python">Chú ý khi sử dụng Mixin với Python</h2>
 
-<ul>
-<li>クラスターに属するマシンを表すオブジェクト</li>
-<li>クラスターには、Masterノード１個と複数Workerノードがある</li>
-<li>Workerノードは私たちが開発したアプリケーションの実行環境となる（コンテナ群の実行環境）</li>
-<li>Masterノードは、私たちの命令に従って、各Workerノードにコンテナをデプロイしたりして、いい感じに監視・維持してくれる</li>
-<li>Masterノードは１つ、Workerノードは複数がある</li>
-</ul>
+<p>Giờ giả sử có một bạn mà style hơi oái oăm kiểu &ldquo;thích thì làm thôi&rdquo;, bạn ấy sử dụng nhiều mixin mà trong khi các mixin lại có trùng tên method với nhau, thế thì thử hỏi Python sẽ sử dụng method của mixin nào???</p>
 
-<h3 id="pod">Pod</h3>
+<p>Để giải đáp cái này mình đã tìm hiểu và phát hiện ra trong đa kế thừa, Python xử lý theo thứ tự hơi ngược so với những gì bình thường ta tưởng.
+Điều này không chú ý có thể khiến code của chúng ta tạo ra bug.</p>
 
-<ul>
-<li>Workerノード上に生成されるオブジェクト</li>
-<li>K8sの最小デプロイ単位であり、スケールする時はPod単位で生成／破棄される</li>
-<li>Pod内にコンテナが１つ以上ある</li>
-</ul>
+<p>Ta có đoạn code ví dụ sau:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Mixin1</span>(object):
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test</span>(self):
+        <span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;Mixin1&#34;</span>
 
-<h3 id="replicaset-rs-とdeployment">ReplicaSet（RS）とDeployment</h3>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Mixin2</span>(object):
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test</span>(self):
+        <span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;Mixin2&#34;</span>
 
-<ul>
-<li>RS
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyClass</span>(BaseClass, Mixin1, Mixin2):
+    <span style="color:#66d9ef">pass</span>
 
-<ul>
-<li>同じ仕様のPodが指定した数だけ存在するよう生成・管理する</li>
-<li>例えば、Podが死んだ時マニフェストで指定した数になるよう自動回復してくれる</li>
-</ul></li>
-<li>Deployment
+obj <span style="color:#f92672">=</span> MyClass()
+obj<span style="color:#f92672">.</span>test()</code></pre></div>
+<p>Theo thứ tự kế thừa <code>(BaseClass, Mixin1, Mixin2):</code> thì chắc hẳn Mixin2 sẽ overide Mixin1 và kết cục là method test() của MyClass sẽ là method của Mixin2?!? Nếu các bạn nghĩ vậy thì các bạn đã giống mình - sai hoàn toàn.</p>
 
-<ul>
-<li>新しいバージョンのリリースを管理するための仕組み</li>
-</ul></li>
-</ul>
+<p>Kết quả của đoạn code trên là:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> obj <span style="color:#f92672">=</span> MyClass()
+<span style="color:#f92672">&gt;&gt;&gt;</span> obj<span style="color:#f92672">.</span>test()
+Mixin1</code></pre></div>
+<p>Python hiểu khai báo đa kế thừa từ <strong>phải qua trái</strong>, ngược lại so với thứ tự tự nhiên khi con người đọc chữ. Do đó cách khai báo đúng phải là như sau:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyClass</span>(Mixin2, Mixin1, BaseClass):
+    <span style="color:#66d9ef">pass</span></code></pre></div>
+<p>Thứ tự này lúc đầu hơi khó quen nhưng một khi nhận ra rằng nó chính là thứ tự của các class đang xếp chồng lên nhau thì mọi việc dễ dàng hơn khá nhiều:
+<code>MyClass =&gt; Mixin2 =&gt; Mixin1 =&gt; BaseClass</code></p>
 
-<h3 id="service">Service</h3>
-
-<ul>
-<li>クラスター内外からのリクエストをPodにルーティングするオブジェクト</li>
-<li>複数のPodに対するロードバランシングの役割を持つ</li>
-</ul>
+<p>Các bạn chú ý nha!</p>
 
 </div>
 
@@ -491,7 +492,7 @@ if (!doNotTrack) {
   <line x1="7" y1="7" x2="7" y2="7"/>
   
 </svg>
-<span class='screen-reader-text'>Tags: </span><a class='tag' href='/blog/tags/kubernetes/'>Kubernetes</a>, <a class='tag' href='/blog/tags/aws/'>aws</a>, <a class='tag' href='/blog/tags/docker/'>docker</a></div>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/blog/tags/python/'>python</a>, <a class='tag' href='/blog/tags/programing/'>programing</a>, <a class='tag' href='/blog/tags/mixin/'>mixin</a></div>
 
   <div><span>Share on: </span>
 
@@ -590,21 +591,21 @@ if (!doNotTrack) {
 
 <div id="share-buttons">
     <div class="facebook" title="Share this on Facebook"
-        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes\/');">
+        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/%C3%B4n-t%E1%BA%ADp-l%E1%BA%A1i-mixin-c%C3%B9ng-v%E1%BB%9Bi-python\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z" /></svg></div>
     <div class="twitter" title="Share this on Twitter"
-        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes\/&amp;text=Hiểu Khái Niệm Cơ Bản Của Kubernetes(日本語)&amp;via=');">
+        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/%C3%B4n-t%E1%BA%ADp-l%E1%BA%A1i-mixin-c%C3%B9ng-v%E1%BB%9Bi-python\/&amp;text=Giải thích Mixin và sử dụng Mixin với Python&amp;via=');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z" /></svg></div>
     <div class="linkedin" title="Share this on Linkedin"
-        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes\/&amp;title=Hiểu Khái Niệm Cơ Bản Của Kubernetes(日本語)');"><svg
+        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/%C3%B4n-t%E1%BA%ADp-l%E1%BA%A1i-mixin-c%C3%B9ng-v%E1%BB%9Bi-python\/&amp;title=Giải thích Mixin và sử dụng Mixin với Python');"><svg
             viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z" /></svg></div>
     
     <div class="gplus" title="Share this on Google Plus"
-        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes\/');"><svg viewBox="0 0 2304 1792"
+        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/%C3%B4n-t%E1%BA%ADp-l%E1%BA%A1i-mixin-c%C3%B9ng-v%E1%BB%9Bi-python\/');"><svg viewBox="0 0 2304 1792"
             xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z" /></svg>
     </div>
     <div class="mail" title="Share this through Email"
-        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes\/');">
+        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/%C3%B4n-t%E1%BA%ADp-l%E1%BA%A1i-mixin-c%C3%B9ng-v%E1%BB%9Bi-python\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z" /></svg>
     </div>
 </div></div>
@@ -616,7 +617,7 @@ if (!doNotTrack) {
 
 <nav class='entry-nav'>
   <div class='container'><div class='prev-entry sep-before'>
-      <a href='/blog/posts/d%C3%A0nh-cho-nh%E1%BB%AFng-ai-mu%E1%BB%91n-gi%E1%BA%A3m-c%C3%A2n/'>
+      <a href='/blog/posts/deploy-nhi%E1%BB%81u-m%C3%B4i-tr%C6%B0%E1%BB%9Dng-v%E1%BB%9Bi-terraform/'>
         <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="20" y1="12" x2="4" y2="12"/>
@@ -624,17 +625,7 @@ if (!doNotTrack) {
   
 </svg>
  Previous</span>
-        <span class='screen-reader-text'>Previous post: </span>Dành Cho Những Ai Muốn Giảm Cân</a>
-    </div><div class='next-entry sep-before'>
-      <a href='/blog/posts/coolbiz-trang-ph%E1%BB%A5c-c%C3%B4ng-s%E1%BB%9F-cho-ng%C3%A0y-h%C3%A8/'>
-        <span class='screen-reader-text'>Next post: </span>Cool Biz - Trang Phục Công Sở Cho Ngày Hè<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <line x1="4" y1="12" x2="20" y2="12"/>
-  <polyline points="14 6 20 12 14 18"/>
-  
-</svg>
-</span>
-      </a>
+        <span class='screen-reader-text'>Previous post: </span>Áp Dụng Terraform Module deploy lên nhiều môi trường</a>
     </div></div>
 </nav>
 

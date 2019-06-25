@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chienkira.github.io/blog/posts/%C3%B4n-t%E1%BA%ADp-l%E1%BA%A1i-mixin-c%C3%B9ng-v%E1%BB%9Bi-python/</loc>
+    <lastmod>2019-06-25T10:25:00+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/posts/deploy-nhi%E1%BB%81u-m%C3%B4i-tr%C6%B0%E1%BB%9Dng-v%E1%BB%9Bi-terraform/</loc>
     <lastmod>2019-06-15T10:28:15+09:00</lastmod>
   </url>
@@ -128,7 +133,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/</loc>
-    <lastmod>2019-06-15T10:28:15+09:00</lastmod>
+    <lastmod>2019-06-25T10:25:00+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -146,7 +151,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/posts/</loc>
-    <lastmod>2019-06-15T10:28:15+09:00</lastmod>
+    <lastmod>2019-06-25T10:25:00+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -282,6 +287,12 @@
   </url>
   
   <url>
+    <loc>https://chienkira.github.io/blog/tags/mixin/</loc>
+    <lastmod>2019-06-25T10:25:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/tags/nh%C3%A0-tr%E1%BA%BB/</loc>
     <lastmod>2019-02-26T21:10:31+09:00</lastmod>
     <priority>0</priority>
@@ -295,7 +306,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/programing/</loc>
-    <lastmod>2019-04-05T10:38:57+09:00</lastmod>
+    <lastmod>2019-06-25T10:25:00+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -307,7 +318,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/python/</loc>
-    <lastmod>2019-04-05T10:38:57+09:00</lastmod>
+    <lastmod>2019-06-25T10:25:00+09:00</lastmod>
     <priority>0</priority>
   </url>
   
