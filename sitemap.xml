@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chienkira.github.io/blog/posts/https-cho-m%C3%B4i-tr%C6%B0%E1%BB%9Dng-dev-rails/</loc>
+    <lastmod>2019-08-18T21:47:30+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/posts/%C3%B4n-t%E1%BA%ADp-l%E1%BA%A1i-mixin-c%C3%B9ng-v%E1%BB%9Bi-python/</loc>
     <lastmod>2019-06-25T10:25:00+09:00</lastmod>
   </url>
@@ -133,13 +138,19 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/</loc>
-    <lastmod>2019-06-25T10:25:00+09:00</lastmod>
+    <lastmod>2019-08-18T21:47:30+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/circle-ci/</loc>
     <lastmod>2019-03-23T21:40:43+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/https/</loc>
+    <lastmod>2019-08-18T21:47:30+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -151,7 +162,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/posts/</loc>
-    <lastmod>2019-06-25T10:25:00+09:00</lastmod>
+    <lastmod>2019-08-18T21:47:30+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -164,6 +175,12 @@
   <url>
     <loc>https://chienkira.github.io/blog/tags/sre/</loc>
     <lastmod>2019-06-15T10:28:15+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/ssl/</loc>
+    <lastmod>2019-08-18T21:47:30+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -234,7 +251,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/docker/</loc>
-    <lastmod>2019-06-08T11:12:01+09:00</lastmod>
+    <lastmod>2019-08-18T21:47:30+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -319,6 +336,12 @@
   <url>
     <loc>https://chienkira.github.io/blog/tags/python/</loc>
     <lastmod>2019-06-25T10:25:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/rails/</loc>
+    <lastmod>2019-08-18T21:47:30+09:00</lastmod>
     <priority>0</priority>
   </url>
   

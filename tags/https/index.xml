@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HTTPS on Chienkira my blog</title>
+    <link>https://chienkira.github.io/blog/tags/https/</link>
+    <description>Recent content in HTTPS on Chienkira my blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 18 Aug 2019 21:47:30 +0900</lastBuildDate>
+    
+	<atom:link href="https://chienkira.github.io/blog/tags/https/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Https Cho Môi Trường Dev Rails</title>
+      <link>https://chienkira.github.io/blog/posts/https-cho-m%C3%B4i-tr%C6%B0%E1%BB%9Dng-dev-rails/</link>
+      <pubDate>Sun, 18 Aug 2019 21:47:30 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/https-cho-m%C3%B4i-tr%C6%B0%E1%BB%9Dng-dev-rails/</guid>
+      <description>Hướng dẫn cấu hình tạo môi trường dev rails hỗ trợ giao thức HTTPS hoàn chỉnh nhanh và đơn giản nhất. Https &amp;ldquo;hiểu đơn giản kiểu đà điểu&amp;rdquo; là giao thức được secured, không trần truồng và lộ liễu như http thông thường.
+Tại sao cần HTTPS cho môi trường dev? Đúng rồi! Chắc sẽ có người thắc mắc vậy, &amp;ldquo;Ông dỗi hơi hay sao mà phải tạo môi trường dev hỗ trợ HTTPS, dev thì http là được rồi còn gì?</description>
+    </item>
+    
+  </channel>
+</rss>
