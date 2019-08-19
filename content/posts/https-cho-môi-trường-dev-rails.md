@@ -1,5 +1,5 @@
 ---
-title: "Https Cho Môi Trường Dev Rails"
+title: "Cài đặt HTTPS hoàn chỉnh cho môi trường dev Rails"
 date: 2019-08-18T21:47:30+09:00
 draft: no
 tags: [rails, HTTPS, SSL, docker]
