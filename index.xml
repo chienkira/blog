@@ -5,10 +5,19 @@
     <link>https://chienkira.github.io/blog/</link>
     <description>Recent content on Chienkira my blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 18 Aug 2019 21:47:30 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 24 Oct 2019 09:52:45 +0900</lastBuildDate>
     
 	<atom:link href="https://chienkira.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Code Ruby Của Bạn Đã Dễ Đọc Chưa</title>
+      <link>https://chienkira.github.io/blog/posts/code-ruby-c%E1%BB%A7a-b%E1%BA%A1n-%C4%91%C3%A3-d%E1%BB%85-%C4%91%E1%BB%8Dc-ch%C6%B0a/</link>
+      <pubDate>Thu, 24 Oct 2019 09:52:45 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/code-ruby-c%E1%BB%A7a-b%E1%BA%A1n-%C4%91%C3%A3-d%E1%BB%85-%C4%91%E1%BB%8Dc-ch%C6%B0a/</guid>
+      <description>Do you care about writing readable code? Bài này mình muốn giới thiệu tới các bạn vài mẹo mà thời gian gần đây mình mới học được, giúp cho code Ruby trông chuyên nghiệp, dễ đọc hơn. Đây đều là những tip mà cá nhân mình thấy rất hay nhưng lại không nhiều người biết đến hoặc áp dụng thực tế. Nếu bạn cũng có tips muốn chia sẻ, comment bên dưới nhé ↓↓↓ 😃</description>
+    </item>
     
     <item>
       <title>Cài đặt HTTPS hoàn chỉnh cho môi trường dev Rails</title>

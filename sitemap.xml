@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chienkira.github.io/blog/posts/code-ruby-c%E1%BB%A7a-b%E1%BA%A1n-%C4%91%C3%A3-d%E1%BB%85-%C4%91%E1%BB%8Dc-ch%C6%B0a/</loc>
+    <lastmod>2019-10-24T09:52:45+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/posts/https-cho-m%C3%B4i-tr%C6%B0%E1%BB%9Dng-dev-rails/</loc>
     <lastmod>2019-08-18T21:47:30+09:00</lastmod>
   </url>
@@ -138,7 +143,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/</loc>
-    <lastmod>2019-08-18T21:47:30+09:00</lastmod>
+    <lastmod>2019-10-24T09:52:45+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -162,7 +167,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/posts/</loc>
-    <lastmod>2019-08-18T21:47:30+09:00</lastmod>
+    <lastmod>2019-10-24T09:52:45+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -234,6 +239,12 @@
   <url>
     <loc>https://chienkira.github.io/blog/tags/cloudfront/</loc>
     <lastmod>2019-02-21T16:33:07+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/code-style/</loc>
+    <lastmod>2019-10-24T09:52:45+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -323,7 +334,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/programing/</loc>
-    <lastmod>2019-06-25T10:25:00+09:00</lastmod>
+    <lastmod>2019-10-24T09:52:45+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -341,13 +352,19 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/rails/</loc>
-    <lastmod>2019-08-18T21:47:30+09:00</lastmod>
+    <lastmod>2019-10-24T09:52:45+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/review/</loc>
     <lastmod>2019-03-03T09:18:57+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/ruby/</loc>
+    <lastmod>2019-10-24T09:52:45+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -365,7 +382,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/tech/</loc>
-    <lastmod>2019-04-05T10:38:57+09:00</lastmod>
+    <lastmod>2019-10-24T09:52:45+09:00</lastmod>
     <priority>0</priority>
   </url>
   
