@@ -62,6 +62,7 @@ Những style này đơn giản, thấy được giới thiệu ở blog tứ ph
 ## 3. Dùng tiền tố _ cho biến không dùng đến
 
 Chắc bạn đã từng bắt gặp những trường hợp như:
+
 - xử lý hash, nhưng chỉ cần làm việc với value, bỏ qua key
 - method trả về nhiều giá trị nhưng bạn chỉ cần 1 trong số chúng
 
