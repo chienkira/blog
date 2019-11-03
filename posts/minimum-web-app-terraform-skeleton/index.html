@@ -2,23 +2,19 @@
 <html lang='en'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='Cọ xát thực tế mới ngộ ra được bản chất của cái limit code storage trong AWS lambda. Bài này muốn chia sẻ lại một chút kiến thức biết được với mọi người.
-Bối cảnh Công ty đang làm service chủ yếu theo kiến trúc serverless, nên dùng tương đối nhiều AWS Lambda functions.
- Số lượng Lambda: 238 Code size của Lambda: average 20MB ~ max 50MB  Diễn biến Ngày đẹp trời nhận được thông báo CI job failed.'>
+<meta name='description' content='I made a Skeleton for Terraform code. Basically I&rsquo;m supposed to use it for future projects, but then just thought it might be useful for others so that want to share it with you. Also I tried to avoid having to copy and paste codes when deploye in multiple environments for same app. Hopefully, you will be able to reuse at least a part or an idea to help you with your work.'>
 <meta name='theme-color' content='#ffcd00'>
 
-<meta property='og:title' content='Giới Hạn Code Storage Trong Aws Lambda | Chien Kira'>
-<meta property='og:description' content='Cọ xát thực tế mới ngộ ra được bản chất của cái limit code storage trong AWS lambda. Bài này muốn chia sẻ lại một chút kiến thức biết được với mọi người.
-Bối cảnh Công ty đang làm service chủ yếu theo kiến trúc serverless, nên dùng tương đối nhiều AWS Lambda functions.
- Số lượng Lambda: 238 Code size của Lambda: average 20MB ~ max 50MB  Diễn biến Ngày đẹp trời nhận được thông báo CI job failed.'>
-<meta property='og:url' content='https://chienkira.github.io/blog/posts/gi%E1%BB%9Bi-h%E1%BA%A1n-code-storage-trong-aws-lambda/'>
+<meta property='og:title' content='Minimum Web App Terraform Skeleton [English] | Chien Kira'>
+<meta property='og:description' content='I made a Skeleton for Terraform code. Basically I&rsquo;m supposed to use it for future projects, but then just thought it might be useful for others so that want to share it with you. Also I tried to avoid having to copy and paste codes when deploye in multiple environments for same app. Hopefully, you will be able to reuse at least a part or an idea to help you with your work.'>
+<meta property='og:url' content='https://chienkira.github.io/blog/posts/minimum-web-app-terraform-skeleton/'>
 <meta property='og:site_name' content='Chienkira my blog'>
-<meta property='og:type' content='article'><meta property='og:image' content='https://chienkira.github.io/blog/images/lambda_dashboard_limits_cover.png'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='til'><meta property='article:tag' content='aws'><meta property='article:tag' content='lambda'><meta property='article:tag' content='serverless'><meta property='article:published_time' content='2019-04-15T17:37:58&#43;09:00'/><meta property='article:modified_time' content='2019-04-15T17:37:58&#43;09:00'/><meta name='twitter:card' content='summary_large_image'><meta name='twitter:creator' content='@chienkira'><meta property='twitter:image' content='https://chienkira.github.io/blog/images/lambda_dashboard_limits_cover.png'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://chienkira.github.io/blog/images/terraform-x-aws-1.png'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='terraform'><meta property='article:tag' content='tech'><meta property='article:tag' content='infra'><meta property='article:tag' content='aws'><meta property='article:published_time' content='2019-11-03T16:56:11&#43;09:00'/><meta property='article:modified_time' content='2019-11-03T16:56:11&#43;09:00'/><meta name='twitter:card' content='summary_large_image'><meta name='twitter:creator' content='@chienkira'><meta property='twitter:image' content='https://chienkira.github.io/blog/images/terraform-x-aws-1.png'>
 
 <meta name="generator" content="Hugo 0.50" />
 
-  <title>Giới Hạn Code Storage Trong Aws Lambda | Chien Kira</title>
-  <link rel='canonical' href='https://chienkira.github.io/blog/posts/gi%E1%BB%9Bi-h%E1%BA%A1n-code-storage-trong-aws-lambda/'>
+  <title>Minimum Web App Terraform Skeleton [English] | Chien Kira</title>
+  <link rel='canonical' href='https://chienkira.github.io/blog/posts/minimum-web-app-terraform-skeleton/'>
   
   
   <link rel='icon' href='/blog/favicon.ico'>
@@ -202,7 +198,7 @@ if (!doNotTrack) {
     <style>.widget-breadcrumbs li:after{content:'　\3e\3e　'}</style>
   <section class='widget widget-breadcrumbs sep-after'>
     <nav id='breadcrumbs'>
-      <ol><li><a href='/blog/'>Chienkira my blog</a></li><li><a href='/blog/posts/'>Posts</a></li><li><span>Giới Hạn Code Storage Trong Aws Lambda</span></li></ol>
+      <ol><li><a href='/blog/'>Chienkira my blog</a></li><li><a href='/blog/posts/'>Posts</a></li><li><span>Minimum Web App Terraform Skeleton [English]</span></li></ol>
     </nav>
   </section></div>
       </div>
@@ -221,7 +217,7 @@ if (!doNotTrack) {
   <header class='header entry-header'>
   <div class='container sep-after'>
     <div class='header-info'>
-      <h1 class='title'>Giới Hạn Code Storage Trong Aws Lambda</h1>
+      <h1 class='title'>Minimum Web App Terraform Skeleton [English]</h1>
       
 
     </div>
@@ -235,7 +231,7 @@ if (!doNotTrack) {
   
 </svg>
 <span class='screen-reader-text'>Posted on </span>
-  <time class='entry-date' datetime='2019-04-15T17:37:58&#43;09:00'>2019-04-15</time>
+  <time class='entry-date' datetime='2019-11-03T16:56:11&#43;09:00'>2019-11-03</time>
 </span>
 
   <span class='byline'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
@@ -252,7 +248,7 @@ if (!doNotTrack) {
   <polyline points="12 6 12 12 15 15"/>
   
 </svg>
-4 mins đọc
+2 mins đọc
 </span>
 
 
@@ -353,21 +349,21 @@ if (!doNotTrack) {
 
 <div id="share-buttons">
     <div class="facebook" title="Share this on Facebook"
-        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/gi%E1%BB%9Bi-h%E1%BA%A1n-code-storage-trong-aws-lambda\/');">
+        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/minimum-web-app-terraform-skeleton\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z" /></svg></div>
     <div class="twitter" title="Share this on Twitter"
-        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/gi%E1%BB%9Bi-h%E1%BA%A1n-code-storage-trong-aws-lambda\/&amp;text=Giới Hạn Code Storage Trong Aws Lambda&amp;via=');">
+        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/minimum-web-app-terraform-skeleton\/&amp;text=Minimum Web App Terraform Skeleton [English]&amp;via=');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z" /></svg></div>
     <div class="linkedin" title="Share this on Linkedin"
-        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/gi%E1%BB%9Bi-h%E1%BA%A1n-code-storage-trong-aws-lambda\/&amp;title=Giới Hạn Code Storage Trong Aws Lambda');"><svg
+        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/minimum-web-app-terraform-skeleton\/&amp;title=Minimum Web App Terraform Skeleton [English]');"><svg
             viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z" /></svg></div>
     
     <div class="gplus" title="Share this on Google Plus"
-        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/gi%E1%BB%9Bi-h%E1%BA%A1n-code-storage-trong-aws-lambda\/');"><svg viewBox="0 0 2304 1792"
+        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/minimum-web-app-terraform-skeleton\/');"><svg viewBox="0 0 2304 1792"
             xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z" /></svg>
     </div>
     <div class="mail" title="Share this through Email"
-        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/gi%E1%BB%9Bi-h%E1%BA%A1n-code-storage-trong-aws-lambda\/');">
+        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/minimum-web-app-terraform-skeleton\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z" /></svg>
     </div>
 </div>
@@ -379,114 +375,88 @@ if (!doNotTrack) {
 
   <div class='entry-cover'>
   <figure class='container cover-normal'>
-    <img src='/blog/images/lambda_dashboard_limits_cover.png'/>
+    <img src='/blog/images/terraform-x-aws-1.png'/>
     
   </figure>
 </div>
   
+<details class='container entry-toc'>
+  <summary class='title'>
+    <span>Mục lục</span>
+  </summary>
+  <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#directory-layout">Directory layout</a></li>
+<li><a href="#check-the-source-code-here">Check the source code here</a>
+<ul>
+<li>
+<ul>
+<li><a href="#minimum-web-app-terraform-skeleton">Minimum-web-app-terraform-skeleton</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#how-to-deploy">How to deploy</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+</details>
+
 
   <div class='container entry-content'>
   
 
-<p><strong>Cọ xát thực tế mới ngộ ra được bản chất của cái limit code storage trong AWS lambda. Bài này muốn chia sẻ lại một chút kiến thức biết được với mọi người.</strong></p>
+<p><strong>I made a Skeleton for Terraform code. Basically I&rsquo;m supposed to use it for future projects, but then just thought it might be useful for others so that want to share it with you. Also I tried to avoid having to copy and paste codes when deploye in multiple environments for same app. Hopefully, you will be able to reuse at least a part or an idea to help you with your work.</strong></p>
 
-<h2 id="bối-cảnh">Bối cảnh</h2>
+<h2 id="directory-layout">Directory layout</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">|--.gitignore
+|--README.md
+|--_resources
+|  |--ec2.tf
+|  |--network.tf
+|  |--rds.tf
+|  |--s3.tf
+|  |--sg.tf
+|  |--variables.tf
+|--prod
+|  |--main.tf
+|--test
+|  |--main.tf</code></pre></div>
+<h2 id="check-the-source-code-here">Check the source code here</h2>
 
-<p>Công ty đang làm service chủ yếu theo kiến trúc serverless, nên dùng tương đối nhiều AWS Lambda functions.</p>
+<p><a href="https://github.com/chienkira/minimum-web-app-terraform-skeleton" target="_blank">https://github.com/chienkira/minimum-web-app-terraform-skeleton</a></p>
 
-<ul>
-<li>Số lượng Lambda: 238</li>
-<li>Code size của Lambda: average 20MB ~ max 50MB</li>
-</ul>
+<hr />
 
-<h2 id="diễn-biến">Diễn biến</h2>
+<blockquote>
+<h4 id="minimum-web-app-terraform-skeleton">Minimum-web-app-terraform-skeleton</h4>
 
-<p>Ngày đẹp trời nhận được thông báo <strong>CI job failed</strong>.
-Kiểm tra thì phát hiện ra job <strong>deploy hàm lambda</strong> đã không chạy được thành công.</p>
+<p>Minimum Terraform skeleton (sample) for web app</p>
 
-<p>Log của serverless như sau:</p>
-
-<pre><code>Serverless: Operation failed!
- 
-   Serverless Error ---------------------------------------
-    
-      An error occurred: XXXXXXXXXXXXXXXXX - Code storage limit exceeded. (Service: AWSLambda; Status Code: 400; Error Code: CodeStorageExceededException; Request ID: XXXXXX).
-       
-</code></pre>
-
-<p>Tưởng gì <code>Code storage limit exceeded</code> thì chắc là có function nào bự quá quy định rồi.
-Một function Lambda thì chỉ được tối đa 50 MB zipped thôi, chắc có anh nào nhồi nhét tạo ra một cái hàm bự chà bá chứ gì?</p>
-
-<p>Nghĩ vậy, mình dòm lên những dòng log phía trên tìm manh mối.</p>
-
-<pre><code>Serverless: Uploading service .zip file to S3 (14.4 MB)...
-</code></pre>
-
-<p>Vậy là đếch phải rồi, code size của function Lambda hoàn toàn bình thường như cân đường hộp sữa!</p>
-
-<p>Đến lúc phải nhờ sensei Google chỉ giáo, sensei bảo rằng ngoài cái giới hạn ở trên, còn có một cái giới hạn khác mà AWS đặt ra áp dụng lên từng region của từng tài khoản.</p>
-
-<p>Giới hạn đó như sau:</p>
-
-<table>
-<thead>
-<tr>
-<th align="left">Resource</th>
-<th align="left">Default Limit</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td align="left">Concurrent executions</td>
-<td align="left">1,000</td>
-</tr>
-
-<tr>
-<td align="left">Function and layer storage</td>
-<td align="left">75 GB</td>
-</tr>
-</tbody>
-</table>
-
-<p>Ref: <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html" target="_blank">AWS Lambda Limits</a></p>
-
-<p>Code storage tối đa cho phép là 75GB cho tổng số toàn bộ Lambda functions trên 1 region.</p>
-
-<p>Ta có thể check xem hiện tại ta đang xài đến bao nhiêu trong 75GB bằng cách mở màn hình <a href="https://ap-northeast-1.console.aws.amazon.com/lambda/home?region=ap-northeast-1#/" target="_blank">Dashboard Lambda</a> và kiểm tra phần thông tin hiển thị phía trên đầu trang.</p>
-
-<p>Lúc xảy ra lỗi này thì Code storage của mình đã là 100%.<br />
-<em>Ảnh minh họa sau mình chụp sau khi xử lý rồi.</em>
-<img src="/blog/images/lambda_dashboard_limits.png" alt="" /></p>
-
-<p>Vậy là biết thêm một cái limit mới, cái này nếu không dùng quá nhiều Lambda thì chắc tới tết mới chạm được vạch 75GB :)) Mà nghĩ lại thì việc công ty đã dùng đến 75GB vẫn có gì đó &ldquo;ảo tung chảo&rdquo; quá.
-Nhẩm thử, cứ cho là 1 Lambda có 50MB code size đi chăng nữa thì tổng lại vẫn chỉ là như sau thôi.</p>
-
-<pre><code>50MB * 238funtions / 1024 = 11.6GB
-</code></pre>
-
-<p><strong>Thế tại sao lại bị AWS tính là 100% của 75GB rồi?!?!</strong></p>
-
-<p>Đây mới là cái mình muốn chia sẻ với mọi người nhất.
-Như mọi người đã biết, Lambda function có thể lưu lại các versions.
-Mấu chốt ở đây là ta đã quên đi <strong>phần dung lượng cần thiết để lưu các version cũ</strong>.</p>
-
-<p>Ở trường hợp của mình, mỗi lần serverless deploy thì đều tạo ra 1 version mới. Do đó mà code storage cứ tăng vèo vèo không thương tiếc mỗi lần CI chạy deploy. CI tiện lợi càng &ldquo;thúc đẩy&rdquo; các anh chị em dev và push push tới tấp, thế thì 75GB chứ 750GB cũng không trụ được lâu ấy chứ :))</p>
-
-<h2 id="xử-lý">Xử lý</h2>
-
-<p>Có 2 hướng xử lý có thể xem xét đến.</p>
+<h4 id="features">Features</h4>
 
 <ul>
-<li><p>Nếu như ta cần thiết phải giữ versioning ở trên aws lambda, ta có thể dùng đến plugin <a href="https://www.npmjs.com/package/serverless-prune-plugin" target="_blank">serverless-prune-plugin</a>. Hàng này khá xịn, nó có thể tự động giữ đến n version mới nhất trên aws, các version cũ hơn sẽ được kiểm tra và xóa - prune khỏi aws mỗi lần deploy.</p></li>
+<li>All resources are defined as terraform module (D-R-Y infra code)</li>
+<li>Allow you create same infra for both test and prod environments with only 1 command</li>
+<li>Comes with minimum setup, you can add everything you need, also custom all settings
 
-<li><p>Còn nếu như ta xác định khỏi cần thiết giữ các version cũ của lambda trên aws, giữ trên git là đủ :)) thì ta có thể lựa chọn disable versioning bằng setting sau.</p></li>
+<ul>
+<li>This skeleton uses EC2 as web server, RDS as database server and S3 as file storage</li>
+</ul></li>
+<li>Allocate EIP and assign static IP address to your EC2 instance so it&rsquo;s easier for you to setup domain stuffs after</li>
+<li>Create a new VPC for your web app (good practise to not use the default VPC)</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">   provider:
-   ...
-   versionFunctions: <span style="color:#66d9ef">false</span> <span style="color:#75715e"># optional, default is true</span>
-   ...</code></pre></div>
-<p>Và nhớ trước khi xử lý gì thì cũng nên làm 1 cái script để xóa vợi các version không cần thiết cho code storage giảm xuống dưới 100% đã nhé ạ. Không thì chả deploy nổi lên nữa để mà xử lý đâu mọi người ạ. 😃</p>
+
+<h4 id="how-to-deploy">How to deploy</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#75715e"># checkout this repository
+</span><span style="color:#75715e"></span>$ cd test                           <span style="color:#75715e"># change to directory of enviroment you want to create (test or prod environment)
+</span><span style="color:#75715e"></span>$ terraform init <span style="color:#f92672">&amp;&amp;</span> terraform plan  <span style="color:#75715e"># check what resources will be create
+</span><span style="color:#75715e"></span>$ terraform apply                   # apply <span style="color:#f92672">(</span>deploy<span style="color:#f92672">)</span> all resources</code></pre></div>
+<hr />
+</blockquote>
+
+<p>All comment and feedback are welcome.</p>
 
 </div>
 
@@ -498,7 +468,7 @@ Mấu chốt ở đây là ta đã quên đi <strong>phần dung lượng cần 
   <line x1="7" y1="7" x2="7" y2="7"/>
   
 </svg>
-<span class='screen-reader-text'>Tags: </span><a class='tag' href='/blog/tags/til/'>til</a>, <a class='tag' href='/blog/tags/aws/'>aws</a>, <a class='tag' href='/blog/tags/lambda/'>lambda</a>, <a class='tag' href='/blog/tags/serverless/'>serverless</a></div>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/blog/tags/terraform/'>terraform</a>, <a class='tag' href='/blog/tags/tech/'>tech</a>, <a class='tag' href='/blog/tags/infra/'>infra</a>, <a class='tag' href='/blog/tags/aws/'>aws</a></div>
 
   <div><span>Share on: </span>
 
@@ -597,21 +567,21 @@ Mấu chốt ở đây là ta đã quên đi <strong>phần dung lượng cần 
 
 <div id="share-buttons">
     <div class="facebook" title="Share this on Facebook"
-        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/gi%E1%BB%9Bi-h%E1%BA%A1n-code-storage-trong-aws-lambda\/');">
+        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/minimum-web-app-terraform-skeleton\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z" /></svg></div>
     <div class="twitter" title="Share this on Twitter"
-        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/gi%E1%BB%9Bi-h%E1%BA%A1n-code-storage-trong-aws-lambda\/&amp;text=Giới Hạn Code Storage Trong Aws Lambda&amp;via=');">
+        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/minimum-web-app-terraform-skeleton\/&amp;text=Minimum Web App Terraform Skeleton [English]&amp;via=');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z" /></svg></div>
     <div class="linkedin" title="Share this on Linkedin"
-        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/gi%E1%BB%9Bi-h%E1%BA%A1n-code-storage-trong-aws-lambda\/&amp;title=Giới Hạn Code Storage Trong Aws Lambda');"><svg
+        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/minimum-web-app-terraform-skeleton\/&amp;title=Minimum Web App Terraform Skeleton [English]');"><svg
             viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z" /></svg></div>
     
     <div class="gplus" title="Share this on Google Plus"
-        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/gi%E1%BB%9Bi-h%E1%BA%A1n-code-storage-trong-aws-lambda\/');"><svg viewBox="0 0 2304 1792"
+        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/minimum-web-app-terraform-skeleton\/');"><svg viewBox="0 0 2304 1792"
             xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z" /></svg>
     </div>
     <div class="mail" title="Share this through Email"
-        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/gi%E1%BB%9Bi-h%E1%BA%A1n-code-storage-trong-aws-lambda\/');">
+        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/minimum-web-app-terraform-skeleton\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z" /></svg>
     </div>
 </div></div>
@@ -623,7 +593,7 @@ Mấu chốt ở đây là ta đã quên đi <strong>phần dung lượng cần 
 
 <nav class='entry-nav'>
   <div class='container'><div class='prev-entry sep-before'>
-      <a href='/blog/posts/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python/'>
+      <a href='/blog/posts/code-ruby-c%E1%BB%A7a-b%E1%BA%A1n-%C4%91%C3%A3-d%E1%BB%85-%C4%91%E1%BB%8Dc-ch%C6%B0a/'>
         <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="20" y1="12" x2="4" y2="12"/>
@@ -631,17 +601,7 @@ Mấu chốt ở đây là ta đã quên đi <strong>phần dung lượng cần 
   
 </svg>
  Previous</span>
-        <span class='screen-reader-text'>Previous post: </span>Thủ Thuật Unpack Trong Python</a>
-    </div><div class='next-entry sep-before'>
-      <a href='/blog/posts/d%C3%A0nh-cho-nh%E1%BB%AFng-ai-mu%E1%BB%91n-gi%E1%BA%A3m-c%C3%A2n/'>
-        <span class='screen-reader-text'>Next post: </span>Dành Cho Những Ai Muốn Giảm Cân<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <line x1="4" y1="12" x2="20" y2="12"/>
-  <polyline points="14 6 20 12 14 18"/>
-  
-</svg>
-</span>
-      </a>
+        <span class='screen-reader-text'>Previous post: </span>Code Ruby Của Bạn Đã Dễ Đọc Chưa</a>
     </div></div>
 </nav>
 
