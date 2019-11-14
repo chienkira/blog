@@ -103,6 +103,7 @@ $ git clone abc@example.com:/great_app.git && cd great_app
 # bundle install
 $ gem install bundler -v 1.16.6 # check bundler's version in Gemfile.lock
 $ bundle i
+$ source ~/.bash_profile
 
 # Phải generate mới credential cho Rail vì những file này bị ignore khỏi git repository
 $ rm config/credentials.yml.enc
@@ -112,6 +113,9 @@ $ EDITOR=vim bin/rails credentials:edit
 # Tạo file .env vì file này cơ bản cũng bị ignore khỏi git repository
 $ touch .env
 $ vi .env    # Cài đặt các biến môi trường bạn cần dùng
+
+# Precompile
+$ RAILS_ENV=production rails assets:precompile
 ```
 
 ### 5. Cài đặt Puma chạy dạng service - chạy ở background và tự khởi chạy
@@ -212,11 +216,11 @@ server {
     try_files $uri/index.html $uri @app_server;
 
     location / {
-        # If we request a file that exists (static_images/etc) serve them
-        if (-f $request_filename) {
-            break;
-        }
+        # If requested files exists serve them
+        try_files $uri $uri @app;
+    }
 
+    location @app {
         # When nginx should return maintenance page?
         # - when tmp/maintenance.txt file exists
         if (-f $document_root/../tmp/maintenance.txt) {
