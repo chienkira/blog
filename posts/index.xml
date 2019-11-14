@@ -5,10 +5,20 @@
     <link>https://chienkira.github.io/blog/posts/</link>
     <description>Recent content in Posts on Chienkira my blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 03 Nov 2019 16:56:11 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 12 Nov 2019 15:24:47 +0900</lastBuildDate>
     
 	<atom:link href="https://chienkira.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cài Đặt Server Chạy Rails App Trên Production Sử Dụng Puma &#43; Nginx</title>
+      <link>https://chienkira.github.io/blog/posts/h%C6%B0%E1%BB%9Bng-d%E1%BA%ABn-c%C3%A0i-%C4%91%E1%BA%B7t-server-rails-puma-nginx/</link>
+      <pubDate>Tue, 12 Nov 2019 15:24:47 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/h%C6%B0%E1%BB%9Bng-d%E1%BA%ABn-c%C3%A0i-%C4%91%E1%BA%B7t-server-rails-puma-nginx/</guid>
+      <description>Puma là web server nhỏ gọn đi liền trong Rails giúp developer có thể bắt đầu code một cách nhanh nhất. Tuy nhiên mang nó làm web server thực sự để chạy trên môi trường production thì chưa ổn. Bài này mình muốn memo lại chia sẻ với các bạn các bước cài đặt server để ứng dụng Rails chạy ổn định trên môi trường production.
+Prerequisite  OS môi trường là Amazon linux Database sử dụng là Postgres  System configuration Puma hoạt động như application server cho ứng dụng Rails, còn Nginx sẽ hoạt động với vai trò là reverse proxy - nhận request và chuyển response giữa client và Puma.</description>
+    </item>
     
     <item>
       <title>Minimum Web App Terraform Skeleton [English]</title>

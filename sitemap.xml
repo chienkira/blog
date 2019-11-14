@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chienkira.github.io/blog/posts/h%C6%B0%E1%BB%9Bng-d%E1%BA%ABn-c%C3%A0i-%C4%91%E1%BA%B7t-server-rails-puma-nginx/</loc>
+    <lastmod>2019-11-12T15:24:47+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/posts/minimum-web-app-terraform-skeleton/</loc>
     <lastmod>2019-11-03T16:56:11+09:00</lastmod>
   </url>
@@ -148,7 +153,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/</loc>
-    <lastmod>2019-11-03T16:56:11+09:00</lastmod>
+    <lastmod>2019-11-12T15:24:47+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -172,7 +177,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/posts/</loc>
-    <lastmod>2019-11-03T16:56:11+09:00</lastmod>
+    <lastmod>2019-11-12T15:24:47+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -260,6 +265,12 @@
   </url>
   
   <url>
+    <loc>https://chienkira.github.io/blog/tags/deploy/</loc>
+    <lastmod>2019-11-12T15:24:47+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/tags/diet/</loc>
     <lastmod>2019-05-26T22:19:42+09:00</lastmod>
     <priority>0</priority>
@@ -285,7 +296,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/infra/</loc>
-    <lastmod>2019-11-03T16:56:11+09:00</lastmod>
+    <lastmod>2019-11-12T15:24:47+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -326,6 +337,12 @@
   </url>
   
   <url>
+    <loc>https://chienkira.github.io/blog/tags/nginx/</loc>
+    <lastmod>2019-11-12T15:24:47+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/tags/nh%C3%A0-tr%E1%BA%BB/</loc>
     <lastmod>2019-02-26T21:10:31+09:00</lastmod>
     <priority>0</priority>
@@ -357,7 +374,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/rails/</loc>
-    <lastmod>2019-10-24T09:52:45+09:00</lastmod>
+    <lastmod>2019-11-12T15:24:47+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -387,7 +404,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/tech/</loc>
-    <lastmod>2019-11-03T16:56:11+09:00</lastmod>
+    <lastmod>2019-11-12T15:24:47+09:00</lastmod>
     <priority>0</priority>
   </url>
   
