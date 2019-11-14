@@ -1,22 +1,36 @@
 ---
-title: "Hướng Dẫn Cài Đặt Server Rails Puma Nginx"
+title: "Cài Đặt Server Chạy Rails App Trên Production Sử Dụng Puma + Nginx"
 date: 2019-11-12T15:24:47+09:00
-draft: true
+draft: no
 tags: [infra, rails, tech, nginx, deploy]
 language: vi
 toc: true
 authors: [chienkira]
+cover: /blog/images/puma-nginx.png
 ---
 
-**Puma là web server nhỏ gọn được cài đặt đi liền trong Rails giúp developer có thể bắt đầu code một cách nhanh nhất. Tuy nhiên mang nó làm web server thực thụ chạy trên môi trường production thì chưa ổn. Bài này mình memo lại chia sẻ với các bạn các bước cài đặt server cho ứng dụng Rails chạy ổn định trên môi trường production.**
+**Puma là web server nhỏ gọn đi liền trong Rails giúp developer có thể bắt đầu code một cách nhanh nhất. Tuy nhiên mang nó làm web server thực sự để chạy trên môi trường production thì chưa ổn. Bài này mình muốn memo lại chia sẻ với các bạn các bước cài đặt server để ứng dụng Rails chạy ổn định trên môi trường production.**
 
 ### Prerequisite
 - OS môi trường là Amazon linux
 - Database sử dụng là Postgres
 
-### Cơ cấu
+### System configuration
+
+Puma hoạt động như application server cho ứng dụng Rails, 
+còn Nginx sẽ hoạt động với vai trò là reverse proxy - nhận request và chuyển response giữa client và Puma.
+Puma và Nginx giao tiếp với nhau thông qua socket.
+
 - rbenv + Ruby 2.5
 - Rails 5 + Puma + Nginx
+
+![puma-nginx.png](/blog/images/puma-nginx.png)
+
+> *Source Image : http://codeonhill.com*
+
+**Ok, ssh vào server và bắt đầu cài đặt thôi! ↓↓↓**
+
+---
 
 ### 1. Chuẩn bị môi trường
 
@@ -278,3 +292,4 @@ $ sudo vi /etc/logrotate.d/greatapp.logrotate.conf
     dateformat -%Y%m%d
 }
 ```
+---
