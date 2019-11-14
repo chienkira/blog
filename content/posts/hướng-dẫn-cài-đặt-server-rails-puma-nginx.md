@@ -188,6 +188,7 @@ $ sudo systemctl restart nginx
 $ sudo chown -R nginx:nginx /var/lib/nginx/ # 1回権限エラーで困った為、このフォルダーの権限を変更しておく
 
 # Thay đổi quyền cho log folders
+$ sudo chown -R deploy:deploy /var/log/nginx
 $ sudo chown -R deploy:deploy /var/log/nginx/*
 $ sudo chown -R deploy:deploy /var/www/great_app/log/*
 ```
