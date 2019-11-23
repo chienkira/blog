@@ -116,6 +116,8 @@ $ vi .env    # Cài đặt các biến môi trường bạn cần dùng
 
 # Precompile
 $ RAILS_ENV=production rails assets:precompile
+# DB Migration
+$ RAILS_ENV=production rails db:migrate
 ```
 
 ### 5. Cài đặt Puma chạy dạng service - chạy ở background và tự khởi chạy
@@ -272,6 +274,8 @@ là thói quen chúng ta nên làm.
 ```
 # Nội dung file greatapp.logrotate.conf tham khảo mình để ở dưới
 $ sudo vi /etc/logrotate.d/greatapp.logrotate.conf
+$ mkdir /var/log/nginx/old/
+$ mkdir /var/www/switch_bike/src/log/old/
 ```
 
 *File greatapp.logrotate.conf tham khảo*
