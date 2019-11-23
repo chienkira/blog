@@ -693,14 +693,34 @@ $ sudo vi /etc/logrotate.d/greatapp.logrotate.conf
     dateformat -%Y%m%d
 }
 
-# Application log
-/var/www/great_app/log/*.log
+# Nginx logs
+/var/log/nginx/*.log
 {
-    missingok
-    weekly
-    rotate 12
+    daily                     # rotate hàng ngày
+    rotate 60                 # keep đến 12 bản log gần đây nhất
+    olddir /var/log/nginx/old # log rotated để trong thư mục old/
+    copytruncate              # chỉ truncate file log chứ ko move/tạo mới file log khi rotate
+                              # nếu log luôn bị append (ví dụ log của nginx chẳng hạn) thì nếu không có option này
+                              # sau khi rotate log, nginx sẽ không ghi được log vào file log mới nữa đó! cần chú ý!
+    nocompress
     dateext
     dateformat -%Y%m%d
+    missingok
+    su deploy deploy
+}
+
+# Application logs
+/var/www/switch_bike/src/log/*.log
+{
+    daily
+    rotate 60
+    olddir /var/www/switch_bike/src/log/old
+    copytruncate
+    nocompress
+    dateext
+    dateformat -%Y%m%d
+    missingok
+    su deploy deploy
 }
 </code></pre>
 
