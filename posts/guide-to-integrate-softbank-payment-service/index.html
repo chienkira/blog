@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='この間、決済代行サービス（SoftBankペイメント）を案件に導入したので、実際に実装して分かったことをこの記事にまとめてシェアしたいと思います。
+バックグラウンド  私はこれまで決済代行サービスとの連携を実装したことがありません。 この案件は、クレジットカード支払いに対応しなければなりません。今後キャリア支払いも対応する可能性があります。 Railsで実装されたウェブアプリケーションとの連携となります。  決済代行サービスとは  加盟店と各決済会社（カード会社やオンライ決済）の間に入り、多種の決済方法を対応してくれるサービスです。 決済代行サービスを使わない場合、どうなるか？  各決済会社と個別契約をしないといけない　→　審査が大変厳しくなってしまう、工数もかなり掛かってしまう 決済会社によって、入金サイクルや手数料率が異なるので、事務処理に大変手間が掛かってしまう カード情報保管など、加盟店側が行わなければならない為、セキュリティー面の対応のハドルは高い  上のような不便を解決するために、決済代行サービスが存在しています。  SoftBankペイメントについてのまとめ 1. 導入の大きな流れ  まずは、エントリーシートを記入してSBペイメントへ提出する SB側が各決済会社への審査を行ってくれる 審査が通過したら、私たち（加盟店）の環境が構築される
+※ キャリア決済の審査が遅い傾向にある為、各カード会社の審査がOKになったら、途中で環境構築が始められるそうです。急いでる方はSBの営業担当者へ依頼してください。 環境構築が終わり次第、試験と本番環境の接続情報がもらえる  連携時に必要な情報 管理画面のログイン情報  審査に時間はかかる為、基本的には「共用試験環境」を使って実装を先に進めてください！と営業担当者から案内される
+※ 共用試験環境は、SBペイメントの導入を検討している人々がシェアして使える環境である。実装を確認する為に、使えるテストカード情報なども共有される。  2. システム接続方式 SBペイメントは以下の2つの接続方法を対応しています。
+契約する時、どちらかしか選択できないという訳ではありません。API＋リンク両方使用することも可能です。
+ リンク型：エンドユーザーをSBペイメントの画面に誘導して、決済させるというイメージ API型：加盟店の画面がSBペイメントのAPIを呼び出して決済処理を行うというイメージ  2.1 リンク型 SBペイメントが提供する決済手続きの各画面を利用する方式です。 決済処理が終わた後、任意の加盟店側のページに画面遷移されます。
+2.2 API型 SBペイメントの画面を使わず、APIでサーバー間の連携を行う方式です。 決済画面全部が自由にカスタマイズできます。
+2.3 リンク型とAPI型の比較    項目 リンク型 API型     決済画面のカスタマイズ プラス料金を出せば、デザインのカスタマイズはできるが、 リンク追加など出来ない内容もある 自由に   決済処理フロー 決済代行サービスの仕様に依存 自由に   開発容易度と工数 低 高   利用可能な決済手段の差 豊富 一部の決済手段はAPI型対応しない    3.'>
+<meta name='theme-color' content='#ffcd00'>
+
+<meta property='og:title' content='Softbank決済代行サービス導入についてのまとめ、実装メモ | Chien Kira'>
+<meta property='og:description' content='この間、決済代行サービス（SoftBankペイメント）を案件に導入したので、実際に実装して分かったことをこの記事にまとめてシェアしたいと思います。
+バックグラウンド  私はこれまで決済代行サービスとの連携を実装したことがありません。 この案件は、クレジットカード支払いに対応しなければなりません。今後キャリア支払いも対応する可能性があります。 Railsで実装されたウェブアプリケーションとの連携となります。  決済代行サービスとは  加盟店と各決済会社（カード会社やオンライ決済）の間に入り、多種の決済方法を対応してくれるサービスです。 決済代行サービスを使わない場合、どうなるか？  各決済会社と個別契約をしないといけない　→　審査が大変厳しくなってしまう、工数もかなり掛かってしまう 決済会社によって、入金サイクルや手数料率が異なるので、事務処理に大変手間が掛かってしまう カード情報保管など、加盟店側が行わなければならない為、セキュリティー面の対応のハドルは高い  上のような不便を解決するために、決済代行サービスが存在しています。  SoftBankペイメントについてのまとめ 1. 導入の大きな流れ  まずは、エントリーシートを記入してSBペイメントへ提出する SB側が各決済会社への審査を行ってくれる 審査が通過したら、私たち（加盟店）の環境が構築される
+※ キャリア決済の審査が遅い傾向にある為、各カード会社の審査がOKになったら、途中で環境構築が始められるそうです。急いでる方はSBの営業担当者へ依頼してください。 環境構築が終わり次第、試験と本番環境の接続情報がもらえる  連携時に必要な情報 管理画面のログイン情報  審査に時間はかかる為、基本的には「共用試験環境」を使って実装を先に進めてください！と営業担当者から案内される
+※ 共用試験環境は、SBペイメントの導入を検討している人々がシェアして使える環境である。実装を確認する為に、使えるテストカード情報なども共有される。  2. システム接続方式 SBペイメントは以下の2つの接続方法を対応しています。
+契約する時、どちらかしか選択できないという訳ではありません。API＋リンク両方使用することも可能です。
+ リンク型：エンドユーザーをSBペイメントの画面に誘導して、決済させるというイメージ API型：加盟店の画面がSBペイメントのAPIを呼び出して決済処理を行うというイメージ  2.1 リンク型 SBペイメントが提供する決済手続きの各画面を利用する方式です。 決済処理が終わた後、任意の加盟店側のページに画面遷移されます。
+2.2 API型 SBペイメントの画面を使わず、APIでサーバー間の連携を行う方式です。 決済画面全部が自由にカスタマイズできます。
+2.3 リンク型とAPI型の比較    項目 リンク型 API型     決済画面のカスタマイズ プラス料金を出せば、デザインのカスタマイズはできるが、 リンク追加など出来ない内容もある 自由に   決済処理フロー 決済代行サービスの仕様に依存 自由に   開発容易度と工数 低 高   利用可能な決済手段の差 豊富 一部の決済手段はAPI型対応しない    3.'>
+<meta property='og:url' content='https://chienkira.github.io/blog/posts/guide-to-integrate-softbank-payment-service/'>
+<meta property='og:site_name' content='Chienkira my blog'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/00e439e7376596f2760b4ef9a28df93b?s=256'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='rails'><meta property='article:tag' content='ruby'><meta property='article:tag' content='payment'><meta property='article:tag' content='programing'><meta property='article:tag' content='Softbank'><meta property='article:published_time' content='2019-12-08T09:36:35&#43;09:00'/><meta property='article:modified_time' content='2019-12-08T09:36:35&#43;09:00'/><meta name='twitter:card' content='summary'><meta name='twitter:creator' content='@chienkira'>
+
+<meta name="generator" content="Hugo 0.50" />
+
+  <title>Softbank決済代行サービス導入についてのまとめ、実装メモ | Chien Kira</title>
+  <link rel='canonical' href='https://chienkira.github.io/blog/posts/guide-to-integrate-softbank-payment-service/'>
+  
+  
+  <link rel='icon' href='/blog/favicon.ico'>
+<link rel='stylesheet' href='/blog/assets/css/main.4a10984a.css'><link rel='stylesheet' href='/blog/css/custom.css'><style>
+:root{--color-accent:#ffcd00;}
+</style>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-135034755-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  
+
+</head>
+<body class='page type-posts has-sidebar'>
+
+  <div class='site'><div id='sidebar' class='sidebar'>
+  <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
+
+  <div class='container'><section class='widget widget-about sep-after'>
+  <header>
+    
+    <div class='logo'>
+      <a href='/blog/'>
+        <img src='/blog/images/chienkira.png'>
+      </a>
+    </div>
+    
+    <h2 class='title site-title '>
+    chienkira [chiến]
+    </h2>
+    <div class='desc'>
+    <p>a web &lsquo;full snack&rsquo; developer</p>
+
+<p>a Papa engineer</p>
+
+<p>at Tokyo</p>
+
+    </div>
+  </header>
+
+</section>
+<section class='widget widget-taxonomy_cloud sep-after'>
+  <header>
+    <h4 class='title widget-title'>Tags</h4>
+  </header>
+
+  <div class='container list-container'>
+  <ul class='list taxonomy-cloud'><li>
+        <a href='/blog/tags/ci/' style='font-size:1em'>CI</a>
+      </li><li>
+        <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
+      </li><li>
+        <a href='/blog/tags/https/' style='font-size:1em'>HTTPS</a>
+      </li><li>
+        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
+      </li><li>
+        <a href='/blog/tags/sam/' style='font-size:1.1428571428571428em'>SAM</a>
+      </li><li>
+        <a href='/blog/tags/sre/' style='font-size:1em'>SRE</a>
+      </li><li>
+        <a href='/blog/tags/ssl/' style='font-size:1em'>SSL</a>
+      </li><li>
+        <a href='/blog/tags/softbank/' style='font-size:1em'>Softbank</a>
+      </li><li>
+        <a href='/blog/tags/til/' style='font-size:1em'>TIL</a>
+      </li><li>
+        <a href='/blog/tags/api-gateway/' style='font-size:1em'>api gateway</a>
+      </li><li>
+        <a href='/blog/tags/aws/' style='font-size:2em'>aws</a>
+      </li><li>
+        <a href='/blog/tags/blue-green-deploy/' style='font-size:1em'>blue green deploy</a>
+      </li><li>
+        <a href='/blog/tags/career/' style='font-size:1em'>career</a>
+      </li><li>
+        <a href='/blog/tags/cli/' style='font-size:1em'>cli</a>
+      </li><li>
+        <a href='/blog/tags/cloudfront/' style='font-size:1em'>cloudfront</a>
+      </li><li>
+        <a href='/blog/tags/code-style/' style='font-size:1em'>code-style</a>
+      </li><li>
+        <a href='/blog/tags/cooking/' style='font-size:1.1428571428571428em'>cooking</a>
+      </li><li>
+        <a href='/blog/tags/deploy/' style='font-size:1em'>deploy</a>
+      </li><li>
+        <a href='/blog/tags/diet/' style='font-size:1.1428571428571428em'>diet</a>
+      </li><li>
+        <a href='/blog/tags/docker/' style='font-size:1.4285714285714286em'>docker</a>
+      </li><li>
+        <a href='/blog/tags/driving/' style='font-size:1.1428571428571428em'>driving</a>
+      </li><li>
+        <a href='/blog/tags/dynamodb-local/' style='font-size:1em'>dynamodb local</a>
+      </li><li>
+        <a href='/blog/tags/infra/' style='font-size:1.4285714285714286em'>infra</a>
+      </li><li>
+        <a href='/blog/tags/japan/' style='font-size:1em'>japan</a>
+      </li><li>
+        <a href='/blog/tags/lambda/' style='font-size:1.1428571428571428em'>lambda</a>
+      </li><li>
+        <a href='/blog/tags/license/' style='font-size:1em'>license</a>
+      </li><li>
+        <a href='/blog/tags/life/' style='font-size:1.5714285714285714em'>life</a>
+      </li><li>
+        <a href='/blog/tags/low-carb/' style='font-size:1em'>low-carb</a>
+      </li><li>
+        <a href='/blog/tags/mixin/' style='font-size:1em'>mixin</a>
+      </li><li>
+        <a href='/blog/tags/nginx/' style='font-size:1em'>nginx</a>
+      </li><li>
+        <a href='/blog/tags/nh%C3%A0-tr%E1%BA%BB/' style='font-size:1em'>nhà trẻ</a>
+      </li><li>
+        <a href='/blog/tags/nu%C3%B4i-con/' style='font-size:1.1428571428571428em'>nuôi con</a>
+      </li><li>
+        <a href='/blog/tags/payment/' style='font-size:1em'>payment</a>
+      </li><li>
+        <a href='/blog/tags/programing/' style='font-size:1.4285714285714286em'>programing</a>
+      </li><li>
+        <a href='/blog/tags/pycharm/' style='font-size:1em'>pycharm</a>
+      </li><li>
+        <a href='/blog/tags/python/' style='font-size:1.4285714285714286em'>python</a>
+      </li><li>
+        <a href='/blog/tags/rails/' style='font-size:1.4285714285714286em'>rails</a>
+      </li><li>
+        <a href='/blog/tags/review/' style='font-size:1.2857142857142856em'>review</a>
+      </li><li>
+        <a href='/blog/tags/ruby/' style='font-size:1.1428571428571428em'>ruby</a>
+      </li><li>
+        <a href='/blog/tags/serverless/' style='font-size:1.2857142857142856em'>serverless</a>
+      </li><li>
+        <a href='/blog/tags/sre/' style='font-size:1em'>sre</a>
+      </li><li>
+        <a href='/blog/tags/tech/' style='font-size:1.4285714285714286em'>tech</a>
+      </li><li>
+        <a href='/blog/tags/terraform/' style='font-size:1.1428571428571428em'>terraform</a>
+      </li><li>
+        <a href='/blog/tags/til/' style='font-size:1.1428571428571428em'>til</a>
+      </li></ul>
+</div>
+
+
+</section>
+</div>
+
+  <div class='sidebar-overlay'></div>
+</div><div class='main'><nav id='main-menu' class='menu main-menu' aria-label='Main Menu'>
+  <div class='container'>
+    <a class='screen-reader-text' href='#content'>Skip to Content</a>
+
+<button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
+  <span class='screen-reader-text'>Toggle Sidebar</span>
+  <span class='open'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="3" y1="12" x2="21" y2="12" />
+  <line x1="3" y1="6" x2="21" y2="6" />
+  <line x1="3" y1="18" x2="21" y2="18" />
+  
+</svg>
+</span>
+  <span class='close'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+  
+</svg>
+</span>
+</button>
+    <ul><li class='item'>
+        <a href='/blog/'>~/　</a>
+      </li><li class='item'>
+        <a href='/blog/posts'>~/Posts　</a>
+      </li><li class='item'>
+        <a href='https://chienkira.github.io/musyc/dist/'>Musyc ♪　</a>
+      </li><li class='item'>
+        <a href='https://chienkira.github.io'>Portfolio 〓　</a>
+      </li><li class='item'>
+        <a href='/blog/index.xml'>Rss ‡　</a>
+      </li></ul>
+  </div>
+</nav><div class='header-widgets'>
+        <div class='container'>
+    
+    <style>.widget-breadcrumbs li:after{content:'　\3e\3e　'}</style>
+  <section class='widget widget-breadcrumbs sep-after'>
+    <nav id='breadcrumbs'>
+      <ol><li><a href='/blog/'>Chienkira my blog</a></li><li><a href='/blog/posts/'>Posts</a></li><li><span>Softbank決済代行サービス導入についてのまとめ、実装メモ</span></li></ol>
+    </nav>
+  </section></div>
+      </div>
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>Chienkira my blog</p><p class='desc site-desc'>chienkira | a web full stack engineer | personal blog about tech and life in Japan</p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>Softbank決済代行サービス導入についてのまとめ、実装メモ</h1>
+      
+
+    </div>
+    <div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2019-12-08T09:36:35&#43;09:00'>2019-12-08</time>
+</span>
+
+  <span class='byline'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M21,21V20c0-2.76-4-5-9-5s-9,2.24-9,5v1"/>
+  <path d="M16,6.37A4,4,0,1,1,12.63,3,4,4,0,0,1,16,6.37Z"/>
+  
+</svg>
+<span class='screen-reader-text'> by </span><a href='/blog/authors/chienkira'>Chien Kira</a></span>
+  
+<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+  
+</svg>
+1 min read
+</span>
+
+
+  
+
+
+<style>
+    #share-buttons {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    #share-buttons:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    #share-buttons>div {
+        position: relative;
+        text-align: left;
+        height: 30px;
+        width: 40px;
+        float: left;
+        text-align: center;
+    }
+
+    #share-buttons>div>svg {
+        height: 16px;
+        fill: #d5d5d5;
+        margin-top: 10px;
+    }
+
+    #share-buttons>div:hover {
+        cursor: pointer;
+    }
+
+    #share-buttons>div.facebook:hover>svg {
+        fill: #3B5998;
+    }
+
+    #share-buttons>div.twitter:hover>svg {
+        fill: #55ACEE;
+    }
+
+    #share-buttons>div.linkedin:hover>svg {
+        fill: #0077b5;
+    }
+
+    #share-buttons>div.pinterest:hover>svg {
+        fill: #CB2027;
+    }
+
+    #share-buttons>div.gplus:hover>svg {
+        fill: #dd4b39;
+    }
+
+    #share-buttons>div.mail:hover>svg {
+        fill: #7D7D7D;
+    }
+
+    #share-buttons>div.instagram:hover>svg {
+        fill: #C73B92;
+    }
+
+    #share-buttons>div.facebook>svg {
+        height: 25px;
+        margin-top: 9px;
+    }
+
+    #share-buttons>div.twitter>svg {
+        height: 25px;
+        margin-top: 8px;
+    }
+
+    #share-buttons>div.linkedin>svg {
+        height: 24px;
+        margin-top: 7px;
+    }
+
+    #share-buttons>div.pinterest>svg {
+        height: 25px;
+        margin-top: 9px;
+    }
+
+    #share-buttons>div.gplus>svg {
+        height: 22px;
+        margin-top: 9px;
+        position: relative;
+        left: 1px;
+    }
+
+    #share-buttons>div.mail>svg {
+        height: 20px;
+        margin-top: 11px;
+    }
+</style>
+
+<div id="share-buttons">
+    <div class="facebook" title="Share this on Facebook"
+        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/guide-to-integrate-softbank-payment-service\/');">
+        <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z" /></svg></div>
+    <div class="twitter" title="Share this on Twitter"
+        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/guide-to-integrate-softbank-payment-service\/&amp;text=Softbank決済代行サービス導入についてのまとめ、実装メモ&amp;via=');">
+        <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z" /></svg></div>
+    <div class="linkedin" title="Share this on Linkedin"
+        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/guide-to-integrate-softbank-payment-service\/&amp;title=Softbank決済代行サービス導入についてのまとめ、実装メモ');"><svg
+            viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z" /></svg></div>
+    
+    <div class="gplus" title="Share this on Google Plus"
+        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/guide-to-integrate-softbank-payment-service\/');"><svg viewBox="0 0 2304 1792"
+            xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z" /></svg>
+    </div>
+    <div class="mail" title="Share this through Email"
+        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/guide-to-integrate-softbank-payment-service\/');">
+        <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z" /></svg>
+    </div>
+</div>
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+<details class='container entry-toc'>
+  <summary class='title'>
+    <span>Table of contents</span>
+  </summary>
+  <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#バックグラウンド">バックグラウンド</a></li>
+<li><a href="#決済代行サービスとは">決済代行サービスとは</a></li>
+<li><a href="#softbankペイメントについてのまとめ">SoftBankペイメントについてのまとめ</a>
+<ul>
+<li><a href="#1-導入の大きな流れ">1. 導入の大きな流れ</a></li>
+<li><a href="#2-システム接続方式">2. システム接続方式</a>
+<ul>
+<li><a href="#2-1-リンク型">2.1 リンク型</a></li>
+<li><a href="#2-2-api型">2.2 API型</a></li>
+<li><a href="#2-3-リンク型とapi型の比較">2.3 リンク型とAPI型の比較</a></li>
+</ul></li>
+<li><a href="#3-実装についてのまとめ">3. 実装についてのまとめ</a>
+<ul>
+<li><a href="#3-1-開発者支援サイト">3.1 開発者支援サイト</a></li>
+<li><a href="#3-2-リンク型-api型の実装の共通点">3.2 リンク型・API型の実装の共通点</a></li>
+<li><a href="#3-3-今回実装した内容">3.3 今回実装した内容</a></li>
+<li><a href="#3-4-支払い情報登録の実装-リンク型">3.4 支払い情報登録の実装（リンク型）</a></li>
+<li><a href="#3-5-決済処理の実装-api型">3.5 決済処理の実装（API型）</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#感想">感想</a></li>
+</ul></li>
+</ul>
+</nav>
+</details>
+
+
+  <div class='container entry-content'>
+  
+
+<p><strong>この間、決済代行サービス<a href="https://www.sbpayment.jp/" target="_blank">（SoftBankペイメント）</a>を案件に導入したので、実際に実装して分かったことをこの記事にまとめてシェアしたいと思います。</strong></p>
+
+<h2 id="バックグラウンド">バックグラウンド</h2>
+
+<hr />
+
+<ul>
+<li>私はこれまで決済代行サービスとの連携を実装したことがありません。</li>
+<li>この案件は、クレジットカード支払いに対応しなければなりません。今後キャリア支払いも対応する可能性があります。</li>
+<li>Railsで実装されたウェブアプリケーションとの連携となります。</li>
+</ul>
+
+<h2 id="決済代行サービスとは">決済代行サービスとは</h2>
+
+<hr />
+
+<ul>
+<li>加盟店と各決済会社（カード会社やオンライ決済）の間に入り、多種の決済方法を対応してくれるサービスです。</li>
+<li>決済代行サービスを使わない場合、どうなるか？
+
+<ul>
+<li>各決済会社と個別契約をしないといけない　→　審査が大変厳しくなってしまう、工数もかなり掛かってしまう</li>
+<li>決済会社によって、入金サイクルや手数料率が異なるので、事務処理に大変手間が掛かってしまう</li>
+<li>カード情報保管など、加盟店側が行わなければならない為、セキュリティー面の対応のハドルは高い</li>
+</ul></li>
+<li>上のような不便を解決するために、決済代行サービスが存在しています。</li>
+</ul>
+
+<p><img src="/blog/images/SB payment-payment gateway.png" alt="" /></p>
+
+<h2 id="softbankペイメントについてのまとめ">SoftBankペイメントについてのまとめ</h2>
+
+<hr />
+
+<h3 id="1-導入の大きな流れ">1. 導入の大きな流れ</h3>
+
+<ul>
+<li>まずは、エントリーシートを記入してSBペイメントへ提出する</li>
+<li>SB側が各決済会社への審査を行ってくれる</li>
+<li>審査が通過したら、私たち（加盟店）の環境が構築される<br />
+※ キャリア決済の審査が遅い傾向にある為、各カード会社の審査がOKになったら、途中で環境構築が始められるそうです。急いでる方はSBの営業担当者へ依頼してください。</li>
+<li>環境構築が終わり次第、試験と本番環境の接続情報がもらえる
+
+<ul>
+<li>連携時に必要な情報</li>
+<li>管理画面のログイン情報</li>
+</ul></li>
+<li>審査に時間はかかる為、基本的には「共用試験環境」を使って実装を先に進めてください！と営業担当者から案内される<br />
+※ 共用試験環境は、SBペイメントの導入を検討している人々がシェアして使える環境である。実装を確認する為に、使えるテストカード情報なども共有される。</li>
+</ul>
+
+<h3 id="2-システム接続方式">2. システム接続方式</h3>
+
+<p>SBペイメントは以下の2つの接続方法を対応しています。<br />
+契約する時、どちらかしか選択できないという訳ではありません。API＋リンク両方使用することも可能です。</p>
+
+<ul>
+<li>リンク型：エンドユーザーをSBペイメントの画面に誘導して、決済させるというイメージ</li>
+<li>API型：加盟店の画面がSBペイメントのAPIを呼び出して決済処理を行うというイメージ</li>
+</ul>
+
+<h4 id="2-1-リンク型">2.1 リンク型</h4>
+
+<p>SBペイメントが提供する決済手続きの各画面を利用する方式です。
+決済処理が終わた後、任意の加盟店側のページに画面遷移されます。</p>
+
+<p><img src="/blog/images/SB payment-Link.svg" alt="SB payment リンク型" /></p>
+
+<h4 id="2-2-api型">2.2 API型</h4>
+
+<p>SBペイメントの画面を使わず、APIでサーバー間の連携を行う方式です。
+決済画面全部が自由にカスタマイズできます。</p>
+
+<p><img src="/blog/images/SB payment-API.svg" alt="SB payment API型" /></p>
+
+<h4 id="2-3-リンク型とapi型の比較">2.3 リンク型とAPI型の比較</h4>
+
+<table>
+<thead>
+<tr>
+<th align="center">項目</th>
+<th align="center">リンク型</th>
+<th align="center">API型</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">決済画面のカスタマイズ</td>
+<td align="center">プラス料金を出せば、デザインのカスタマイズはできるが、 リンク追加など出来ない内容もある</td>
+<td align="center"><strong>自由に</strong></td>
+</tr>
+
+<tr>
+<td align="center">決済処理フロー</td>
+<td align="center">決済代行サービスの仕様に依存</td>
+<td align="center"><strong>自由に</strong></td>
+</tr>
+
+<tr>
+<td align="center">開発容易度と工数</td>
+<td align="center"><strong>低</strong></td>
+<td align="center">高</td>
+</tr>
+
+<tr>
+<td align="center">利用可能な決済手段の差</td>
+<td align="center"><strong>豊富</strong></td>
+<td align="center">一部の決済手段はAPI型対応しない</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="3-実装についてのまとめ">3. 実装についてのまとめ</h3>
+
+<h4 id="3-1-開発者支援サイト">3.1 開発者支援サイト</h4>
+
+<p>一応あります。こちら<a href="https://developer.sbpayment.jp/" target="_blank">developer.sbpayment.jp</a>になります。</p>
+
+<p>しかし残念ですが、仕様書のダウンロード以外は、あまり役に立たないという個人の印象でした。<br />
+また、アカウントが必要なのですが、契約しなくても簡単に登録できますので、興味ある方はどうぞ見てみてください。</p>
+
+<h4 id="3-2-リンク型-api型の実装の共通点">3.2 リンク型・API型の実装の共通点</h4>
+
+<p>加盟店 ⇄ SBペイメント間のリクエストが改ざんされないかバリデーションをする為？だと思いますが、
+チェックサムを生成して送ることが必須で要されています。</p>
+
+<p>チェックサムに値が設定されなかった又は正しく生成されなかった場合、リクエストが処理されず、エラーが返ってきます。
+このチェックサム生成は実装の最初の壁となり、クリアしないと先に進むことができませんのでかなり重要なところと思います。</p>
+
+<p>チェックサムの生成方法は下記の通りに説明されています。</p>
+
+<blockquote>
+<p>リクエストの各パラメーターの値を項目定義順に文字列結合し、
+最後に当社より払い出されたハッシュキーを結合した値を「UTF-8」へ変換して、
+「SHA1」にてハッシュ演算を行ってください。</p>
+</blockquote>
+
+<p>2ステップに分けて実装すれば良いかと思います。</p>
+
+<ul>
+<li>ステップ1：文字列結合</li>
+<li>ステップ2：ハッシュ演算</li>
+</ul>
+
+<p>分かりやすい図を作ってみました。</p>
+
+<p><img src="/blog/images/SB payment-checksum.svg" alt="SB payment リンク型" /></p>
+
+<p>github上の他の方の<a href="https://github.com/quipper/sbpayment.rb" target="_blank">コード</a>を参考にして、以下のように実際コーティングしました。
+Railsで標準のモジュールを使ってかなり短く書けますね！</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generate_sps_hashcode</span>(<span style="color:#e6db74">encoding</span>: <span style="color:#e6db74">&#39;UTF-8&#39;</span>, <span style="color:#e6db74">hashkey</span>: <span style="color:#66d9ef">Sbpayment</span><span style="color:#f92672">.</span>config<span style="color:#f92672">.</span>hashkey)
+    <span style="color:#66d9ef">Digest</span><span style="color:#f92672">::</span><span style="color:#66d9ef">SHA1</span><span style="color:#f92672">.</span>hexdigest((values_for_sps_hashcode<span style="color:#f92672">.</span>map(<span style="color:#f92672">&amp;</span><span style="color:#e6db74">:to_s</span>)<span style="color:#f92672">.</span>map(<span style="color:#f92672">&amp;</span><span style="color:#e6db74">:strip</span>)<span style="color:#f92672">.</span>join <span style="color:#f92672">+</span> hashkey)<span style="color:#f92672">.</span>encode(encoding))
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">values_for_sps_hashcode</span>
+    <span style="color:#75715e"># 各パラメーターの値を項目定義順に返す</span>
+<span style="color:#66d9ef">end</span></code></pre></div>
+<h4 id="3-3-今回実装した内容">3.3 今回実装した内容</h4>
+
+<p>リンク型をAPI型両方を利用していました。</p>
+
+<ul>
+<li>エンドユーザーの支払い情報登録のところは、今後決済方法を増やしたい時に、開発工数を抑えて対応できるように、リンク型を利用すると決まりました。</li>
+<li>決済処理自体はバッチにも使う予定があった為、API型で実装することになりました。</li>
+</ul>
+
+<p>エンドユーザーの支払い情報（カードの情報など）をSBペイメント側へ登録する時、ユニークな「顧客ID」を設定する必要があります。それ以降、決済などを行いたい時はこの顧客IDを指定すれば処理できるという仕組みです。要は、毎回エンドユーザーにカード情報を入力させなくて良いです。</p>
+
+<p>顧客IDの値は、ユニークになっていれば良いので、一番楽な実装方法はそのままデータベースのインクレメンタルIDを使用するという方法ですね。
+しかし、このIDは推測されやすい為、<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>使用をおすすめします。</p>
+
+<h4 id="3-4-支払い情報登録の実装-リンク型">3.4 支払い情報登録の実装（リンク型）</h4>
+
+<p>SBペイメントを呼び出す方法としては、対象の機能（画面）に対してフォームをサブミットすることです。必要なパラメーターはフォームの入力項目に設定するイメージです。</p>
+
+<p>今回、支払い情報登録画面を呼び出す為に生成したフォームを下記共有します。サンプルとして参考してもらえらばと思います。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post&#34;</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://stbfep.sps-system.com/f04/FepPayInfoReceive.do&#34;</span>&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pay_method&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;credit3d&#34;</span>&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;merchant_id&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;30132&#34;</span>&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;service_id&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;103&#34;</span>&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cust_code&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2bacfeb0...c617862&#34;</span>&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;success_url&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://example.com/home&#34;</span>&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cancel_url&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://example.com/payment-info/require&#34;</span>&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;error_url&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://example.com/payment-info/error&#34;</span>&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pagecon_url&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://example.com/payment-info/cgi-callback&#34;</span>&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;request_date&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;20191209152914&#34;</span>&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sps_hashcode&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;7218980...e454f8f&#34;</span>&gt;
+  &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submitBtn&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hide&#34;</span>&gt;
+&lt;/<span style="color:#f92672">form</span>&gt;</code></pre></div>
+<p>この実装をした時に、ハマってしまったところがあります。登録通知先CGIと呼ばれる <code>pagecon_url</code> パラメーターでした！
+最初はこのパラメーターの意味が理解できず、適当のURLを設定して進めました。
+そうしたら、カード情報の入力が終わったらSBのエラーページが表示されてしまいました。</p>
+
+<p>仕様書をちゃんと確認できなかったことが原因でしたが、
+支払い情報の登録流れの中、SBペイメント　→　加盟店サイトという折り返しのリクエストが存在しました。
+適当のURLを設定した為、当然このリクエストに対して200ステータスを返却できなかったので、SBペイメント側が怒ってました。
+対処法としては、登録通知を受け取って200ステータスを返却するrouteを実装することですね。</p>
+
+<p>ところで、上のエラーが出てしまったが、実は顧客と支払い情報がちゃんとSBペイメント側に登録されました。
+あくまで、登録通知先CGIはコールバックとして設けられている感じです。
+ローカルで開発する時、SBペイメントからのリクエストを受け取ることが無理なので、逆にこの仕様ではありがたい！助かった！と思いました。</p>
+
+<h4 id="3-5-決済処理の実装-api型">3.5 決済処理の実装（API型）</h4>
+
+<p>SBペイメントはこの記事を書いた時点（2019/12）まだxml形式しか対応していません。
+かなりレガシーですね。WebAPIの世界でよく用いられるjson形式ではないです。ご注意を！</p>
+
+<p>APIに送らないといけないデータはリンク型とほぼ一緒です。</p>
+
+<p>ここもハマったことがありました。「決済要求」と「確定要求」2つのAPIが存在するのですが、
+決済処理を行いたい時は、セットで2リクエストを送信しなければなりません。
+この仕様を見落とした私は、「決済要求」APIだけ叩くような処理を実装してしまいました。
+APIのレスポンスが正常だったのに、なんで管理画面で確認したら請求エラーになるの？って何時間か悩んでいました。
+請求が正常に行えたか判定する時は、必ずこの2リクエストが両方成功したか見なければなりません。ご注意ください。</p>
+
+<h2 id="感想">感想</h2>
+
+<hr />
+
+<p>SBペイメントは開発者に優しくないという印象でした。</p>
+
+<p>理由はいくつかあります。</p>
+
+<ul>
+<li>APIはレガシーのxmlしか対応しない</li>
+<li>ドキュメントは日本語のみ、PDF形式のみ</li>
+<li>APIリクエストの認証はアクセスキーのようなものではなく、Basic認証</li>
+<li>リクエスト（APIとリンク両方とも）のバリデーションにハッシュ計算を要される</li>
+</ul>
+
+<p>それに対して、海外のStripe決済代行サービルに比べてみると</p>
+
+<ul>
+<li>APIはjson対応 ⭐️</li>
+<li>ドキュメントは多言語対応、web上見れる（検索やナビは簡単）、各プログラミング言語のサンプルコードもある ⭐️</li>
+<li>リクエストのバリデーションが省略され、安易にAPIが叩ける ⭐️</li>
+<li>さらに、各言語の公式のモジュールも準備されるので、実装がすごく楽になる ⭐️</li>
+</ul>
+
+<p>ただ、どこの決済代行サービスを使うか決める時、実装の優しさだけ見てはいけません。
+対応できる支払い方法は代行サービスによって異なりますし、コスト面も考えてフィットするプランがあるかどうか検討しなければなりませんね。</p>
+
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'><div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/blog/tags/rails/'>rails</a>, <a class='tag' href='/blog/tags/ruby/'>ruby</a>, <a class='tag' href='/blog/tags/payment/'>payment</a>, <a class='tag' href='/blog/tags/programing/'>programing</a>, <a class='tag' href='/blog/tags/softbank/'>Softbank</a></div>
+
+  <div><span>Share on: </span>
+
+
+<style>
+    #share-buttons {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    #share-buttons:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    #share-buttons>div {
+        position: relative;
+        text-align: left;
+        height: 30px;
+        width: 40px;
+        float: left;
+        text-align: center;
+    }
+
+    #share-buttons>div>svg {
+        height: 16px;
+        fill: #d5d5d5;
+        margin-top: 10px;
+    }
+
+    #share-buttons>div:hover {
+        cursor: pointer;
+    }
+
+    #share-buttons>div.facebook:hover>svg {
+        fill: #3B5998;
+    }
+
+    #share-buttons>div.twitter:hover>svg {
+        fill: #55ACEE;
+    }
+
+    #share-buttons>div.linkedin:hover>svg {
+        fill: #0077b5;
+    }
+
+    #share-buttons>div.pinterest:hover>svg {
+        fill: #CB2027;
+    }
+
+    #share-buttons>div.gplus:hover>svg {
+        fill: #dd4b39;
+    }
+
+    #share-buttons>div.mail:hover>svg {
+        fill: #7D7D7D;
+    }
+
+    #share-buttons>div.instagram:hover>svg {
+        fill: #C73B92;
+    }
+
+    #share-buttons>div.facebook>svg {
+        height: 25px;
+        margin-top: 9px;
+    }
+
+    #share-buttons>div.twitter>svg {
+        height: 25px;
+        margin-top: 8px;
+    }
+
+    #share-buttons>div.linkedin>svg {
+        height: 24px;
+        margin-top: 7px;
+    }
+
+    #share-buttons>div.pinterest>svg {
+        height: 25px;
+        margin-top: 9px;
+    }
+
+    #share-buttons>div.gplus>svg {
+        height: 22px;
+        margin-top: 9px;
+        position: relative;
+        left: 1px;
+    }
+
+    #share-buttons>div.mail>svg {
+        height: 20px;
+        margin-top: 11px;
+    }
+</style>
+
+<div id="share-buttons">
+    <div class="facebook" title="Share this on Facebook"
+        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/guide-to-integrate-softbank-payment-service\/');">
+        <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z" /></svg></div>
+    <div class="twitter" title="Share this on Twitter"
+        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/guide-to-integrate-softbank-payment-service\/&amp;text=Softbank決済代行サービス導入についてのまとめ、実装メモ&amp;via=');">
+        <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z" /></svg></div>
+    <div class="linkedin" title="Share this on Linkedin"
+        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/guide-to-integrate-softbank-payment-service\/&amp;title=Softbank決済代行サービス導入についてのまとめ、実装メモ');"><svg
+            viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z" /></svg></div>
+    
+    <div class="gplus" title="Share this on Google Plus"
+        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/guide-to-integrate-softbank-payment-service\/');"><svg viewBox="0 0 2304 1792"
+            xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z" /></svg>
+    </div>
+    <div class="mail" title="Share this through Email"
+        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/guide-to-integrate-softbank-payment-service\/');">
+        <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z" /></svg>
+    </div>
+</div></div>
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/blog/posts/h%C6%B0%E1%BB%9Bng-d%E1%BA%ABn-c%C3%A0i-%C4%91%E1%BA%B7t-server-rails-puma-nginx/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader-text'>Previous post: </span>Cài Đặt Server Chạy Rails App Trên Production Sử Dụng Puma &#43; Nginx</a>
+    </div></div>
+</nav>
+
+
+<section id='comments' class='comments'>
+  <div class='container sep-before'>
+    <div class='comments-area'><div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "chienkira-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+  </div>
+</section>
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'><section class='widget widget-social_menu sep-after'><nav aria-label='Social Menu'>
+    <ul><li>
+        <a href='https://github.com/chienkira' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://facebook.com/chienkira' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Facebook account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://twitter.com/chienkira' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://instagram.com/chienkira' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Instagram account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+  <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='mailto:chienhedspi@gmail.com' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+  <polyline points="22,6 12,13 2,6"/>
+  
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</section><div class='copyright'>
+  <p> &copy; 2019 Chien Kira </p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><script>window.__public_path__='\/blog\/assets\/js\/'</script>
+
+<script src='/blog/assets/js/main.fae8ed32.js'></script><script src='/blog/js/custom.js'></script>
+
+</body>
+
+</html>
+
