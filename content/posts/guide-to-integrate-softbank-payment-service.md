@@ -6,7 +6,7 @@ tags: [rails, ruby, payment, programing, Softbank]
 language: ja
 toc: true
 authors: [chienkira]
-cover: 
+cover: /blog/images/SB payment-payment gateway.png
 ---
 
 **この間、決済代行サービス[（SoftBankペイメント）](https://www.sbpayment.jp/)を案件に導入したので、実際に実装して分かったことをこの記事にまとめてシェアしたいと思います。**
