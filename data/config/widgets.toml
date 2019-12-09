@@ -3,7 +3,7 @@
 # default: .Site.Title
 title = "chienkira [chiến]"
 # default: .Site.Params.info.description
-description = "a web full stack developer \n\n a Papa engineer \n\n at Tokyo"
+description = "a web 'full snack' developer \n\n a Papa engineer \n\n at Tokyo"
 # default: "/images/logo.png"
 logo = "/images/chienkira.png"
 
