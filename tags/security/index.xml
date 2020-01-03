@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>security on Chienkira my blog</title>
+    <link>https://chienkira.github.io/blog/tags/security/</link>
+    <description>Recent content in security on Chienkira my blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 03 Jan 2020 21:17:52 +0900</lastBuildDate>
+    
+	<atom:link href="https://chienkira.github.io/blog/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Use Presigned Url to Secure Only Some Files Inside A Public S3 Bucket</title>
+      <link>https://chienkira.github.io/blog/posts/use-presigned-url-to-secure-some-files-inside-public-bucket/</link>
+      <pubDate>Fri, 03 Jan 2020 21:17:52 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/use-presigned-url-to-secure-some-files-inside-public-bucket/</guid>
+      <description>Tết mải ăn quá đến cuối ngày mồng 3 mới mò lên khai phím được 😃. Để chào mừng năm 2020 rực rỡ 🎆, bài viết lần này mình muốn note lại chia sẻ cách đặt policy cho S3 bucket, để vừa public bucket lại vẫn bảo mật (yêu cầu presigned url để truy cập) cho một số file nhất định trong bucket nha! Ok let&amp;rsquo;s go!
+Presigned URL là?</description>
+    </item>
+    
+  </channel>
+</rss>

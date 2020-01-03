@@ -240,7 +240,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/aws/</loc>
-    <lastmod>2019-11-03T16:56:11+09:00</lastmod>
+    <lastmod>2020-01-03T21:17:52+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -409,6 +409,18 @@
   <url>
     <loc>https://chienkira.github.io/blog/tags/ruby/</loc>
     <lastmod>2019-12-08T09:36:35+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/s3/</loc>
+    <lastmod>2020-01-03T21:17:52+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/security/</loc>
+    <lastmod>2020-01-03T21:17:52+09:00</lastmod>
     <priority>0</priority>
   </url>
   
