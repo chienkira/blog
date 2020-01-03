@@ -19,7 +19,7 @@ Nó là... như cái tên `Presigned URL` của nó thôi :)) Các bạn làm IT
 
 Ref: [docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL](https://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL.html)
 
-Với 1 URL bình thường kiểu `https://foobar-bucket.aws/a_hot_image.png`, sẽ hoạt động với chỉ một điều kiện duy nhất - object a_hot_image.png là public. Nghĩa là chỉ cần biết url thì ai cũng có thể truy cập được nội dung bên trong. Trong thế giới web điều này được coi là hiển nhiên, vì web sinh ra là để public nội dung cho nào là browser nào là api client vân vân mây mây... truy cập vào mà. Tuy nhiên không cẩn thận bạn có thể bị dính vào những vấn đề security nghiêm trọng nếu như nội dung các object đó là loại "nhạy cảm" - sentive data đấy!
+Với 1 URL bình thường kiểu `https://foobar-bucket.aws/a_hot_image.png`, sẽ hoạt động với chỉ một điều kiện duy nhất - object a_hot_image.png là public. Nghĩa là chỉ cần biết url thì ai cũng có thể truy cập được nội dung bên trong. Trong thế giới web điều này được coi là hiển nhiên, vì web sinh ra là để public nội dung cho nào là browser nào là api client vân vân mây mây... truy cập vào mà. Tuy nhiên không cẩn thận bạn có thể bị dính vào những vấn đề security nghiêm trọng nếu như nội dung các object đó là loại "nhạy cảm" - sensitive data đấy!
 
 Ví dụ, hệ thống của bạn có chức năng cho phép người dùng đăng ảnh xác thực cá nhân (ảnh bằng lái xe chẳng hạn) lên, nếu bạn không secure những dữ liệu ấy, bên thứ 3 bằng cách có được url (qua đánh cắp log trình duyệt, qua nghe lén network...) sẽ có thể xem được những dữ liệu vô cùng là riêng tư đó :scream:
 
@@ -34,7 +34,9 @@ Lưu ý hạn expire của presigned url dài nhất mà aws cho phép cài đ�
 ### Tại sao có tình huống như thế?
 
 Càng ngày việc dùng S3 để làm storage cho hệ thống web càng phổ biến. Vì nó rẻ, nhanh, đỡ 1 phần load cho web server của bạn, bạn cũng không phải lo quản lý storage size...
+
 Dữ liệu trong hệ thống web thì chia ra làm hai loại.
+
 - Loại public được và cần phải public, ví dụ như ảnh sản phẩm, ảnh banner, logo vân vân, web để thiên hạ xem mà có phải giấu kín đâu phải không ạ.
 - Loại sensitive, cần bảo mật. Như ví dụ ở trên mình đã đưa ra, các dữ liệu mà người dùng thành viên upload lên, đặc biệt là mấy thứ có liên quan đến thông tin cá nhân hay thanh toán!
 
