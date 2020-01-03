@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tech on Chienkira my blog</title>
@@ -26,7 +26,7 @@ Prerequisite  OS môi trường là Amazon linux Database sử dụng là Postgr
       <pubDate>Sun, 03 Nov 2019 16:56:11 +0900</pubDate>
       
       <guid>https://chienkira.github.io/blog/posts/minimum-web-app-terraform-skeleton/</guid>
-      <description>I made a Skeleton for Terraform code. Basically I&#39;m supposed to use it for future projects, but then just thought it might be useful for others so that want to share it with you. Also I tried to avoid having to copy and paste codes when deploye in multiple environments for same app. Hopefully, you will be able to reuse at least a part or an idea to help you with your work.</description>
+      <description>I made a Skeleton for Terraform code. Basically I&amp;rsquo;m supposed to use it for future projects, but then just thought it might be useful for others so that want to share it with you. Also I tried to avoid having to copy and paste codes when deploye in multiple environments for same app. Hopefully, you will be able to reuse at least a part or an idea to help you with your work.</description>
     </item>
     
     <item>
@@ -46,8 +46,7 @@ Prerequisite  OS môi trường là Amazon linux Database sử dụng là Postgr
       <guid>https://chienkira.github.io/blog/posts/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python/</guid>
       <description>Ký tự * ngoài là toán tử multiplication (phép nhân) và string replication ra, trong Python nó còn có một tác dụng khác khá xịn xò - unpack (một số người còn gọi là splat).
 Ký hiệu * Unpack chỉ có thể áp dụng lên một object loại iterable, để áp dụng việc cần làm là đặt ký hiệu * lên liền ngay trước object đó.
- Ví dụ:
-Dùng trực tiếp với biến: *list_variable</description>
+ Ví dụ:</description>
     </item>
     
   </channel>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>pycharm on Chienkira my blog</title>
@@ -18,13 +18,18 @@
       <guid>https://chienkira.github.io/blog/posts/tips-c%C3%A0i-%C4%91%E1%BA%B7t-pycharm-%C4%91%E1%BB%83-code-python/</guid>
       <description>PycharmのInterpreterの設定方法 python仮想環境を使い、開発する際にはPycharmがそのpython仮想環境を認識させる必要があります。
 ※ 認識させないと、Pycharmの方がインストールされているライブラリが分からずimportのエラーなどが出てしまいます。
- ① Python仮想環境の場所を確認 pipenvの場合はこのコマンドで確認できます。 pipenv --venv
-output例： /Users/kira/.local/share/virtualenvs/project_name-Qr43IEm2 ② Pycharmの方でプロジェクトのInterpreterを設定  PycharmのPreferences画面を開く 左側のメニューから「Project: プロジェクト名」=&amp;gt;「Project Interpreter」を選択 Project Interpreterのドロップダウンから「Show All」を選択し、「+」の追加ボタンを押す 左側のメニューから「System Interpreter」を選択し、「&amp;hellip;」ボタンをクリックして①で確認できたパスを指定
-※ 注意：bin/pythonX.Xまで指定してください。    PycharmのSources Root設定方法 開発ソースコードがプロジェクトの直下にはなく、srcフォルダーなどの中に置かれる場合が多いです。
+ ① Python仮想環境の場所を確認
+pipenvの場合はこのコマンドで確認できます。 pipenv --venv
+output例： /Users/kira/.local/share/virtualenvs/project_name-Qr43IEm2
+ ② Pycharmの方でプロジェクトのInterpreterを設定
+ PycharmのPreferences画面を開く
+ 左側のメニューから「Project: プロジェクト名」=&amp;gt;「Project Interpreter」を選択
+ Project Interpreterのドロップダウンから「Show All」を選択し、「+」の追加ボタンを押す
+ 左側のメニューから「System Interpreter」を選択し、「&amp;hellip;」ボタンをクリックして①で確認できたパスを指定
+※ 注意：bin/pythonX.Xまで指定してください。   PycharmのSources Root設定方法 開発ソースコードがプロジェクトの直下にはなく、srcフォルダーなどの中に置かれる場合が多いです。
 ※ CodeUriが./srcで設定される場合が多いです。
 例えば以下のようなファイル構成の場合
-|--template.yaml |--src | |--app | | |--__init__.py | | |--common | | | |--__init__.py | | | |--helper.py | | |--handlers | | | |--__init__.py | | | |--purchase.py purchase.pyファイルでapp/common/helper.pyのモジュールなどをimportするところのfrom app.common.helper import some_helper にPycharmがエラーを表示します。
-エラー解消にはソースコードのルートフォルダーをsrcでPycharmに認識させる必要があります。</description>
+|--template.yaml |--src | |--app | | |--__init__.py | | |--common | | | |--__init__.py | | | |--helper.py | | |--handlers | | | |--__init__.py | | | |--purchase.py purchase.pyファイルでapp/common/helper.pyのモジュールなどをimportするところのfrom app.common.helper import some_helper にPycharmがエラーを表示します。</description>
     </item>
     
   </channel>

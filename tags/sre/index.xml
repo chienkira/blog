@@ -1,24 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>SRE on Chienkira my blog</title>
+    <title>sre on Chienkira my blog</title>
     <link>https://chienkira.github.io/blog/tags/sre/</link>
-    <description>Recent content in SRE on Chienkira my blog</description>
+    <description>Recent content in sre on Chienkira my blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 15 Jun 2019 10:28:15 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 06 Mar 2019 09:29:32 +0900</lastBuildDate>
     
 	<atom:link href="https://chienkira.github.io/blog/tags/sre/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Áp Dụng Terraform Module deploy lên nhiều môi trường</title>
-      <link>https://chienkira.github.io/blog/posts/deploy-nhi%E1%BB%81u-m%C3%B4i-tr%C6%B0%E1%BB%9Dng-v%E1%BB%9Bi-terraform/</link>
-      <pubDate>Sat, 15 Jun 2019 10:28:15 +0900</pubDate>
-      
-      <guid>https://chienkira.github.io/blog/posts/deploy-nhi%E1%BB%81u-m%C3%B4i-tr%C6%B0%E1%BB%9Dng-v%E1%BB%9Bi-terraform/</guid>
-      <description>Vào mùa mưa rồi, ngày cuối tuần bị nó hành cho suốt luôn. Vừa mưa còn vừa lạnh, ai nghĩ đây là mùa hè chứ!!. Tuy nhiên cũng nhờ thế mà nhớ đến cái sở thích 地味 này 😂 Trong bài viết này, mình muốn giới thiệu về module trong terraform, và cách sử dụng nó để deploy lên nhiều môi trường dev-stg-prod khác nhau.
-TL;DR  Các lệnh của terraform mặc định chỉ xử lý các file *.</description>
-    </item>
     
     <item>
       <title>Am Hiểu Blue Green Deployment Trong 5 Phút</title>
@@ -27,7 +17,7 @@ TL;DR  Các lệnh của terraform mặc định chỉ xử lý các file *.</de
       
       <guid>https://chienkira.github.io/blog/posts/am-hi%E1%BB%83u-blue-green-deployment-trong-5-ph%C3%BAt/</guid>
       <description>Blue green deployment là cái khỉ ho gì? Nó có gì hay và có &amp;ldquo;ngon&amp;rdquo; không? Nếu bạn đang có câu hỏi tương tự trong đầu thì hãy thử đọc hết bài viết này nhé. Đây cũng là chia sẻ thực tế của mình sau khi được giao cho task thiết kế Blue green deployment áp dụng lên hệ thống trong công ty.
-1. Giới thiệu Blue Green deployment  ※ Từ giờ viết gọn là B/G deploy</description>
+1. Giới thiệu Blue Green deployment ※ Từ giờ viết gọn là B/G deploy</description>
     </item>
     
   </channel>

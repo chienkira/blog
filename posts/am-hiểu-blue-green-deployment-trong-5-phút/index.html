@@ -3,17 +3,17 @@
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta name='description' content='Blue green deployment là cái khỉ ho gì? Nó có gì hay và có &ldquo;ngon&rdquo; không? Nếu bạn đang có câu hỏi tương tự trong đầu thì hãy thử đọc hết bài viết này nhé. Đây cũng là chia sẻ thực tế của mình sau khi được giao cho task thiết kế Blue green deployment áp dụng lên hệ thống trong công ty.
-1. Giới thiệu Blue Green deployment  ※ Từ giờ viết gọn là B/G deploy'>
+1. Giới thiệu Blue Green deployment ※ Từ giờ viết gọn là B/G deploy'>
 <meta name='theme-color' content='#ffcd00'>
 
 <meta property='og:title' content='Am Hiểu Blue Green Deployment Trong 5 Phút | Chien Kira'>
 <meta property='og:description' content='Blue green deployment là cái khỉ ho gì? Nó có gì hay và có &ldquo;ngon&rdquo; không? Nếu bạn đang có câu hỏi tương tự trong đầu thì hãy thử đọc hết bài viết này nhé. Đây cũng là chia sẻ thực tế của mình sau khi được giao cho task thiết kế Blue green deployment áp dụng lên hệ thống trong công ty.
-1. Giới thiệu Blue Green deployment  ※ Từ giờ viết gọn là B/G deploy'>
+1. Giới thiệu Blue Green deployment ※ Từ giờ viết gọn là B/G deploy'>
 <meta property='og:url' content='https://chienkira.github.io/blog/posts/am-hi%E1%BB%83u-blue-green-deployment-trong-5-ph%C3%BAt/'>
 <meta property='og:site_name' content='Chienkira my blog'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/00e439e7376596f2760b4ef9a28df93b?s=256'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='aws'><meta property='article:tag' content='sre'><meta property='article:tag' content='infra'><meta property='article:tag' content='blue green deploy'><meta property='article:published_time' content='2019-03-06T09:29:32&#43;09:00'/><meta property='article:modified_time' content='2019-03-06T09:29:32&#43;09:00'/><meta name='twitter:card' content='summary'><meta name='twitter:creator' content='@chienkira'>
 
-<meta name="generator" content="Hugo 0.61.0" />
+<meta name="generator" content="Hugo 0.50" />
 
   <title>Am Hiểu Blue Green Deployment Trong 5 Phút | Chien Kira</title>
   <link rel='canonical' href='https://chienkira.github.io/blog/posts/am-hi%E1%BB%83u-blue-green-deployment-trong-5-ph%C3%BAt/'>
@@ -57,7 +57,9 @@ if (!doNotTrack) {
     </h2>
     <div class='desc'>
     <p>a web &lsquo;full snack&rsquo; developer</p>
+
 <p>a Papa engineer</p>
+
 <p>at Tokyo</p>
 
     </div>
@@ -71,6 +73,24 @@ if (!doNotTrack) {
 
   <div class='container list-container'>
   <ul class='list taxonomy-cloud'><li>
+        <a href='/blog/tags/ci/' style='font-size:1em'>CI</a>
+      </li><li>
+        <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
+      </li><li>
+        <a href='/blog/tags/https/' style='font-size:1em'>HTTPS</a>
+      </li><li>
+        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
+      </li><li>
+        <a href='/blog/tags/sam/' style='font-size:1.1428571428571428em'>SAM</a>
+      </li><li>
+        <a href='/blog/tags/sre/' style='font-size:1em'>SRE</a>
+      </li><li>
+        <a href='/blog/tags/ssl/' style='font-size:1em'>SSL</a>
+      </li><li>
+        <a href='/blog/tags/softbank/' style='font-size:1em'>Softbank</a>
+      </li><li>
+        <a href='/blog/tags/til/' style='font-size:1em'>TIL</a>
+      </li><li>
         <a href='/blog/tags/api-gateway/' style='font-size:1em'>api gateway</a>
       </li><li>
         <a href='/blog/tags/aws/' style='font-size:2em'>aws</a>
@@ -78,10 +98,6 @@ if (!doNotTrack) {
         <a href='/blog/tags/blue-green-deploy/' style='font-size:1em'>blue green deploy</a>
       </li><li>
         <a href='/blog/tags/career/' style='font-size:1em'>career</a>
-      </li><li>
-        <a href='/blog/tags/ci/' style='font-size:1em'>CI</a>
-      </li><li>
-        <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
       </li><li>
         <a href='/blog/tags/cli/' style='font-size:1em'>cli</a>
       </li><li>
@@ -101,13 +117,9 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/dynamodb-local/' style='font-size:1em'>dynamodb local</a>
       </li><li>
-        <a href='/blog/tags/https/' style='font-size:1em'>HTTPS</a>
-      </li><li>
         <a href='/blog/tags/infra/' style='font-size:1.4285714285714286em'>infra</a>
       </li><li>
         <a href='/blog/tags/japan/' style='font-size:1em'>japan</a>
-      </li><li>
-        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
       </li><li>
         <a href='/blog/tags/lambda/' style='font-size:1.1428571428571428em'>lambda</a>
       </li><li>
@@ -139,21 +151,15 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/ruby/' style='font-size:1.1428571428571428em'>ruby</a>
       </li><li>
-        <a href='/blog/tags/sam/' style='font-size:1.1428571428571428em'>SAM</a>
-      </li><li>
         <a href='/blog/tags/serverless/' style='font-size:1.2857142857142856em'>serverless</a>
       </li><li>
-        <a href='/blog/tags/softbank/' style='font-size:1em'>Softbank</a>
-      </li><li>
-        <a href='/blog/tags/sre/' style='font-size:1.1428571428571428em'>SRE</a>
-      </li><li>
-        <a href='/blog/tags/ssl/' style='font-size:1em'>SSL</a>
+        <a href='/blog/tags/sre/' style='font-size:1em'>sre</a>
       </li><li>
         <a href='/blog/tags/tech/' style='font-size:1.4285714285714286em'>tech</a>
       </li><li>
         <a href='/blog/tags/terraform/' style='font-size:1.1428571428571428em'>terraform</a>
       </li><li>
-        <a href='/blog/tags/til/' style='font-size:1.2857142857142856em'>til</a>
+        <a href='/blog/tags/til/' style='font-size:1.1428571428571428em'>til</a>
       </li></ul>
 </div>
 
@@ -384,100 +390,133 @@ if (!doNotTrack) {
     <span>Table of contents</span>
   </summary>
   <nav id="TableOfContents">
-  <ul>
-    <li><a href="#11-u-im">1.1. Ưu điểm</a></li>
-    <li><a href="#12-tht-c-chai---nhc-im">1.2. &ldquo;Thắt cổ chai&rdquo; - nhược điểm</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#21-bi-cnh-quyt-nh-p-dng-bg-deploy">2.1. Bối cảnh quyết định áp dụng B/G deploy</a></li>
-    <li><a href="#22-qu-trnh-thit-k">2.2. Quá trình thiết kế</a>
-      <ul>
-        <li><a href="#bn-nhp--tng">Bản nháp ý tưởng</a></li>
-        <li><a href="#thit-k-cui-cng">Thiết kế cuối cùng</a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li><a href="#1-giới-thiệu-blue-green-deployment">1. Giới thiệu Blue Green deployment</a>
+<ul>
+<li><a href="#1-1-ưu-điểm">1.1. Ưu điểm</a></li>
+<li><a href="#1-2-thắt-cổ-chai-nhược-điểm">1.2. &ldquo;Thắt cổ chai&rdquo; - nhược điểm</a></li>
+</ul></li>
+<li><a href="#2-chia-sẻ-thiết-kế-b-g-deploy-trong-thực-tế">2. Chia sẻ thiết kế B/G deploy trong thực tế</a>
+<ul>
+<li><a href="#2-1-bối-cảnh-quyết-định-áp-dụng-b-g-deploy">2.1. Bối cảnh quyết định áp dụng B/G deploy</a></li>
+<li><a href="#2-2-quá-trình-thiết-kế">2.2. Quá trình thiết kế</a>
+<ul>
+<li><a href="#bản-nháp-ý-tưởng">Bản nháp ý tưởng</a></li>
+<li><a href="#thiết-kế-cuối-cùng">Thiết kế cuối cùng</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#3-thông-tin-bên-lề-biết-được-thêm-khi-tìm-hiểu-về-b-g-deploy">3. Thông tin bên lề biết được thêm khi tìm hiểu về B/G deploy</a></li>
+</ul>
 </nav>
 </details>
 
 
   <div class='container entry-content'>
-  <p><strong>Blue green deployment là cái khỉ ho gì? Nó có gì hay và có &ldquo;ngon&rdquo; không?</strong>
+  
+
+<p><strong>Blue green deployment là cái khỉ ho gì? Nó có gì hay và có &ldquo;ngon&rdquo; không?</strong>
 <strong>Nếu bạn đang có câu hỏi tương tự trong đầu thì hãy thử đọc hết bài viết này nhé. Đây cũng là chia sẻ thực tế của mình sau khi được giao cho task thiết kế Blue green deployment áp dụng lên hệ thống trong công ty.</strong></p>
-<h1 id="1-gii-thiu-blue-green-deployment">1. Giới thiệu Blue Green deployment</h1>
-<hr>
+
+<h1 id="1-giới-thiệu-blue-green-deployment">1. Giới thiệu Blue Green deployment</h1>
+
+<hr />
+
 <p><em>※ Từ giờ viết gọn là B/G deploy</em></p>
+
 <p>Trước tiên cùng hình dung về infra của một hệ thống truyền thống. Trừ phục vụ cho môi trường dev hay stage ra, để cung cấp service cho users sử dụng - môi trường production, chúng ta thường sẽ sử dụng một nguồn tài nguyên phần cứng đúng không các bạn. Khi deploy một phiên bản mới, chúng ta deploy lên chính phần cứng đó - nơi service đang chạy.</p>
+
 <p>Điều này dẫn đến một vấn đề là Downtime trong quá trình deploy, nói cách khác là users không thể sử dụng được service trong thời gian deploy. Nó lý giải tại sao người ta hay chọn deploy lúc nửa đêm, và tạo ra mấy màn hình thông báo Maintenance.</p>
+
 <p>Để giải quyết vấn đề trên, B/G deploy được ra đời. Ý tưởng của nó là sử dụng <strong>hai tài nguyên phần cứng song song</strong> giống hệt nhau để tạo ra hai môi trường production (gọi là blue và green). Quá trình deploy bằng phương pháp B/G sẽ diễn ra như sau:</p>
+
 <ul>
 <li>Users sử dụng service thông qua 1 trong 2 môi trường - giả sử đang là Blue.</li>
 <li>Phiên bản mới sẽ được deploy lên môi trường còn lại - Green - môi trường mà users đang không sử dụng.</li>
 <li>Sau khi deploy hoàn tất và được kiểm tra xác định là ok thì ta chỉ việc route users qua môi trường Green.</li>
 <li>Môi trường Blue trở thành môi trường dự bị cho lần deploy tiếp theo</li>
 </ul>
+
 <p>Các bạn thấy đó, vấn đề Downtime đã được giải quyết triệt để với B/G deploy.</p>
+
 <p>Ở đây mình có lượm được từ google một hình vẽ khá là trực quan.</p>
-<p><img src="/blog/images/bluegreen_deploy1.png" alt="blue-green-deploy">
-<em>credit: <a href="https://www.blazemeter.com/blog/five-blue-green-deployment-best-practices-for-a-smooth-release">https://www.blazemeter.com/blog/five-blue-green-deployment-best-practices-for-a-smooth-release</a></em></p>
-<h2 id="11-u-im">1.1. Ưu điểm</h2>
+
+<p><img src="/blog/images/bluegreen_deploy1.png" alt="blue-green-deploy" />
+<em>credit: <a href="https://www.blazemeter.com/blog/five-blue-green-deployment-best-practices-for-a-smooth-release" target="_blank">https://www.blazemeter.com/blog/five-blue-green-deployment-best-practices-for-a-smooth-release</a></em></p>
+
+<h2 id="1-1-ưu-điểm">1.1. Ưu điểm</h2>
+
 <ul>
-<li>
-<p>Giảm thời gian downtime<br>
-Như các bạn đã thấy ở phần giới thiệu phía trên, thời gian downtime do deployment đã được giải quyết. Users vẫn sử dụng service bình thường trong quá trình deploy, khi phiên bản mới sẵn sàng trên môi trường dự bị (green hay blue) thì request của users được route qua môi trường mới mà thôi. Quá trình deploy diễn ra mượt mà và không hề tạo ra bất kì phiền hà nào trong trải nghiệm với users.</p>
-</li>
-<li>
-<p>Dễ dàng rollback khi gặp trouble<br>
-Bời vì chúng ta có sẵn hai môi trường production nên sau khi deploy, dù sự cố bất ngờ có phát sinh thì đường rút lui cũng luôn bật đèn xanh chờ sẵn. 😉</p>
-</li>
+<li><p>Giảm thời gian downtime<br />
+Như các bạn đã thấy ở phần giới thiệu phía trên, thời gian downtime do deployment đã được giải quyết. Users vẫn sử dụng service bình thường trong quá trình deploy, khi phiên bản mới sẵn sàng trên môi trường dự bị (green hay blue) thì request của users được route qua môi trường mới mà thôi. Quá trình deploy diễn ra mượt mà và không hề tạo ra bất kì phiền hà nào trong trải nghiệm với users.</p></li>
+
+<li><p>Dễ dàng rollback khi gặp trouble<br />
+Bời vì chúng ta có sẵn hai môi trường production nên sau khi deploy, dù sự cố bất ngờ có phát sinh thì đường rút lui cũng luôn bật đèn xanh chờ sẵn. 😉</p></li>
 </ul>
-<h2 id="12-tht-c-chai---nhc-im">1.2. &ldquo;Thắt cổ chai&rdquo; - nhược điểm</h2>
+
+<h2 id="1-2-thắt-cổ-chai-nhược-điểm">1.2. &ldquo;Thắt cổ chai&rdquo; - nhược điểm</h2>
+
 <ul>
-<li>
-<p>Đắt đỏ<br>
-Việc sử dụng đến hai môi trường production sẽ kéo theo vấn đề chi phí. Do đó quy mô service và ngân sách không hợp lý thì việc triển khai B/G deploy đôi khi biến thành &ldquo;lợi bất cập hại&rdquo;.</p>
-</li>
-<li>
-<p>Deployment sẽ rất khó khăn khi có sự thay đổi lớn với database<br>
-Phần database rất khó để cũng tách ra riêng biệt cho hai môi trường blue/green, do đó nó thường là phần giữ nguyên, không được switch khi deploy. Dẫn đến một việc là nếu trong lần release, schema của bảng dữ liệu có nhiều thay đổi thì deploy sẽ càng phức tạp. Có thể hình dung là đầu tiên ta phải thiết kế logic phía ứng dụng phiên bản mới sao cho tương thích với cả schema cũ, rồi deploy, rồi sau đó mới chỉnh sửa bỏ schema cũ để chỉ support với schema mới v&hellip;v&hellip;</p>
-</li>
+<li><p>Đắt đỏ<br />
+Việc sử dụng đến hai môi trường production sẽ kéo theo vấn đề chi phí. Do đó quy mô service và ngân sách không hợp lý thì việc triển khai B/G deploy đôi khi biến thành &ldquo;lợi bất cập hại&rdquo;.</p></li>
+
+<li><p>Deployment sẽ rất khó khăn khi có sự thay đổi lớn với database<br />
+Phần database rất khó để cũng tách ra riêng biệt cho hai môi trường blue/green, do đó nó thường là phần giữ nguyên, không được switch khi deploy. Dẫn đến một việc là nếu trong lần release, schema của bảng dữ liệu có nhiều thay đổi thì deploy sẽ càng phức tạp. Có thể hình dung là đầu tiên ta phải thiết kế logic phía ứng dụng phiên bản mới sao cho tương thích với cả schema cũ, rồi deploy, rồi sau đó mới chỉnh sửa bỏ schema cũ để chỉ support với schema mới v&hellip;v&hellip;</p></li>
 </ul>
-<h1 id="2-chia-s-thit-k-bg-deploy-trong-thc-t">2. Chia sẻ thiết kế B/G deploy trong thực tế</h1>
-<hr>
+
+<h1 id="2-chia-sẻ-thiết-kế-b-g-deploy-trong-thực-tế">2. Chia sẻ thiết kế B/G deploy trong thực tế</h1>
+
+<hr />
+
 <p>Vào công ty, mình join vào team #SRE (Site Reliability Engineering) nên chẳng được tham gia vào phát triển product. Thay vào đó là làm mấy việc liên quan đến cải tiến quy trình nói chung, support team làm product, hay 1 số task pha chút devOps. Nói chung là chính mình cũng còn mơ hồ về công việc của team này 😊</p>
+
 <p>Thế rồi lúc vẫn chân ướt chân ráo, task đầu tiên mình được giao là áp dụng B/G deploy vào 1 số product của công ty. Từ đây mình mới đi tìm hiểu nó là cái vẹo gì rồi thiết kế và kiểm chứng mô hình có hoạt động hay không. Qua quá trình này, mình muốn chia sẻ những thông tin thực tế nhất mình hiểu được khi triển khai một B/G deploy.</p>
-<h2 id="21-bi-cnh-quyt-nh-p-dng-bg-deploy">2.1. Bối cảnh quyết định áp dụng B/G deploy</h2>
+
+<h2 id="2-1-bối-cảnh-quyết-định-áp-dụng-b-g-deploy">2.1. Bối cảnh quyết định áp dụng B/G deploy</h2>
+
 <p>Hệ thống của công ty mình thì toàn bộ nằm ở trên AWS, lại xây dựng theo kiến trúc serverless nên <em>pay as you go</em> trở thành một điểm cộng rất lớn khi triển khai B/G deploy. Bởi vì sao, vì chúng ta chỉ cần trả cho phần phát sinh sử dụng (tính theo số request, thời gian thực thi hàm lambda, lượng dữ liệu trung chuyển vân vân) chứ không phải trả khi tạo thêm tài nguyên. Do đó không chỉ blue và green, thậm chí tạo thêm red và brown cũng được. 👍</p>
+
 <p>Ngoài ra database sử dụng phần lớn là DynamoDB, đặc trưng của nó là schema không cố định, linh hoạt trên từng row (trừ thông tin key) nên vốn dĩ vụ release cũng không trở lên phức tạp nhiều khi có dependent database đi nữa.</p>
-<h2 id="22-qu-trnh-thit-k">2.2. Quá trình thiết kế</h2>
-<h3 id="bn-nhp--tng">Bản nháp ý tưởng</h3>
+
+<h2 id="2-2-quá-trình-thiết-kế">2.2. Quá trình thiết kế</h2>
+
+<h3 id="bản-nháp-ý-tưởng">Bản nháp ý tưởng</h3>
+
 <p>Mấu chốt của B/G deploy là làm sao xây dựng ra cơ chế cho phép ta tùy ý route (chuyển) các requests từ users tới 1 trong 2 môi trường Blue và Green.</p>
-<p>Sau khi đào bới thông tin trên internet một hồi, mình nhận ra rằng cách phổ biến để xử lý việc routing request này là thông qua DNS. Cụ thể là với Route53 của AWS, ta có thể thực hiện cơ chế trên như sau:</p>
-<ul>
-<li>giả sử domain truy cập service là <a href="https://example.com">https://example.com</a> , và ta có 2 CloudFront ứng với 2 môi trường Blue Green có domain tương ứng là <a href="https://d000blue.cloudfront.net">https://d000blue.cloudfront.net</a> và <a href="https://d000green.cloudfront.net">https://d000green.cloudfront.net</a></li>
-<li>ta cài đặt 2 weighted DNS CNAME record trỏ đến 2 CloudFront trên</li>
-<li>khi cần route đến môi trường blue, ta điều chỉnh <code>weight</code> của 2 DNS record trên thành <code>weight: 100</code> ứng với <a href="https://d000blue.cloudfront.net">https://d000blue.cloudfront.net</a> và <code>weight: 0</code> ứng với domain còn lại</li>
-<li>ngược lại khi cần đổi lại môi trường green, ta lại điều chỉnh giá trị <code>weight</code> thành <code>100</code> cho record trỏ đến <a href="https://d000green.cloudfront.net">https://d000green.cloudfront.net</a> là xong</li>
-</ul>
+
+<p>Sau khi đào bới thông tin trên internet một hồi, mình nhận ra rằng cách phổ biến để xử lý việc routing request này là thông qua DNS. Cụ thể là với Route53 của AWS, ta có thể thực hiện cơ chế trên như sau:
+- giả sử domain truy cập service là <a href="https://example.com" target="_blank">https://example.com</a> , và ta có 2 CloudFront ứng với 2 môi trường Blue Green có domain tương ứng là <a href="https://d000blue.cloudfront.net" target="_blank">https://d000blue.cloudfront.net</a> và <a href="https://d000green.cloudfront.net" target="_blank">https://d000green.cloudfront.net</a>
+- ta cài đặt 2 weighted DNS CNAME record trỏ đến 2 CloudFront trên
+- khi cần route đến môi trường blue, ta điều chỉnh <code>weight</code> của 2 DNS record trên thành <code>weight: 100</code> ứng với <a href="https://d000blue.cloudfront.net" target="_blank">https://d000blue.cloudfront.net</a> và <code>weight: 0</code> ứng với domain còn lại
+- ngược lại khi cần đổi lại môi trường green, ta lại điều chỉnh giá trị <code>weight</code> thành <code>100</code> cho record trỏ đến <a href="https://d000green.cloudfront.net" target="_blank">https://d000green.cloudfront.net</a> là xong</p>
+
 <p>Cách giải quyết này khá là dễ hiểu và thực hiện. Tuy nhiên cũng có một điểm hơi khiến mình băn khoăn đó là, lợi dụng setting của DNS thì sẽ bị phụ thuộc vào spec của DNS server. Cụ thể hơn, mình băn khoăn ở chỗ, thời gian cần thiết để thay đổi DNS setting có hiệu lực với toàn bộ người dùng ở đây là không kiểm soát được. Mình không thích &ldquo;mất kiểm soát&rdquo; như vậy. 😜</p>
+
 <p>Đi tìm cách khác để thực hiện cơ chế routing này, mình nhớ đến ứng viên mà mình đã thấy rất tiềm năng khi tìm hiểu về CloudFront - <strong>Lambda@Edge</strong>. CloudFront cho phép trigger Lambda@Edge mỗi khi nó request nội dung từ origin để phục vụ users. Ý tưởng ở đây sẽ là thực hiện việc routing ở trong Lambda@Edge, nghĩa là ta sẽ điều hướng CloudFront lấy content từ origin mà ta muốn (origin của môi trường Blue hoặc Green). Flag để xác định môi trường Blue hay Green đang active thì mình dùng 1 biến lưu trong Parameter store, vừa dễ tham chiếu lại vừa dễ thay đổi 😉</p>
+
 <p>Thiết kế cuối cùng mà mình nghĩ ra như trong bản nháp dưới đây.</p>
+
 <p>Trong lúc vẽ nháp, mình còn ngộ ra một chỗ rất &ldquo;ăn điểm&rdquo; trong thiết kế này. Đó là flag lưu trong Parameter store có thể dùng làm luôn định vị để cấu hình cho CircleCI tự động biết deploy lên môi trường không active. Tự động hóa hết rồi, vậy là chỉ việc dev và dev đến chết, lúc nào cần switch môi trường để release thì cập nhật cái flag là ok thôi.</p>
-<p><img src="/blog/images/bluegreen_deploy_draft1.jpg" alt="blue-green-prototype"></p>
-<h3 id="thit-k-cui-cng">Thiết kế cuối cùng</h3>
+
+<p><img src="/blog/images/bluegreen_deploy_draft1.jpg" alt="blue-green-prototype" /></p>
+
+<h3 id="thiết-kế-cuối-cùng">Thiết kế cuối cùng</h3>
+
 <p>Lúc đầu mình định đưa lên đây ảnh architecture đẹp đẽ đã vẽ, nhưng nghĩ lại đó rốt cục là cũng là tài liệu thiết kế trong công ty nên không public thì tốt hơn.</p>
+
 <p>Cơ bản thì thiết kế như bản nháp trên mình đã giới thiệu, mình chỉ đưa thêm một feature nhỏ dạng backdoor vào để team dev product dễ dàng tùy ý kiểm thử môi trường blue/green hơn thôi. Các bạn cũng biết đó, không check thử tí nào mà switch môi trường production thì khá là mạo hiểm mà.</p>
-<h1 id="3-thng-tin-bn-l-bit-c-thm-khi-tm-hiu-v-bg-deploy">3. Thông tin bên lề biết được thêm khi tìm hiểu về B/G deploy</h1>
+
+<h1 id="3-thông-tin-bên-lề-biết-được-thêm-khi-tìm-hiểu-về-b-g-deploy">3. Thông tin bên lề biết được thêm khi tìm hiểu về B/G deploy</h1>
+
 <ul>
-<li>
-<p>Canary releases (Canary nghĩa là chim hoàng yến)</p>
-<p>Cụm từ này cũng hay được nhắc đến song hành với B/G deploy nhưng nó lại chỉ về một kỹ thuật khác hoàn toàn.
-Xét theo khía cạnh infra thì cấu trúc của nó tương đồng với B/G deploy ở chỗ là, cũng có 2 môi trường production nằm độc lập. Tuy nhiên cách vận hành và mục đích của chúng thì khác nhau. Canary release sẽ không route người dùng vào 1 trong 2 môi trường production mà sẽ phân tán vào cả 2 cùng một lúc (có thể theo tỉ lệ 1-9 hay 3-7 vân vân), mục đích là thăm dò và đánh giá phản ứng của người dùng với 2 phiên bản khác nhau trước khi thực sự release.</p>
-<p>Có thể hình dung vui là thả ra một con chim long lanh trước khi thả hết ra cả lồng chim 😍</p>
-<p>Thiên hạ cũng đồn các ông lớn như Facebook, Google là những nơi tiến hành Canary release nhiều nhất. Họ thường release tính năng mới cho người dùng ở Mỹ chẳng hạn, trước khi release ra cho toàn bộ dân đen trên trái đất.</p>
-</li>
+<li>Canary releases (Canary nghĩa là chim hoàng yến)</li>
 </ul>
+
+<p>Cụm từ này cũng hay được nhắc đến song hành với B/G deploy nhưng nó lại chỉ về một kỹ thuật khác hoàn toàn.
+  Xét theo khía cạnh infra thì cấu trúc của nó tương đồng với B/G deploy ở chỗ là, cũng có 2 môi trường production nằm độc lập. Tuy nhiên cách vận hành và mục đích của chúng thì khác nhau. Canary release sẽ không route người dùng vào 1 trong 2 môi trường production mà sẽ phân tán vào cả 2 cùng một lúc (có thể theo tỉ lệ 1-9 hay 3-7 vân vân), mục đích là thăm dò và đánh giá phản ứng của người dùng với 2 phiên bản khác nhau trước khi thực sự release.</p>
+
+<p>Có thể hình dung vui là thả ra một con chim long lanh trước khi thả hết ra cả lồng chim 😍</p>
+
+<p>Thiên hạ cũng đồn các ông lớn như Facebook, Google là những nơi tiến hành Canary release nhiều nhất. Họ thường release tính năng mới cho người dùng ở Mỹ chẳng hạn, trước khi release ra cho toàn bộ dân đen trên trái đất.</p>
 
 </div>
 
@@ -489,7 +528,7 @@ Xét theo khía cạnh infra thì cấu trúc của nó tương đồng với B/
   <line x1="7" y1="7" x2="7" y2="7"/>
   
 </svg>
-<span class='screen-reader-text'>Tags: </span><a class='tag' href='/blog/tags/aws/'>aws</a>, <a class='tag' href='/blog/tags/sre/'>SRE</a>, <a class='tag' href='/blog/tags/infra/'>infra</a></div>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/blog/tags/aws/'>aws</a>, <a class='tag' href='/blog/tags/sre/'>sre</a>, <a class='tag' href='/blog/tags/infra/'>infra</a>, <a class='tag' href='/blog/tags/blue-green-deploy/'>blue green deploy</a></div>
 
   <div><span>Share on: </span>
 

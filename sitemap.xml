@@ -1,16 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/</loc>
-    <lastmod>2020-01-03T21:17:52+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/posts/</loc>
-    <lastmod>2020-01-03T21:17:52+09:00</lastmod>
-  </url>
   
   <url>
     <loc>https://chienkira.github.io/blog/posts/use-presigned-url-to-secure-some-files-inside-public-bucket/</loc>
@@ -18,37 +8,7 @@
   </url>
   
   <url>
-    <loc>https://chienkira.github.io/blog/tags/payment/</loc>
-    <lastmod>2019-12-08T09:36:35+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/programing/</loc>
-    <lastmod>2019-12-08T09:36:35+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/rails/</loc>
-    <lastmod>2019-12-08T09:36:35+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/ruby/</loc>
-    <lastmod>2019-12-08T09:36:35+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/softbank/</loc>
-    <lastmod>2019-12-08T09:36:35+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chienkira.github.io/blog/posts/guide-to-integrate-softbank-payment-service/</loc>
-    <lastmod>2019-12-08T09:36:35+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/</loc>
     <lastmod>2019-12-08T09:36:35+09:00</lastmod>
   </url>
   
@@ -58,37 +18,7 @@
   </url>
   
   <url>
-    <loc>https://chienkira.github.io/blog/tags/deploy/</loc>
-    <lastmod>2019-11-12T15:24:47+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/infra/</loc>
-    <lastmod>2019-11-12T15:24:47+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/nginx/</loc>
-    <lastmod>2019-11-12T15:24:47+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/tech/</loc>
-    <lastmod>2019-11-12T15:24:47+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/aws/</loc>
-    <lastmod>2019-11-03T16:56:11+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chienkira.github.io/blog/posts/minimum-web-app-terraform-skeleton/</loc>
-    <lastmod>2019-11-03T16:56:11+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/terraform/</loc>
     <lastmod>2019-11-03T16:56:11+09:00</lastmod>
   </url>
   
@@ -98,53 +28,13 @@
   </url>
   
   <url>
-    <loc>https://chienkira.github.io/blog/tags/code-style/</loc>
-    <lastmod>2019-10-24T09:52:45+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/til/</loc>
-    <lastmod>2019-10-24T09:52:45+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chienkira.github.io/blog/posts/https-cho-m%C3%B4i-tr%C6%B0%E1%BB%9Dng-dev-rails/</loc>
-    <lastmod>2019-08-18T21:47:30+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/docker/</loc>
-    <lastmod>2019-08-18T21:47:30+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/https/</loc>
-    <lastmod>2019-08-18T21:47:30+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/ssl/</loc>
     <lastmod>2019-08-18T21:47:30+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://chienkira.github.io/blog/posts/%C3%B4n-t%E1%BA%ADp-l%E1%BA%A1i-mixin-c%C3%B9ng-v%E1%BB%9Bi-python/</loc>
     <lastmod>2019-06-25T10:25:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/mixin/</loc>
-    <lastmod>2019-06-25T10:25:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/python/</loc>
-    <lastmod>2019-06-25T10:25:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/sre/</loc>
-    <lastmod>2019-06-15T10:28:15+09:00</lastmod>
   </url>
   
   <url>
@@ -158,28 +48,8 @@
   </url>
   
   <url>
-    <loc>https://chienkira.github.io/blog/tags/japan/</loc>
-    <lastmod>2019-06-15T09:35:23+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/life/</loc>
-    <lastmod>2019-06-15T09:35:23+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chienkira.github.io/blog/posts/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes/</loc>
     <lastmod>2019-06-08T11:12:01+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/kubernetes/</loc>
-    <lastmod>2019-06-08T11:12:01+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/diet/</loc>
-    <lastmod>2019-05-26T22:19:42+09:00</lastmod>
   </url>
   
   <url>
@@ -193,28 +63,8 @@
   </url>
   
   <url>
-    <loc>https://chienkira.github.io/blog/tags/lambda/</loc>
-    <lastmod>2019-04-15T17:37:58+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/serverless/</loc>
-    <lastmod>2019-04-15T17:37:58+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chienkira.github.io/blog/posts/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python/</loc>
     <lastmod>2019-04-05T10:38:57+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/cooking/</loc>
-    <lastmod>2019-03-24T22:37:08+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/low-carb/</loc>
-    <lastmod>2019-03-24T22:37:08+09:00</lastmod>
   </url>
   
   <url>
@@ -223,23 +73,8 @@
   </url>
   
   <url>
-    <loc>https://chienkira.github.io/blog/tags/ci/</loc>
-    <lastmod>2019-03-23T21:40:43+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/circle-ci/</loc>
-    <lastmod>2019-03-23T21:40:43+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chienkira.github.io/blog/posts/%C3%A1p-d%E1%BB%A5ng-circle-ci/</loc>
     <lastmod>2019-03-23T21:40:43+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/cli/</loc>
-    <lastmod>2019-03-13T23:04:57+09:00</lastmod>
   </url>
   
   <url>
@@ -253,21 +88,6 @@
   </url>
   
   <url>
-    <loc>https://chienkira.github.io/blog/tags/blue-green-deploy/</loc>
-    <lastmod>2019-03-06T09:29:32+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/driving/</loc>
-    <lastmod>2019-03-03T09:18:57+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/review/</loc>
-    <lastmod>2019-03-03T09:18:57+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chienkira.github.io/blog/posts/c%C3%A1c-d%E1%BB%8Bch-v%E1%BB%A5-thu%C3%AA-xe-%E1%BB%9F-nh%E1%BA%ADt/</loc>
     <lastmod>2019-03-03T09:18:57+09:00</lastmod>
   </url>
@@ -278,38 +98,13 @@
   </url>
   
   <url>
-    <loc>https://chienkira.github.io/blog/tags/career/</loc>
-    <lastmod>2019-02-28T16:07:28+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chienkira.github.io/blog/posts/kinh-nghi%E1%BB%87m-xin-v%C3%A0o-nh%C3%A0-tr%E1%BA%BB-%E1%BB%9F-nh%E1%BA%ADt/</loc>
-    <lastmod>2019-02-26T21:10:31+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/nh%C3%A0-tr%E1%BA%BB/</loc>
-    <lastmod>2019-02-26T21:10:31+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/nu%C3%B4i-con/</loc>
     <lastmod>2019-02-26T21:10:31+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://chienkira.github.io/blog/posts/h%E1%BB%8Dc-b%E1%BA%B1ng-l%C3%A1i-xe-oto-%E1%BB%9F-nh%E1%BA%ADt/</loc>
     <lastmod>2019-02-23T16:42:28+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/license/</loc>
-    <lastmod>2019-02-23T16:42:28+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/cloudfront/</loc>
-    <lastmod>2019-02-21T16:33:07+09:00</lastmod>
   </url>
   
   <url>
@@ -323,28 +118,8 @@
   </url>
   
   <url>
-    <loc>https://chienkira.github.io/blog/tags/dynamodb-local/</loc>
-    <lastmod>2019-02-13T15:50:07+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/sam/</loc>
-    <lastmod>2019-02-13T15:50:07+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/api-gateway/</loc>
-    <lastmod>2019-02-12T15:45:04+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chienkira.github.io/blog/posts/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway/</loc>
     <lastmod>2019-02-12T15:45:04+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/pycharm/</loc>
-    <lastmod>2019-02-08T15:49:01+09:00</lastmod>
   </url>
   
   <url>
@@ -359,28 +134,312 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/authors/akikaori/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://chienkira.github.io/blog/authors/chienkira/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://chienkira.github.io/blog/authors/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/ci/</loc>
+    <lastmod>2019-03-23T21:40:43+09:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://chienkira.github.io/blog/categories/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://chienkira.github.io/blog/chienkira/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/</loc>
+    <lastmod>2020-01-03T21:17:52+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/circle-ci/</loc>
+    <lastmod>2019-03-23T21:40:43+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/https/</loc>
+    <lastmod>2019-08-18T21:47:30+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/kubernetes/</loc>
+    <lastmod>2019-06-08T11:12:01+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/posts/</loc>
+    <lastmod>2020-01-03T21:17:52+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/sam/</loc>
+    <lastmod>2019-02-13T15:50:07+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/sre/</loc>
+    <lastmod>2019-06-15T10:28:15+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/ssl/</loc>
+    <lastmod>2019-08-18T21:47:30+09:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://chienkira.github.io/blog/series/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/softbank/</loc>
+    <lastmod>2019-12-08T09:36:35+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/til/</loc>
+    <lastmod>2019-04-05T10:38:57+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/</loc>
+    <lastmod>2019-03-23T21:40:43+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/api-gateway/</loc>
+    <lastmod>2019-02-12T15:45:04+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/aws/</loc>
+    <lastmod>2019-11-03T16:56:11+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/blue-green-deploy/</loc>
+    <lastmod>2019-03-06T09:29:32+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/career/</loc>
+    <lastmod>2019-02-28T16:07:28+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/cli/</loc>
+    <lastmod>2019-03-13T23:04:57+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/cloudfront/</loc>
+    <lastmod>2019-02-21T16:33:07+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/code-style/</loc>
+    <lastmod>2019-10-24T09:52:45+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/cooking/</loc>
+    <lastmod>2019-03-24T22:37:08+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/deploy/</loc>
+    <lastmod>2019-11-12T15:24:47+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/diet/</loc>
+    <lastmod>2019-05-26T22:19:42+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/docker/</loc>
+    <lastmod>2019-08-18T21:47:30+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/driving/</loc>
+    <lastmod>2019-03-03T09:18:57+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/dynamodb-local/</loc>
+    <lastmod>2019-02-13T15:50:07+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/infra/</loc>
+    <lastmod>2019-11-12T15:24:47+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/japan/</loc>
+    <lastmod>2019-06-15T09:35:23+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/lambda/</loc>
+    <lastmod>2019-04-15T17:37:58+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/license/</loc>
+    <lastmod>2019-02-23T16:42:28+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/life/</loc>
+    <lastmod>2019-06-15T09:35:23+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/low-carb/</loc>
+    <lastmod>2019-03-24T22:37:08+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/mixin/</loc>
+    <lastmod>2019-06-25T10:25:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/nginx/</loc>
+    <lastmod>2019-11-12T15:24:47+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/nh%C3%A0-tr%E1%BA%BB/</loc>
+    <lastmod>2019-02-26T21:10:31+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/nu%C3%B4i-con/</loc>
+    <lastmod>2019-02-26T21:10:31+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/payment/</loc>
+    <lastmod>2019-12-08T09:36:35+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/programing/</loc>
+    <lastmod>2019-12-08T09:36:35+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/pycharm/</loc>
+    <lastmod>2019-02-08T15:49:01+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/python/</loc>
+    <lastmod>2019-06-25T10:25:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/rails/</loc>
+    <lastmod>2019-12-08T09:36:35+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/review/</loc>
+    <lastmod>2019-03-03T09:18:57+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/ruby/</loc>
+    <lastmod>2019-12-08T09:36:35+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/serverless/</loc>
+    <lastmod>2019-04-15T17:37:58+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/sre/</loc>
+    <lastmod>2019-03-06T09:29:32+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/tech/</loc>
+    <lastmod>2019-11-12T15:24:47+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/terraform/</loc>
+    <lastmod>2019-11-03T16:56:11+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/til/</loc>
+    <lastmod>2019-04-05T10:38:57+09:00</lastmod>
+    <priority>0</priority>
   </url>
   
 </urlset>

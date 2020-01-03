@@ -13,7 +13,7 @@ TL;DR  Các lệnh của terraform mặc định chỉ xử lý các file *.'>
 <meta property='og:site_name' content='Chienkira my blog'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://chienkira.github.io/blog/images/terraform-module.png'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='aws'><meta property='article:tag' content='terraform'><meta property='article:tag' content='SRE'><meta property='article:tag' content='infra'><meta property='article:published_time' content='2019-06-15T10:28:15&#43;09:00'/><meta property='article:modified_time' content='2019-06-15T10:28:15&#43;09:00'/><meta name='twitter:card' content='summary_large_image'><meta name='twitter:creator' content='@chienkira'><meta property='twitter:image' content='https://chienkira.github.io/blog/images/terraform-module.png'>
 
-<meta name="generator" content="Hugo 0.61.0" />
+<meta name="generator" content="Hugo 0.50" />
 
   <title>Áp Dụng Terraform Module deploy lên nhiều môi trường | Chien Kira</title>
   <link rel='canonical' href='https://chienkira.github.io/blog/posts/deploy-nhi%E1%BB%81u-m%C3%B4i-tr%C6%B0%E1%BB%9Dng-v%E1%BB%9Bi-terraform/'>
@@ -57,7 +57,9 @@ if (!doNotTrack) {
     </h2>
     <div class='desc'>
     <p>a web &lsquo;full snack&rsquo; developer</p>
+
 <p>a Papa engineer</p>
+
 <p>at Tokyo</p>
 
     </div>
@@ -71,6 +73,24 @@ if (!doNotTrack) {
 
   <div class='container list-container'>
   <ul class='list taxonomy-cloud'><li>
+        <a href='/blog/tags/ci/' style='font-size:1em'>CI</a>
+      </li><li>
+        <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
+      </li><li>
+        <a href='/blog/tags/https/' style='font-size:1em'>HTTPS</a>
+      </li><li>
+        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
+      </li><li>
+        <a href='/blog/tags/sam/' style='font-size:1.1428571428571428em'>SAM</a>
+      </li><li>
+        <a href='/blog/tags/sre/' style='font-size:1em'>SRE</a>
+      </li><li>
+        <a href='/blog/tags/ssl/' style='font-size:1em'>SSL</a>
+      </li><li>
+        <a href='/blog/tags/softbank/' style='font-size:1em'>Softbank</a>
+      </li><li>
+        <a href='/blog/tags/til/' style='font-size:1em'>TIL</a>
+      </li><li>
         <a href='/blog/tags/api-gateway/' style='font-size:1em'>api gateway</a>
       </li><li>
         <a href='/blog/tags/aws/' style='font-size:2em'>aws</a>
@@ -78,10 +98,6 @@ if (!doNotTrack) {
         <a href='/blog/tags/blue-green-deploy/' style='font-size:1em'>blue green deploy</a>
       </li><li>
         <a href='/blog/tags/career/' style='font-size:1em'>career</a>
-      </li><li>
-        <a href='/blog/tags/ci/' style='font-size:1em'>CI</a>
-      </li><li>
-        <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
       </li><li>
         <a href='/blog/tags/cli/' style='font-size:1em'>cli</a>
       </li><li>
@@ -101,13 +117,9 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/dynamodb-local/' style='font-size:1em'>dynamodb local</a>
       </li><li>
-        <a href='/blog/tags/https/' style='font-size:1em'>HTTPS</a>
-      </li><li>
         <a href='/blog/tags/infra/' style='font-size:1.4285714285714286em'>infra</a>
       </li><li>
         <a href='/blog/tags/japan/' style='font-size:1em'>japan</a>
-      </li><li>
-        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
       </li><li>
         <a href='/blog/tags/lambda/' style='font-size:1.1428571428571428em'>lambda</a>
       </li><li>
@@ -139,21 +151,15 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/ruby/' style='font-size:1.1428571428571428em'>ruby</a>
       </li><li>
-        <a href='/blog/tags/sam/' style='font-size:1.1428571428571428em'>SAM</a>
-      </li><li>
         <a href='/blog/tags/serverless/' style='font-size:1.2857142857142856em'>serverless</a>
       </li><li>
-        <a href='/blog/tags/softbank/' style='font-size:1em'>Softbank</a>
-      </li><li>
-        <a href='/blog/tags/sre/' style='font-size:1.1428571428571428em'>SRE</a>
-      </li><li>
-        <a href='/blog/tags/ssl/' style='font-size:1em'>SSL</a>
+        <a href='/blog/tags/sre/' style='font-size:1em'>sre</a>
       </li><li>
         <a href='/blog/tags/tech/' style='font-size:1.4285714285714286em'>tech</a>
       </li><li>
         <a href='/blog/tags/terraform/' style='font-size:1.1428571428571428em'>terraform</a>
       </li><li>
-        <a href='/blog/tags/til/' style='font-size:1.2857142857142856em'>til</a>
+        <a href='/blog/tags/til/' style='font-size:1.1428571428571428em'>til</a>
       </li></ul>
 </div>
 
@@ -389,62 +395,69 @@ if (!doNotTrack) {
     <span>Table of contents</span>
   </summary>
   <nav id="TableOfContents">
-  <ul>
-    <li><a href="#tldr">TL;DR</a></li>
-    <li><a href="#gii-thch-c-bn-terraform-module">Giải thích cơ bản terraform module</a></li>
-    <li><a href="#implement-thc-t">Implement thực tế</a>
-      <ul>
-        <li><a href="#yu-cu-t-ra-l-g">Yêu cầu đặt ra là gì?</a></li>
-        <li><a href="#p-dng-module-ha-x-l-cc-yu-cu-trn">Áp dụng module hóa, xử lý các yêu cầu trên</a></li>
-      </ul>
-    </li>
-    <li><a href="#kt-lun">Kết luận</a></li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#tl-dr">TL;DR</a></li>
+<li><a href="#giải-thích-cơ-bản-terraform-module">Giải thích cơ bản terraform module</a></li>
+<li><a href="#implement-thực-tế">Implement thực tế</a>
+<ul>
+<li><a href="#yêu-cầu-đặt-ra-là-gì">Yêu cầu đặt ra là gì?</a></li>
+<li><a href="#áp-dụng-module-hóa-xử-lý-các-yêu-cầu-trên">Áp dụng module hóa, xử lý các yêu cầu trên</a></li>
+</ul></li>
+<li><a href="#kết-luận">Kết luận</a></li>
+</ul></li>
+</ul>
 </nav>
 </details>
 
 
   <div class='container entry-content'>
-  <p><strong>Vào mùa mưa rồi, ngày cuối tuần bị nó hành cho suốt luôn. Vừa mưa còn vừa lạnh, ai nghĩ đây là mùa hè chứ!!. Tuy nhiên cũng nhờ thế mà nhớ đến cái sở thích 地味 này 😂 Trong bài viết này, mình muốn giới thiệu về <em>module</em> trong <em>terraform</em>, và cách sử dụng nó để deploy lên nhiều môi trường dev-stg-prod khác nhau.</strong></p>
-<h2 id="tldr">TL;DR</h2>
+  
+
+<p><strong>Vào mùa mưa rồi, ngày cuối tuần bị nó hành cho suốt luôn. Vừa mưa còn vừa lạnh, ai nghĩ đây là mùa hè chứ!!. Tuy nhiên cũng nhờ thế mà nhớ đến cái sở thích 地味 này 😂 Trong bài viết này, mình muốn giới thiệu về <em>module</em> trong <em>terraform</em>, và cách sử dụng nó để deploy lên nhiều môi trường dev-stg-prod khác nhau.</strong></p>
+
+<h2 id="tl-dr">TL;DR</h2>
+
 <ul>
 <li>Các lệnh của terraform mặc định chỉ xử lý các file *.tf ở cùng thư mục hiện tại</li>
 <li>Bằng cách sử dụng <em>module</em>, chúng ta có thể tham chiếu và tái sử dụng các file *.tf ở thư mục/server khác</li>
 <li>Kết hợp sử dụng <em>variables</em>, phía gọi <em>module</em> có thể override các thiết lập được cài đặt trước đó trong <em>module</em></li>
 <li>Mỗi môi trường dev-stg-prod thì kiểu gì cũng có các thiết lập khác nhau (ví dụ domain khác nhau, spec của EC2 hay container khác nhau&hellip;) nhưng lại phải dựa trên một thiết kế infra đồng nhất. Do đó <em>module</em> hóa infra code là một cách hiệu quả để giữ cho code sạch sẽ, DRY và dễ quản lý.</li>
 </ul>
-<h2 id="gii-thch-c-bn-terraform-module">Giải thích cơ bản terraform module</h2>
+
+<h2 id="giải-thích-cơ-bản-terraform-module">Giải thích cơ bản terraform module</h2>
+
 <ul>
 <li>Module như đúng tên của nó, ám chỉ việc chúng ta gom configurations lại và tái sử dụng ở nhiều nơi/nhiều lần.</li>
 <li>Module thực sự là một trong những tính năng ăn điểm của Terraform. Khi mà bạn muốn tạo ra nhiều môi trường có cấu trúc infra tương tự nhau, ban đầu bạn có thể nghĩ đến việc copy paste source rồi <code>terraform apply</code>, rất nhanh và đơn giản! Nhưng về lâu dài thử tưởng tượng đến việc thay đổi một vài chỗ sẽ khiến bạn phải sửa chữa cả tá vị trí bị copy paste kia, chưa kể đến việc làm vậy sẽ tiềm ẩn rủi do operation miss&hellip; chắc chắn bạn sẽ muốn module hóa và có một DRY infra code sạch sẽ!</li>
-<li>Cách tạo module thì rất đơn giản.
+
+<li><p>Cách tạo module thì rất đơn giản.</p>
+
 <ul>
-<li>
-<p>Đầu tiên chúng ta cần tạo một thư mục, trong đó định nghĩa các resource cần thiết của module. Ví dụ mình tạo thư mục <code>awsome_module</code>, rồi tạm thời mình tạo một resource như sau:
+<li><p>Đầu tiên chúng ta cần tạo một thư mục, trong đó định nghĩa các resource cần thiết của module. Ví dụ mình tạo thư mục <code>awsome_module</code>, rồi tạm thời mình tạo một resource như sau:
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">    <span style="color:#75715e"># ./awsome_module/sqs.tf</span>
     resource <span style="color:#e6db74">&#34;aws_sqs_queue&#34;</span> <span style="color:#e6db74">&#34;search_queue&#34;</span> {
         name = <span style="color:#e6db74">&#34;search-queue.fifo&#34;</span>
         fifo_queue = <span style="color:#66d9ef">true</span>
         content_based_deduplication = <span style="color:#66d9ef">true</span>
     }
-    </code></pre></div></p>
-</li>
-<li>
-<p>Sau đó, ở chỗ cần sử dụng module chúng ta chỉ cần định nghĩa nó với từ khóa <code>module</code> và <code>source</code>, <code>source</code> để chỉ định relative path tới thu mục của module. Ví dụ như sau:
+    </code></pre></div></p></li>
+
+<li><p>Sau đó, ở chỗ cần sử dụng module chúng ta chỉ cần định nghĩa nó với từ khóa <code>module</code> và <code>source</code>, <code>source</code> để chỉ định relative path tới thu mục của module. Ví dụ như sau:
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">    <span style="color:#75715e"># ./main.tf</span>
     module <span style="color:#e6db74">&#34;my_module&#34;</span> {
         source = <span style="color:#e6db74">&#34;./awsome_module&#34;</span>
     }
-    </code></pre></div></p>
-</li>
-<li>
-<p>Chỉ vậy thôi! Thử init ở thư mục chứa <code>main.tf</code> rồi chạy plan,chúng ta sẽ thấy terraform nhận biết cả resource SQS được định nghĩa trong <code>./awsome_module/*</code>.
+    </code></pre></div></p></li>
+
+<li><p>Chỉ vậy thôi! Thử init ở thư mục chứa <code>main.tf</code> rồi chạy plan,chúng ta sẽ thấy terraform nhận biết cả resource SQS được định nghĩa trong <code>./awsome_module/*</code>.
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    $ terraform plan
     ...
     Terraform will perform the following actions:
 
-    <span style="color:#75715e"># module.my_module.aws_sqs_queue.search_queue will be created</span>
-    + resource <span style="color:#e6db74">&#34;aws_sqs_queue&#34;</span> <span style="color:#e6db74">&#34;search_queue&#34;</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e"># module.my_module.aws_sqs_queue.search_queue will be created
+</span><span style="color:#75715e"></span>    + resource <span style="color:#e6db74">&#34;aws_sqs_queue&#34;</span> <span style="color:#e6db74">&#34;search_queue&#34;</span> <span style="color:#f92672">{</span>
         + arn                               <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>known after apply<span style="color:#f92672">)</span>
         + content_based_deduplication       <span style="color:#f92672">=</span> true
         + delay_seconds                     <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
@@ -460,23 +473,26 @@ if (!doNotTrack) {
         <span style="color:#f92672">}</span>
 
     Plan: <span style="color:#ae81ff">1</span> to add, <span style="color:#ae81ff">0</span> to change, <span style="color:#ae81ff">0</span> to destroy.
-    </code></pre></div></p>
-</li>
+    </code></pre></div></p></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="implement-thc-t">Implement thực tế</h2>
-<h3 id="yu-cu-t-ra-l-g">Yêu cầu đặt ra là gì?</h3>
+
+<h2 id="implement-thực-tế">Implement thực tế</h2>
+
+<h3 id="yêu-cầu-đặt-ra-là-gì">Yêu cầu đặt ra là gì?</h3>
+
 <ul>
 <li>Mình sẽ muốn tạo ra 3 môi trường dev-stg-prod với cấu trúc infra giống hệt nhau. Tuy nhiên thông số thiết lập thì sẽ khác nhau, ví dụ rất thực tiễn nhé, dev và stg env mình muốn để cấu hình Fargate thấp thôi cho tiết kiệm tiền 😃 còn riêng prod thì ưu ái cho cấu hình xịn xò trên một bậc chẳng hạn.</li>
 <li>State của terraform thì phải được lưu trữ &ldquo;trên mây&rdquo;. Team nhiều người dev/deploy để làm product thật chứ có phải là chơi bời linh tinh đâu! → Cần phải định nghĩa backend của terraform lên S3 cho đàng hoàng.</li>
 <li>Code infra phải DRY, ví dụ khi cần thay đổi/thêm bớt resource nào đó thì chỉ cần sửa code một nơi thôi là có thể apply lên cả 3 môi trường.</li>
 </ul>
-<h3 id="p-dng-module-ha-x-l-cc-yu-cu-trn">Áp dụng module hóa, xử lý các yêu cầu trên</h3>
+
+<h3 id="áp-dụng-module-hóa-xử-lý-các-yêu-cầu-trên">Áp dụng module hóa, xử lý các yêu cầu trên</h3>
+
 <p>Đi vào thẳng vấn đề, dưới đây là cấu trúc code mình đã dựng lên.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    |--terraform 　　　　　　　　　<span style="color:#75715e"># infra code root directory</span>
-    |  |--_module　　　　　　　　　<span style="color:#75715e"># shared resource definitions</span>
-    |  |  |--ecr.tf
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    |--terraform 　　　　　　　　　<span style="color:#75715e"># infra code root directory
+</span><span style="color:#75715e"></span>    |  |--_module　　　　　　　　　<span style="color:#75715e"># shared resource definitions
+</span><span style="color:#75715e"></span>    |  |  |--ecr.tf
     |  |  |--ecs.tf
     |  |  |--iam.tf
     |  |  |--log.tf
@@ -485,22 +501,21 @@ if (!doNotTrack) {
     |  |  |--s3.tf
     |  |  |--sqs.tf
     |  |  |--variables.tf
-    |  |--dev                   <span style="color:#75715e"># configurations for DEV env</span>
-    |  |  |--backend.tf
+    |  |--dev                   <span style="color:#75715e"># configurations for DEV env
+</span><span style="color:#75715e"></span>    |  |  |--backend.tf
     |  |  |--main.tf
-    |  |--stg                   <span style="color:#75715e"># configurations for STG env</span>
-    |  |  |--backend.tf
+    |  |--stg                   <span style="color:#75715e"># configurations for STG env
+</span><span style="color:#75715e"></span>    |  |  |--backend.tf
     |  |  |--main.tf
-    |  |--prod                  <span style="color:#75715e"># configurations for PROD env</span>
-    |  |  |--backend.tf
-    |  |  |--main.tf
-</code></pre></div><p>Để đảm bảo infra code DRY, mình chọn cách gom tất cả các resource cần thiết vào làm thành một module. Chính là thư mục <code>_module</code> ở trong tree bên trên.</p>
+    |  |--prod                  <span style="color:#75715e"># configurations for PROD env
+</span><span style="color:#75715e"></span>    |  |  |--backend.tf
+    |  |  |--main.tf</code></pre></div>
+<p>Để đảm bảo infra code DRY, mình chọn cách gom tất cả các resource cần thiết vào làm thành một module. Chính là thư mục <code>_module</code> ở trong tree bên trên.</p>
+
 <ul>
-<li>
-<p>1 nguyên tắc quan trọng ở đây là, toàn bộ thiết lập trong các resource nên tham chiếu đến <code>var</code>, không fix cứng giá trị! Việc này nhằm để sau này chúng ta có thể tối đa hóa khả năng custom thiết lập theo từng môi trường.</p>
-</li>
-<li>
-<p>Ví dụ như trong file <code>_module/ecs.tf</code> mình sẽ định nghĩa ECS task như dưới đây, thông số vCPU và memory của container tham chiếu đến <code>var.fargate_cpu</code> và <code>var.fargate_memory</code>.
+<li>1 nguyên tắc quan trọng ở đây là, toàn bộ thiết lập trong các resource nên tham chiếu đến <code>var</code>, không fix cứng giá trị! Việc này nhằm để sau này chúng ta có thể tối đa hóa khả năng custom thiết lập theo từng môi trường.</li>
+
+<li><p>Ví dụ như trong file <code>_module/ecs.tf</code> mình sẽ định nghĩa ECS task như dưới đây, thông số vCPU và memory của container tham chiếu đến <code>var.fargate_cpu</code> và <code>var.fargate_memory</code>.
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">    ...
     resource <span style="color:#e6db74">&#34;aws_ecs_task_definition&#34;</span> <span style="color:#e6db74">&#34;task&#34;</span> {
         family = <span style="color:#e6db74">&#34;${var.env}-${var.product}-${var.app}-search-task&#34;</span>
@@ -510,22 +525,21 @@ if (!doNotTrack) {
         cpu = <span style="color:#e6db74">&#34;${var.fargate_cpu}&#34;</span>
         memory = <span style="color:#e6db74">&#34;${var.fargate_memory}&#34;</span>
     ...
-    </code></pre></div></p>
-</li>
-<li>
-<p>Các <code>var</code> cần sử dụng trong module mình sẽ tổng hợp lại trong file <code>variables.tf</code>. Ở đây mình sẽ chỉ khai báo sự tồn tại của biến thôi, không định nghĩa giá trị gì hết vì sau đó lúc gọi và sử dụng module, mình mới muốn thiết lập thông số cụ thể.
+    </code></pre></div></p></li>
+
+<li><p>Các <code>var</code> cần sử dụng trong module mình sẽ tổng hợp lại trong file <code>variables.tf</code>. Ở đây mình sẽ chỉ khai báo sự tồn tại của biến thôi, không định nghĩa giá trị gì hết vì sau đó lúc gọi và sử dụng module, mình mới muốn thiết lập thông số cụ thể.
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">    variable <span style="color:#e6db74">&#34;fargate_cpu&#34;</span> {}
     variable <span style="color:#e6db74">&#34;fargate_memory&#34;</span> {}
-    </code></pre></div></p>
-</li>
+    </code></pre></div></p></li>
 </ul>
+
 <p>Tiếp theo mình có 3 thư mục ứng với 3 môi trường dev-stg-prod. Trong mỗi thư mục có 2 file.</p>
+
 <ul>
-<li>
-<p>backend.tf: Như đã trình bày ở trên, một yêu cầu bắt buộc là state phải được lưu trên remote. Do đó cần định nghĩa <code>backend</code> cho terraform, cụ thể mình sẽ lưu trên AWS S3. Chú ý là <code>backend</code> nằm trong xử lý khởi tạo của terraform, do đó terraform không cho phép sử dụng tham chiếu <code>var</code> hay <code>local</code> ở đây. Mình lại muốn sử dụng 3 bucket khác nhau cho 3 môi trường nên mới xuất hiện 3 file backend.tf như thế này.</p>
-</li>
-<li>
-<p>main.tf: Khai báo sử dụng module ở thư mục <code>_module</code> đồng thời báo với terraform các giá trị thiết lập mong muốn khi sử dụng module đó. Ví dụ ở môi trường prod mình muốn ECS task có 1vCPU và 2GB memory, nhưng ở môi trường dev thì chỉ cần 0.5vCPU và 1GB memory thôi.</p>
+<li><p>backend.tf: Như đã trình bày ở trên, một yêu cầu bắt buộc là state phải được lưu trên remote. Do đó cần định nghĩa <code>backend</code> cho terraform, cụ thể mình sẽ lưu trên AWS S3. Chú ý là <code>backend</code> nằm trong xử lý khởi tạo của terraform, do đó terraform không cho phép sử dụng tham chiếu <code>var</code> hay <code>local</code> ở đây. Mình lại muốn sử dụng 3 bucket khác nhau cho 3 môi trường nên mới xuất hiện 3 file backend.tf như thế này.</p></li>
+
+<li><p>main.tf: Khai báo sử dụng module ở thư mục <code>_module</code> đồng thời báo với terraform các giá trị thiết lập mong muốn khi sử dụng module đó. Ví dụ ở môi trường prod mình muốn ECS task có 1vCPU và 2GB memory, nhưng ở môi trường dev thì chỉ cần 0.5vCPU và 1GB memory thôi.</p>
+
 <p><code>prod/main.tf</code>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">    module <span style="color:#e6db74">&#34;app&#34;</span> {              <span style="color:#75715e"># use module</span>
         source = <span style="color:#e6db74">&#34;../_module&#34;</span>   <span style="color:#75715e"># at &#39;../_module&#39; folder</span>
@@ -534,6 +548,7 @@ if (!doNotTrack) {
         fargate_memory = <span style="color:#e6db74">&#34;2048&#34;</span>
     }
     </code></pre></div></p>
+
 <p><code>dev/main.tf</code>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">    module <span style="color:#e6db74">&#34;app&#34;</span> {              <span style="color:#75715e"># use module</span>
         source = <span style="color:#e6db74">&#34;../_module&#34;</span>   <span style="color:#75715e"># at &#39;../_module&#39; folder</span>
@@ -541,16 +556,18 @@ if (!doNotTrack) {
         fargate_cpu = <span style="color:#e6db74">&#34;512&#34;</span>
         fargate_memory = <span style="color:#e6db74">&#34;1024&#34;</span>
     }
-    </code></pre></div></p>
-</li>
+    </code></pre></div></p></li>
 </ul>
+
 <p>Với cách dựng code trên, thao tác deploy lên các môi trường sẽ như sau.
 Ví dụ ta đang muốn deploy lên môi trường dev.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd dev         <span style="color:#75715e"># cd to folder of deploy-target env</span>
-$ terraform init
-$ terraform apply
-</code></pre></div><h2 id="kt-lun">Kết luận</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd dev         <span style="color:#75715e"># cd to folder of deploy-target env
+</span><span style="color:#75715e"></span>$ terraform init
+$ terraform apply</code></pre></div>
+<h2 id="kết-luận">Kết luận</h2>
+
 <p>Sử dụng <code>module</code> giúp infra code viết bằng terraform trở lên DRY sạch sẽ, mà vẫn đảm bảo tính độc lập cho phép chúng ta thiết lập các thông số khác nhau giữa các môi trường.</p>
+
 <p>Thực sự về lý thuyết thì cách sử dụng này không phải là cách sử dụng vốn được thiết kế dành cho <code>module</code>. Mình đã đọc doc của terraform và cũng biết rằng, tính năng <code>workspace</code> mới là tính năng được gọi ý sử dụng nếu muốn deploy lên nhiều môi trường. Tuy nhiên sau khi thử sử dụng thì mình hoàn toàn không có cảm tình với <code>workspace</code>. Lý do là khi sử dụng <code>workspace</code>, việc đọc giá trị thiết lập ứng với từng workspace dev-stg-prod làm cho code terraform trở lên dài và khó đọc hơn khá nhiều, do phải sử dụng <code>if</code> hoặc hàm <code>lookup</code>. Đối với mình và team hiện tại, mọi người đều chung ý kiến rằng cách dựng code sử dụng module trên là dễ hiểu và dễ sử dụng hơn cả, do đó thực tế thì mình cũng không sử dụng <code>workspace</code>. Tương lai nếu sử dụng đến tính năng gì đó mà chỉ có workspace mới hỗ trợ thì chắc sẽ chuyển qua sau vậy?! 😃</p>
 
 </div>

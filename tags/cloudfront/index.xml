@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>cloudfront on Chienkira my blog</title>
@@ -16,18 +16,17 @@
       <pubDate>Thu, 21 Feb 2019 16:33:07 +0900</pubDate>
       
       <guid>https://chienkira.github.io/blog/posts/t%E1%BA%A5t-t%E1%BA%A7n-t%E1%BA%ADt-v%E1%BB%81-cloudfront/</guid>
-      <description>CloudFrontとは  AWSが提供するCDN（コンテンツ配信サービス）である。 世界中に設置されているエッジサーバを利用し、ユーザの最寄りエッジサーバからキャッシュを送ることでユーザへ高速な配信を実現できるサービスである。  ![CloudFrontのコンテンツをユーザーに配信する方法] (https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/how-cloudfront-delivers-content.png)
-CloudFrontの設定 Distribution Settings（ディストリビューション設定） ディストリビューションはCloudFrontの配信設定の単位になるので、CloudFrontの使用にはまずディストリビューションを作成する必要がある。
-ディストリビューション配信種類はWebとRTMPがある。
- Web: ウェブ配信専用（基本的にこちらの種類を使う） RTMP: メディアのストリーミング配信専用    Alternate Domain Names (CNAMEs) CloudFront によって割り当てられたドメイン名（例 https://hogehoge.cloudfront.net）の代わりに、使用したい代替ドメイン名（例 https://example.com）をここに指定する。
-  SSL Certificate デフォルトのCloudFrontのSSL証明書を使用するか、独自SSL証明書（ACMで登録したもの）を選択する。
-  Origin Settings（オリジンドメイン設定）   Origin Domain Name
+      <description>CloudFrontとは  AWSが提供するCDN（コンテンツ配信サービス）である。 世界中に設置されているエッジサーバを利用し、ユーザの最寄りエッジサーバからキャッシュを送ることでユーザへ高速な配信を実現できるサービスである。  CloudFrontの設定 Distribution Settings（ディストリビューション設定） ディストリビューションはCloudFrontの配信設定の単位になるので、CloudFrontの使用にはまずディストリビューションを作成する必要がある。
+ディストリビューション配信種類はWebとRTMPがある。 - Web: ウェブ配信専用（基本的にこちらの種類を使う） - RTMP: メディアのストリーミング配信専用
+ Alternate Domain Names (CNAMEs) CloudFront によって割り当てられたドメイン名（例 https://hogehoge.cloudfront.net）の代わりに、使用したい代替ドメイン名（例 https://example.com）をここに指定する。
+ SSL Certificate デフォルトのCloudFrontのSSL証明書を使用するか、独自SSL証明書（ACMで登録したもの）を選択する。
+  Origin Settings（オリジンドメイン設定）  Origin Domain Name
 オリジンドメインを選択する。 フロントエンドをS3バケットに格納した場合は、オリジンドメインにS3バケットを選択すると良い。
 ※オリジンドメインとは、コンテンツの提供元のことを表す。オリジンドメインには、AWSのリソース（S3バケットやELBやAWS MediaPackageエンドポイントや AWS MediaStoreContainerエンドポイント）か、もしくはそれ以外のリソース（どこかのウェブサーバのドメイン等）でも指定できる。
-  Origin Path オリジン内のディレクトリからコンテンツが配信されるようにしたい場合は、オリジンパスを入力することで実現できる。 例えば、オリジンパスに/greenを入力した場合、ユーザーがブラウザでexample.com/index.htmlとリクエストすると、CloudFrontは s3bucket/green/index.html を返答する。
-  Origin ID ディストリビューション内でこのオリジンをユニークで区別する為の文字列である。 オリジンドメインを入力したら、自動的に生成されるオリジンIDをそのまま使っても良い。
-  Restrict Bucket Access CloudFrontのURLでしかS3バケット内のコンテンツがアクセスできないように制御をしたい場合、この設定をYESにする。 ユーザーがCloudFrontのURLでもS3バケットのURLでもアクセスできるようにしたい場合は、[No]にする。
-  Origin Access Identity [Restrict Bucket Access] で [Yes] にした場合、オリジンアクセスアイデンティティが必要になる。 新しいアイデンティティを作成するか、既存のアイデンティティを使用するかを下の [Your Identities] 設定項目で選択する。</description>
+ Origin Path オリジン内のディレクトリからコンテンツが配信されるようにしたい場合は、オリジンパスを入力することで実現できる。 例えば、オリジンパスに/greenを入力した場合、ユーザーがブラウザでexample.com/index.htmlとリクエストすると、CloudFrontは s3bucket/green/index.html を返答する。
+ Origin ID ディストリビューション内でこのオリジンをユニークで区別する為の文字列である。 オリジンドメインを入力したら、自動的に生成されるオリジンIDをそのまま使っても良い。
+ Restrict Bucket Access CloudFrontのURLでしかS3バケット内のコンテンツがアクセスできないように制御をしたい場合、この設定をYESにする。 ユーザーがCloudFrontのURLでもS3バケットのURLでもアクセスできるようにしたい場合は、[No]にする。
+ Origin Access Identity [Restrict Bucket Access] で [Yes] にした場合、オリジンアクセスアイデンティティが必要になる。 新しいアイデンティティを作成するか、既存のアイデンティティを使用するかを下の [Your Identities] 設定項目で選択する。</description>
     </item>
     
   </channel>

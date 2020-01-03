@@ -2,16 +2,16 @@
 <html lang='en'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='I made a Skeleton for Terraform code. Basically I&#39;m supposed to use it for future projects, but then just thought it might be useful for others so that want to share it with you. Also I tried to avoid having to copy and paste codes when deploye in multiple environments for same app. Hopefully, you will be able to reuse at least a part or an idea to help you with your work.'>
+<meta name='description' content='I made a Skeleton for Terraform code. Basically I&rsquo;m supposed to use it for future projects, but then just thought it might be useful for others so that want to share it with you. Also I tried to avoid having to copy and paste codes when deploye in multiple environments for same app. Hopefully, you will be able to reuse at least a part or an idea to help you with your work.'>
 <meta name='theme-color' content='#ffcd00'>
 
 <meta property='og:title' content='Minimum Web App Terraform Skeleton [English] | Chien Kira'>
-<meta property='og:description' content='I made a Skeleton for Terraform code. Basically I&#39;m supposed to use it for future projects, but then just thought it might be useful for others so that want to share it with you. Also I tried to avoid having to copy and paste codes when deploye in multiple environments for same app. Hopefully, you will be able to reuse at least a part or an idea to help you with your work.'>
+<meta property='og:description' content='I made a Skeleton for Terraform code. Basically I&rsquo;m supposed to use it for future projects, but then just thought it might be useful for others so that want to share it with you. Also I tried to avoid having to copy and paste codes when deploye in multiple environments for same app. Hopefully, you will be able to reuse at least a part or an idea to help you with your work.'>
 <meta property='og:url' content='https://chienkira.github.io/blog/posts/minimum-web-app-terraform-skeleton/'>
 <meta property='og:site_name' content='Chienkira my blog'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://chienkira.github.io/blog/images/terraform-x-aws-1.png'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='terraform'><meta property='article:tag' content='tech'><meta property='article:tag' content='infra'><meta property='article:tag' content='aws'><meta property='article:published_time' content='2019-11-03T16:56:11&#43;09:00'/><meta property='article:modified_time' content='2019-11-03T16:56:11&#43;09:00'/><meta name='twitter:card' content='summary_large_image'><meta name='twitter:creator' content='@chienkira'><meta property='twitter:image' content='https://chienkira.github.io/blog/images/terraform-x-aws-1.png'>
 
-<meta name="generator" content="Hugo 0.61.0" />
+<meta name="generator" content="Hugo 0.50" />
 
   <title>Minimum Web App Terraform Skeleton [English] | Chien Kira</title>
   <link rel='canonical' href='https://chienkira.github.io/blog/posts/minimum-web-app-terraform-skeleton/'>
@@ -55,7 +55,9 @@ if (!doNotTrack) {
     </h2>
     <div class='desc'>
     <p>a web &lsquo;full snack&rsquo; developer</p>
+
 <p>a Papa engineer</p>
+
 <p>at Tokyo</p>
 
     </div>
@@ -69,6 +71,24 @@ if (!doNotTrack) {
 
   <div class='container list-container'>
   <ul class='list taxonomy-cloud'><li>
+        <a href='/blog/tags/ci/' style='font-size:1em'>CI</a>
+      </li><li>
+        <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
+      </li><li>
+        <a href='/blog/tags/https/' style='font-size:1em'>HTTPS</a>
+      </li><li>
+        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
+      </li><li>
+        <a href='/blog/tags/sam/' style='font-size:1.1428571428571428em'>SAM</a>
+      </li><li>
+        <a href='/blog/tags/sre/' style='font-size:1em'>SRE</a>
+      </li><li>
+        <a href='/blog/tags/ssl/' style='font-size:1em'>SSL</a>
+      </li><li>
+        <a href='/blog/tags/softbank/' style='font-size:1em'>Softbank</a>
+      </li><li>
+        <a href='/blog/tags/til/' style='font-size:1em'>TIL</a>
+      </li><li>
         <a href='/blog/tags/api-gateway/' style='font-size:1em'>api gateway</a>
       </li><li>
         <a href='/blog/tags/aws/' style='font-size:2em'>aws</a>
@@ -76,10 +96,6 @@ if (!doNotTrack) {
         <a href='/blog/tags/blue-green-deploy/' style='font-size:1em'>blue green deploy</a>
       </li><li>
         <a href='/blog/tags/career/' style='font-size:1em'>career</a>
-      </li><li>
-        <a href='/blog/tags/ci/' style='font-size:1em'>CI</a>
-      </li><li>
-        <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
       </li><li>
         <a href='/blog/tags/cli/' style='font-size:1em'>cli</a>
       </li><li>
@@ -99,13 +115,9 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/dynamodb-local/' style='font-size:1em'>dynamodb local</a>
       </li><li>
-        <a href='/blog/tags/https/' style='font-size:1em'>HTTPS</a>
-      </li><li>
         <a href='/blog/tags/infra/' style='font-size:1.4285714285714286em'>infra</a>
       </li><li>
         <a href='/blog/tags/japan/' style='font-size:1em'>japan</a>
-      </li><li>
-        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
       </li><li>
         <a href='/blog/tags/lambda/' style='font-size:1.1428571428571428em'>lambda</a>
       </li><li>
@@ -137,21 +149,15 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/ruby/' style='font-size:1.1428571428571428em'>ruby</a>
       </li><li>
-        <a href='/blog/tags/sam/' style='font-size:1.1428571428571428em'>SAM</a>
-      </li><li>
         <a href='/blog/tags/serverless/' style='font-size:1.2857142857142856em'>serverless</a>
       </li><li>
-        <a href='/blog/tags/softbank/' style='font-size:1em'>Softbank</a>
-      </li><li>
-        <a href='/blog/tags/sre/' style='font-size:1.1428571428571428em'>SRE</a>
-      </li><li>
-        <a href='/blog/tags/ssl/' style='font-size:1em'>SSL</a>
+        <a href='/blog/tags/sre/' style='font-size:1em'>sre</a>
       </li><li>
         <a href='/blog/tags/tech/' style='font-size:1.4285714285714286em'>tech</a>
       </li><li>
         <a href='/blog/tags/terraform/' style='font-size:1.1428571428571428em'>terraform</a>
       </li><li>
-        <a href='/blog/tags/til/' style='font-size:1.2857142857142856em'>til</a>
+        <a href='/blog/tags/til/' style='font-size:1.1428571428571428em'>til</a>
       </li></ul>
 </div>
 
@@ -387,20 +393,30 @@ if (!doNotTrack) {
     <span>Table of contents</span>
   </summary>
   <nav id="TableOfContents">
-  <ul>
-    <li><a href="#directory-layout">Directory layout</a></li>
-    <li><a href="#check-the-source-code-here">Check the source code here</a>
-      <ul>
-        <li></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#directory-layout">Directory layout</a></li>
+<li><a href="#check-the-source-code-here">Check the source code here</a>
+<ul>
+<li>
+<ul>
+<li><a href="#minimum-web-app-terraform-skeleton">Minimum-web-app-terraform-skeleton</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#how-to-deploy">How to deploy</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
 </details>
 
 
   <div class='container entry-content'>
-  <p><strong>I made a Skeleton for Terraform code. Basically I'm supposed to use it for future projects, but then just thought it might be useful for others so that want to share it with you. Also I tried to avoid having to copy and paste codes when deploye in multiple environments for same app. Hopefully, you will be able to reuse at least a part or an idea to help you with your work.</strong></p>
+  
+
+<p><strong>I made a Skeleton for Terraform code. Basically I&rsquo;m supposed to use it for future projects, but then just thought it might be useful for others so that want to share it with you. Also I tried to avoid having to copy and paste codes when deploye in multiple environments for same app. Hopefully, you will be able to reuse at least a part or an idea to help you with your work.</strong></p>
+
 <h2 id="directory-layout">Directory layout</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">|--.gitignore
 |--README.md
@@ -414,32 +430,40 @@ if (!doNotTrack) {
 |--prod
 |  |--main.tf
 |--test
-|  |--main.tf
-</code></pre></div><h2 id="check-the-source-code-here">Check the source code here</h2>
-<p><a href="https://github.com/chienkira/minimum-web-app-terraform-skeleton">https://github.com/chienkira/minimum-web-app-terraform-skeleton</a></p>
-<hr>
+|  |--main.tf</code></pre></div>
+<h2 id="check-the-source-code-here">Check the source code here</h2>
+
+<p><a href="https://github.com/chienkira/minimum-web-app-terraform-skeleton" target="_blank">https://github.com/chienkira/minimum-web-app-terraform-skeleton</a></p>
+
+<hr />
+
 <blockquote>
 <h4 id="minimum-web-app-terraform-skeleton">Minimum-web-app-terraform-skeleton</h4>
+
 <p>Minimum Terraform skeleton (sample) for web app</p>
+
 <h4 id="features">Features</h4>
+
 <ul>
 <li>All resources are defined as terraform module (D-R-Y infra code)</li>
 <li>Allow you create same infra for both test and prod environments with only 1 command</li>
 <li>Comes with minimum setup, you can add everything you need, also custom all settings
+
 <ul>
 <li>This skeleton uses EC2 as web server, RDS as database server and S3 as file storage</li>
-</ul>
-</li>
-<li>Allocate EIP and assign static IP address to your EC2 instance so it's easier for you to setup domain stuffs after</li>
+</ul></li>
+<li>Allocate EIP and assign static IP address to your EC2 instance so it&rsquo;s easier for you to setup domain stuffs after</li>
 <li>Create a new VPC for your web app (good practise to not use the default VPC)</li>
 </ul>
+
 <h4 id="how-to-deploy">How to deploy</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#75715e"># checkout this repository</span>
-$ cd test                           <span style="color:#75715e"># change to directory of enviroment you want to create (test or prod environment)</span>
-$ terraform init <span style="color:#f92672">&amp;&amp;</span> terraform plan  <span style="color:#75715e"># check what resources will be create</span>
-$ terraform apply                   <span style="color:#75715e"># apply (deploy) all resources</span>
-</code></pre></div></blockquote>
-<hr>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#75715e"># checkout this repository
+</span><span style="color:#75715e"></span>$ cd test                           <span style="color:#75715e"># change to directory of enviroment you want to create (test or prod environment)
+</span><span style="color:#75715e"></span>$ terraform init <span style="color:#f92672">&amp;&amp;</span> terraform plan  <span style="color:#75715e"># check what resources will be create
+</span><span style="color:#75715e"></span>$ terraform apply                   # apply <span style="color:#f92672">(</span>deploy<span style="color:#f92672">)</span> all resources</code></pre></div>
+<hr />
+</blockquote>
+
 <p>All comment and feedback are welcome.</p>
 
 </div>

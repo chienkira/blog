@@ -15,7 +15,7 @@ CLI: command line interface
 <meta property='og:site_name' content='Chienkira my blog'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://chienkira.github.io/blog/images/kira-cli-weather-demo.png'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='cli'><meta property='article:tag' content='python'><meta property='article:published_time' content='2019-03-13T23:04:57&#43;09:00'/><meta property='article:modified_time' content='2019-03-13T23:04:57&#43;09:00'/><meta name='twitter:card' content='summary_large_image'><meta name='twitter:creator' content='@chienkira'><meta property='twitter:image' content='https://chienkira.github.io/blog/images/kira-cli-weather-demo.png'>
 
-<meta name="generator" content="Hugo 0.61.0" />
+<meta name="generator" content="Hugo 0.50" />
 
   <title>Tự Tạo Chương Trình CLI Của Chính Mình Không Đụng Hàng | Chien Kira</title>
   <link rel='canonical' href='https://chienkira.github.io/blog/posts/t%E1%BB%B1-t%E1%BA%A1o-ch%C6%B0%C6%A1ng-tr%C3%ACnh-cli-c%E1%BB%A7a-ch%C3%ADnh-m%C3%ACnh-kh%C3%B4ng-%C4%91%E1%BB%A5ng-h%C3%A0ng/'>
@@ -59,7 +59,9 @@ if (!doNotTrack) {
     </h2>
     <div class='desc'>
     <p>a web &lsquo;full snack&rsquo; developer</p>
+
 <p>a Papa engineer</p>
+
 <p>at Tokyo</p>
 
     </div>
@@ -73,6 +75,24 @@ if (!doNotTrack) {
 
   <div class='container list-container'>
   <ul class='list taxonomy-cloud'><li>
+        <a href='/blog/tags/ci/' style='font-size:1em'>CI</a>
+      </li><li>
+        <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
+      </li><li>
+        <a href='/blog/tags/https/' style='font-size:1em'>HTTPS</a>
+      </li><li>
+        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
+      </li><li>
+        <a href='/blog/tags/sam/' style='font-size:1.1428571428571428em'>SAM</a>
+      </li><li>
+        <a href='/blog/tags/sre/' style='font-size:1em'>SRE</a>
+      </li><li>
+        <a href='/blog/tags/ssl/' style='font-size:1em'>SSL</a>
+      </li><li>
+        <a href='/blog/tags/softbank/' style='font-size:1em'>Softbank</a>
+      </li><li>
+        <a href='/blog/tags/til/' style='font-size:1em'>TIL</a>
+      </li><li>
         <a href='/blog/tags/api-gateway/' style='font-size:1em'>api gateway</a>
       </li><li>
         <a href='/blog/tags/aws/' style='font-size:2em'>aws</a>
@@ -80,10 +100,6 @@ if (!doNotTrack) {
         <a href='/blog/tags/blue-green-deploy/' style='font-size:1em'>blue green deploy</a>
       </li><li>
         <a href='/blog/tags/career/' style='font-size:1em'>career</a>
-      </li><li>
-        <a href='/blog/tags/ci/' style='font-size:1em'>CI</a>
-      </li><li>
-        <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
       </li><li>
         <a href='/blog/tags/cli/' style='font-size:1em'>cli</a>
       </li><li>
@@ -103,13 +119,9 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/dynamodb-local/' style='font-size:1em'>dynamodb local</a>
       </li><li>
-        <a href='/blog/tags/https/' style='font-size:1em'>HTTPS</a>
-      </li><li>
         <a href='/blog/tags/infra/' style='font-size:1.4285714285714286em'>infra</a>
       </li><li>
         <a href='/blog/tags/japan/' style='font-size:1em'>japan</a>
-      </li><li>
-        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
       </li><li>
         <a href='/blog/tags/lambda/' style='font-size:1.1428571428571428em'>lambda</a>
       </li><li>
@@ -141,21 +153,15 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/ruby/' style='font-size:1.1428571428571428em'>ruby</a>
       </li><li>
-        <a href='/blog/tags/sam/' style='font-size:1.1428571428571428em'>SAM</a>
-      </li><li>
         <a href='/blog/tags/serverless/' style='font-size:1.2857142857142856em'>serverless</a>
       </li><li>
-        <a href='/blog/tags/softbank/' style='font-size:1em'>Softbank</a>
-      </li><li>
-        <a href='/blog/tags/sre/' style='font-size:1.1428571428571428em'>SRE</a>
-      </li><li>
-        <a href='/blog/tags/ssl/' style='font-size:1em'>SSL</a>
+        <a href='/blog/tags/sre/' style='font-size:1em'>sre</a>
       </li><li>
         <a href='/blog/tags/tech/' style='font-size:1.4285714285714286em'>tech</a>
       </li><li>
         <a href='/blog/tags/terraform/' style='font-size:1.1428571428571428em'>terraform</a>
       </li><li>
-        <a href='/blog/tags/til/' style='font-size:1.2857142857142856em'>til</a>
+        <a href='/blog/tags/til/' style='font-size:1.1428571428571428em'>til</a>
       </li></ul>
 </div>
 
@@ -391,99 +397,128 @@ if (!doNotTrack) {
     <span>Table of contents</span>
   </summary>
   <nav id="TableOfContents">
-  <ul>
-    <li><a href="#nh-hnh">Định hình</a></li>
-    <li><a href="#quyt-nh">Quyết định</a></li>
-    <li><a href="#kho-st">Khảo sát</a></li>
-    <li><a href="#tin-hnh">Tiến hành</a></li>
-  </ul>
+<ul>
+<li><a href="#mở-đầu">Mở đầu</a></li>
+<li><a href="#tìm-hiểu-đặc-điểm-của-cli-app">Tìm hiểu đặc điểm của CLI app</a></li>
+<li><a href="#xây-dựng-cli-app-của-riêng-mình">Xây dựng CLI app của riêng mình</a>
+<ul>
+<li><a href="#định-hình">Định hình</a></li>
+<li><a href="#quyết-định">Quyết định</a></li>
+<li><a href="#khảo-sát">Khảo sát</a></li>
+<li><a href="#tiến-hành">Tiến hành</a></li>
+</ul></li>
+</ul>
 </nav>
 </details>
 
 
   <div class='container entry-content'>
-  <p><strong>Lập trình viên không sớm thì muộn cũng sẽ yêu cái máy tính không khác gì yêu vợ. Rồi ngày qua ngày tiếp xúc với cửa sổ dòng lệnh, mắt lập trình viên dần thấy quen và ưng cái giao diện command line (CLI) hơn cả GUI màu sắc 😂</strong></p>
+  
+
+<p><strong>Lập trình viên không sớm thì muộn cũng sẽ yêu cái máy tính không khác gì yêu vợ. Rồi ngày qua ngày tiếp xúc với cửa sổ dòng lệnh, mắt lập trình viên dần thấy quen và ưng cái giao diện command line (CLI) hơn cả GUI màu sắc 😂</strong></p>
+
 <p><em>CLI: command line interface</em></p>
+
 <p><em>Đây là live action cái CLI mình đã làm thử ra.</em>
-<img src="/blog/images/kira-cli-weather-demo.gif" alt=""></p>
-<h1 id="m-u">Mở đầu</h1>
+<img src="/blog/images/kira-cli-weather-demo.gif" alt="" /></p>
+
+<h1 id="mở-đầu">Mở đầu</h1>
+
 <p>Từ vài năm trước, sau khi chuyển qua sử dụng Mac thì thói quen sử dụng command line của mình đã được cải thiện rõ rệt. Mình nhận thấy hiệu quả công việc thực sự được nâng cao nếu vừa biết sử dụng thuần thục command line lại vừa chăm chỉ cài đặt alias, viết script tự động hóa vân vân.</p>
+
 <p>Đó là 1 quan điểm rất &ldquo;nghiêm túc&rdquo; :)) còn thực tế mà nói thì lợi ích của nó phải kể đến 2 cái này nữa.</p>
+
 <ul>
 <li>với cửa sổ dòng lệnh, bạn nghiễm nhiên được &ldquo;oai&rdquo; lên một chút trong mắt của mọi người xung quanh.</li>
 <li>bật cửa sổ dòng lệnh lên chuyển tab qua qua lại lại, chỉ thế thôi là đã đánh lừa được sếp rằng mình đang làm việc chăm chỉ rồi.</li>
 </ul>
+
 <p>Cái này là chia sẻ hoàn toàn thực tế, hiện tại chính mình cũng đang hàng ngày trên công ty mở vài tab terminal để làm việc riêng 😃 Thế rồi suốt ngày làm việc với em CLI, mình nảy ra ý tưởng tự tạo cho riêng mình một cái. Lại đúng lúc cần rèn luyện skill python, mình quyết định bắt tay vào làm bằng python luôn.</p>
-<p>Sản phẩm ra lò là em <a href="https://github.com/chienkira/kira-cli">github/kira-cli</a> này. Sau đây mình muốn chia sẻ lại các kiến thức học được và quá trình để làm ra app CLI này.</p>
-<h1 id="tm-hiu-c-im-ca-cli-app">Tìm hiểu đặc điểm của CLI app</h1>
+
+<p>Sản phẩm ra lò là em <a href="https://github.com/chienkira/kira-cli" target="_blank">github/kira-cli</a> này. Sau đây mình muốn chia sẻ lại các kiến thức học được và quá trình để làm ra app CLI này.</p>
+
+<h1 id="tìm-hiểu-đặc-điểm-của-cli-app">Tìm hiểu đặc điểm của CLI app</h1>
+
 <p>App CLI được gọi lên và thực thi bằng cách gõ vào tên của nó từ cửa sổ terminal/console. Ví dụ khi ta gõ lệnh <code>pip</code> thì chính là ta đang gọi lên app CLI có tên là <code>pip</code>.</p>
+
 <p>Trừ những app siêu đơn giản, hầu hết với các app CLI khi sử dụng ta phải chỉ định thêm các <strong>parameters</strong> đằng sau tên của nó. Có 2 loại parameters là:</p>
+
 <ul>
 <li><strong>argument</strong>: là parameter bắt buộc, nếu không có app CLI sẽ trả về lỗi. Ví dụ như <code>pip install</code> sẽ lỗi, còn nếu chỉ định thêm argument <code>requests</code> thì lệnh <code>pip install requests</code> sẽ chạy được, vậy đó.</li>
 <li><strong>option</strong>: là parameter không bắt buộc - optional. Cách chỉ định nó là sử dụng một cặp key - value, ví dụ như <code>git commit --message &quot;init&quot;</code> thì phần <code>--message &quot;init&quot;</code> chính là option.</li>
 </ul>
+
 <p>Với những app CLI phức tạp hơn ví dụ như aws-cli, ta còn thấy tất cả các command được nhóm vào chung một entry point là aws. Ví dụ thử phân tách các thành phần trong lệnh <code>aws s3 ls</code>, <code>aws</code> được gọi là group hay entry point, <code>s3</code> là command còn <code>ls</code> sẽ là argument.</p>
-<h1 id="xy-dng-cli-app-ca-ring-mnh">Xây dựng CLI app của riêng mình</h1>
-<h2 id="nh-hnh">Định hình</h2>
+
+<h1 id="xây-dựng-cli-app-của-riêng-mình">Xây dựng CLI app của riêng mình</h1>
+
+<h2 id="định-hình">Định hình</h2>
+
 <p>App CLI lần này làm mình muốn nó phải là ở mức sử dụng được thực sự, không phải là demo hay là kiểu làm cho có.</p>
+
 <ul>
 <li>nó phải có thể gọi ra ở mọi nơi, giống như ở đâu cũng có thể gõ <code>git</code> hay là <code>aws</code> và quẩy ấy</li>
 <li>nó phải thực hiện một chức năng có ích và thực tế chứ không phải kiểu &ldquo;đồ chơi&rdquo; dỏm</li>
 <li>nó phải được thiết kế sao cho sau đó có thể dev thêm dần các chức năng hữu ích khác</li>
 <li>giống như các app CLI chất lượng nó phải hỗ trợ print ra màn hình có màu, dễ nhìn</li>
 </ul>
-<h2 id="quyt-nh">Quyết định</h2>
+
+<h2 id="quyết-định">Quyết định</h2>
+
 <p>Ở Tokyo, thời gian này là lúc thời tiết thay đổi rất thất thường. Ngày ấm, ngày lạnh và ngày mưa xen kẽ nhau do đó mình thường xuyên phải xem thông tin dự báo thời tiết.</p>
+
 <p>Vậy là ra rồi! Mình quyết định bước đầu sẽ làm một app CLI với chức năng đầu tiên là check thông tin thời tiết. Cụ thể hóa yêu cầu hơn nhé.</p>
+
 <ul>
 <li>cho phép chỉ định địa điểm muốn check thời tiết (tokyo hay saitama vân vân)</li>
 <li>hiển thị được cả thông tin nhiệt độ và vận tốc gió (ở Nhật, nhiệt độ không thấp quá mà gió to thì vẫn rét sun ch*m)</li>
 <li>giống các app thời tiết, nó phải hiển thị ra được dự báo của khoảng 1 tuần</li>
 </ul>
-<h2 id="kho-st">Khảo sát</h2>
+
+<h2 id="khảo-sát">Khảo sát</h2>
+
 <ol>
-<li>
-<p>Nguồn thông tin thời tiết<br>
-Không tự dự báo được nên chắc chắn phải &ldquo;nương tựa&rdquo; vào API của một provider nào đó rồi. Mình tìm thấy <a href="https://darksky.net/,">https://darksky.net/,</a> API dễ dùng đầy đủ thông tin, nội dung dự báo cũng khớp với app Yahoo! Weather.</p>
-</li>
-<li>
-<p>Hiển thị màu sắc đẹp đẽ trên cửa sổ dòng lệnh<br>
-Ở trang <a href="https://github.com/vinta/awesome-python">https://github.com/vinta/awesome-python</a> mình tìm thấy vị anh hùng để hiện thực hóa việc này.<br>
-Đó là <a href="https://pypi.org/project/colorama/">https://pypi.org/project/colorama/</a>. Xem qua document cũng vô cùng dễ hiểu. Ta có thể chỉ định màu nền và màu của chữ khi print ra cửa sổ dòng lệnh.</p>
-</li>
-<li>
-<p>Cài đặt được để có thể gọi đến ở mọi nơi<br>
+<li><p>Nguồn thông tin thời tiết<br />
+Không tự dự báo được nên chắc chắn phải &ldquo;nương tựa&rdquo; vào API của một provider nào đó rồi. Mình tìm thấy <a href="https://darksky.net/" target="_blank">https://darksky.net/</a>, API dễ dùng đầy đủ thông tin, nội dung dự báo cũng khớp với app Yahoo! Weather.</p></li>
+
+<li><p>Hiển thị màu sắc đẹp đẽ trên cửa sổ dòng lệnh<br />
+Ở trang <a href="https://github.com/vinta/awesome-python" target="_blank">https://github.com/vinta/awesome-python</a> mình tìm thấy vị anh hùng để hiện thực hóa việc này.<br />
+Đó là <a href="https://pypi.org/project/colorama/" target="_blank">https://pypi.org/project/colorama/</a>. Xem qua document cũng vô cùng dễ hiểu. Ta có thể chỉ định màu nền và màu của chữ khi print ra cửa sổ dòng lệnh.</p></li>
+
+<li><p>Cài đặt được để có thể gọi đến ở mọi nơi<br />
 Tìm kiếm cái này là cái mình tốn thời gian nhất. Vì không có hình dung về nó nên cũng không có keywords chính xác để search. Phải qua một vài trang hỏi đáp thì mình mới tìm ra em nó.
-Tool mình chọn sử dụng là <a href="https://setuptools.readthedocs.io/en/latest/setuptools.html"><strong>setuptools</strong></a>.</p>
-<blockquote>
-<p>Setuptools is a collection of enhancements to the Python distutils that allow developers to more easily build and distribute Python packages, especially ones that have dependencies on other packages.</p>
-</blockquote>
-</li>
+Tool mình chọn sử dụng là <a href="https://setuptools.readthedocs.io/en/latest/setuptools.html" target="_blank"><strong>setuptools</strong></a>.
+&gt; Setuptools is a collection of enhancements to the Python distutils that allow developers to more easily build and distribute Python packages, especially ones that have dependencies on other packages.</p></li>
 </ol>
-<h2 id="tin-hnh">Tiến hành</h2>
+
+<h2 id="tiến-hành">Tiến hành</h2>
+
 <ol>
-<li>
-<p>Thiết kế cấu trúc source</p>
+<li><p>Thiết kế cấu trúc source</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">|--Pipfile
 |--Pipfile.lock
 |--setup.cfg
 |--setup.py
 |--weather
 |  |--cli.py
-|  |--functions.py
-</code></pre></div><p>Mình dùng pipenv để quản lý dependencies nên mình có các file Pipfile.</p>
+|  |--functions.py</code></pre></div>
+<p>Mình dùng pipenv để quản lý dependencies nên mình có các file Pipfile.</p>
+
 <p>File setup.cfg và setup.py là những file cần thiết cho setuptools, giúp sau đó mình có thể cài đặt app CLI của mình lên máy thành một cli thực thụ. Cụ thể về setuptools mình sẽ làm việc sau với nó.</p>
-<p>Thư mục <code>weather/</code> là để chứa source liên quan đến chức năng weather. Sau này dev thêm các chức năng khác vào app CLI này thì sẽ tạo các thư mục mới tương tự như <code>weather/</code>. Trong <code>weather</code> mình dùng 2 file cli.py và functions.py. Ý tưởng là file cli.py sẽ quyết định interface cli: tên cli là gì, cần những param gì vân vân, còn logic thực sự của các command thì sẽ viết trong functions.py.</p>
-</li>
-<li>
-<p>Bước đầu cài đặt cho setuptools</p>
+
+<p>Thư mục <code>weather/</code> là để chứa source liên quan đến chức năng weather. Sau này dev thêm các chức năng khác vào app CLI này thì sẽ tạo các thư mục mới tương tự như <code>weather/</code>. Trong <code>weather</code> mình dùng 2 file cli.py và functions.py. Ý tưởng là file cli.py sẽ quyết định interface cli: tên cli là gì, cần những param gì vân vân, còn logic thực sự của các command thì sẽ viết trong functions.py.</p></li>
+
+<li><p>Bước đầu cài đặt cho setuptools</p>
+
 <p>Mình không định sẽ sử dụng CLI của mình theo kiểu củ chuối là <code>python kira-cli.py weather</code> nên cái tên setuptools xuất hiện ở đây. Sau khi dùng setuptools mình có thể cài đặt cli lên máy rồi gọi nó lên từ bất kỳ đâu với câu lệnh đơn giản <code>weather</code>.</p>
+
 <p>Về nguyên tắc setuptools yêu cầu một file setup.py, trong đó định nghĩa các thông tin ví dụ như tên, version, tác giả, danh sách các dependency&hellip; của package. Mình thì sử dụng thêm file setup.cfg (setuptools hỗ trợ), thay vì phải viết code python dài dòng trong setup.py mình chỉ cần define nội dung cần thiết vào file setup.cfg.</p>
+
 <p>setup.py sẽ trở thành đơn giản như thế này:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> setuptools <span style="color:#f92672">import</span> setup
 
-setup()
-</code></pre></div><p>setup.cfg thì đại khái như sau:</p>
+setup()</code></pre></div>
+<p>setup.cfg thì đại khái như sau:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">[metadata]
 name <span style="color:#f92672">=</span> kira<span style="color:#f92672">-</span>cli
 version <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span><span style="color:#f92672">.</span><span style="color:#ae81ff">0</span>
@@ -497,36 +532,39 @@ install_requires <span style="color:#f92672">=</span>
 
 [options<span style="color:#f92672">.</span>entry_points]
 console_scripts <span style="color:#f92672">=</span>
-    weather <span style="color:#f92672">=</span> weather<span style="color:#f92672">.</span>cli:start
-</code></pre></div><p>Chỗ console_scripts có nghĩa là khi lệnh <code>weather</code> được nhập vào, hàm <code>start</code> trong file <code>weather/cli.py</code> sẽ được chạy.</p>
+    weather <span style="color:#f92672">=</span> weather<span style="color:#f92672">.</span>cli:start</code></pre></div>
+<p>Chỗ console_scripts có nghĩa là khi lệnh <code>weather</code> được nhập vào, hàm <code>start</code> trong file <code>weather/cli.py</code> sẽ được chạy.</p>
+
 <p>Sau khi chuẩn bị xong cho setuptools, để cài đặt package dùng lệnh <code>python setup.py develop</code>. Ở đây ta dùng mode develop vì ta còn dev logic của app nữa nên mode develop sẽ giúp ta test được source đang edit 1 cách tức thì. Khi dev xong thì để cài đặt ổn định dùng lệnh <code>python setup.py install</code>.</p>
-<p>Đến đây là từ cửa sổ terminal/console lệnh <code>weather</code> có thể chạy được rồi!</p>
-</li>
-<li>
-<p>Tạo CLI app thực thụ với Click</p>
+
+<p>Đến đây là từ cửa sổ terminal/console lệnh <code>weather</code> có thể chạy được rồi!</p></li>
+
+<li><p>Tạo CLI app thực thụ với Click</p>
+
 <p>Hình dung khi sử dụng app CLI ta sẽ gõ lệnh kiểu như sau:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">weather tokyo --interval daily --language ja
-</code></pre></div><p>Vậy thì việc bắt và đọc các argument, các options sẽ rất vất vả nếu làm thủ công. Ngoài ra chúng ta thường thấy các app CLI hỗ trợ lệnh <code>--help</code>, ví dụ như <code>git --help</code> và một tràng dài mô tả usage được in ra trên màn hình đúng không?</p>
-<p>Cả 2 vấn đề trên có thể giải quyết rất dễ dàng với lib <a href="https://github.com/pallets/click">Click</a>.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">weather tokyo --interval daily --language ja</code></pre></div>
+<p>Vậy thì việc bắt và đọc các argument, các options sẽ rất vất vả nếu làm thủ công. Ngoài ra chúng ta thường thấy các app CLI hỗ trợ lệnh <code>--help</code>, ví dụ như <code>git --help</code> và một tràng dài mô tả usage được in ra trên màn hình đúng không?</p>
+
+<p>Cả 2 vấn đề trên có thể giải quyết rất dễ dàng với lib <a href="https://github.com/pallets/click" target="_blank">Click</a>.
 Trong cli.py ta sử dụng các decorator Click cung cấp để mô tả app CLI như sau:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a6e22e">@click.command</span>()
-<span style="color:#a6e22e">@click.argument</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">city</span><span style="color:#e6db74">&#34;</span>)
-<span style="color:#a6e22e">@click.option</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">--language</span><span style="color:#e6db74">&#34;</span>, help<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Language Ex: ja, en.</span><span style="color:#e6db74">&#34;</span>, default<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">en</span><span style="color:#e6db74">&#34;</span>)
-<span style="color:#a6e22e">@click.option</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">--interval</span><span style="color:#e6db74">&#34;</span>, help<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Interval (daily or hourly). Default is daily.</span><span style="color:#e6db74">&#34;</span>, default<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">daily</span><span style="color:#e6db74">&#34;</span>)
+<span style="color:#a6e22e">@click.argument</span>(<span style="color:#e6db74">&#34;city&#34;</span>)
+<span style="color:#a6e22e">@click.option</span>(<span style="color:#e6db74">&#34;--language&#34;</span>, help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Language Ex: ja, en.&#34;</span>, default<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>)
+<span style="color:#a6e22e">@click.option</span>(<span style="color:#e6db74">&#34;--interval&#34;</span>, help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Interval (daily or hourly). Default is daily.&#34;</span>, default<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;daily&#34;</span>)
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>(city: str, language: str, interval: str):
-    <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">Kira-cli | display weather information that retrieve from darksky API</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+    <span style="color:#e6db74">&#34;&#34;&#34;Kira-cli | display weather information that retrieve from darksky API&#34;&#34;&#34;</span>
     data <span style="color:#f92672">=</span> get_weather_info(city, language, interval)
-    pretty_print(data)
-</code></pre></div><p>Chỉ như vậy và app CLI của mình đã có thể hoạt động như một cli thực thụ.</p>
+    pretty_print(data)</code></pre></div>
+<p>Chỉ như vậy và app CLI của mình đã có thể hoạt động như một cli thực thụ.</p>
+
 <p>Thử nhé!</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ weather
 
 Usage: weather <span style="color:#f92672">[</span>OPTIONS<span style="color:#f92672">]</span> CITY
 Try <span style="color:#e6db74">&#34;weather --help&#34;</span> <span style="color:#66d9ef">for</span> help.
 
-Error: Missing argument <span style="color:#e6db74">&#34;CITY&#34;</span>.
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ weather --help
-   
+Error: Missing argument <span style="color:#e6db74">&#34;CITY&#34;</span>.</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ weather --help
+    
 Usage: weather <span style="color:#f92672">[</span>OPTIONS<span style="color:#f92672">]</span> CITY
 
 Kira-cli | display weather information that retrieve from darksky API
@@ -534,22 +572,25 @@ Kira-cli | display weather information that retrieve from darksky API
 Options:
 --language TEXT  Language Ex: ja, en.
 --interval TEXT  Interval <span style="color:#f92672">(</span>daily or hourly<span style="color:#f92672">)</span>. Default is daily.
---help           Show this message and exit.
-</code></pre></div><p>Ồ cũng xịn không kém gì git hay aws-cli rồi! 😃</p>
-</li>
-<li>
-<p>Hoàn thành logic lấy thông tin thời tiết</p>
+--help           Show this message and exit.</code></pre></div>
+<p>Ồ cũng xịn không kém gì git hay aws-cli rồi! 😃</p></li>
+
+<li><p>Hoàn thành logic lấy thông tin thời tiết</p>
+
 <p>Logic của nó không có gì đặc biệt.</p>
+
 <p>Mình tóm tắt lại là ban đầu dùng 1 API để lấy ra tọa độ địa lý của argument đầu vào city, sau đó gọi API của darksky với tọa độ đó để lấy về thông tin thời tiết.</p>
+
 <p>Cuối cùng dùng colorama và print khéo léo ra màn hình cho dễ nhìn thôi.</p>
-<p>Các bạn có thể xem chi tiết file functions.py ở github repository này. <a href="https://github.com/chienkira/kira-cli/blob/master/weather/functions.py">github.com/chienkira/kira-cli/&hellip;/functions.py</a></p>
+
+<p>Các bạn có thể xem chi tiết file functions.py ở github repository này. <a href="https://github.com/chienkira/kira-cli/blob/master/weather/functions.py" target="_blank">github.com/chienkira/kira-cli/&hellip;/functions.py</a></p>
+
 <p>Các bạn cũng có thể tự tải về cài vào máy chạy của mình dùng thử nhé. Chỉ cần máy có cài đặt python 3.
 ※ Chú ý là máy mac thì đang mặc định python 2 thôi nên sẽ lỗi, khuyên các bạn cài pyenv rồi đổi qua python 3.6.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone https://github.com/chienkira/kira-cli.git <span style="color:#f92672">&amp;&amp;</span> cd kira-cli
 python setup.py install
-<span style="color:#75715e"># hoặc nếu ở máy bạn python 3 vẫn được cài ở `python3` thì chạy lệnh: `python3 setup.py install`</span> 
-weather tokyo
-</code></pre></div></li>
+<span style="color:#75715e"># hoặc nếu ở máy bạn python 3 vẫn được cài ở `python3` thì chạy lệnh: `python3 setup.py install` 
+</span><span style="color:#75715e"></span>weather tokyo</code></pre></div></li>
 </ol>
 
 </div>

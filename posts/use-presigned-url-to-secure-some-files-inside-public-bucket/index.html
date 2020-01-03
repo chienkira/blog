@@ -2,18 +2,18 @@
 <html lang='en'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='Tết mải ăn quá đến cuối ngày mồng 3 mới mò lên khai phím được 😃. Để chào mừng năm 2020 rực rỡ 🎆, bài viết lần này mình muốn note lại chia sẻ cách đặt policy cho S3 bucket, để vừa public bucket lại vẫn bảo mật (yêu cầu presigned url để truy cập) cho một số file nhất định trong bucket nha! Ok let&#39;s go!
-Presigned URL là? Nó là&hellip; như cái tên Presigned URL của nó thôi :)) Các bạn làm IT thì dù chưa biết nhưng nghe cái tên chắc hiểu đại khái nó là gì luôn rồi ạ.'>
+<meta name='description' content='Tết mải ăn quá đến cuối ngày mồng 3 mới mò lên khai phím được 😃. Để chào mừng năm 2020 rực rỡ 🎆, bài viết lần này mình muốn note lại chia sẻ cách đặt policy cho S3 bucket, để vừa public bucket lại vẫn bảo mật (yêu cầu presigned url để truy cập) cho một số file nhất định trong bucket nha! Ok let&rsquo;s go!
+Presigned URL là?'>
 <meta name='theme-color' content='#ffcd00'>
 
 <meta property='og:title' content='Use Presigned Url to Secure Only Some Files Inside A Public S3 Bucket | Chien Kira'>
-<meta property='og:description' content='Tết mải ăn quá đến cuối ngày mồng 3 mới mò lên khai phím được 😃. Để chào mừng năm 2020 rực rỡ 🎆, bài viết lần này mình muốn note lại chia sẻ cách đặt policy cho S3 bucket, để vừa public bucket lại vẫn bảo mật (yêu cầu presigned url để truy cập) cho một số file nhất định trong bucket nha! Ok let&#39;s go!
-Presigned URL là? Nó là&hellip; như cái tên Presigned URL của nó thôi :)) Các bạn làm IT thì dù chưa biết nhưng nghe cái tên chắc hiểu đại khái nó là gì luôn rồi ạ.'>
+<meta property='og:description' content='Tết mải ăn quá đến cuối ngày mồng 3 mới mò lên khai phím được 😃. Để chào mừng năm 2020 rực rỡ 🎆, bài viết lần này mình muốn note lại chia sẻ cách đặt policy cho S3 bucket, để vừa public bucket lại vẫn bảo mật (yêu cầu presigned url để truy cập) cho một số file nhất định trong bucket nha! Ok let&rsquo;s go!
+Presigned URL là?'>
 <meta property='og:url' content='https://chienkira.github.io/blog/posts/use-presigned-url-to-secure-some-files-inside-public-bucket/'>
 <meta property='og:site_name' content='Chienkira my blog'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://chienkira.github.io/blog/images/s3-bucket.png'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:published_time' content='2020-01-03T21:17:52&#43;09:00'/><meta property='article:modified_time' content='2020-01-03T21:17:52&#43;09:00'/><meta name='twitter:card' content='summary_large_image'><meta name='twitter:creator' content='@chienkira'><meta property='twitter:image' content='https://chienkira.github.io/blog/images/s3-bucket.png'>
 
-<meta name="generator" content="Hugo 0.61.0" />
+<meta name="generator" content="Hugo 0.50" />
 
   <title>Use Presigned Url to Secure Only Some Files Inside A Public S3 Bucket | Chien Kira</title>
   <link rel='canonical' href='https://chienkira.github.io/blog/posts/use-presigned-url-to-secure-some-files-inside-public-bucket/'>
@@ -57,7 +57,9 @@ if (!doNotTrack) {
     </h2>
     <div class='desc'>
     <p>a web &lsquo;full snack&rsquo; developer</p>
+
 <p>a Papa engineer</p>
+
 <p>at Tokyo</p>
 
     </div>
@@ -71,6 +73,24 @@ if (!doNotTrack) {
 
   <div class='container list-container'>
   <ul class='list taxonomy-cloud'><li>
+        <a href='/blog/tags/ci/' style='font-size:1em'>CI</a>
+      </li><li>
+        <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
+      </li><li>
+        <a href='/blog/tags/https/' style='font-size:1em'>HTTPS</a>
+      </li><li>
+        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
+      </li><li>
+        <a href='/blog/tags/sam/' style='font-size:1.1428571428571428em'>SAM</a>
+      </li><li>
+        <a href='/blog/tags/sre/' style='font-size:1em'>SRE</a>
+      </li><li>
+        <a href='/blog/tags/ssl/' style='font-size:1em'>SSL</a>
+      </li><li>
+        <a href='/blog/tags/softbank/' style='font-size:1em'>Softbank</a>
+      </li><li>
+        <a href='/blog/tags/til/' style='font-size:1em'>TIL</a>
+      </li><li>
         <a href='/blog/tags/api-gateway/' style='font-size:1em'>api gateway</a>
       </li><li>
         <a href='/blog/tags/aws/' style='font-size:2em'>aws</a>
@@ -78,10 +98,6 @@ if (!doNotTrack) {
         <a href='/blog/tags/blue-green-deploy/' style='font-size:1em'>blue green deploy</a>
       </li><li>
         <a href='/blog/tags/career/' style='font-size:1em'>career</a>
-      </li><li>
-        <a href='/blog/tags/ci/' style='font-size:1em'>CI</a>
-      </li><li>
-        <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
       </li><li>
         <a href='/blog/tags/cli/' style='font-size:1em'>cli</a>
       </li><li>
@@ -101,13 +117,9 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/dynamodb-local/' style='font-size:1em'>dynamodb local</a>
       </li><li>
-        <a href='/blog/tags/https/' style='font-size:1em'>HTTPS</a>
-      </li><li>
         <a href='/blog/tags/infra/' style='font-size:1.4285714285714286em'>infra</a>
       </li><li>
         <a href='/blog/tags/japan/' style='font-size:1em'>japan</a>
-      </li><li>
-        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
       </li><li>
         <a href='/blog/tags/lambda/' style='font-size:1.1428571428571428em'>lambda</a>
       </li><li>
@@ -139,21 +151,15 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/ruby/' style='font-size:1.1428571428571428em'>ruby</a>
       </li><li>
-        <a href='/blog/tags/sam/' style='font-size:1.1428571428571428em'>SAM</a>
-      </li><li>
         <a href='/blog/tags/serverless/' style='font-size:1.2857142857142856em'>serverless</a>
       </li><li>
-        <a href='/blog/tags/softbank/' style='font-size:1em'>Softbank</a>
-      </li><li>
-        <a href='/blog/tags/sre/' style='font-size:1.1428571428571428em'>SRE</a>
-      </li><li>
-        <a href='/blog/tags/ssl/' style='font-size:1em'>SSL</a>
+        <a href='/blog/tags/sre/' style='font-size:1em'>sre</a>
       </li><li>
         <a href='/blog/tags/tech/' style='font-size:1.4285714285714286em'>tech</a>
       </li><li>
         <a href='/blog/tags/terraform/' style='font-size:1.1428571428571428em'>terraform</a>
       </li><li>
-        <a href='/blog/tags/til/' style='font-size:1.2857142857142856em'>til</a>
+        <a href='/blog/tags/til/' style='font-size:1.1428571428571428em'>til</a>
       </li></ul>
 </div>
 
@@ -389,44 +395,61 @@ if (!doNotTrack) {
     <span>Table of contents</span>
   </summary>
   <nav id="TableOfContents">
-  <ul>
-    <li><a href="#presigned-url-l">Presigned URL là?</a></li>
-    <li><a href="#yu-cu-presigned-url-cho-mt-s-file-nht-nh-m-thi">Yêu cầu presigned url cho một số file nhất định mà thôi?!</a>
-      <ul>
-        <li><a href="#ti-sao-c-tnh-hung-nh-th">Tại sao có tình huống như thế?</a></li>
-        <li><a href="#ci-t-policy--gii-quyt-vn-">Cài đặt policy để giải quyết vấn đề</a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#presigned-url-là">Presigned URL là?</a></li>
+<li><a href="#yêu-cầu-presigned-url-cho-một-số-file-nhất-định-mà-thôi">Yêu cầu presigned url cho một số file nhất định mà thôi?!</a>
+<ul>
+<li><a href="#tại-sao-có-tình-huống-như-thế">Tại sao có tình huống như thế?</a></li>
+<li><a href="#cài-đặt-policy-để-giải-quyết-vấn-đề">Cài đặt policy để giải quyết vấn đề</a></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
 </details>
 
 
   <div class='container entry-content'>
-  <p><strong>Tết mải ăn quá đến cuối ngày mồng 3 mới mò lên khai phím được 😃. Để chào mừng năm 2020 rực rỡ 🎆, bài viết lần này mình muốn note lại chia sẻ cách đặt policy cho S3 bucket, để vừa public bucket lại vẫn bảo mật (yêu cầu presigned url để truy cập) cho một số file nhất định trong bucket nha! Ok let's go!</strong></p>
-<h2 id="presigned-url-l">Presigned URL là?</h2>
+  
+
+<p><strong>Tết mải ăn quá đến cuối ngày mồng 3 mới mò lên khai phím được 😃. Để chào mừng năm 2020 rực rỡ 🎆, bài viết lần này mình muốn note lại chia sẻ cách đặt policy cho S3 bucket, để vừa public bucket lại vẫn bảo mật (yêu cầu presigned url để truy cập) cho một số file nhất định trong bucket nha! Ok let&rsquo;s go!</strong></p>
+
+<h2 id="presigned-url-là">Presigned URL là?</h2>
+
 <p>Nó là&hellip; như cái tên <code>Presigned URL</code> của nó thôi :)) Các bạn làm IT thì dù chưa biết nhưng nghe cái tên chắc hiểu đại khái nó là gì luôn rồi ạ. Trích dẫn từ tài liệu của aws như sau:</p>
+
 <blockquote>
 <p>the object owner can optionally share objects with others by creating a presigned URL, using their own security credentials, to grant time-limited permission to download the objects.</p>
 </blockquote>
-<p>Ref: <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL.html">docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL</a></p>
+
+<p>Ref: <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL.html" target="_blank">docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL</a></p>
+
 <p>Với 1 URL bình thường kiểu <code>https://foobar-bucket.aws/a_hot_image.png</code>, sẽ hoạt động với chỉ một điều kiện duy nhất - object a_hot_image.png là public. Nghĩa là chỉ cần biết url thì ai cũng có thể truy cập được nội dung bên trong. Trong thế giới web điều này được coi là hiển nhiên, vì web sinh ra là để public nội dung cho nào là browser nào là api client vân vân mây mây&hellip; truy cập vào mà. Tuy nhiên không cẩn thận bạn có thể bị dính vào những vấn đề security nghiêm trọng nếu như nội dung các object đó là loại &ldquo;nhạy cảm&rdquo; - sentive data đấy!</p>
+
 <p>Ví dụ, hệ thống của bạn có chức năng cho phép người dùng đăng ảnh xác thực cá nhân (ảnh bằng lái xe chẳng hạn) lên, nếu bạn không secure những dữ liệu ấy, bên thứ 3 bằng cách có được url (qua đánh cắp log trình duyệt, qua nghe lén network&hellip;) sẽ có thể xem được những dữ liệu vô cùng là riêng tư đó 😱</p>
+
 <p>Rất may AWS S3 cung cấp cho chúng ta tính năng Presigned URL giống như một giải pháp để chúng ta chủ động hạn chế truy cập đến các nội dung sensitive. URL có chữ ký - Presigned URL khác với URL thông thường ở chỗ nó được gắn thêm một tá GET params hoành tráng. Kiểu như sau:
 <code>https://foobar-bucket.aws/a_hot_image.png?X-Amz-Algorithm=xxxxxxxxxx&amp;X-Amz-Credential=xxxxxxxxxx&amp;X-Amz-Date=xxxxxxxxxx&amp;X-Amz-Expires=3600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=xxxxxxxxxx</code>
 Các tham số truyền vào này chỉ AWS mới decode và validate được (dựa vào IAM của bạn sử dụng để sinh ra presigned url), chỉ khi là valid và còn trong thời hạn hiệu lực thì AWS mới trả về nội dung của object. Nôm na là chữ ký phải đúng và mực chưa bay màu thì mới có xiền á 😃.</p>
+
 <p>Lưu ý hạn expire của presigned url dài nhất mà aws cho phép cài đặt là 7 days! Nhưng về cơ bản, mình khuyến khích mọi người nên để ngắn hơn - từ vài phút đến vài tiếng để giữ an toàn tối đa cho url.</p>
-<h2 id="yu-cu-presigned-url-cho-mt-s-file-nht-nh-m-thi">Yêu cầu presigned url cho một số file nhất định mà thôi?!</h2>
-<h3 id="ti-sao-c-tnh-hung-nh-th">Tại sao có tình huống như thế?</h3>
+
+<h2 id="yêu-cầu-presigned-url-cho-một-số-file-nhất-định-mà-thôi">Yêu cầu presigned url cho một số file nhất định mà thôi?!</h2>
+
+<h3 id="tại-sao-có-tình-huống-như-thế">Tại sao có tình huống như thế?</h3>
+
 <p>Càng ngày việc dùng S3 để làm storage cho hệ thống web càng phổ biến. Vì nó rẻ, nhanh, đỡ 1 phần load cho web server của bạn, bạn cũng không phải lo quản lý storage size&hellip;
-Dữ liệu trong hệ thống web thì chia ra làm hai loại.</p>
-<ul>
-<li>Loại public được và cần phải public, ví dụ như ảnh sản phẩm, ảnh banner, logo vân vân, web để thiên hạ xem mà có phải giấu kín đâu phải không ạ.</li>
-<li>Loại sensitive, cần bảo mật. Như ví dụ ở trên mình đã đưa ra, các dữ liệu mà người dùng thành viên upload lên, đặc biệt là mấy thứ có liên quan đến thông tin cá nhân hay thanh toán!</li>
-</ul>
+Dữ liệu trong hệ thống web thì chia ra làm hai loại.
+- Loại public được và cần phải public, ví dụ như ảnh sản phẩm, ảnh banner, logo vân vân, web để thiên hạ xem mà có phải giấu kín đâu phải không ạ.
+- Loại sensitive, cần bảo mật. Như ví dụ ở trên mình đã đưa ra, các dữ liệu mà người dùng thành viên upload lên, đặc biệt là mấy thứ có liên quan đến thông tin cá nhân hay thanh toán!</p>
+
 <p>Để đáp ứng thỏa mãn yêu cầu lưu trữ cho 2 loại dữ liệu trên, cách chân phương nhất có lẽ là sử dụng 2 buckets. Một bucket để public và bucket còn lại để private, truy cập object thông qua presigned url. Cách làm này không có vấn đề gì nhưng theo mình trong quá trình vận hành sẽ gặp đôi chút khó khăn và không &ldquo;clean&rdquo; lắm vì mỗi môi trường lúc nào cũng cần tới 2 buckets.</p>
+
 <p>Do đó mình đã nghĩ chả lẽ không có cách giải quyết sao cho chỉ sử dụng một S3 bucket sao? Lần này không biết do google ngu hay sao mà google không ra luôn&hellip; cuối cùng mình đã phải tự mò mẫm tìm cách làm. Vì đã thành công rồi nên muốn note lại đây để chia sẻ với các bạn.</p>
-<h3 id="ci-t-policy--gii-quyt-vn-">Cài đặt policy để giải quyết vấn đề</h3>
+
+<h3 id="cài-đặt-policy-để-giải-quyết-vấn-đề">Cài đặt policy để giải quyết vấn đề</h3>
+
 <p>Đầu tiên, ta phải public mọi object trong bucket để thỏa mãn yêu cầu thứ nhất - lưu trữ các dữ liệu public.
 Policy để làm việc đó thì đơn giản như sau.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">{
@@ -441,8 +464,9 @@ Policy để làm việc đó thì đơn giản như sau.</p>
             &#34;Resource&#34;: &#34;arn:aws:s3:::app-files-prod/*&#34;
         }
     ]
-}
-</code></pre></div><p>Với policy này, statement <code>public_all_files</code> sẽ đảm bảo mọi object trong bucket <code>app-files-prod</code> có thể được truy cập bằng URL bình thường ví dụ như <a href="https://app-files-prod.s3.ap-northeast-1.amazonaws.com/xxxxxxx.png">https://app-files-prod.s3.ap-northeast-1.amazonaws.com/xxxxxxx.png</a>.</p>
+}</code></pre></div>
+<p>Với policy này, statement <code>public_all_files</code> sẽ đảm bảo mọi object trong bucket <code>app-files-prod</code> có thể được truy cập bằng URL bình thường ví dụ như <a href="https://app-files-prod.s3.ap-northeast-1.amazonaws.com/xxxxxxx.png" target="_blank">https://app-files-prod.s3.ap-northeast-1.amazonaws.com/xxxxxxx.png</a>.</p>
+
 <p>Tiếp theo giả sử ta cần bảo mật các files trong thư mục identity_images và personal_images sao cho chúng chỉ truy cập được thông qua presigned url, bạn hãy thêm 1 statement vào tiếp policy như dưới đây.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">{
     &#34;Version&#34;: &#34;2012-10-17&#34;,
@@ -468,10 +492,12 @@ Policy để làm việc đó thì đơn giản như sau.</p>
             }
         }
     ]
-}
-</code></pre></div><p>Giải thích ra thì statement mới thêm <code>secure_sensitive_files</code> làm nhiệm vụ <code>Deny</code> hành động <code>s3:GetObject</code> cho các objects trong 2 folders trên nếu như AWS không validate được là presigned url version <code>AWS4-HMAC-SHA256</code> hợp lệ (presigned url version 4 - mới nhất hiện nay)</p>
+}</code></pre></div>
+<p>Giải thích ra thì statement mới thêm <code>secure_sensitive_files</code> làm nhiệm vụ <code>Deny</code> hành động <code>s3:GetObject</code> cho các objects trong 2 folders trên nếu như AWS không validate được là presigned url version <code>AWS4-HMAC-SHA256</code> hợp lệ (presigned url version 4 - mới nhất hiện nay)</p>
+
 <p>Sau khi áp dụng policy, các objects trong thư mục identity_images hay personal_images khi truy cập với URL bình thường sẽ bị trả về lỗi. Chỉ khi access bằng presigned url thì nội dung ảnh mới được download về. Còn các objects còn lại trong bucket vẫn được public như bình thường!
-<img src="/blog/images/s3_access_deny.png" alt=""></p>
+<img src="/blog/images/s3_access_deny.png" alt="" /></p>
+
 <p>23:51 rồi, suýt chút nữa là hết ngày mồng 3 - hết tết. Bài viết này kết thúc ở đây để nó còn kịp là bài viết khai phím tết 2020 :))
 Chúc mọi người và xin phép chúc chính mình một năm mới nhiều gặt hái, nhiều niềm vui và may mắn nha!</p>
 

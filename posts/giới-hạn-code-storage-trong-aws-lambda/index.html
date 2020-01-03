@@ -15,7 +15,7 @@ Bối cảnh Công ty đang làm service chủ yếu theo kiến trúc serverles
 <meta property='og:site_name' content='Chienkira my blog'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://chienkira.github.io/blog/images/lambda_dashboard_limits_cover.png'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='til'><meta property='article:tag' content='aws'><meta property='article:tag' content='lambda'><meta property='article:tag' content='serverless'><meta property='article:published_time' content='2019-04-15T17:37:58&#43;09:00'/><meta property='article:modified_time' content='2019-04-15T17:37:58&#43;09:00'/><meta name='twitter:card' content='summary_large_image'><meta name='twitter:creator' content='@chienkira'><meta property='twitter:image' content='https://chienkira.github.io/blog/images/lambda_dashboard_limits_cover.png'>
 
-<meta name="generator" content="Hugo 0.61.0" />
+<meta name="generator" content="Hugo 0.50" />
 
   <title>Giới Hạn Code Storage Trong Aws Lambda | Chien Kira</title>
   <link rel='canonical' href='https://chienkira.github.io/blog/posts/gi%E1%BB%9Bi-h%E1%BA%A1n-code-storage-trong-aws-lambda/'>
@@ -59,7 +59,9 @@ if (!doNotTrack) {
     </h2>
     <div class='desc'>
     <p>a web &lsquo;full snack&rsquo; developer</p>
+
 <p>a Papa engineer</p>
+
 <p>at Tokyo</p>
 
     </div>
@@ -73,6 +75,24 @@ if (!doNotTrack) {
 
   <div class='container list-container'>
   <ul class='list taxonomy-cloud'><li>
+        <a href='/blog/tags/ci/' style='font-size:1em'>CI</a>
+      </li><li>
+        <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
+      </li><li>
+        <a href='/blog/tags/https/' style='font-size:1em'>HTTPS</a>
+      </li><li>
+        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
+      </li><li>
+        <a href='/blog/tags/sam/' style='font-size:1.1428571428571428em'>SAM</a>
+      </li><li>
+        <a href='/blog/tags/sre/' style='font-size:1em'>SRE</a>
+      </li><li>
+        <a href='/blog/tags/ssl/' style='font-size:1em'>SSL</a>
+      </li><li>
+        <a href='/blog/tags/softbank/' style='font-size:1em'>Softbank</a>
+      </li><li>
+        <a href='/blog/tags/til/' style='font-size:1em'>TIL</a>
+      </li><li>
         <a href='/blog/tags/api-gateway/' style='font-size:1em'>api gateway</a>
       </li><li>
         <a href='/blog/tags/aws/' style='font-size:2em'>aws</a>
@@ -80,10 +100,6 @@ if (!doNotTrack) {
         <a href='/blog/tags/blue-green-deploy/' style='font-size:1em'>blue green deploy</a>
       </li><li>
         <a href='/blog/tags/career/' style='font-size:1em'>career</a>
-      </li><li>
-        <a href='/blog/tags/ci/' style='font-size:1em'>CI</a>
-      </li><li>
-        <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
       </li><li>
         <a href='/blog/tags/cli/' style='font-size:1em'>cli</a>
       </li><li>
@@ -103,13 +119,9 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/dynamodb-local/' style='font-size:1em'>dynamodb local</a>
       </li><li>
-        <a href='/blog/tags/https/' style='font-size:1em'>HTTPS</a>
-      </li><li>
         <a href='/blog/tags/infra/' style='font-size:1.4285714285714286em'>infra</a>
       </li><li>
         <a href='/blog/tags/japan/' style='font-size:1em'>japan</a>
-      </li><li>
-        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
       </li><li>
         <a href='/blog/tags/lambda/' style='font-size:1.1428571428571428em'>lambda</a>
       </li><li>
@@ -141,21 +153,15 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/ruby/' style='font-size:1.1428571428571428em'>ruby</a>
       </li><li>
-        <a href='/blog/tags/sam/' style='font-size:1.1428571428571428em'>SAM</a>
-      </li><li>
         <a href='/blog/tags/serverless/' style='font-size:1.2857142857142856em'>serverless</a>
       </li><li>
-        <a href='/blog/tags/softbank/' style='font-size:1em'>Softbank</a>
-      </li><li>
-        <a href='/blog/tags/sre/' style='font-size:1.1428571428571428em'>SRE</a>
-      </li><li>
-        <a href='/blog/tags/ssl/' style='font-size:1em'>SSL</a>
+        <a href='/blog/tags/sre/' style='font-size:1em'>sre</a>
       </li><li>
         <a href='/blog/tags/tech/' style='font-size:1.4285714285714286em'>tech</a>
       </li><li>
         <a href='/blog/tags/terraform/' style='font-size:1.1428571428571428em'>terraform</a>
       </li><li>
-        <a href='/blog/tags/til/' style='font-size:1.2857142857142856em'>til</a>
+        <a href='/blog/tags/til/' style='font-size:1.1428571428571428em'>til</a>
       </li></ul>
 </div>
 
@@ -388,30 +394,48 @@ if (!doNotTrack) {
   
 
   <div class='container entry-content'>
-  <p><strong>Cọ xát thực tế mới ngộ ra được bản chất của cái limit code storage trong AWS lambda. Bài này muốn chia sẻ lại một chút kiến thức biết được với mọi người.</strong></p>
-<h2 id="bi-cnh">Bối cảnh</h2>
+  
+
+<p><strong>Cọ xát thực tế mới ngộ ra được bản chất của cái limit code storage trong AWS lambda. Bài này muốn chia sẻ lại một chút kiến thức biết được với mọi người.</strong></p>
+
+<h2 id="bối-cảnh">Bối cảnh</h2>
+
 <p>Công ty đang làm service chủ yếu theo kiến trúc serverless, nên dùng tương đối nhiều AWS Lambda functions.</p>
+
 <ul>
 <li>Số lượng Lambda: 238</li>
 <li>Code size của Lambda: average 20MB ~ max 50MB</li>
 </ul>
-<h2 id="din-bin">Diễn biến</h2>
+
+<h2 id="diễn-biến">Diễn biến</h2>
+
 <p>Ngày đẹp trời nhận được thông báo <strong>CI job failed</strong>.
 Kiểm tra thì phát hiện ra job <strong>deploy hàm lambda</strong> đã không chạy được thành công.</p>
+
 <p>Log của serverless như sau:</p>
+
 <pre><code>Serverless: Operation failed!
  
    Serverless Error ---------------------------------------
     
       An error occurred: XXXXXXXXXXXXXXXXX - Code storage limit exceeded. (Service: AWSLambda; Status Code: 400; Error Code: CodeStorageExceededException; Request ID: XXXXXX).
        
-</code></pre><p>Tưởng gì <code>Code storage limit exceeded</code> thì chắc là có function nào bự quá quy định rồi.
+</code></pre>
+
+<p>Tưởng gì <code>Code storage limit exceeded</code> thì chắc là có function nào bự quá quy định rồi.
 Một function Lambda thì chỉ được tối đa 50 MB zipped thôi, chắc có anh nào nhồi nhét tạo ra một cái hàm bự chà bá chứ gì?</p>
+
 <p>Nghĩ vậy, mình dòm lên những dòng log phía trên tìm manh mối.</p>
+
 <pre><code>Serverless: Uploading service .zip file to S3 (14.4 MB)...
-</code></pre><p>Vậy là đếch phải rồi, code size của function Lambda hoàn toàn bình thường như cân đường hộp sữa!</p>
+</code></pre>
+
+<p>Vậy là đếch phải rồi, code size của function Lambda hoàn toàn bình thường như cân đường hộp sữa!</p>
+
 <p>Đến lúc phải nhờ sensei Google chỉ giáo, sensei bảo rằng ngoài cái giới hạn ở trên, còn có một cái giới hạn khác mà AWS đặt ra áp dụng lên từng region của từng tài khoản.</p>
+
 <p>Giới hạn đó như sau:</p>
+
 <table>
 <thead>
 <tr>
@@ -419,48 +443,57 @@ Một function Lambda thì chỉ được tối đa 50 MB zipped thôi, chắc c
 <th align="left">Default Limit</th>
 </tr>
 </thead>
+
 <tbody>
 <tr>
 <td align="left">Concurrent executions</td>
 <td align="left">1,000</td>
 </tr>
+
 <tr>
 <td align="left">Function and layer storage</td>
 <td align="left">75 GB</td>
 </tr>
-<tr>
-<td align="left">Ref: <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">AWS Lambda Limits</a></td>
-<td></td>
-</tr>
 </tbody>
 </table>
+
+<p>Ref: <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html" target="_blank">AWS Lambda Limits</a></p>
+
 <p>Code storage tối đa cho phép là 75GB cho tổng số toàn bộ Lambda functions trên 1 region.</p>
-<p>Ta có thể check xem hiện tại ta đang xài đến bao nhiêu trong 75GB bằng cách mở màn hình <a href="https://ap-northeast-1.console.aws.amazon.com/lambda/home?region=ap-northeast-1#/">Dashboard Lambda</a> và kiểm tra phần thông tin hiển thị phía trên đầu trang.</p>
-<p>Lúc xảy ra lỗi này thì Code storage của mình đã là 100%.<br>
+
+<p>Ta có thể check xem hiện tại ta đang xài đến bao nhiêu trong 75GB bằng cách mở màn hình <a href="https://ap-northeast-1.console.aws.amazon.com/lambda/home?region=ap-northeast-1#/" target="_blank">Dashboard Lambda</a> và kiểm tra phần thông tin hiển thị phía trên đầu trang.</p>
+
+<p>Lúc xảy ra lỗi này thì Code storage của mình đã là 100%.<br />
 <em>Ảnh minh họa sau mình chụp sau khi xử lý rồi.</em>
-<img src="/blog/images/lambda_dashboard_limits.png" alt=""></p>
+<img src="/blog/images/lambda_dashboard_limits.png" alt="" /></p>
+
 <p>Vậy là biết thêm một cái limit mới, cái này nếu không dùng quá nhiều Lambda thì chắc tới tết mới chạm được vạch 75GB :)) Mà nghĩ lại thì việc công ty đã dùng đến 75GB vẫn có gì đó &ldquo;ảo tung chảo&rdquo; quá.
 Nhẩm thử, cứ cho là 1 Lambda có 50MB code size đi chăng nữa thì tổng lại vẫn chỉ là như sau thôi.</p>
+
 <pre><code>50MB * 238funtions / 1024 = 11.6GB
-</code></pre><p><strong>Thế tại sao lại bị AWS tính là 100% của 75GB rồi?!?!</strong></p>
+</code></pre>
+
+<p><strong>Thế tại sao lại bị AWS tính là 100% của 75GB rồi?!?!</strong></p>
+
 <p>Đây mới là cái mình muốn chia sẻ với mọi người nhất.
 Như mọi người đã biết, Lambda function có thể lưu lại các versions.
 Mấu chốt ở đây là ta đã quên đi <strong>phần dung lượng cần thiết để lưu các version cũ</strong>.</p>
+
 <p>Ở trường hợp của mình, mỗi lần serverless deploy thì đều tạo ra 1 version mới. Do đó mà code storage cứ tăng vèo vèo không thương tiếc mỗi lần CI chạy deploy. CI tiện lợi càng &ldquo;thúc đẩy&rdquo; các anh chị em dev và push push tới tấp, thế thì 75GB chứ 750GB cũng không trụ được lâu ấy chứ :))</p>
-<h2 id="x-l">Xử lý</h2>
+
+<h2 id="xử-lý">Xử lý</h2>
+
 <p>Có 2 hướng xử lý có thể xem xét đến.</p>
+
 <ul>
-<li>
-<p>Nếu như ta cần thiết phải giữ versioning ở trên aws lambda, ta có thể dùng đến plugin <a href="https://www.npmjs.com/package/serverless-prune-plugin">serverless-prune-plugin</a>. Hàng này khá xịn, nó có thể tự động giữ đến n version mới nhất trên aws, các version cũ hơn sẽ được kiểm tra và xóa - prune khỏi aws mỗi lần deploy.</p>
-</li>
-<li>
-<p>Còn nếu như ta xác định khỏi cần thiết giữ các version cũ của lambda trên aws, giữ trên git là đủ :)) thì ta có thể lựa chọn disable versioning bằng setting sau.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">provider:
-...
-versionFunctions: <span style="color:#66d9ef">false</span> <span style="color:#75715e"># optional, default is true</span>
-...
-</code></pre></div></li>
+<li><p>Nếu như ta cần thiết phải giữ versioning ở trên aws lambda, ta có thể dùng đến plugin <a href="https://www.npmjs.com/package/serverless-prune-plugin" target="_blank">serverless-prune-plugin</a>. Hàng này khá xịn, nó có thể tự động giữ đến n version mới nhất trên aws, các version cũ hơn sẽ được kiểm tra và xóa - prune khỏi aws mỗi lần deploy.</p></li>
+
+<li><p>Còn nếu như ta xác định khỏi cần thiết giữ các version cũ của lambda trên aws, giữ trên git là đủ :)) thì ta có thể lựa chọn disable versioning bằng setting sau.</p></li>
 </ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">   provider:
+   ...
+   versionFunctions: <span style="color:#66d9ef">false</span> <span style="color:#75715e"># optional, default is true</span>
+   ...</code></pre></div>
 <p>Và nhớ trước khi xử lý gì thì cũng nên làm 1 cái script để xóa vợi các version không cần thiết cho code storage giảm xuống dưới 100% đã nhé ạ. Không thì chả deploy nổi lên nữa để mà xử lý đâu mọi người ạ. 😃</p>
 
 </div>
