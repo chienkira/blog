@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>sre on Chienkira my blog</title>
+    <title>SRE on Chienkira my blog</title>
     <link>https://chienkira.github.io/blog/tags/sre/</link>
-    <description>Recent content in sre on Chienkira my blog</description>
+    <description>Recent content in SRE on Chienkira my blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 15 Jun 2019 10:28:15 +0900</lastBuildDate>
     

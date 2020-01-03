@@ -4,16 +4,21 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/</loc>
-    <lastmod>2019-12-08T09:36:35+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chienkira.github.io/blog/tags/payment/</loc>
-    <lastmod>2019-12-08T09:36:35+09:00</lastmod>
+    <lastmod>2020-01-03T21:17:52+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://chienkira.github.io/blog/posts/</loc>
+    <lastmod>2020-01-03T21:17:52+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/posts/use-presigned-url-to-secure-some-files-inside-public-bucket/</loc>
+    <lastmod>2020-01-03T21:17:52+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/payment/</loc>
     <lastmod>2019-12-08T09:36:35+09:00</lastmod>
   </url>
   

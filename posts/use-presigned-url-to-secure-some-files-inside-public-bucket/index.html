@@ -2,27 +2,21 @@
 <html lang='en'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='Kubernetesとは Dockerは開発環境として使うのがすごく便利ですが、本番環境で使うと色々な問題が考えられます。
- コンテナがもし死んだら直ちに検知してコンテナを再起動したりして回復しないといけない リクエストが大量になる時、スケールをしないといけない 複数コンテナがあるなら、ロードバランシングをしないといけない 等々  ↑の問題を解決してくれるのがKubernetesの役割です。
-Kubernetes（K8s）はコンテナオーケストレーションシステムです。
- Googleが2014年に公開しました。 Googleの長きにわたるコンテナ運用の知見が詰まっているらしいです。 K8sのメイン機能としては、コンテナ化されたアプリケーションを以下のこと自動的に行うことです。  デプロイ コンテナ管理 スケール    イメージは、K8sがコンテナの管理をいい感じにやってくれるので、 私たちはただK8sに「こんな感じでシステムを運用して」と注文書（マニフェスト）を投げつけるだけです。 それ以外はK8sに任せて良いです。
-Kubernetesの構成を理解 クラスター  クラスター本体  ノード  クラスターに属するマシンを表すオブジェクト クラスターには、Masterノード１個と複数Workerノードがある Workerノードは私たちが開発したアプリケーションの実行環境となる（コンテナ群の実行環境） Masterノードは、私たちの命令に従って、各Workerノードにコンテナをデプロイしたりして、いい感じに監視・維持してくれる Masterノードは１つ、Workerノードは複数がある  Pod  Workerノード上に生成されるオブジェクト K8sの最小デプロイ単位であり、スケールする時はPod単位で生成／破棄される Pod内にコンテナが１つ以上ある  ReplicaSet（RS）とDeployment  RS  同じ仕様のPodが指定した数だけ存在するよう生成・管理する 例えば、Podが死んだ時マニフェストで指定した数になるよう自動回復してくれる   Deployment  新しいバージョンのリリースを管理するための仕組み    Service  クラスター内外からのリクエストをPodにルーティングするオブジェクト 複数のPodに対するロードバランシングの役割を持つ  '>
+<meta name='description' content='Tết mải ăn quá đến cuối ngày mồng 3 mới mò lên khai phím được 😃. Để chào mừng năm 2020 rực rỡ 🎆, bài viết lần này mình muốn note lại chia sẻ cách đặt policy cho S3 bucket, để vừa public bucket lại vẫn bảo mật (yêu cầu presigned url để truy cập) cho một số file nhất định trong bucket nha! Ok let&#39;s go!
+Presigned URL là? Nó là&hellip; như cái tên Presigned URL của nó thôi :)) Các bạn làm IT thì dù chưa biết nhưng nghe cái tên chắc hiểu đại khái nó là gì luôn rồi ạ.'>
 <meta name='theme-color' content='#ffcd00'>
 
-<meta property='og:title' content='Hiểu Khái Niệm Cơ Bản Của Kubernetes(日本語) | Chien Kira'>
-<meta property='og:description' content='Kubernetesとは Dockerは開発環境として使うのがすごく便利ですが、本番環境で使うと色々な問題が考えられます。
- コンテナがもし死んだら直ちに検知してコンテナを再起動したりして回復しないといけない リクエストが大量になる時、スケールをしないといけない 複数コンテナがあるなら、ロードバランシングをしないといけない 等々  ↑の問題を解決してくれるのがKubernetesの役割です。
-Kubernetes（K8s）はコンテナオーケストレーションシステムです。
- Googleが2014年に公開しました。 Googleの長きにわたるコンテナ運用の知見が詰まっているらしいです。 K8sのメイン機能としては、コンテナ化されたアプリケーションを以下のこと自動的に行うことです。  デプロイ コンテナ管理 スケール    イメージは、K8sがコンテナの管理をいい感じにやってくれるので、 私たちはただK8sに「こんな感じでシステムを運用して」と注文書（マニフェスト）を投げつけるだけです。 それ以外はK8sに任せて良いです。
-Kubernetesの構成を理解 クラスター  クラスター本体  ノード  クラスターに属するマシンを表すオブジェクト クラスターには、Masterノード１個と複数Workerノードがある Workerノードは私たちが開発したアプリケーションの実行環境となる（コンテナ群の実行環境） Masterノードは、私たちの命令に従って、各Workerノードにコンテナをデプロイしたりして、いい感じに監視・維持してくれる Masterノードは１つ、Workerノードは複数がある  Pod  Workerノード上に生成されるオブジェクト K8sの最小デプロイ単位であり、スケールする時はPod単位で生成／破棄される Pod内にコンテナが１つ以上ある  ReplicaSet（RS）とDeployment  RS  同じ仕様のPodが指定した数だけ存在するよう生成・管理する 例えば、Podが死んだ時マニフェストで指定した数になるよう自動回復してくれる   Deployment  新しいバージョンのリリースを管理するための仕組み    Service  クラスター内外からのリクエストをPodにルーティングするオブジェクト 複数のPodに対するロードバランシングの役割を持つ  '>
-<meta property='og:url' content='https://chienkira.github.io/blog/posts/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes/'>
+<meta property='og:title' content='Use Presigned Url to Secure Only Some Files Inside A Public S3 Bucket | Chien Kira'>
+<meta property='og:description' content='Tết mải ăn quá đến cuối ngày mồng 3 mới mò lên khai phím được 😃. Để chào mừng năm 2020 rực rỡ 🎆, bài viết lần này mình muốn note lại chia sẻ cách đặt policy cho S3 bucket, để vừa public bucket lại vẫn bảo mật (yêu cầu presigned url để truy cập) cho một số file nhất định trong bucket nha! Ok let&#39;s go!
+Presigned URL là? Nó là&hellip; như cái tên Presigned URL của nó thôi :)) Các bạn làm IT thì dù chưa biết nhưng nghe cái tên chắc hiểu đại khái nó là gì luôn rồi ạ.'>
+<meta property='og:url' content='https://chienkira.github.io/blog/posts/use-presigned-url-to-secure-some-files-inside-public-bucket/'>
 <meta property='og:site_name' content='Chienkira my blog'>
-<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/00e439e7376596f2760b4ef9a28df93b?s=256'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='Kubernetes'><meta property='article:tag' content='aws'><meta property='article:tag' content='docker'><meta property='article:published_time' content='2019-06-08T11:12:01&#43;09:00'/><meta property='article:modified_time' content='2019-06-08T11:12:01&#43;09:00'/><meta name='twitter:card' content='summary'><meta name='twitter:creator' content='@chienkira'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://chienkira.github.io/blog/images/s3-bucket.png'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:published_time' content='2020-01-03T21:17:52&#43;09:00'/><meta property='article:modified_time' content='2020-01-03T21:17:52&#43;09:00'/><meta name='twitter:card' content='summary_large_image'><meta name='twitter:creator' content='@chienkira'><meta property='twitter:image' content='https://chienkira.github.io/blog/images/s3-bucket.png'>
 
 <meta name="generator" content="Hugo 0.61.0" />
 
-  <title>Hiểu Khái Niệm Cơ Bản Của Kubernetes(日本語) | Chien Kira</title>
-  <link rel='canonical' href='https://chienkira.github.io/blog/posts/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes/'>
+  <title>Use Presigned Url to Secure Only Some Files Inside A Public S3 Bucket | Chien Kira</title>
+  <link rel='canonical' href='https://chienkira.github.io/blog/posts/use-presigned-url-to-secure-some-files-inside-public-bucket/'>
   
   
   <link rel='icon' href='/blog/favicon.ico'>
@@ -44,7 +38,7 @@ if (!doNotTrack) {
   
 
 </head>
-<body class='page type-posts has-sidebar'>
+<body class='page type-posts has-cover has-sidebar'>
 
   <div class='site'><div id='sidebar' class='sidebar'>
   <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
@@ -208,7 +202,7 @@ if (!doNotTrack) {
     <style>.widget-breadcrumbs li:after{content:'　\3e\3e　'}</style>
   <section class='widget widget-breadcrumbs sep-after'>
     <nav id='breadcrumbs'>
-      <ol><li><a href='/blog/'>Chienkira my blog</a></li><li><a href='/blog/posts/'>Posts</a></li><li><span>Hiểu Khái Niệm Cơ Bản Của Kubernetes(日本語)</span></li></ol>
+      <ol><li><a href='/blog/'>Chienkira my blog</a></li><li><a href='/blog/posts/'>Posts</a></li><li><span>Use Presigned Url to Secure Only Some Files Inside A Public S3 Bucket</span></li></ol>
     </nav>
   </section></div>
       </div>
@@ -227,7 +221,7 @@ if (!doNotTrack) {
   <header class='header entry-header'>
   <div class='container sep-after'>
     <div class='header-info'>
-      <h1 class='title'>Hiểu Khái Niệm Cơ Bản Của Kubernetes(日本語)</h1>
+      <h1 class='title'>Use Presigned Url to Secure Only Some Files Inside A Public S3 Bucket</h1>
       
 
     </div>
@@ -241,7 +235,7 @@ if (!doNotTrack) {
   
 </svg>
 <span class='screen-reader-text'>Posted on </span>
-  <time class='entry-date' datetime='2019-06-08T11:12:01&#43;09:00'>2019-06-08</time>
+  <time class='entry-date' datetime='2020-01-03T21:17:52&#43;09:00'>2020-01-03</time>
 </span>
 
   <span class='byline'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
@@ -258,7 +252,7 @@ if (!doNotTrack) {
   <polyline points="12 6 12 12 15 15"/>
   
 </svg>
-1 min read
+6 mins read
 </span>
 
 
@@ -359,21 +353,21 @@ if (!doNotTrack) {
 
 <div id="share-buttons">
     <div class="facebook" title="Share this on Facebook"
-        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes\/');">
+        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/use-presigned-url-to-secure-some-files-inside-public-bucket\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z" /></svg></div>
     <div class="twitter" title="Share this on Twitter"
-        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes\/&amp;text=Hiểu Khái Niệm Cơ Bản Của Kubernetes(日本語)&amp;via=');">
+        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/use-presigned-url-to-secure-some-files-inside-public-bucket\/&amp;text=Use Presigned Url to Secure Only Some Files Inside A Public S3 Bucket&amp;via=');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z" /></svg></div>
     <div class="linkedin" title="Share this on Linkedin"
-        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes\/&amp;title=Hiểu Khái Niệm Cơ Bản Của Kubernetes(日本語)');"><svg
+        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/use-presigned-url-to-secure-some-files-inside-public-bucket\/&amp;title=Use Presigned Url to Secure Only Some Files Inside A Public S3 Bucket');"><svg
             viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z" /></svg></div>
     
     <div class="gplus" title="Share this on Google Plus"
-        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes\/');"><svg viewBox="0 0 2304 1792"
+        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/use-presigned-url-to-secure-some-files-inside-public-bucket\/');"><svg viewBox="0 0 2304 1792"
             xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z" /></svg>
     </div>
     <div class="mail" title="Share this through Email"
-        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes\/');">
+        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/use-presigned-url-to-secure-some-files-inside-public-bucket\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z" /></svg>
     </div>
 </div>
@@ -383,7 +377,12 @@ if (!doNotTrack) {
   </div>
 </header>
 
-  
+  <div class='entry-cover'>
+  <figure class='container cover-normal'>
+    <img src='/blog/images/s3-bucket.png'/>
+    
+  </figure>
+</div>
   
 <details class='container entry-toc'>
   <summary class='title'>
@@ -391,13 +390,11 @@ if (!doNotTrack) {
   </summary>
   <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#presigned-url-l">Presigned URL là?</a></li>
+    <li><a href="#yu-cu-presigned-url-cho-mt-s-file-nht-nh-m-thi">Yêu cầu presigned url cho một số file nhất định mà thôi?!</a>
       <ul>
-        <li><a href="#heading">クラスター</a></li>
-        <li><a href="#heading-1">ノード</a></li>
-        <li><a href="#pod">Pod</a></li>
-        <li><a href="#replicasetrsdeployment">ReplicaSet（RS）とDeployment</a></li>
-        <li><a href="#service">Service</a></li>
+        <li><a href="#ti-sao-c-tnh-hung-nh-th">Tại sao có tình huống như thế?</a></li>
+        <li><a href="#ci-t-policy--gii-quyt-vn-">Cài đặt policy để giải quyết vấn đề</a></li>
       </ul>
     </li>
   </ul>
@@ -406,82 +403,83 @@ if (!doNotTrack) {
 
 
   <div class='container entry-content'>
-  <h1 id="kubernetes">Kubernetesとは</h1>
-<p>Dockerは開発環境として使うのがすごく便利ですが、本番環境で使うと色々な問題が考えられます。</p>
+  <p><strong>Tết mải ăn quá đến cuối ngày mồng 3 mới mò lên khai phím được 😃. Để chào mừng năm 2020 rực rỡ 🎆, bài viết lần này mình muốn note lại chia sẻ cách đặt policy cho S3 bucket, để vừa public bucket lại vẫn bảo mật (yêu cầu presigned url để truy cập) cho một số file nhất định trong bucket nha! Ok let's go!</strong></p>
+<h2 id="presigned-url-l">Presigned URL là?</h2>
+<p>Nó là&hellip; như cái tên <code>Presigned URL</code> của nó thôi :)) Các bạn làm IT thì dù chưa biết nhưng nghe cái tên chắc hiểu đại khái nó là gì luôn rồi ạ. Trích dẫn từ tài liệu của aws như sau:</p>
+<blockquote>
+<p>the object owner can optionally share objects with others by creating a presigned URL, using their own security credentials, to grant time-limited permission to download the objects.</p>
+</blockquote>
+<p>Ref: <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL.html">docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL</a></p>
+<p>Với 1 URL bình thường kiểu <code>https://foobar-bucket.aws/a_hot_image.png</code>, sẽ hoạt động với chỉ một điều kiện duy nhất - object a_hot_image.png là public. Nghĩa là chỉ cần biết url thì ai cũng có thể truy cập được nội dung bên trong. Trong thế giới web điều này được coi là hiển nhiên, vì web sinh ra là để public nội dung cho nào là browser nào là api client vân vân mây mây&hellip; truy cập vào mà. Tuy nhiên không cẩn thận bạn có thể bị dính vào những vấn đề security nghiêm trọng nếu như nội dung các object đó là loại &ldquo;nhạy cảm&rdquo; - sentive data đấy!</p>
+<p>Ví dụ, hệ thống của bạn có chức năng cho phép người dùng đăng ảnh xác thực cá nhân (ảnh bằng lái xe chẳng hạn) lên, nếu bạn không secure những dữ liệu ấy, bên thứ 3 bằng cách có được url (qua đánh cắp log trình duyệt, qua nghe lén network&hellip;) sẽ có thể xem được những dữ liệu vô cùng là riêng tư đó 😱</p>
+<p>Rất may AWS S3 cung cấp cho chúng ta tính năng Presigned URL giống như một giải pháp để chúng ta chủ động hạn chế truy cập đến các nội dung sensitive. URL có chữ ký - Presigned URL khác với URL thông thường ở chỗ nó được gắn thêm một tá GET params hoành tráng. Kiểu như sau:
+<code>https://foobar-bucket.aws/a_hot_image.png?X-Amz-Algorithm=xxxxxxxxxx&amp;X-Amz-Credential=xxxxxxxxxx&amp;X-Amz-Date=xxxxxxxxxx&amp;X-Amz-Expires=3600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=xxxxxxxxxx</code>
+Các tham số truyền vào này chỉ AWS mới decode và validate được (dựa vào IAM của bạn sử dụng để sinh ra presigned url), chỉ khi là valid và còn trong thời hạn hiệu lực thì AWS mới trả về nội dung của object. Nôm na là chữ ký phải đúng và mực chưa bay màu thì mới có xiền á 😃.</p>
+<p>Lưu ý hạn expire của presigned url dài nhất mà aws cho phép cài đặt là 7 days! Nhưng về cơ bản, mình khuyến khích mọi người nên để ngắn hơn - từ vài phút đến vài tiếng để giữ an toàn tối đa cho url.</p>
+<h2 id="yu-cu-presigned-url-cho-mt-s-file-nht-nh-m-thi">Yêu cầu presigned url cho một số file nhất định mà thôi?!</h2>
+<h3 id="ti-sao-c-tnh-hung-nh-th">Tại sao có tình huống như thế?</h3>
+<p>Càng ngày việc dùng S3 để làm storage cho hệ thống web càng phổ biến. Vì nó rẻ, nhanh, đỡ 1 phần load cho web server của bạn, bạn cũng không phải lo quản lý storage size&hellip;
+Dữ liệu trong hệ thống web thì chia ra làm hai loại.</p>
 <ul>
-<li>コンテナがもし死んだら直ちに検知してコンテナを再起動したりして回復しないといけない</li>
-<li>リクエストが大量になる時、スケールをしないといけない</li>
-<li>複数コンテナがあるなら、ロードバランシングをしないといけない</li>
-<li>等々</li>
+<li>Loại public được và cần phải public, ví dụ như ảnh sản phẩm, ảnh banner, logo vân vân, web để thiên hạ xem mà có phải giấu kín đâu phải không ạ.</li>
+<li>Loại sensitive, cần bảo mật. Như ví dụ ở trên mình đã đưa ra, các dữ liệu mà người dùng thành viên upload lên, đặc biệt là mấy thứ có liên quan đến thông tin cá nhân hay thanh toán!</li>
 </ul>
-<p>↑の問題を解決してくれるのがKubernetesの役割です。</p>
-<p><strong>Kubernetes（K8s）はコンテナオーケストレーションシステムです。</strong></p>
-<ul>
-<li>Googleが2014年に公開しました。</li>
-<li>Googleの長きにわたるコンテナ運用の知見が詰まっているらしいです。</li>
-<li>K8sのメイン機能としては、コンテナ化されたアプリケーションを以下のこと自動的に行うことです。
-<ul>
-<li>デプロイ</li>
-<li>コンテナ管理</li>
-<li>スケール</li>
-</ul>
-</li>
-</ul>
-<p>イメージは、K8sがコンテナの管理をいい感じにやってくれるので、
-私たちはただK8sに「こんな感じでシステムを運用して」と注文書（マニフェスト）を投げつけるだけです。
-それ以外はK8sに任せて良いです。</p>
-<h1 id="kubernetes-1">Kubernetesの構成を理解</h1>
-<p><img src="/blog/images/k8s_architecture.png" alt="k8s architecture"></p>
-<h3 id="heading">クラスター</h3>
-<ul>
-<li>クラスター本体</li>
-</ul>
-<h3 id="heading-1">ノード</h3>
-<ul>
-<li>クラスターに属するマシンを表すオブジェクト</li>
-<li>クラスターには、Masterノード１個と複数Workerノードがある</li>
-<li>Workerノードは私たちが開発したアプリケーションの実行環境となる（コンテナ群の実行環境）</li>
-<li>Masterノードは、私たちの命令に従って、各Workerノードにコンテナをデプロイしたりして、いい感じに監視・維持してくれる</li>
-<li>Masterノードは１つ、Workerノードは複数がある</li>
-</ul>
-<h3 id="pod">Pod</h3>
-<ul>
-<li>Workerノード上に生成されるオブジェクト</li>
-<li>K8sの最小デプロイ単位であり、スケールする時はPod単位で生成／破棄される</li>
-<li>Pod内にコンテナが１つ以上ある</li>
-</ul>
-<h3 id="replicasetrsdeployment">ReplicaSet（RS）とDeployment</h3>
-<ul>
-<li>RS
-<ul>
-<li>同じ仕様のPodが指定した数だけ存在するよう生成・管理する</li>
-<li>例えば、Podが死んだ時マニフェストで指定した数になるよう自動回復してくれる</li>
-</ul>
-</li>
-<li>Deployment
-<ul>
-<li>新しいバージョンのリリースを管理するための仕組み</li>
-</ul>
-</li>
-</ul>
-<h3 id="service">Service</h3>
-<ul>
-<li>クラスター内外からのリクエストをPodにルーティングするオブジェクト</li>
-<li>複数のPodに対するロードバランシングの役割を持つ</li>
-</ul>
+<p>Để đáp ứng thỏa mãn yêu cầu lưu trữ cho 2 loại dữ liệu trên, cách chân phương nhất có lẽ là sử dụng 2 buckets. Một bucket để public và bucket còn lại để private, truy cập object thông qua presigned url. Cách làm này không có vấn đề gì nhưng theo mình trong quá trình vận hành sẽ gặp đôi chút khó khăn và không &ldquo;clean&rdquo; lắm vì mỗi môi trường lúc nào cũng cần tới 2 buckets.</p>
+<p>Do đó mình đã nghĩ chả lẽ không có cách giải quyết sao cho chỉ sử dụng một S3 bucket sao? Lần này không biết do google ngu hay sao mà google không ra luôn&hellip; cuối cùng mình đã phải tự mò mẫm tìm cách làm. Vì đã thành công rồi nên muốn note lại đây để chia sẻ với các bạn.</p>
+<h3 id="ci-t-policy--gii-quyt-vn-">Cài đặt policy để giải quyết vấn đề</h3>
+<p>Đầu tiên, ta phải public mọi object trong bucket để thỏa mãn yêu cầu thứ nhất - lưu trữ các dữ liệu public.
+Policy để làm việc đó thì đơn giản như sau.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">{
+    &#34;Version&#34;: &#34;2012-10-17&#34;,
+    &#34;Id&#34;: &#34;bucket_policy&#34;,
+    &#34;Statement&#34;: [
+        {
+            &#34;Sid&#34;: &#34;public_all_files&#34;,
+            &#34;Effect&#34;: &#34;Allow&#34;,
+            &#34;Principal&#34;: &#34;*&#34;,
+            &#34;Action&#34;: &#34;s3:GetObject&#34;,
+            &#34;Resource&#34;: &#34;arn:aws:s3:::app-files-prod/*&#34;
+        }
+    ]
+}
+</code></pre></div><p>Với policy này, statement <code>public_all_files</code> sẽ đảm bảo mọi object trong bucket <code>app-files-prod</code> có thể được truy cập bằng URL bình thường ví dụ như <a href="https://app-files-prod.s3.ap-northeast-1.amazonaws.com/xxxxxxx.png">https://app-files-prod.s3.ap-northeast-1.amazonaws.com/xxxxxxx.png</a>.</p>
+<p>Tiếp theo giả sử ta cần bảo mật các files trong thư mục identity_images và personal_images sao cho chúng chỉ truy cập được thông qua presigned url, bạn hãy thêm 1 statement vào tiếp policy như dưới đây.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">{
+    &#34;Version&#34;: &#34;2012-10-17&#34;,
+    &#34;Id&#34;: &#34;bucket_policy&#34;,
+    &#34;Statement&#34;: [
+        {
+            &#34;Sid&#34;: &#34;public_all_files&#34;,
+            ...
+        },
+        {
+            &#34;Sid&#34;: &#34;secure_sensitive_files&#34;,
+            &#34;Effect&#34;: &#34;Deny&#34;,
+            &#34;Principal&#34;: &#34;*&#34;,
+            &#34;Action&#34;: &#34;s3:GetObject&#34;,
+            &#34;Resource&#34;: [
+                &#34;arn:aws:s3:::app-files-prod/*/identity_images/*&#34;,
+                &#34;arn:aws:s3:::app-files-prod/*/personal_images/*&#34;
+            ],
+            &#34;Condition&#34;: {
+                &#34;StringNotEquals&#34;: {
+                    &#34;s3:signatureversion&#34;: &#34;AWS4-HMAC-SHA256&#34;
+                }
+            }
+        }
+    ]
+}
+</code></pre></div><p>Giải thích ra thì statement mới thêm <code>secure_sensitive_files</code> làm nhiệm vụ <code>Deny</code> hành động <code>s3:GetObject</code> cho các objects trong 2 folders trên nếu như AWS không validate được là presigned url version <code>AWS4-HMAC-SHA256</code> hợp lệ (presigned url version 4 - mới nhất hiện nay)</p>
+<p>Sau khi áp dụng policy, các objects trong thư mục identity_images hay personal_images khi truy cập với URL bình thường sẽ bị trả về lỗi. Chỉ khi access bằng presigned url thì nội dung ảnh mới được download về. Còn các objects còn lại trong bucket vẫn được public như bình thường!
+<img src="/blog/images/s3_access_deny.png" alt=""></p>
+<p>23:51 rồi, suýt chút nữa là hết ngày mồng 3 - hết tết. Bài viết này kết thúc ở đây để nó còn kịp là bài viết khai phím tết 2020 :))
+Chúc mọi người và xin phép chúc chính mình một năm mới nhiều gặt hái, nhiều niềm vui và may mắn nha!</p>
 
 </div>
 
   
 <footer class='entry-footer'>
-  <div class='container sep-before'><div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
-  <line x1="7" y1="7" x2="7" y2="7"/>
-  
-</svg>
-<span class='screen-reader-text'>Tags: </span><a class='tag' href='/blog/tags/kubernetes/'>Kubernetes</a>, <a class='tag' href='/blog/tags/aws/'>aws</a>, <a class='tag' href='/blog/tags/docker/'>docker</a></div>
-
+  <div class='container sep-before'>
   <div><span>Share on: </span>
 
 
@@ -579,21 +577,21 @@ if (!doNotTrack) {
 
 <div id="share-buttons">
     <div class="facebook" title="Share this on Facebook"
-        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes\/');">
+        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/use-presigned-url-to-secure-some-files-inside-public-bucket\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z" /></svg></div>
     <div class="twitter" title="Share this on Twitter"
-        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes\/&amp;text=Hiểu Khái Niệm Cơ Bản Của Kubernetes(日本語)&amp;via=');">
+        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/use-presigned-url-to-secure-some-files-inside-public-bucket\/&amp;text=Use Presigned Url to Secure Only Some Files Inside A Public S3 Bucket&amp;via=');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z" /></svg></div>
     <div class="linkedin" title="Share this on Linkedin"
-        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes\/&amp;title=Hiểu Khái Niệm Cơ Bản Của Kubernetes(日本語)');"><svg
+        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/use-presigned-url-to-secure-some-files-inside-public-bucket\/&amp;title=Use Presigned Url to Secure Only Some Files Inside A Public S3 Bucket');"><svg
             viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z" /></svg></div>
     
     <div class="gplus" title="Share this on Google Plus"
-        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes\/');"><svg viewBox="0 0 2304 1792"
+        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/use-presigned-url-to-secure-some-files-inside-public-bucket\/');"><svg viewBox="0 0 2304 1792"
             xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z" /></svg>
     </div>
     <div class="mail" title="Share this through Email"
-        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes\/');">
+        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/use-presigned-url-to-secure-some-files-inside-public-bucket\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z" /></svg>
     </div>
 </div></div>
@@ -605,7 +603,7 @@ if (!doNotTrack) {
 
 <nav class='entry-nav'>
   <div class='container'><div class='prev-entry sep-before'>
-      <a href='/blog/posts/d%C3%A0nh-cho-nh%E1%BB%AFng-ai-mu%E1%BB%91n-gi%E1%BA%A3m-c%C3%A2n/'>
+      <a href='/blog/posts/guide-to-integrate-softbank-payment-service/'>
         <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="20" y1="12" x2="4" y2="12"/>
@@ -613,17 +611,7 @@ if (!doNotTrack) {
   
 </svg>
  Previous</span>
-        <span class='screen-reader-text'>Previous post: </span>Dành Cho Những Ai Muốn Giảm Cân</a>
-    </div><div class='next-entry sep-before'>
-      <a href='/blog/posts/coolbiz-trang-ph%E1%BB%A5c-c%C3%B4ng-s%E1%BB%9F-cho-ng%C3%A0y-h%C3%A8/'>
-        <span class='screen-reader-text'>Next post: </span>Cool Biz - Trang Phục Công Sở Cho Ngày Hè<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <line x1="4" y1="12" x2="20" y2="12"/>
-  <polyline points="14 6 20 12 14 18"/>
-  
-</svg>
-</span>
-      </a>
+        <span class='screen-reader-text'>Previous post: </span>Softbank決済代行サービス導入についてのまとめ、実装メモ</a>
     </div></div>
 </nav>
 

@@ -5,10 +5,20 @@
     <link>https://chienkira.github.io/blog/</link>
     <description>Recent content on Chienkira my blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 08 Dec 2019 09:36:35 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jan 2020 21:17:52 +0900</lastBuildDate>
     
 	<atom:link href="https://chienkira.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Use Presigned Url to Secure Only Some Files Inside A Public S3 Bucket</title>
+      <link>https://chienkira.github.io/blog/posts/use-presigned-url-to-secure-some-files-inside-public-bucket/</link>
+      <pubDate>Fri, 03 Jan 2020 21:17:52 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/use-presigned-url-to-secure-some-files-inside-public-bucket/</guid>
+      <description>Tết mải ăn quá đến cuối ngày mồng 3 mới mò lên khai phím được 😃. Để chào mừng năm 2020 rực rỡ 🎆, bài viết lần này mình muốn note lại chia sẻ cách đặt policy cho S3 bucket, để vừa public bucket lại vẫn bảo mật (yêu cầu presigned url để truy cập) cho một số file nhất định trong bucket nha! Ok let&#39;s go!
+Presigned URL là? Nó là&amp;hellip; như cái tên Presigned URL của nó thôi :)) Các bạn làm IT thì dù chưa biết nhưng nghe cái tên chắc hiểu đại khái nó là gì luôn rồi ạ.</description>
+    </item>
     
     <item>
       <title>Softbank決済代行サービス導入についてのまとめ、実装メモ</title>
