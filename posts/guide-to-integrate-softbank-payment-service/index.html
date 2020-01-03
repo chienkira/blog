@@ -3,29 +3,33 @@
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta name='description' content='この間、決済代行サービス（SoftBankペイメント）を案件に導入したので、実際に実装して分かったことをこの記事にまとめてシェアしたいと思います。
-バックグラウンド  私はこれまで決済代行サービスとの連携を実装したことがありません。 この案件は、クレジットカード支払いに対応しなければなりません。今後キャリア決済も対応する可能性があります。 Railsで実装されたWebアプリケーションからの連携となります。  決済代行サービスとは  加盟店と各決済会社（カード会社やオンライ決済）の間に入り、多種の決済方法を対応してくれるサービスです。 決済代行サービスを使わない場合、どうなるか？  各決済会社と個別契約をしないといけない　→　審査が大変厳しくなってしまう、工数もかなり掛かってしまう 決済会社によって、入金サイクルや手数料率が異なるので、事務処理に大変手間が掛かってしまう カード情報保管など、加盟店側が行わなければならない為、セキュリティー面の対応のハドルは高い  上のような不便を解決するために、決済代行サービスが存在しています。  SoftBankペイメントについてのまとめ 1. 導入の大きな流れ  まずは、エントリーシートを記入してSoftBankペイメント（SBペイメント）へ提出する SB側が各決済会社への審査を行ってくれる 審査が通過したら、私たち（加盟店）の環境が構築される
-※ キャリア決済の審査が遅い傾向にある為、各カード会社の審査がOKになったら、途中で環境構築が始められるそうです。急いでる方はSBの営業担当者へ依頼してください。 環境構築が終わり次第、試験と本番環境の接続情報がもらえる  連携時に必要な情報 管理画面のログイン情報  審査に時間はかかる為、基本的には「共用試験環境」を使って実装を先に進めてください！と営業担当者から案内される
+バックグラウンド   私はこれまで決済代行サービスとの連携を実装したことがありません。 この案件は、クレジットカード支払いに対応しなければなりません。今後キャリア決済も対応する可能性があります。 Railsで実装されたWebアプリケーションからの連携となります。  決済代行サービスとは   加盟店と各決済会社（カード会社やオンライ決済）の間に入り、多種の決済方法を対応してくれるサービスです。 決済代行サービスを使わない場合、どうなるか？  各決済会社と個別契約をしないといけない　→　審査が大変厳しくなってしまう、工数もかなり掛かってしまう 決済会社によって、入金サイクルや手数料率が異なるので、事務処理に大変手間が掛かってしまう カード情報保管など、加盟店側が行わなければならない為、セキュリティー面の対応のハドルは高い   上のような不便を解決するために、決済代行サービスが存在しています。  ![](/blog/images/SB payment-payment gateway.png)
+SoftBankペイメントについてのまとめ  1. 導入の大きな流れ  まずは、エントリーシートを記入してSoftBankペイメント（SBペイメント）へ提出する SB側が各決済会社への審査を行ってくれる 審査が通過したら、私たち（加盟店）の環境が構築される
+※ キャリア決済の審査が遅い傾向にある為、各カード会社の審査がOKになったら、途中で環境構築が始められるそうです。急いでる方はSBの営業担当者へ依頼してください。 環境構築が終わり次第、試験と本番環境の接続情報がもらえる  連携時に必要な情報 管理画面のログイン情報   審査に時間はかかる為、基本的には「共用試験環境」を使って実装を先に進めてください！と営業担当者から案内される
 ※ 共用試験環境は、SBペイメントの導入を検討している人々がシェアして使う環境である。実装を確認する為に、使えるテストカード情報なども共有される。  2. システム接続方式 SBペイメントは以下の2つの接続方法を対応しています。
 契約する時、どちらかしか選択できないという訳ではありません。API＋リンク両方使用することも可能です。
  リンク型：エンドユーザーをSBペイメントの画面に誘導して、決済させるというイメージ API型：加盟店の画面がSBペイメントのAPIを呼び出して決済処理を行うというイメージ  2.1 リンク型 SBペイメントが提供する決済手続きの各画面を利用する方式です。 決済処理が終わた後、任意の加盟店側のページに画面遷移されます。
+![SB payment リンク型](/blog/images/SB payment-Link.svg)
 2.2 API型 SBペイメントの画面を使わず、APIでサーバー間の連携を行う方式です。 決済画面全部が自由にカスタマイズできます。
-2.3 リンク型とAPI型の比較    項目 リンク型 API型     決済画面のカスタマイズ プラス料金を出せば、デザインのカスタマイズはできるが、 リンク追加など出来ない内容もある 自由に   決済処理フロー 決済代行サービスの仕様に依存 自由に   開発容易度と工数 低 高   利用可能な決済手段の差 豊富 一部の決済手段はAPI型対応しない    3.'>
+![SB payment API型](/blog/images/SB payment-API.svg)'>
 <meta name='theme-color' content='#ffcd00'>
 
 <meta property='og:title' content='Softbank決済代行サービス導入についてのまとめ、実装メモ | Chien Kira'>
 <meta property='og:description' content='この間、決済代行サービス（SoftBankペイメント）を案件に導入したので、実際に実装して分かったことをこの記事にまとめてシェアしたいと思います。
-バックグラウンド  私はこれまで決済代行サービスとの連携を実装したことがありません。 この案件は、クレジットカード支払いに対応しなければなりません。今後キャリア決済も対応する可能性があります。 Railsで実装されたWebアプリケーションからの連携となります。  決済代行サービスとは  加盟店と各決済会社（カード会社やオンライ決済）の間に入り、多種の決済方法を対応してくれるサービスです。 決済代行サービスを使わない場合、どうなるか？  各決済会社と個別契約をしないといけない　→　審査が大変厳しくなってしまう、工数もかなり掛かってしまう 決済会社によって、入金サイクルや手数料率が異なるので、事務処理に大変手間が掛かってしまう カード情報保管など、加盟店側が行わなければならない為、セキュリティー面の対応のハドルは高い  上のような不便を解決するために、決済代行サービスが存在しています。  SoftBankペイメントについてのまとめ 1. 導入の大きな流れ  まずは、エントリーシートを記入してSoftBankペイメント（SBペイメント）へ提出する SB側が各決済会社への審査を行ってくれる 審査が通過したら、私たち（加盟店）の環境が構築される
-※ キャリア決済の審査が遅い傾向にある為、各カード会社の審査がOKになったら、途中で環境構築が始められるそうです。急いでる方はSBの営業担当者へ依頼してください。 環境構築が終わり次第、試験と本番環境の接続情報がもらえる  連携時に必要な情報 管理画面のログイン情報  審査に時間はかかる為、基本的には「共用試験環境」を使って実装を先に進めてください！と営業担当者から案内される
+バックグラウンド   私はこれまで決済代行サービスとの連携を実装したことがありません。 この案件は、クレジットカード支払いに対応しなければなりません。今後キャリア決済も対応する可能性があります。 Railsで実装されたWebアプリケーションからの連携となります。  決済代行サービスとは   加盟店と各決済会社（カード会社やオンライ決済）の間に入り、多種の決済方法を対応してくれるサービスです。 決済代行サービスを使わない場合、どうなるか？  各決済会社と個別契約をしないといけない　→　審査が大変厳しくなってしまう、工数もかなり掛かってしまう 決済会社によって、入金サイクルや手数料率が異なるので、事務処理に大変手間が掛かってしまう カード情報保管など、加盟店側が行わなければならない為、セキュリティー面の対応のハドルは高い   上のような不便を解決するために、決済代行サービスが存在しています。  ![](/blog/images/SB payment-payment gateway.png)
+SoftBankペイメントについてのまとめ  1. 導入の大きな流れ  まずは、エントリーシートを記入してSoftBankペイメント（SBペイメント）へ提出する SB側が各決済会社への審査を行ってくれる 審査が通過したら、私たち（加盟店）の環境が構築される
+※ キャリア決済の審査が遅い傾向にある為、各カード会社の審査がOKになったら、途中で環境構築が始められるそうです。急いでる方はSBの営業担当者へ依頼してください。 環境構築が終わり次第、試験と本番環境の接続情報がもらえる  連携時に必要な情報 管理画面のログイン情報   審査に時間はかかる為、基本的には「共用試験環境」を使って実装を先に進めてください！と営業担当者から案内される
 ※ 共用試験環境は、SBペイメントの導入を検討している人々がシェアして使う環境である。実装を確認する為に、使えるテストカード情報なども共有される。  2. システム接続方式 SBペイメントは以下の2つの接続方法を対応しています。
 契約する時、どちらかしか選択できないという訳ではありません。API＋リンク両方使用することも可能です。
  リンク型：エンドユーザーをSBペイメントの画面に誘導して、決済させるというイメージ API型：加盟店の画面がSBペイメントのAPIを呼び出して決済処理を行うというイメージ  2.1 リンク型 SBペイメントが提供する決済手続きの各画面を利用する方式です。 決済処理が終わた後、任意の加盟店側のページに画面遷移されます。
+![SB payment リンク型](/blog/images/SB payment-Link.svg)
 2.2 API型 SBペイメントの画面を使わず、APIでサーバー間の連携を行う方式です。 決済画面全部が自由にカスタマイズできます。
-2.3 リンク型とAPI型の比較    項目 リンク型 API型     決済画面のカスタマイズ プラス料金を出せば、デザインのカスタマイズはできるが、 リンク追加など出来ない内容もある 自由に   決済処理フロー 決済代行サービスの仕様に依存 自由に   開発容易度と工数 低 高   利用可能な決済手段の差 豊富 一部の決済手段はAPI型対応しない    3.'>
+![SB payment API型](/blog/images/SB payment-API.svg)'>
 <meta property='og:url' content='https://chienkira.github.io/blog/posts/guide-to-integrate-softbank-payment-service/'>
 <meta property='og:site_name' content='Chienkira my blog'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/00e439e7376596f2760b4ef9a28df93b?s=256'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='rails'><meta property='article:tag' content='ruby'><meta property='article:tag' content='payment'><meta property='article:tag' content='programing'><meta property='article:tag' content='Softbank'><meta property='article:published_time' content='2019-12-08T09:36:35&#43;09:00'/><meta property='article:modified_time' content='2019-12-08T09:36:35&#43;09:00'/><meta name='twitter:card' content='summary'><meta name='twitter:creator' content='@chienkira'>
 
-<meta name="generator" content="Hugo 0.50" />
+<meta name="generator" content="Hugo 0.61.0" />
 
   <title>Softbank決済代行サービス導入についてのまとめ、実装メモ | Chien Kira</title>
   <link rel='canonical' href='https://chienkira.github.io/blog/posts/guide-to-integrate-softbank-payment-service/'>
@@ -69,9 +73,7 @@ if (!doNotTrack) {
     </h2>
     <div class='desc'>
     <p>a web &lsquo;full snack&rsquo; developer</p>
-
 <p>a Papa engineer</p>
-
 <p>at Tokyo</p>
 
     </div>
@@ -85,24 +87,6 @@ if (!doNotTrack) {
 
   <div class='container list-container'>
   <ul class='list taxonomy-cloud'><li>
-        <a href='/blog/tags/ci/' style='font-size:1em'>CI</a>
-      </li><li>
-        <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
-      </li><li>
-        <a href='/blog/tags/https/' style='font-size:1em'>HTTPS</a>
-      </li><li>
-        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
-      </li><li>
-        <a href='/blog/tags/sam/' style='font-size:1.1428571428571428em'>SAM</a>
-      </li><li>
-        <a href='/blog/tags/sre/' style='font-size:1em'>SRE</a>
-      </li><li>
-        <a href='/blog/tags/ssl/' style='font-size:1em'>SSL</a>
-      </li><li>
-        <a href='/blog/tags/softbank/' style='font-size:1em'>Softbank</a>
-      </li><li>
-        <a href='/blog/tags/til/' style='font-size:1em'>TIL</a>
-      </li><li>
         <a href='/blog/tags/api-gateway/' style='font-size:1em'>api gateway</a>
       </li><li>
         <a href='/blog/tags/aws/' style='font-size:2em'>aws</a>
@@ -110,6 +94,10 @@ if (!doNotTrack) {
         <a href='/blog/tags/blue-green-deploy/' style='font-size:1em'>blue green deploy</a>
       </li><li>
         <a href='/blog/tags/career/' style='font-size:1em'>career</a>
+      </li><li>
+        <a href='/blog/tags/ci/' style='font-size:1em'>CI</a>
+      </li><li>
+        <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
       </li><li>
         <a href='/blog/tags/cli/' style='font-size:1em'>cli</a>
       </li><li>
@@ -129,9 +117,13 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/dynamodb-local/' style='font-size:1em'>dynamodb local</a>
       </li><li>
+        <a href='/blog/tags/https/' style='font-size:1em'>HTTPS</a>
+      </li><li>
         <a href='/blog/tags/infra/' style='font-size:1.4285714285714286em'>infra</a>
       </li><li>
         <a href='/blog/tags/japan/' style='font-size:1em'>japan</a>
+      </li><li>
+        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
       </li><li>
         <a href='/blog/tags/lambda/' style='font-size:1.1428571428571428em'>lambda</a>
       </li><li>
@@ -163,15 +155,21 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/ruby/' style='font-size:1.1428571428571428em'>ruby</a>
       </li><li>
+        <a href='/blog/tags/sam/' style='font-size:1.1428571428571428em'>SAM</a>
+      </li><li>
         <a href='/blog/tags/serverless/' style='font-size:1.2857142857142856em'>serverless</a>
       </li><li>
-        <a href='/blog/tags/sre/' style='font-size:1em'>sre</a>
+        <a href='/blog/tags/softbank/' style='font-size:1em'>Softbank</a>
+      </li><li>
+        <a href='/blog/tags/sre/' style='font-size:1.1428571428571428em'>sre</a>
+      </li><li>
+        <a href='/blog/tags/ssl/' style='font-size:1em'>SSL</a>
       </li><li>
         <a href='/blog/tags/tech/' style='font-size:1.4285714285714286em'>tech</a>
       </li><li>
         <a href='/blog/tags/terraform/' style='font-size:1.1428571428571428em'>terraform</a>
       </li><li>
-        <a href='/blog/tags/til/' style='font-size:1.1428571428571428em'>til</a>
+        <a href='/blog/tags/til/' style='font-size:1.2857142857142856em'>til</a>
       </li></ul>
 </div>
 
@@ -270,7 +268,7 @@ if (!doNotTrack) {
   <polyline points="12 6 12 12 15 15"/>
   
 </svg>
-1 min read
+2 mins read
 </span>
 
 
@@ -402,116 +400,78 @@ if (!doNotTrack) {
     <span>Table of contents</span>
   </summary>
   <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#バックグラウンド">バックグラウンド</a></li>
-<li><a href="#決済代行サービスとは">決済代行サービスとは</a></li>
-<li><a href="#softbankペイメントについてのまとめ">SoftBankペイメントについてのまとめ</a>
-<ul>
-<li><a href="#1-導入の大きな流れ">1. 導入の大きな流れ</a></li>
-<li><a href="#2-システム接続方式">2. システム接続方式</a>
-<ul>
-<li><a href="#2-1-リンク型">2.1 リンク型</a></li>
-<li><a href="#2-2-api型">2.2 API型</a></li>
-<li><a href="#2-3-リンク型とapi型の比較">2.3 リンク型とAPI型の比較</a></li>
-</ul></li>
-<li><a href="#3-実装についてのまとめ">3. 実装についてのまとめ</a>
-<ul>
-<li><a href="#3-1-開発者支援サイト">3.1 開発者支援サイト</a></li>
-<li><a href="#3-2-リンク型-api型の実装の共通点">3.2 リンク型・API型の実装の共通点</a></li>
-<li><a href="#3-3-今回実装した内容">3.3 今回実装した内容</a></li>
-<li><a href="#3-4-支払い情報登録の実装-リンク型">3.4 支払い情報登録の実装（リンク型）</a></li>
-<li><a href="#3-5-決済処理の実装-api型">3.5 決済処理の実装（API型）</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#感想">感想</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">バックグラウンド</a></li>
+    <li><a href="#heading-1">決済代行サービスとは</a></li>
+    <li><a href="#softbank">SoftBankペイメントについてのまとめ</a>
+      <ul>
+        <li><a href="#1-">1. 導入の大きな流れ</a></li>
+        <li><a href="#2-">2. システム接続方式</a></li>
+        <li><a href="#3-">3. 実装についてのまとめ</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-2">感想</a></li>
+  </ul>
 </nav>
 </details>
 
 
   <div class='container entry-content'>
-  
-
-<p><strong>この間、決済代行サービス<a href="https://www.sbpayment.jp/" target="_blank">（SoftBankペイメント）</a>を案件に導入したので、実際に実装して分かったことをこの記事にまとめてシェアしたいと思います。</strong></p>
-
-<h2 id="バックグラウンド">バックグラウンド</h2>
-
-<hr />
-
+  <p><strong>この間、決済代行サービス<a href="https://www.sbpayment.jp/">（SoftBankペイメント）</a>を案件に導入したので、実際に実装して分かったことをこの記事にまとめてシェアしたいと思います。</strong></p>
+<h2 id="heading">バックグラウンド</h2>
+<hr>
 <ul>
 <li>私はこれまで決済代行サービスとの連携を実装したことがありません。</li>
 <li>この案件は、クレジットカード支払いに対応しなければなりません。今後キャリア決済も対応する可能性があります。</li>
 <li>Railsで実装されたWebアプリケーションからの連携となります。</li>
 </ul>
-
-<h2 id="決済代行サービスとは">決済代行サービスとは</h2>
-
-<hr />
-
+<h2 id="heading-1">決済代行サービスとは</h2>
+<hr>
 <ul>
 <li>加盟店と各決済会社（カード会社やオンライ決済）の間に入り、多種の決済方法を対応してくれるサービスです。</li>
 <li>決済代行サービスを使わない場合、どうなるか？
-
 <ul>
 <li>各決済会社と個別契約をしないといけない　→　審査が大変厳しくなってしまう、工数もかなり掛かってしまう</li>
 <li>決済会社によって、入金サイクルや手数料率が異なるので、事務処理に大変手間が掛かってしまう</li>
 <li>カード情報保管など、加盟店側が行わなければならない為、セキュリティー面の対応のハドルは高い</li>
-</ul></li>
+</ul>
+</li>
 <li>上のような不便を解決するために、決済代行サービスが存在しています。</li>
 </ul>
-
-<p><img src="/blog/images/SB payment-payment gateway.png" alt="" /></p>
-
-<h2 id="softbankペイメントについてのまとめ">SoftBankペイメントについてのまとめ</h2>
-
-<hr />
-
-<h3 id="1-導入の大きな流れ">1. 導入の大きな流れ</h3>
-
+<p>![](/blog/images/SB payment-payment gateway.png)</p>
+<h2 id="softbank">SoftBankペイメントについてのまとめ</h2>
+<hr>
+<h3 id="1-">1. 導入の大きな流れ</h3>
 <ul>
 <li>まずは、エントリーシートを記入してSoftBankペイメント（SBペイメント）へ提出する</li>
 <li>SB側が各決済会社への審査を行ってくれる</li>
-<li>審査が通過したら、私たち（加盟店）の環境が構築される<br />
+<li>審査が通過したら、私たち（加盟店）の環境が構築される<br>
 ※ キャリア決済の審査が遅い傾向にある為、各カード会社の審査がOKになったら、途中で環境構築が始められるそうです。急いでる方はSBの営業担当者へ依頼してください。</li>
 <li>環境構築が終わり次第、試験と本番環境の接続情報がもらえる
-
 <ul>
 <li>連携時に必要な情報</li>
 <li>管理画面のログイン情報</li>
-</ul></li>
-<li>審査に時間はかかる為、基本的には「共用試験環境」を使って実装を先に進めてください！と営業担当者から案内される<br />
+</ul>
+</li>
+<li>審査に時間はかかる為、基本的には「共用試験環境」を使って実装を先に進めてください！と営業担当者から案内される<br>
 ※ 共用試験環境は、SBペイメントの導入を検討している人々がシェアして使う環境である。実装を確認する為に、使えるテストカード情報なども共有される。</li>
 </ul>
-
-<h3 id="2-システム接続方式">2. システム接続方式</h3>
-
-<p>SBペイメントは以下の2つの接続方法を対応しています。<br />
+<h3 id="2-">2. システム接続方式</h3>
+<p>SBペイメントは以下の2つの接続方法を対応しています。<br>
 契約する時、どちらかしか選択できないという訳ではありません。API＋リンク両方使用することも可能です。</p>
-
 <ul>
 <li>リンク型：エンドユーザーをSBペイメントの画面に誘導して、決済させるというイメージ</li>
 <li>API型：加盟店の画面がSBペイメントのAPIを呼び出して決済処理を行うというイメージ</li>
 </ul>
-
-<h4 id="2-1-リンク型">2.1 リンク型</h4>
-
+<h4 id="21-">2.1 リンク型</h4>
 <p>SBペイメントが提供する決済手続きの各画面を利用する方式です。
 決済処理が終わた後、任意の加盟店側のページに画面遷移されます。</p>
-
-<p><img src="/blog/images/SB payment-Link.svg" alt="SB payment リンク型" /></p>
-
-<h4 id="2-2-api型">2.2 API型</h4>
-
+<p>![SB payment リンク型](/blog/images/SB payment-Link.svg)</p>
+<h4 id="22-api">2.2 API型</h4>
 <p>SBペイメントの画面を使わず、APIでサーバー間の連携を行う方式です。
 決済画面全部が自由にカスタマイズできます。</p>
-
-<p><img src="/blog/images/SB payment-API.svg" alt="SB payment API型" /></p>
-
-<h4 id="2-3-リンク型とapi型の比較">2.3 リンク型とAPI型の比較</h4>
-
+<p>![SB payment API型](/blog/images/SB payment-API.svg)</p>
+<h4 id="23-api">2.3 リンク型とAPI型の比較</h4>
 <table>
 <thead>
 <tr>
@@ -520,26 +480,22 @@ if (!doNotTrack) {
 <th align="center">API型</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td align="center">決済画面のカスタマイズ</td>
 <td align="center">プラス料金を出せば、デザインのカスタマイズはできるが、 リンク追加など出来ない内容もある</td>
 <td align="center"><strong>自由に</strong></td>
 </tr>
-
 <tr>
 <td align="center">決済処理フロー</td>
 <td align="center">決済代行サービスの仕様に依存</td>
 <td align="center"><strong>自由に</strong></td>
 </tr>
-
 <tr>
 <td align="center">開発容易度と工数</td>
 <td align="center"><strong>低</strong></td>
 <td align="center">高</td>
 </tr>
-
 <tr>
 <td align="center">利用可能な決済手段の差</td>
 <td align="center"><strong>豊富</strong></td>
@@ -547,70 +503,49 @@ if (!doNotTrack) {
 </tr>
 </tbody>
 </table>
-
-<h3 id="3-実装についてのまとめ">3. 実装についてのまとめ</h3>
-
-<h4 id="3-1-開発者支援サイト">3.1 開発者支援サイト</h4>
-
-<p>一応あります。こちら<a href="https://developer.sbpayment.jp/" target="_blank">developer.sbpayment.jp</a>になります。</p>
-
-<p>しかし残念ですが、仕様書のダウンロード以外は、あまり役に立たないという個人の印象でした。<br />
+<h3 id="3-">3. 実装についてのまとめ</h3>
+<h4 id="31-">3.1 開発者支援サイト</h4>
+<p>一応あります。こちら<a href="https://developer.sbpayment.jp/">developer.sbpayment.jp</a>になります。</p>
+<p>しかし残念ですが、仕様書のダウンロード以外は、あまり役に立たないという個人の印象でした。<br>
 また、アカウントが必要なのですが、契約しなくても簡単に登録できますので、興味ある方はどうぞ見てみてください。</p>
-
-<h4 id="3-2-リンク型-api型の実装の共通点">3.2 リンク型・API型の実装の共通点</h4>
-
+<h4 id="32-api">3.2 リンク型・API型の実装の共通点</h4>
 <p>加盟店 ⇄ SBペイメント間のリクエストが改ざんされないかバリデーションをする為？だと思いますが、
 チェックサムを生成して送ることが必須で要されています。</p>
-
 <p>チェックサムに値が設定されなかった又は正しく生成されなかった場合、リクエストが処理されず、エラーが返ってきます。
 このチェックサム生成は実装の最初の壁となり、クリアしないと先に進むことができませんのでかなり重要なところと思います。</p>
-
 <p>チェックサムの生成方法は下記の通りに説明されています。</p>
-
 <blockquote>
 <p>リクエストの各パラメーターの値を項目定義順に文字列結合し、
 最後に当社より払い出されたハッシュキーを結合した値を「UTF-8」へ変換して、
 「SHA1」にてハッシュ演算を行ってください。</p>
 </blockquote>
-
 <p>2ステップに分けて実装すれば良いかと思います。</p>
-
 <ul>
 <li>ステップ1：文字列結合</li>
 <li>ステップ2：ハッシュ演算</li>
 </ul>
-
 <p>分かりやすい図を作ってみました。</p>
-
-<p><img src="/blog/images/SB payment-checksum.svg" alt="SB payment リンク型" /></p>
-
-<p>github上の他の方の<a href="https://github.com/quipper/sbpayment.rb" target="_blank">コード</a>を参考にして、以下のように実際コーティングしました。
+<p>![SB payment リンク型](/blog/images/SB payment-checksum.svg)</p>
+<p>github上の他の方の<a href="https://github.com/quipper/sbpayment.rb">コード</a>を参考にして、以下のように実際コーティングしました。
 Railsで標準のモジュールを使ってかなり短く書けますね！</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generate_sps_hashcode</span>(<span style="color:#e6db74">encoding</span>: <span style="color:#e6db74">&#39;UTF-8&#39;</span>, <span style="color:#e6db74">hashkey</span>: <span style="color:#66d9ef">Sbpayment</span><span style="color:#f92672">.</span>config<span style="color:#f92672">.</span>hashkey)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">generate_sps_hashcode</span>(<span style="color:#e6db74">encoding</span>: <span style="color:#e6db74">&#39;UTF-8&#39;</span>, <span style="color:#e6db74">hashkey</span>: <span style="color:#66d9ef">Sbpayment</span><span style="color:#f92672">.</span>config<span style="color:#f92672">.</span>hashkey)
     <span style="color:#66d9ef">Digest</span><span style="color:#f92672">::</span><span style="color:#66d9ef">SHA1</span><span style="color:#f92672">.</span>hexdigest((values_for_sps_hashcode<span style="color:#f92672">.</span>map(<span style="color:#f92672">&amp;</span><span style="color:#e6db74">:to_s</span>)<span style="color:#f92672">.</span>map(<span style="color:#f92672">&amp;</span><span style="color:#e6db74">:strip</span>)<span style="color:#f92672">.</span>join <span style="color:#f92672">+</span> hashkey)<span style="color:#f92672">.</span>encode(encoding))
 <span style="color:#66d9ef">end</span>
 
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">values_for_sps_hashcode</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">values_for_sps_hashcode</span>
     <span style="color:#75715e"># 各パラメーターの値を項目定義順に返す</span>
-<span style="color:#66d9ef">end</span></code></pre></div>
-<h4 id="3-3-今回実装した内容">3.3 今回実装した内容</h4>
-
+<span style="color:#66d9ef">end</span>
+</code></pre></div><h4 id="33-">3.3 今回実装した内容</h4>
 <p>リンク型とAPI型、両方を利用していました。</p>
-
 <ul>
 <li>エンドユーザーの支払い情報登録のところは、今後決済方法を増やしたい時に、開発工数を抑えて対応できるように、リンク型を利用すると決まりました。</li>
 <li>決済処理自体はバッチにも使う予定があった為、API型で実装することになりました。</li>
 </ul>
-
 <p>エンドユーザーの支払い情報（カードの情報など）をSBペイメント側へ登録する時、ユニークな「顧客ID」を設定する必要があります。それ以降、決済などを行いたい時はこの顧客IDを指定すれば処理できるという仕組みです。要は、毎回エンドユーザーにカード情報を入力させなくて良いです。</p>
-
 <p>顧客IDの値は、ユニークになっていれば良いので、一番楽な実装方法はそのままデータベースのインクレメンタルIDを使用するという方法ですね。
-しかし、このIDは推測されやすい為、<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID</a>使用をおすすめします。</p>
-
-<h4 id="3-4-支払い情報登録の実装-リンク型">3.4 支払い情報登録の実装（リンク型）</h4>
-
+しかし、このIDは推測されやすい為、<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a>使用をおすすめします。</p>
+<h4 id="34-">3.4 支払い情報登録の実装（リンク型）</h4>
 <p>SBペイメントを呼び出す方法としては、対象の機能（画面）に対してフォームをサブミットすることです。必要なパラメーターはフォームの入力項目に設定するイメージです。</p>
-
 <p>今回、支払い情報登録画面を呼び出す為に生成したフォームを下記共有します。サンプルとして参考してもらえらばと思います。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post&#34;</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://stbfep.sps-system.com/f04/FepPayInfoReceive.do&#34;</span>&gt;
     &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pay_method&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;credit3d&#34;</span>&gt;
@@ -624,57 +559,43 @@ Railsで標準のモジュールを使ってかなり短く書けますね！</p
     &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;request_date&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;20191209152914&#34;</span>&gt;
     &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sps_hashcode&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;7218980...e454f8f&#34;</span>&gt;
   &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submitBtn&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hide&#34;</span>&gt;
-&lt;/<span style="color:#f92672">form</span>&gt;</code></pre></div>
-<p>この実装をした時に、ハマってしまったところがあります。登録通知先CGIと呼ばれる <code>pagecon_url</code> パラメーターでした！
+&lt;/<span style="color:#f92672">form</span>&gt;
+</code></pre></div><p>この実装をした時に、ハマってしまったところがあります。登録通知先CGIと呼ばれる <code>pagecon_url</code> パラメーターでした！
 最初はこのパラメーターの意味が理解できず、適当のURLを設定して進めました。
 そうしたら、カード情報の入力が終わったらSBのエラーページが表示されてしまいました。</p>
-
 <p>仕様書をちゃんと確認できなかったことが原因でしたが、
 支払い情報の登録流れの中、SBペイメント　→　加盟店サイトという折り返しのリクエストが存在しました。
 適当のURLを設定した為、当然このリクエストに対して200ステータスを返却できなかったので、SBペイメント側が怒ってました。
 対処法としては、登録通知を受け取って200ステータスを返却するrouteを実装することですね。</p>
-
 <p>ところで、上のエラーが出てしまったが、実は顧客と支払い情報がちゃんとSBペイメント側に登録されました。
 あくまで、登録通知先CGIはコールバックとして設けられている感じです。
 ローカルで開発する時、SBペイメントからのリクエストを受け取ることが無理なので、逆にこの仕様ではありがたい！助かった！と思いました。</p>
-
-<h4 id="3-5-決済処理の実装-api型">3.5 決済処理の実装（API型）</h4>
-
+<h4 id="35-api">3.5 決済処理の実装（API型）</h4>
 <p>SBペイメントはこの記事を書いた時点（2019/12）まだxml形式しか対応していません。
 かなりレガシーですね。WebAPIの世界でよく用いられるjson形式ではないです。ご注意を！</p>
-
 <p>APIに送らないといけないデータはリンク型とほぼ一緒です。</p>
-
 <p>ここもハマったことがありました。「決済要求」と「確定要求」2つのAPIが存在するのですが、
 決済処理を行いたい時は、セットで2リクエストを送信しなければなりません。
 この仕様を見落とした私は、「決済要求」APIだけ叩くような処理を実装してしまいました。
 APIのレスポンスが正常だったのに、なんで管理画面で確認したら請求エラーになるの？って何時間か悩んでいました。
 請求が正常に行えたか判定する時は、必ずこの2リクエストが両方成功したか見なければなりません。ご注意ください。</p>
-
-<h2 id="感想">感想</h2>
-
-<hr />
-
+<h2 id="heading-2">感想</h2>
+<hr>
 <p>SBペイメントは開発者に優しくないという印象でした。</p>
-
 <p>理由はいくつかあります。</p>
-
 <ul>
 <li>APIはレガシーのxmlしか対応しない</li>
 <li>ドキュメントは日本語のみ、PDF形式のみ</li>
 <li>APIリクエストの認証はアクセスキーのようなものではなく、Basic認証</li>
 <li>リクエスト（APIとリンク両方とも）のバリデーションのため、面倒なハッシュ計算が要される</li>
 </ul>
-
 <p>それに対して、海外のStripe決済代行サービルに比べてみると</p>
-
 <ul>
-<li>APIはjson対応 ⭐️</li>
-<li>ドキュメントは多言語対応、web上見れる（検索やナビは簡単）、各プログラミング言語のサンプルコードもある ⭐️</li>
-<li>リクエストのバリデーションが省略され、安易にAPIが叩ける ⭐️</li>
-<li>さらに、各言語の公式のモジュールも準備されるので、実装がすごく楽になる ⭐️</li>
+<li>APIはjson対応 ⭐</li>
+<li>ドキュメントは多言語対応、web上見れる（検索やナビは簡単）、各プログラミング言語のサンプルコードもある ⭐</li>
+<li>リクエストのバリデーションが省略され、安易にAPIが叩ける ⭐</li>
+<li>さらに、各言語の公式のモジュールも準備されるので、実装がすごく楽になる ⭐</li>
 </ul>
-
 <p>ただ、どこの決済代行サービスを使うか決める時、実装の優しさだけ見てはいけません。
 対応できる支払い方法は代行サービスによって異なりますし、コスト面も考えてフィットするプランがあるかどうか検討しなければなりませんね。</p>
 

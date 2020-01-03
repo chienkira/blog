@@ -17,7 +17,7 @@ Lambda 関数の入力形式 以下のようにHTTPリクエスト全体をLambd
 <meta property='og:site_name' content='Chienkira my blog'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/00e439e7376596f2760b4ef9a28df93b?s=256'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='aws'><meta property='article:tag' content='serverless'><meta property='article:tag' content='SAM'><meta property='article:tag' content='api gateway'><meta property='article:tag' content='lambda'><meta property='article:published_time' content='2019-02-12T15:45:04&#43;09:00'/><meta property='article:modified_time' content='2019-02-12T15:45:04&#43;09:00'/><meta name='twitter:card' content='summary'><meta name='twitter:creator' content='@chienkira'>
 
-<meta name="generator" content="Hugo 0.50" />
+<meta name="generator" content="Hugo 0.61.0" />
 
   <title>Tìm Hiểu Về Api Gateway(日本語) | Chien Kira</title>
   <link rel='canonical' href='https://chienkira.github.io/blog/posts/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway/'>
@@ -61,9 +61,7 @@ if (!doNotTrack) {
     </h2>
     <div class='desc'>
     <p>a web &lsquo;full snack&rsquo; developer</p>
-
 <p>a Papa engineer</p>
-
 <p>at Tokyo</p>
 
     </div>
@@ -77,24 +75,6 @@ if (!doNotTrack) {
 
   <div class='container list-container'>
   <ul class='list taxonomy-cloud'><li>
-        <a href='/blog/tags/ci/' style='font-size:1em'>CI</a>
-      </li><li>
-        <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
-      </li><li>
-        <a href='/blog/tags/https/' style='font-size:1em'>HTTPS</a>
-      </li><li>
-        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
-      </li><li>
-        <a href='/blog/tags/sam/' style='font-size:1.1428571428571428em'>SAM</a>
-      </li><li>
-        <a href='/blog/tags/sre/' style='font-size:1em'>SRE</a>
-      </li><li>
-        <a href='/blog/tags/ssl/' style='font-size:1em'>SSL</a>
-      </li><li>
-        <a href='/blog/tags/softbank/' style='font-size:1em'>Softbank</a>
-      </li><li>
-        <a href='/blog/tags/til/' style='font-size:1em'>TIL</a>
-      </li><li>
         <a href='/blog/tags/api-gateway/' style='font-size:1em'>api gateway</a>
       </li><li>
         <a href='/blog/tags/aws/' style='font-size:2em'>aws</a>
@@ -102,6 +82,10 @@ if (!doNotTrack) {
         <a href='/blog/tags/blue-green-deploy/' style='font-size:1em'>blue green deploy</a>
       </li><li>
         <a href='/blog/tags/career/' style='font-size:1em'>career</a>
+      </li><li>
+        <a href='/blog/tags/ci/' style='font-size:1em'>CI</a>
+      </li><li>
+        <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
       </li><li>
         <a href='/blog/tags/cli/' style='font-size:1em'>cli</a>
       </li><li>
@@ -121,9 +105,13 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/dynamodb-local/' style='font-size:1em'>dynamodb local</a>
       </li><li>
+        <a href='/blog/tags/https/' style='font-size:1em'>HTTPS</a>
+      </li><li>
         <a href='/blog/tags/infra/' style='font-size:1.4285714285714286em'>infra</a>
       </li><li>
         <a href='/blog/tags/japan/' style='font-size:1em'>japan</a>
+      </li><li>
+        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
       </li><li>
         <a href='/blog/tags/lambda/' style='font-size:1.1428571428571428em'>lambda</a>
       </li><li>
@@ -155,15 +143,21 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/ruby/' style='font-size:1.1428571428571428em'>ruby</a>
       </li><li>
+        <a href='/blog/tags/sam/' style='font-size:1.1428571428571428em'>SAM</a>
+      </li><li>
         <a href='/blog/tags/serverless/' style='font-size:1.2857142857142856em'>serverless</a>
       </li><li>
-        <a href='/blog/tags/sre/' style='font-size:1em'>sre</a>
+        <a href='/blog/tags/softbank/' style='font-size:1em'>Softbank</a>
+      </li><li>
+        <a href='/blog/tags/sre/' style='font-size:1.1428571428571428em'>sre</a>
+      </li><li>
+        <a href='/blog/tags/ssl/' style='font-size:1em'>SSL</a>
       </li><li>
         <a href='/blog/tags/tech/' style='font-size:1.4285714285714286em'>tech</a>
       </li><li>
         <a href='/blog/tags/terraform/' style='font-size:1.1428571428571428em'>terraform</a>
       </li><li>
-        <a href='/blog/tags/til/' style='font-size:1.1428571428571428em'>til</a>
+        <a href='/blog/tags/til/' style='font-size:1.2857142857142856em'>til</a>
       </li></ul>
 </div>
 
@@ -394,33 +388,24 @@ if (!doNotTrack) {
     <span>Table of contents</span>
   </summary>
   <nav id="TableOfContents">
-<ul>
-<li><a href="#api-gatewayとlambda間の処理フロー">API GatewayとLambda間の処理フロー</a></li>
-<li><a href="#lambda-proxy-integration-lambda-プロキシ統合">Lambda proxy integration（Lambda プロキシ統合）</a>
-<ul>
-<li><a href="#lambda-関数の入力形式">Lambda 関数の入力形式</a></li>
-<li><a href="#lambda-関数の出力形式">Lambda 関数の出力形式</a></li>
-</ul></li>
-<li><a href="#mapping-template">Mapping template</a></li>
-<li><a href="#corsについて">CORSについて</a>
-<ul>
-<li><a href="#cors-cross-origin-resource-sharing-とは">CORS（Cross Origin Resource Sharing）とは</a></li>
-<li><a href="#ブラウザのcorsチェックについて">ブラウザのCORSチェックについて</a></li>
-<li><a href="#cors設定方法-samの場合">CORS設定方法（SAMの場合）</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#lambda-">Lambda 関数の入力形式</a></li>
+    <li><a href="#lambda--1">Lambda 関数の出力形式</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#corscross-origin-resource-sharing">CORS（Cross Origin Resource Sharing）とは</a></li>
+    <li><a href="#cors-1">ブラウザのCORSチェックについて</a></li>
+    <li><a href="#corssam">CORS設定方法（SAMの場合）</a></li>
+  </ul>
 </nav>
 </details>
 
 
   <div class='container entry-content'>
-  
-
-<h1 id="api-gatewayとlambda間の処理フロー">API GatewayとLambda間の処理フロー</h1>
-
+  <h1 id="api-gatewaylambda">API GatewayとLambda間の処理フロー</h1>
 <p>APIGatewayとLambda間の処理フローは以下の図の通りです。
-<img src="https://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-create-api-by-importing-example-post-method-execution.png" alt="LINK" /></p>
-
+<img src="https://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-create-api-by-importing-example-post-method-execution.png" alt="LINK"></p>
 <ol>
 <li>クライアントからHTTPリクエストがきた時に、[Method request] がそのリクエストを受け取って認証などを行う</li>
 <li>API Gatewayは必要に応じて [Integration Request]を使い、リクエストのデータを変換してから、Lambdaに転送する
@@ -428,24 +413,17 @@ if (!doNotTrack) {
 <li>次にAPI Gatewayは [Integration Response] を使い、Lambdaから返ってきた戻り値（処理結果）をまたデータ変換をしてから、[Method Response] に転送</li>
 <li>最後に、API Gatewayが [Method Response]にてクライアントに返信する</li>
 </ol>
-
 <p>→ <strong>Integration Request</strong> と <strong>Integration Response</strong>のデータ変換に関しては、以下の2選択肢があります。</p>
-
 <ul>
 <li>①AWSのLambda proxy integration（Lambda プロキシ統合）に任せるか</li>
 <li>②データ変換に使われるマッピングテンプレートを自分で定義するか</li>
 </ul>
-
-<h1 id="lambda-proxy-integration-lambda-プロキシ統合">Lambda proxy integration（Lambda プロキシ統合）</h1>
-
-<p><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html" target="_blank">AWSのLambda プロキシ統合の詳細説明</a>
+<h1 id="lambda-proxy-integrationlambda-">Lambda proxy integration（Lambda プロキシ統合）</h1>
+<p><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html">AWSのLambda プロキシ統合の詳細説明</a>
 Lambda プロキシ統合を使用する場合、Lambda関数へのInputデータやLambda関数のOutputデータのフォーマットが決まってます。</p>
-
-<h2 id="lambda-関数の入力形式">Lambda 関数の入力形式</h2>
-
+<h2 id="lambda-">Lambda 関数の入力形式</h2>
 <p>以下のようにHTTPリクエスト全体をLambda 関数のevent変数にマッピングされます。
 よく使うのは：</p>
-
 <ul>
 <li>headers: リクエストのヘッダデータ</li>
 <li>httpMethod: リクエストのメソッド情報</li>
@@ -459,120 +437,100 @@ Lambda プロキシ統合を使用する場合、Lambda関数へのInputデー�
     <span style="color:#f92672">&#34;resource&#34;</span>: <span style="color:#e6db74">&#34;Resource path&#34;</span>,
     <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;Path parameter&#34;</span>,
     <span style="color:#f92672">&#34;httpMethod&#34;</span>: <span style="color:#e6db74">&#34;Incoming request&#39;s method name&#34;</span>
-    <span style="color:#e6db74">&#34;headers&#34;</span>: {<span style="color:#960050;background-color:#1e0010">String</span> <span style="color:#960050;background-color:#1e0010">containing</span> <span style="color:#960050;background-color:#1e0010">incoming</span> <span style="color:#960050;background-color:#1e0010">request</span> <span style="color:#960050;background-color:#1e0010">headers</span>}
-    <span style="color:#e6db74">&#34;multiValueHeaders&#34;</span>: {<span style="color:#960050;background-color:#1e0010">List</span> <span style="color:#960050;background-color:#1e0010">of</span> <span style="color:#960050;background-color:#1e0010">strings</span> <span style="color:#960050;background-color:#1e0010">containing</span> <span style="color:#960050;background-color:#1e0010">incoming</span> <span style="color:#960050;background-color:#1e0010">request</span> <span style="color:#960050;background-color:#1e0010">headers</span>}
-    <span style="color:#e6db74">&#34;queryStringParameters&#34;</span>: {<span style="color:#960050;background-color:#1e0010">query</span> <span style="color:#960050;background-color:#1e0010">string</span> <span style="color:#960050;background-color:#1e0010">parameters</span> }
-    <span style="color:#e6db74">&#34;multiValueQueryStringParameters&#34;</span>: {<span style="color:#960050;background-color:#1e0010">List</span> <span style="color:#960050;background-color:#1e0010">of</span> <span style="color:#960050;background-color:#1e0010">query</span> <span style="color:#960050;background-color:#1e0010">string</span> <span style="color:#960050;background-color:#1e0010">parameters</span>}
-    <span style="color:#e6db74">&#34;pathParameters&#34;</span>:  {<span style="color:#960050;background-color:#1e0010">path</span> <span style="color:#960050;background-color:#1e0010">parameters</span>}
-    <span style="color:#e6db74">&#34;stageVariables&#34;</span>: {<span style="color:#960050;background-color:#1e0010">Applicable</span> <span style="color:#960050;background-color:#1e0010">stage</span> <span style="color:#960050;background-color:#1e0010">variables</span>}
-    <span style="color:#e6db74">&#34;requestContext&#34;</span>: {<span style="color:#960050;background-color:#1e0010">Request</span> <span style="color:#960050;background-color:#1e0010">context,</span> <span style="color:#960050;background-color:#1e0010">including</span> <span style="color:#960050;background-color:#1e0010">authorizer-returned</span> <span style="color:#960050;background-color:#1e0010">key-value</span> <span style="color:#960050;background-color:#1e0010">pairs</span>}
+    <span style="color:#e6db74">&#34;headers&#34;</span>: {<span style="color:#960050;background-color:#1e0010">S</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">g</span> <span style="color:#960050;background-color:#1e0010">c</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">g</span> <span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">c</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">m</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">g</span> <span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">q</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">t</span> <span style="color:#960050;background-color:#1e0010">h</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">d</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">s</span>}
+    <span style="color:#e6db74">&#34;multiValueHeaders&#34;</span>: {<span style="color:#960050;background-color:#1e0010">L</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">t</span> <span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">f</span> <span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">g</span><span style="color:#960050;background-color:#1e0010">s</span> <span style="color:#960050;background-color:#1e0010">c</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">g</span> <span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">c</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">m</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">g</span> <span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">q</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">t</span> <span style="color:#960050;background-color:#1e0010">h</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">d</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">s</span>}
+    <span style="color:#e6db74">&#34;queryStringParameters&#34;</span>: {<span style="color:#960050;background-color:#1e0010">q</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">y</span> <span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">g</span> <span style="color:#960050;background-color:#1e0010">p</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">m</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">s</span> }
+    <span style="color:#e6db74">&#34;multiValueQueryStringParameters&#34;</span>: {<span style="color:#960050;background-color:#1e0010">L</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">t</span> <span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">f</span> <span style="color:#960050;background-color:#1e0010">q</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">y</span> <span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">g</span> <span style="color:#960050;background-color:#1e0010">p</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">m</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">s</span>}
+    <span style="color:#e6db74">&#34;pathParameters&#34;</span>:  {<span style="color:#960050;background-color:#1e0010">p</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">h</span> <span style="color:#960050;background-color:#1e0010">p</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">m</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">s</span>}
+    <span style="color:#e6db74">&#34;stageVariables&#34;</span>: {<span style="color:#960050;background-color:#1e0010">A</span><span style="color:#960050;background-color:#1e0010">p</span><span style="color:#960050;background-color:#1e0010">p</span><span style="color:#960050;background-color:#1e0010">l</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">c</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">b</span><span style="color:#960050;background-color:#1e0010">l</span><span style="color:#960050;background-color:#1e0010">e</span> <span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">g</span><span style="color:#960050;background-color:#1e0010">e</span> <span style="color:#960050;background-color:#1e0010">v</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">b</span><span style="color:#960050;background-color:#1e0010">l</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">s</span>}
+    <span style="color:#e6db74">&#34;requestContext&#34;</span>: {<span style="color:#960050;background-color:#1e0010">R</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">q</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">t</span> <span style="color:#960050;background-color:#1e0010">c</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">x</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">c</span><span style="color:#960050;background-color:#1e0010">l</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">d</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">g</span> <span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">h</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">z</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">d</span> <span style="color:#960050;background-color:#1e0010">k</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">y</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#960050;background-color:#1e0010">v</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">l</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">e</span> <span style="color:#960050;background-color:#1e0010">p</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">s</span>}
     <span style="color:#e6db74">&#34;body&#34;</span>: <span style="color:#e6db74">&#34;A JSON string of the request payload.&#34;</span>
     <span style="color:#e6db74">&#34;isBase64Encoded&#34;</span>: <span style="color:#e6db74">&#34;A boolean flag to indicate if the applicable request payload is Base64-encode&#34;</span>
-}</code></pre></div>
-<p>参照: (<a href="https://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-input-format" target="_blank">https://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-input-format</a>)</p>
-
-<h2 id="lambda-関数の出力形式">Lambda 関数の出力形式</h2>
-
+}
+</code></pre></div><p>参照: (<a href="https://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-input-format">https://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-input-format</a>)</p>
+<h2 id="lambda--1">Lambda 関数の出力形式</h2>
 <p>クライアントに正常に正しいHTTPステータスコードやレスポンスデータを返すために、以下の JSON 形式に従ってLambdaがデータを返却する必要があります。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#f92672">&#34;isBase64Encoded&#34;</span>: <span style="color:#66d9ef">true</span><span style="color:#960050;background-color:#1e0010">|</span><span style="color:#66d9ef">false</span>,
-    <span style="color:#f92672">&#34;statusCode&#34;</span>: <span style="color:#960050;background-color:#1e0010">httpStatusCode</span>,
-    <span style="color:#f92672">&#34;headers&#34;</span>: { <span style="color:#f92672">&#34;headerName&#34;</span>: <span style="color:#e6db74">&#34;headerValue&#34;</span>, <span style="color:#960050;background-color:#1e0010">...</span> },
-    <span style="color:#f92672">&#34;multiValueHeaders&#34;</span>: { <span style="color:#f92672">&#34;headerName&#34;</span>: [<span style="color:#e6db74">&#34;headerValue&#34;</span>, <span style="color:#e6db74">&#34;headerValue2&#34;</span>, <span style="color:#960050;background-color:#1e0010">...</span>], <span style="color:#960050;background-color:#1e0010">...</span> },
+    <span style="color:#f92672">&#34;statusCode&#34;</span>: <span style="color:#960050;background-color:#1e0010">h</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">p</span><span style="color:#960050;background-color:#1e0010">S</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">C</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">d</span><span style="color:#960050;background-color:#1e0010">e</span>,
+    <span style="color:#f92672">&#34;headers&#34;</span>: { <span style="color:#f92672">&#34;headerName&#34;</span>: <span style="color:#e6db74">&#34;headerValue&#34;</span>, <span style="color:#960050;background-color:#1e0010">.</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#960050;background-color:#1e0010">.</span> },
+    <span style="color:#f92672">&#34;multiValueHeaders&#34;</span>: { <span style="color:#f92672">&#34;headerName&#34;</span>: [<span style="color:#e6db74">&#34;headerValue&#34;</span>, <span style="color:#e6db74">&#34;headerValue2&#34;</span>, <span style="color:#960050;background-color:#1e0010">.</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#960050;background-color:#1e0010">.</span>], <span style="color:#960050;background-color:#1e0010">.</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#960050;background-color:#1e0010">.</span> },
     <span style="color:#f92672">&#34;body&#34;</span>: <span style="color:#e6db74">&#34;...&#34;</span>
-}</code></pre></div>
-<p>参照: (<a href="https://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-output-format" target="_blank">https://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-output-format</a>)</p>
-
+}
+</code></pre></div><p>参照: (<a href="https://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-output-format">https://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-output-format</a>)</p>
 <p>メモ：
 もしLambda プロキシ統合の方で決まっているフォーマットと違いデータをLambda関数が返した場合、
 API Gatewayの中でエラーが発生し、クライアントに502 Bad Gateway エラーを返します。</p>
-
 <h1 id="mapping-template">Mapping template</h1>
-
 <p>Lambda プロキシ統合を使用しない場合、どうAPI Gatewayにデータ変換してほしいか定義する必要がります。
 その定義はMapping templateと言います。
 データ変換は2箇所（Lambda関数のInputデータの変換とLambda関数のOutputデータの変換）があるため、
 Mapping templateも [Integration Request] と [Integration Response] の2箇所で定義しなければなりません。</p>
-
 <p>詳しいはこちらのリンクをご参考ください。
-(<a href="https://dev.classmethod.jp/cloud/aws/api-gateway-mapping-template/" target="_blank">https://dev.classmethod.jp/cloud/aws/api-gateway-mapping-template/</a>)
-(<a href="https://knackforge.com/blog/aws-api-gateway-request-response-mapping" target="_blank">https://knackforge.com/blog/aws-api-gateway-request-response-mapping</a>)</p>
-
+(<a href="https://dev.classmethod.jp/cloud/aws/api-gateway-mapping-template/">https://dev.classmethod.jp/cloud/aws/api-gateway-mapping-template/</a>)
+(<a href="https://knackforge.com/blog/aws-api-gateway-request-response-mapping">https://knackforge.com/blog/aws-api-gateway-request-response-mapping</a>)</p>
 <p>コードのサンプル（SAMのテンプレート式）
-Mapping templateに書ける言語は <a href="https://qiita.com/yoshidasts/items/ddab0ef7b983b7c5260b" target="_blank">Apache VTL</a></p>
+Mapping templateに書ける言語は <a href="https://qiita.com/yoshidasts/items/ddab0ef7b983b7c5260b">Apache VTL</a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">requestTemplates:
   application/json: <span style="color:#e6db74">|
-</span><span style="color:#e6db74">    {
-</span><span style="color:#e6db74">        #foreach($key in $input.params().querystring.keySet())
-</span><span style="color:#e6db74">        &#34;$key&#34;: &#34;$util.escapeJavaScript($input.params().querystring.get($key))&#34; #if($foreach.hasNext),#end
-</span><span style="color:#e6db74">        #end
-</span><span style="color:#e6db74">    }</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">responseTemplates:
+</span><span style="color:#e6db74">   </span><span style="color:#e6db74"> </span><span style="color:#e6db74">{</span>
+        <span style="color:#75715e">#foreach($key in $input.params().querystring.keySet())</span>
+        <span style="color:#e6db74">&#34;$key&#34;</span>: <span style="color:#e6db74">&#34;$util.escapeJavaScript($input.params().querystring.get($key))&#34;</span> <span style="color:#75715e">#if($foreach.hasNext),#end</span>
+        <span style="color:#75715e">#end</span>
+    }
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">responseTemplates:
   application/json: <span style="color:#e6db74">|
-</span><span style="color:#e6db74">    {
-</span><span style="color:#e6db74">        $util.parseJson($input.json(&#39;$.body&#39;))
-</span><span style="color:#e6db74">        #set($Integer = 0)
-</span><span style="color:#e6db74">        #set($status_code = $input.json(&#34;$.statusCode&#34;))
-</span><span style="color:#e6db74">        #set($status_code = $Integer.parseInt($status_code))
-</span><span style="color:#e6db74">        #set($context.responseOverride.status = $status_code)
-</span><span style="color:#e6db74">    }</span></code></pre></div>
-<h1 id="corsについて">CORSについて</h1>
-
-<h2 id="cors-cross-origin-resource-sharing-とは">CORS（Cross Origin Resource Sharing）とは</h2>
-
-<p>各ブラウザはクロスドメイン通信を拒否する仕組み（<a href="https://www.w3.org/Security/wiki/Same_Origin_Policy" target="_blank">same-origin policy</a>）になっています。
+</span><span style="color:#e6db74">   </span><span style="color:#e6db74"> </span><span style="color:#e6db74">{</span>
+        $util.parseJson($input.json(<span style="color:#e6db74">&#39;$.body&#39;</span>))
+        <span style="color:#75715e">#set($Integer = 0)</span>
+        <span style="color:#75715e">#set($status_code = $input.json(&#34;$.statusCode&#34;))</span>
+        <span style="color:#75715e">#set($status_code = $Integer.parseInt($status_code))</span>
+        <span style="color:#75715e">#set($context.responseOverride.status = $status_code)</span>
+    }
+</code></pre></div><h1 id="cors">CORSについて</h1>
+<h2 id="corscross-origin-resource-sharing">CORS（Cross Origin Resource Sharing）とは</h2>
+<p>各ブラウザはクロスドメイン通信を拒否する仕組み（<a href="https://www.w3.org/Security/wiki/Same_Origin_Policy">same-origin policy</a>）になっています。
 その為、例えば<code>domain111.com</code>のサイトから<code>domain222.com</code>のAPIを叩いてデータ取得することが基本的にはできません。
 しかし実際に他のドメインにAPIのアクセスを許可しなければならない時もあります。
 その際は、CORSを設定すれば実現できます。</p>
-
-<h2 id="ブラウザのcorsチェックについて">ブラウザのCORSチェックについて</h2>
-
+<h2 id="cors-1">ブラウザのCORSチェックについて</h2>
 <p>クライアント（ブラウザ）から送信するHTTPリクエストは以下の2週類で分類されます。</p>
-
 <ul>
 <li>Simpleリクエスト
 リクエストのメソッドやContent-Typeなどの色々な条件に満たさないとSimpleリクエストと認められません。
 実際にAPIを叩く時のリクエストはほとんどSimpleリクストではありません。
-参考：(<a href="https://developer.mozilla.org/ja/docs/Web/HTTP/CORS#Simple_requests" target="_blank">https://developer.mozilla.org/ja/docs/Web/HTTP/CORS#Simple_requests</a>)</li>
+参考：(<a href="https://developer.mozilla.org/ja/docs/Web/HTTP/CORS#Simple_requests">https://developer.mozilla.org/ja/docs/Web/HTTP/CORS#Simple_requests</a>)</li>
 <li>Not Simpleリクエスト
 Simpleリクエストの条件に満たさない全部のリクエストです。
-参考：(<a href="https://developer.mozilla.org/ja/docs/Web/HTTP/CORS#Preflighted_requests" target="_blank">https://developer.mozilla.org/ja/docs/Web/HTTP/CORS#Preflighted_requests</a>)</li>
+参考：(<a href="https://developer.mozilla.org/ja/docs/Web/HTTP/CORS#Preflighted_requests">https://developer.mozilla.org/ja/docs/Web/HTTP/CORS#Preflighted_requests</a>)</li>
 </ul>
-
 <p>リクエストの種類によって、ブラウザのCORSチェックが異なります。</p>
-
 <ul>
 <li>Simpleリクエストの場合
 ブラウザがリクエストのレスポンスHeadersを見て、以下のHeaderをチェックします。
 このHeaderがない場合又は、Headerの値にオリジンドメインが入っていない場合は
 クロスドメイン通信が拒否されます。</li>
 </ul>
-
 <pre><code>Access-Control-Allow-Origin: http://api.bob.com
-</code></pre>
-
-<ul>
+</code></pre><ul>
 <li>Not Simpleリクエストの場合
 対象のリクエストを送信する前に、ブラウザが勝手にCORSチェックのリクスト（pre-flightリクスト）を送信します。
 pre-flightリクエストのレスポンスを確認した上で、通信可能な場合のみ対象のリクエストを送信するという順番です。
 ※ pre-flightリクエストはOPTIONSメソッドで送信されます。</li>
 </ul>
-
 <pre><code>Access-Control-Allow-Origin: http://api.bob.com
 Access-Control-Allow-Methods: GET, POST, PUT
 Access-Control-Allow-Headers: X-Custom-Header
-</code></pre>
-
-<h2 id="cors設定方法-samの場合">CORS設定方法（SAMの場合）</h2>
-
+</code></pre><h2 id="corssam">CORS設定方法（SAMの場合）</h2>
 <ul>
 <li>Headerの対応
 Lambda関数の処理の方で、以下のHeaderを加えて返す必要があります。</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">headers <span style="color:#f92672">=</span> {
             <span style="color:#75715e"># CORS support</span>
-            <span style="color:#e6db74">&#39;Access-Control-Allow-Origin&#39;</span>: <span style="color:#e6db74">&#39;*&#39;</span>,
-        }</code></pre></div>
-<ul>
+            <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Access-Control-Allow-Origin</span><span style="color:#e6db74">&#39;</span>: <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">*</span><span style="color:#e6db74">&#39;</span>,
+        }
+</code></pre></div><ul>
 <li>Pre-flightリクエストの対応
 SAMの場合は以下のようにtemplate.ymlよりAPI Gatewayの記述で簡単に対応できます。</li>
 </ul>
@@ -585,8 +543,8 @@ SAMの場合は以下のようにtemplate.ymlよりAPI Gatewayの記述で簡単
         AllowHeaders: <span style="color:#e6db74">&#34;&#39;*&#39;&#34;</span>
         AllowOrigin: <span style="color:#e6db74">&#34;&#39;*&#39;&#34;</span>
       Auth:
-&lt;省略&gt;</code></pre></div>
-<p><strong>注意点：</strong>
+&lt;省略&gt;
+</code></pre></div><p><strong>注意点：</strong>
 API Gatewayにカスタムオーソライザの設定があった場合、
 以下のようにDefaultAuthorizerを記述するとpre-flightリクスト対応のOPTIONSメソッドにも認証が付いてしまう為、
 pre-flightが通らなくなります。</p>
@@ -594,21 +552,22 @@ pre-flightが通らなくなります。</p>
         DefaultAuthorizer: MyTokenAuthorizer
         Authorizers:
           MyTokenAuthorizer:
-&lt;省略&gt;</code></pre></div>
-<p>→対応方法：
+&lt;省略&gt;
+</code></pre></div><p>→対応方法：
 DefaultAuthorizerの記述を消して、各Lambda関数のところにAuthorizerを指定するようにすれば、
 認証がOPTIONSメソッドから外されます。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">HogeFunction:
     Type: AWS::Serverless::Function
     Properties:
       &lt;省略<span style="color:#e6db74">&gt;
-</span><span style="color:#e6db74">      Events:
-</span><span style="color:#e6db74">        GetResource:
-</span><span style="color:#e6db74">          Type: Api
-</span><span style="color:#e6db74">          Properties:
-</span><span style="color:#e6db74">            &lt;省略&gt;
-</span><span style="color:#e6db74">            Auth:
-</span><span style="color:#e6db74">              Authorizer: MyTokenAuthorizer</span></code></pre></div>
+</span><span style="color:#e6db74">     </span><span style="color:#e6db74"> </span><span style="color:#e6db74">Events:</span>
+        GetResource:
+          Type: Api
+          Properties:
+            &lt;省略<span style="color:#e6db74">&gt;
+</span><span style="color:#e6db74">           </span><span style="color:#e6db74"> </span><span style="color:#e6db74">Auth:</span>
+              Authorizer: MyTokenAuthorizer
+</code></pre></div>
 </div>
 
   
@@ -619,7 +578,7 @@ DefaultAuthorizerの記述を消して、各Lambda関数のところにAuthorize
   <line x1="7" y1="7" x2="7" y2="7"/>
   
 </svg>
-<span class='screen-reader-text'>Tags: </span><a class='tag' href='/blog/tags/aws/'>aws</a>, <a class='tag' href='/blog/tags/serverless/'>serverless</a>, <a class='tag' href='/blog/tags/sam/'>SAM</a>, <a class='tag' href='/blog/tags/api-gateway/'>api gateway</a>, <a class='tag' href='/blog/tags/lambda/'>lambda</a></div>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/blog/tags/aws/'>aws</a>, <a class='tag' href='/blog/tags/serverless/'>serverless</a>, <a class='tag' href='/blog/tags/sam/'>SAM</a>, <a class='tag' href='/blog/tags/lambda/'>lambda</a></div>
 
   <div><span>Share on: </span>
 

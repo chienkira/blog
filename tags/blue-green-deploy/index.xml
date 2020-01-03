@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>blue green deploy on Chienkira my blog</title>
@@ -17,7 +17,7 @@
       
       <guid>https://chienkira.github.io/blog/posts/am-hi%E1%BB%83u-blue-green-deployment-trong-5-ph%C3%BAt/</guid>
       <description>Blue green deployment là cái khỉ ho gì? Nó có gì hay và có &amp;ldquo;ngon&amp;rdquo; không? Nếu bạn đang có câu hỏi tương tự trong đầu thì hãy thử đọc hết bài viết này nhé. Đây cũng là chia sẻ thực tế của mình sau khi được giao cho task thiết kế Blue green deployment áp dụng lên hệ thống trong công ty.
-1. Giới thiệu Blue Green deployment ※ Từ giờ viết gọn là B/G deploy</description>
+1. Giới thiệu Blue Green deployment  ※ Từ giờ viết gọn là B/G deploy</description>
     </item>
     
   </channel>

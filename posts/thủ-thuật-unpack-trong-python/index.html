@@ -4,18 +4,20 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta name='description' content='Ký tự * ngoài là toán tử multiplication (phép nhân) và string replication ra, trong Python nó còn có một tác dụng khác khá xịn xò - unpack (một số người còn gọi là splat).
 Ký hiệu * Unpack chỉ có thể áp dụng lên một object loại iterable, để áp dụng việc cần làm là đặt ký hiệu * lên liền ngay trước object đó.
- Ví dụ:'>
+ Ví dụ:
+Dùng trực tiếp với biến: *list_variable'>
 <meta name='theme-color' content='#ffcd00'>
 
 <meta property='og:title' content='Thủ Thuật Unpack Trong Python | Chien Kira'>
 <meta property='og:description' content='Ký tự * ngoài là toán tử multiplication (phép nhân) và string replication ra, trong Python nó còn có một tác dụng khác khá xịn xò - unpack (một số người còn gọi là splat).
 Ký hiệu * Unpack chỉ có thể áp dụng lên một object loại iterable, để áp dụng việc cần làm là đặt ký hiệu * lên liền ngay trước object đó.
- Ví dụ:'>
+ Ví dụ:
+Dùng trực tiếp với biến: *list_variable'>
 <meta property='og:url' content='https://chienkira.github.io/blog/posts/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python/'>
 <meta property='og:site_name' content='Chienkira my blog'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/00e439e7376596f2760b4ef9a28df93b?s=256'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='tech'><meta property='article:tag' content='python'><meta property='article:tag' content='programing'><meta property='article:tag' content='TIL'><meta property='article:published_time' content='2019-04-05T10:38:57&#43;09:00'/><meta property='article:modified_time' content='2019-04-05T10:38:57&#43;09:00'/><meta name='twitter:card' content='summary'><meta name='twitter:creator' content='@chienkira'>
 
-<meta name="generator" content="Hugo 0.50" />
+<meta name="generator" content="Hugo 0.61.0" />
 
   <title>Thủ Thuật Unpack Trong Python | Chien Kira</title>
   <link rel='canonical' href='https://chienkira.github.io/blog/posts/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python/'>
@@ -59,9 +61,7 @@ if (!doNotTrack) {
     </h2>
     <div class='desc'>
     <p>a web &lsquo;full snack&rsquo; developer</p>
-
 <p>a Papa engineer</p>
-
 <p>at Tokyo</p>
 
     </div>
@@ -75,24 +75,6 @@ if (!doNotTrack) {
 
   <div class='container list-container'>
   <ul class='list taxonomy-cloud'><li>
-        <a href='/blog/tags/ci/' style='font-size:1em'>CI</a>
-      </li><li>
-        <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
-      </li><li>
-        <a href='/blog/tags/https/' style='font-size:1em'>HTTPS</a>
-      </li><li>
-        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
-      </li><li>
-        <a href='/blog/tags/sam/' style='font-size:1.1428571428571428em'>SAM</a>
-      </li><li>
-        <a href='/blog/tags/sre/' style='font-size:1em'>SRE</a>
-      </li><li>
-        <a href='/blog/tags/ssl/' style='font-size:1em'>SSL</a>
-      </li><li>
-        <a href='/blog/tags/softbank/' style='font-size:1em'>Softbank</a>
-      </li><li>
-        <a href='/blog/tags/til/' style='font-size:1em'>TIL</a>
-      </li><li>
         <a href='/blog/tags/api-gateway/' style='font-size:1em'>api gateway</a>
       </li><li>
         <a href='/blog/tags/aws/' style='font-size:2em'>aws</a>
@@ -100,6 +82,10 @@ if (!doNotTrack) {
         <a href='/blog/tags/blue-green-deploy/' style='font-size:1em'>blue green deploy</a>
       </li><li>
         <a href='/blog/tags/career/' style='font-size:1em'>career</a>
+      </li><li>
+        <a href='/blog/tags/ci/' style='font-size:1em'>CI</a>
+      </li><li>
+        <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
       </li><li>
         <a href='/blog/tags/cli/' style='font-size:1em'>cli</a>
       </li><li>
@@ -119,9 +105,13 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/dynamodb-local/' style='font-size:1em'>dynamodb local</a>
       </li><li>
+        <a href='/blog/tags/https/' style='font-size:1em'>HTTPS</a>
+      </li><li>
         <a href='/blog/tags/infra/' style='font-size:1.4285714285714286em'>infra</a>
       </li><li>
         <a href='/blog/tags/japan/' style='font-size:1em'>japan</a>
+      </li><li>
+        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
       </li><li>
         <a href='/blog/tags/lambda/' style='font-size:1.1428571428571428em'>lambda</a>
       </li><li>
@@ -153,15 +143,21 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/ruby/' style='font-size:1.1428571428571428em'>ruby</a>
       </li><li>
+        <a href='/blog/tags/sam/' style='font-size:1.1428571428571428em'>SAM</a>
+      </li><li>
         <a href='/blog/tags/serverless/' style='font-size:1.2857142857142856em'>serverless</a>
       </li><li>
-        <a href='/blog/tags/sre/' style='font-size:1em'>sre</a>
+        <a href='/blog/tags/softbank/' style='font-size:1em'>Softbank</a>
+      </li><li>
+        <a href='/blog/tags/sre/' style='font-size:1.1428571428571428em'>sre</a>
+      </li><li>
+        <a href='/blog/tags/ssl/' style='font-size:1em'>SSL</a>
       </li><li>
         <a href='/blog/tags/tech/' style='font-size:1.4285714285714286em'>tech</a>
       </li><li>
         <a href='/blog/tags/terraform/' style='font-size:1.1428571428571428em'>terraform</a>
       </li><li>
-        <a href='/blog/tags/til/' style='font-size:1.1428571428571428em'>til</a>
+        <a href='/blog/tags/til/' style='font-size:1.2857142857142856em'>til</a>
       </li></ul>
 </div>
 
@@ -389,35 +385,26 @@ if (!doNotTrack) {
   
 
   <div class='container entry-content'>
-  
-
-<p><strong>Ký tự <code>*</code> ngoài là toán tử multiplication (phép nhân) và string replication ra, trong Python nó còn có một tác dụng khác khá xịn xò - unpack (một số người còn gọi là splat).</strong></p>
-
-<h2 id="ký-hiệu">Ký hiệu <code>*</code></h2>
-
+  <p><strong>Ký tự <code>*</code> ngoài là toán tử multiplication (phép nhân) và string replication ra, trong Python nó còn có một tác dụng khác khá xịn xò - unpack (một số người còn gọi là splat).</strong></p>
+<h2 id="k-hiu-">Ký hiệu <code>*</code></h2>
 <p>Unpack chỉ có thể áp dụng lên một object loại iterable, để áp dụng việc cần làm là đặt ký hiệu <code>*</code> lên liền ngay trước object đó.</p>
-
 <blockquote>
-<p>Ví dụ:<br />
-Dùng trực tiếp với biến: <code>*list_variable</code><br />
+<p>Ví dụ:<br>
+Dùng trực tiếp với biến: <code>*list_variable</code><br>
 Dùng với biểu thức: <code>*[i*2 for i in some_array]</code></p>
 </blockquote>
-
 <p>Phép unpack với ký hiệu <code>*</code> sẽ sinh ra <em>&ldquo;các phần tử&rdquo;</em>, được tách ra từ iterable object ban đầu.</p>
-
 <p>Ví dụ như</p>
-
 <ul>
 <li>Nếu áp dụng lên một object kiểu list, ta sẽ nhận được các phần tử có trong list đó.</li>
 <li>Nếu áp dụng lên một object kiểu dictionary, ta sẽ nhận được các keys (chỉ key thôi, không có value) có trong dictionary đó.</li>
 </ul>
-
 <p>Cùng xem qua đoạn code ví dụ sau để hình dung rõ hơn công dụng của unpack.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Method test nhận vào 3 params</span>
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test</span>(a, b, c):
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;a =&#34;</span>, a)
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;b =&#34;</span>, b)
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;c =&#34;</span>, c)
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">a =</span><span style="color:#e6db74">&#34;</span>, a)
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">b =</span><span style="color:#e6db74">&#34;</span>, b)
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">c =</span><span style="color:#e6db74">&#34;</span>, c)
 
 <span style="color:#75715e"># object này có 3 phần tử</span>
 list <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>]
@@ -428,50 +415,41 @@ test(list)
 test(<span style="color:#f92672">*</span>list)
 <span style="color:#75715e"># a = 1</span>
 <span style="color:#75715e"># b = 2</span>
-<span style="color:#75715e"># c = 3</span></code></pre></div>
-<p>Unpack đã giúp tách độc lập các phần tử có trong object <code>list</code> ra, do đó method <code>test</code> nhận vào được đúng 3 params a, b và c tương ứng với 3 phần tử trong object <code>list</code>.</p>
-
+<span style="color:#75715e"># c = 3</span>
+</code></pre></div><p>Unpack đã giúp tách độc lập các phần tử có trong object <code>list</code> ra, do đó method <code>test</code> nhận vào được đúng 3 params a, b và c tương ứng với 3 phần tử trong object <code>list</code>.</p>
 <p>Đến đây thì nếu liên tưởng chút, ta sẽ thấy cách viết quen thuộc sau hiện lên ở trong đầu.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">my_method</span>(<span style="color:#f92672">*</span>args):
-    <span style="color:#75715e">#do something</span></code></pre></div>
-<p>Vâng chính là nó rồi đó ạ, <code>*args</code> quen thuộc ở đây bản chất là một trick sử dụng phép unpack. Unpack biến <code>args</code> tương đương với chuỗi các param truyền vào method. Vì thế mà trong method khi truy cập biến <code>args</code>, ta nhận được list chứa toàn bộ các params. Mình hay gọi cái này là phép nghịch đảo của unpack cho dễ hiểu.</p>
-
+    <span style="color:#75715e">#do something</span>
+</code></pre></div><p>Vâng chính là nó rồi đó ạ, <code>*args</code> quen thuộc ở đây bản chất là một trick sử dụng phép unpack. Unpack biến <code>args</code> tương đương với chuỗi các param truyền vào method. Vì thế mà trong method khi truy cập biến <code>args</code>, ta nhận được list chứa toàn bộ các params. Mình hay gọi cái này là phép nghịch đảo của unpack cho dễ hiểu.</p>
 <p>Nhắc đến <code>*args</code> rồi thì lại phải nhắc đến họ hàng của nó là <code>**kwargs</code> :)) Vậy thì ta chuyển sang mục tiếp theo <em>Ký hiệu <code>**</code></em> thôi!</p>
-
-<h2 id="ký-hiệu-1">Ký hiệu <code>**</code></h2>
-
+<h2 id="k-hiu--1">Ký hiệu <code>**</code></h2>
 <p>Unpack khi sử dụng ký hiệu <code>**</code> có hiệu quả khác với khi sử dụng ký hiệu <code>*</code> ở chỗ, nó chuyên tách object kiểu dictionary thành các cặp key-value độc lập.</p>
-
 <p>Nó giúp việc truyền một dict vào một method mà chỉ nhận keyword params dễ dàng hơn rất nhiều.</p>
-
 <p>Đoạn code demo ví dụ sau sẽ dễ hiểu hơn mọi giải thích dài dòng 😃</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Method test nhận vào 3 keyword params</span>
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test</span>(a<span style="color:#f92672">=</span>a, b<span style="color:#f92672">=</span>b, c<span style="color:#f92672">=</span>c):
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;a =&#34;</span>, a)
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;b =&#34;</span>, b)
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;c =&#34;</span>, c)
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">a =</span><span style="color:#e6db74">&#34;</span>, a)
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">b =</span><span style="color:#e6db74">&#34;</span>, b)
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">c =</span><span style="color:#e6db74">&#34;</span>, c)
 
 <span style="color:#75715e"># dict này có 3 key, thứ tự có thể không cần giống thứ tự keyword trong method test</span>
-dict <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;a&#34;</span>: <span style="color:#ae81ff">11</span>, <span style="color:#e6db74">&#34;c&#34;</span>: <span style="color:#ae81ff">22</span>, <span style="color:#e6db74">&#34;b&#34;</span>: <span style="color:#ae81ff">33</span>}
+dict <span style="color:#f92672">=</span> {<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">a</span><span style="color:#e6db74">&#34;</span>: <span style="color:#ae81ff">11</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">c</span><span style="color:#e6db74">&#34;</span>: <span style="color:#ae81ff">22</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;</span>: <span style="color:#ae81ff">33</span>}
 
 test(dict)
 <span style="color:#75715e"># Sẽ bị lỗi TypeError: test() missing 2 required positional arguments: &#39;b&#39; and &#39;c&#39;</span>
 
-test(<span style="color:#f92672">**</span>dict)
+test(<span style="color:#f92672">*</span><span style="color:#f92672">*</span>dict)
 <span style="color:#75715e"># a = 11</span>
 <span style="color:#75715e"># b = 22</span>
-<span style="color:#75715e"># c = 33</span></code></pre></div>
-<h2 id="unpack-trong-các-ngôn-ngữ-khác">Unpack trong các ngôn ngữ khác</h2>
-
+<span style="color:#75715e"># c = 33</span>
+</code></pre></div><h2 id="unpack-trong-cc-ngn-ng-khc">Unpack trong các ngôn ngữ khác</h2>
 <p>Javascript ES 6 cũng đã hỗ trợ phép unpack nhưng với tên gọi khác là <strong>spread</strong>, và sử dụng ký hiệu <code>...</code>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">numbers</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">999</span>]
 Math.<span style="color:#a6e22e">max</span>(...<span style="color:#a6e22e">numbers</span>)
-</code></pre></div>
-<p>Còn trong ruby thì gọi là phép splat, về mặt ký hiệu và cách dùng nó giống như python.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">people <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;Rudy&#34;</span>, <span style="color:#e6db74">&#34;Sarah&#34;</span>, <span style="color:#e6db74">&#34;Thomas&#34;</span><span style="color:#f92672">]</span>
-say <span style="color:#f92672">*</span>people</code></pre></div>
-<hr />
-
+</code></pre></div><p>Còn trong ruby thì gọi là phép splat, về mặt ký hiệu và cách dùng nó giống như python.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">people <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Rudy</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Sarah</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Thomas</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]</span>
+say <span style="color:#f92672">*</span>people
+</code></pre></div><hr>
 <p>Sử dụng lâu rồi nhưng không hiểu bản chất bên dưới của nhiều đoạn code là phép unpack này, thật là xấu hổ quá. Bài này chủ yếu mang tính sắp xếp lại kiến thức của bản thân. Nếu bạn nào trót vào đọc và thấy chả có khỉ gì thì rất xin lỗi ạ!</p>
 
 </div>
@@ -484,7 +462,7 @@ say <span style="color:#f92672">*</span>people</code></pre></div>
   <line x1="7" y1="7" x2="7" y2="7"/>
   
 </svg>
-<span class='screen-reader-text'>Tags: </span><a class='tag' href='/blog/tags/tech/'>tech</a>, <a class='tag' href='/blog/tags/python/'>python</a>, <a class='tag' href='/blog/tags/programing/'>programing</a>, <a class='tag' href='/blog/tags/til/'>TIL</a></div>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/blog/tags/tech/'>tech</a>, <a class='tag' href='/blog/tags/python/'>python</a>, <a class='tag' href='/blog/tags/programing/'>programing</a>, <a class='tag' href='/blog/tags/til/'>til</a></div>
 
   <div><span>Share on: </span>
 

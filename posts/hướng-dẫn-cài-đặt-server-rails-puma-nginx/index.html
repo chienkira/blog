@@ -13,7 +13,7 @@ Prerequisite  OS môi trường là Amazon linux Database sử dụng là Postgr
 <meta property='og:site_name' content='Chienkira my blog'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://chienkira.github.io/blog/images/puma-nginx.png'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='infra'><meta property='article:tag' content='rails'><meta property='article:tag' content='tech'><meta property='article:tag' content='nginx'><meta property='article:tag' content='deploy'><meta property='article:published_time' content='2019-11-12T15:24:47&#43;09:00'/><meta property='article:modified_time' content='2019-11-12T15:24:47&#43;09:00'/><meta name='twitter:card' content='summary_large_image'><meta name='twitter:creator' content='@chienkira'><meta property='twitter:image' content='https://chienkira.github.io/blog/images/puma-nginx.png'>
 
-<meta name="generator" content="Hugo 0.50" />
+<meta name="generator" content="Hugo 0.61.0" />
 
   <title>Cài Đặt Server Chạy Rails App Trên Production Sử Dụng Puma &#43; Nginx | Chien Kira</title>
   <link rel='canonical' href='https://chienkira.github.io/blog/posts/h%C6%B0%E1%BB%9Bng-d%E1%BA%ABn-c%C3%A0i-%C4%91%E1%BA%B7t-server-rails-puma-nginx/'>
@@ -57,9 +57,7 @@ if (!doNotTrack) {
     </h2>
     <div class='desc'>
     <p>a web &lsquo;full snack&rsquo; developer</p>
-
 <p>a Papa engineer</p>
-
 <p>at Tokyo</p>
 
     </div>
@@ -73,24 +71,6 @@ if (!doNotTrack) {
 
   <div class='container list-container'>
   <ul class='list taxonomy-cloud'><li>
-        <a href='/blog/tags/ci/' style='font-size:1em'>CI</a>
-      </li><li>
-        <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
-      </li><li>
-        <a href='/blog/tags/https/' style='font-size:1em'>HTTPS</a>
-      </li><li>
-        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
-      </li><li>
-        <a href='/blog/tags/sam/' style='font-size:1.1428571428571428em'>SAM</a>
-      </li><li>
-        <a href='/blog/tags/sre/' style='font-size:1em'>SRE</a>
-      </li><li>
-        <a href='/blog/tags/ssl/' style='font-size:1em'>SSL</a>
-      </li><li>
-        <a href='/blog/tags/softbank/' style='font-size:1em'>Softbank</a>
-      </li><li>
-        <a href='/blog/tags/til/' style='font-size:1em'>TIL</a>
-      </li><li>
         <a href='/blog/tags/api-gateway/' style='font-size:1em'>api gateway</a>
       </li><li>
         <a href='/blog/tags/aws/' style='font-size:2em'>aws</a>
@@ -98,6 +78,10 @@ if (!doNotTrack) {
         <a href='/blog/tags/blue-green-deploy/' style='font-size:1em'>blue green deploy</a>
       </li><li>
         <a href='/blog/tags/career/' style='font-size:1em'>career</a>
+      </li><li>
+        <a href='/blog/tags/ci/' style='font-size:1em'>CI</a>
+      </li><li>
+        <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
       </li><li>
         <a href='/blog/tags/cli/' style='font-size:1em'>cli</a>
       </li><li>
@@ -117,9 +101,13 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/dynamodb-local/' style='font-size:1em'>dynamodb local</a>
       </li><li>
+        <a href='/blog/tags/https/' style='font-size:1em'>HTTPS</a>
+      </li><li>
         <a href='/blog/tags/infra/' style='font-size:1.4285714285714286em'>infra</a>
       </li><li>
         <a href='/blog/tags/japan/' style='font-size:1em'>japan</a>
+      </li><li>
+        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
       </li><li>
         <a href='/blog/tags/lambda/' style='font-size:1.1428571428571428em'>lambda</a>
       </li><li>
@@ -151,15 +139,21 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/ruby/' style='font-size:1.1428571428571428em'>ruby</a>
       </li><li>
+        <a href='/blog/tags/sam/' style='font-size:1.1428571428571428em'>SAM</a>
+      </li><li>
         <a href='/blog/tags/serverless/' style='font-size:1.2857142857142856em'>serverless</a>
       </li><li>
-        <a href='/blog/tags/sre/' style='font-size:1em'>sre</a>
+        <a href='/blog/tags/softbank/' style='font-size:1em'>Softbank</a>
+      </li><li>
+        <a href='/blog/tags/sre/' style='font-size:1.1428571428571428em'>sre</a>
+      </li><li>
+        <a href='/blog/tags/ssl/' style='font-size:1em'>SSL</a>
       </li><li>
         <a href='/blog/tags/tech/' style='font-size:1.4285714285714286em'>tech</a>
       </li><li>
         <a href='/blog/tags/terraform/' style='font-size:1.1428571428571428em'>terraform</a>
       </li><li>
-        <a href='/blog/tags/til/' style='font-size:1.1428571428571428em'>til</a>
+        <a href='/blog/tags/til/' style='font-size:1.2857142857142856em'>til</a>
       </li></ul>
 </div>
 
@@ -395,62 +389,47 @@ if (!doNotTrack) {
     <span>Table of contents</span>
   </summary>
   <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#prerequisite">Prerequisite</a></li>
-<li><a href="#system-configuration">System configuration</a></li>
-<li><a href="#1-chuẩn-bị-môi-trường">1. Chuẩn bị môi trường</a></li>
-<li><a href="#2-tạo-user">2. Tạo user</a></li>
-<li><a href="#3-cài-đặt-rbenv-và-ruby">3. Cài đặt rbenv và Ruby</a></li>
-<li><a href="#4-chuẩn-bị-cho-ứng-dụng-rails">4. Chuẩn bị cho ứng dụng Rails</a></li>
-<li><a href="#5-cài-đặt-puma-chạy-dạng-service-chạy-ở-background-và-tự-khởi-chạy">5. Cài đặt Puma chạy dạng service - chạy ở background và tự khởi chạy</a></li>
-<li><a href="#6-cài-đặt-nginx">6. Cài đặt Nginx</a></li>
-<li><a href="#7-cài-đặt-log-rotation">7. Cài đặt log rotation</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#prerequisite">Prerequisite</a></li>
+        <li><a href="#system-configuration">System configuration</a></li>
+        <li><a href="#1-chun-b-mi-trng">1. Chuẩn bị môi trường</a></li>
+        <li><a href="#2-to-user">2. Tạo user</a></li>
+        <li><a href="#3-ci-t-rbenv-v-ruby">3. Cài đặt rbenv và Ruby</a></li>
+        <li><a href="#4-chun-b-cho-ng-dng-rails">4. Chuẩn bị cho ứng dụng Rails</a></li>
+        <li><a href="#5-ci-t-puma-chy-dng-service---chy--background-v-t-khi-chy">5. Cài đặt Puma chạy dạng service - chạy ở background và tự khởi chạy</a></li>
+        <li><a href="#6-ci-t-nginx">6. Cài đặt Nginx</a></li>
+        <li><a href="#7-ci-t-log-rotation">7. Cài đặt log rotation</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 </details>
 
 
   <div class='container entry-content'>
-  
-
-<p><strong>Puma là web server nhỏ gọn đi liền trong Rails giúp developer có thể bắt đầu code một cách nhanh nhất. Tuy nhiên mang nó làm web server thực sự để chạy trên môi trường production thì chưa ổn. Bài này mình muốn memo lại chia sẻ với các bạn các bước cài đặt server để ứng dụng Rails chạy ổn định trên môi trường production.</strong></p>
-
+  <p><strong>Puma là web server nhỏ gọn đi liền trong Rails giúp developer có thể bắt đầu code một cách nhanh nhất. Tuy nhiên mang nó làm web server thực sự để chạy trên môi trường production thì chưa ổn. Bài này mình muốn memo lại chia sẻ với các bạn các bước cài đặt server để ứng dụng Rails chạy ổn định trên môi trường production.</strong></p>
 <h3 id="prerequisite">Prerequisite</h3>
-
 <ul>
 <li>OS môi trường là Amazon linux</li>
 <li>Database sử dụng là Postgres</li>
 </ul>
-
 <h3 id="system-configuration">System configuration</h3>
-
 <p>Puma hoạt động như application server cho ứng dụng Rails,
 còn Nginx sẽ hoạt động với vai trò là reverse proxy - nhận request và chuyển response giữa client và Puma.
 Puma và Nginx giao tiếp với nhau thông qua socket.</p>
-
 <ul>
 <li>rbenv + Ruby 2.5</li>
 <li>Rails 5 + Puma + Nginx</li>
 </ul>
-
-<p><img src="/blog/images/puma-nginx.png" alt="puma-nginx.png" /></p>
-
+<p><img src="/blog/images/puma-nginx.png" alt="puma-nginx.png"></p>
 <blockquote>
-<p><em>Source Image : <a href="http://codeonhill.com" target="_blank">http://codeonhill.com</a></em></p>
+<p><em>Source Image : <a href="http://codeonhill.com">http://codeonhill.com</a></em></p>
 </blockquote>
-
 <p><strong>Ok, ssh vào server và bắt đầu cài đặt thôi! ↓↓↓</strong></p>
-
-<hr />
-
-<h3 id="1-chuẩn-bị-môi-trường">1. Chuẩn bị môi trường</h3>
-
+<hr>
+<h3 id="1-chun-b-mi-trng">1. Chuẩn bị môi trường</h3>
 <pre><code># Cài đặt các package cơ bản
 # ※ Riêng cái htop thì optional, mình thích dùng htop để xem trạng thái server nên có thói quen cài nó
 $ sudo yum update
@@ -464,13 +443,9 @@ postgresql-libs postgresql-devel \
 epel-release htop
 $ sudo amazon-linux-extras install epel
 $ sudo yum install nodejs npm --enablerepo=epel
-</code></pre>
-
-<h3 id="2-tạo-user">2. Tạo user</h3>
-
+</code></pre><h3 id="2-to-user">2. Tạo user</h3>
 <p>Thói quen tốt là không nên dùng user root/ec2-user mặc định, do đó ta sẽ tạo một user
 mới để phục vụ quá trình cài đặt cũng như khởi chạy ứng dụng Rails.</p>
-
 <pre><code># Tạo user deploy
 $ sudo adduser deploy
 $ sudo passwd deploy  # Cài đặt password cho user deploy
@@ -486,12 +461,8 @@ $ sudo ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 # Cài đặt alias ll, hữu dụng và dễ đọc file size hơn lệnh ls
 $ echo 'alias ll=&quot;ls -lh --color=auto&quot;' &gt;&gt; ~/.bash_profile
 $ source ~/.bash_profile
-</code></pre>
-
-<h3 id="3-cài-đặt-rbenv-và-ruby">3. Cài đặt rbenv và Ruby</h3>
-
+</code></pre><h3 id="3-ci-t-rbenv-v-ruby">3. Cài đặt rbenv và Ruby</h3>
 <p>Sử dụng rbenv để quản lý các version của ruby.</p>
-
 <pre><code># Cài đặt rbenv
 $ sudo su - deploy
 $ git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
@@ -505,10 +476,7 @@ $ rbenv install -v 2.5.1
 $ rbenv global 2.5.1
 $ rbenv rehash
 $ ruby -v
-</code></pre>
-
-<h3 id="4-chuẩn-bị-cho-ứng-dụng-rails">4. Chuẩn bị cho ứng dụng Rails</h3>
-
+</code></pre><h3 id="4-chun-b-cho-ng-dng-rails">4. Chuẩn bị cho ứng dụng Rails</h3>
 <pre><code># Lấy source của ứng dụng về
 $ sudo mkdir -p /var/www
 $ sudo chown -R deploy:deploy /var/www
@@ -533,10 +501,7 @@ $ vi .env    # Cài đặt các biến môi trường bạn cần dùng
 $ RAILS_ENV=production rails assets:precompile
 # DB Migration
 $ RAILS_ENV=production rails db:migrate
-</code></pre>
-
-<h3 id="5-cài-đặt-puma-chạy-dạng-service-chạy-ở-background-và-tự-khởi-chạy">5. Cài đặt Puma chạy dạng service - chạy ở background và tự khởi chạy</h3>
-
+</code></pre><h3 id="5-ci-t-puma-chy-dng-service---chy--background-v-t-khi-chy">5. Cài đặt Puma chạy dạng service - chạy ở background và tự khởi chạy</h3>
 <pre><code># Đầu tiên cần tạo file cấu hình cho service puma
 $ sudo touch /etc/systemd/system/puma.service
 # Nội dung file puma.service tham khảo mình để ở dưới
@@ -550,10 +515,7 @@ $ sudo systemctl restart puma
 
 # Nếu cần khởi động puma bằng tay, chạy lệnh sau
 $ RAILS_ENV=production /home/deploy/.rbenv/shims/puma -C /var/www/great_app/config/puma.rb
-</code></pre>
-
-<p><em>File puma.service tham khảo</em></p>
-
+</code></pre><p><em>File puma.service tham khảo</em></p>
 <pre><code>[Unit]
 Description=Puma HTTP Server
 After=network.target
@@ -586,10 +548,7 @@ Restart=always
 
 [Install]
 WantedBy=multi-user.target
-</code></pre>
-
-<h3 id="6-cài-đặt-nginx">6. Cài đặt Nginx</h3>
-
+</code></pre><h3 id="6-ci-t-nginx">6. Cài đặt Nginx</h3>
 <pre><code># cài nginx
 $ sudo yum -y install nginx
 # Nội dung file greatapp.nginx.conf tham khảo mình để ở dưới
@@ -605,10 +564,7 @@ $ sudo chown -R nginx:nginx /var/lib/nginx/ # 1回権限エラーで困った為
 $ sudo chown -R deploy:deploy /var/log/nginx
 $ sudo chown -R deploy:deploy /var/log/nginx/*
 $ sudo chown -R deploy:deploy /var/www/great_app/log/*
-</code></pre>
-
-<p><em>File greatapp.nginx.conf tham khảo</em></p>
-
+</code></pre><p><em>File greatapp.nginx.conf tham khảo</em></p>
 <pre><code># log directory
 error_log  /var/www/great_app/log/nginx.error.log;
 access_log /var/www/great_app/log/nginx.access.log;
@@ -676,21 +632,14 @@ server {
     client_max_body_size 4G;
     keepalive_timeout 10;
 }
-</code></pre>
-
-<h3 id="7-cài-đặt-log-rotation">7. Cài đặt log rotation</h3>
-
+</code></pre><h3 id="7-ci-t-log-rotation">7. Cài đặt log rotation</h3>
 <p>Log của nginx, puma, rails theo thời gian sẽ tăng dần do đó cài đặt để rotation log
 là thói quen chúng ta nên làm.</p>
-
 <pre><code># Nội dung file greatapp.logrotate.conf tham khảo mình để ở dưới
 $ sudo vi /etc/logrotate.d/greatapp.logrotate.conf
 $ mkdir /var/log/nginx/old/
 $ mkdir /var/www/switch_bike/src/log/old/
-</code></pre>
-
-<p><em>File greatapp.logrotate.conf tham khảo</em></p>
-
+</code></pre><p><em>File greatapp.logrotate.conf tham khảo</em></p>
 <pre><code># Nginx log
 /var/log/nginx/*.log
 {
@@ -730,9 +679,7 @@ $ mkdir /var/www/switch_bike/src/log/old/
     missingok
     su deploy deploy
 }
-</code></pre>
-
-<hr />
+</code></pre><hr>
 
 </div>
 

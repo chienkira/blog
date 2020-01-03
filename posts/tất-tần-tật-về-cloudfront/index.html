@@ -2,36 +2,38 @@
 <html lang='en'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='CloudFrontとは  AWSが提供するCDN（コンテンツ配信サービス）である。 世界中に設置されているエッジサーバを利用し、ユーザの最寄りエッジサーバからキャッシュを送ることでユーザへ高速な配信を実現できるサービスである。  CloudFrontの設定 Distribution Settings（ディストリビューション設定） ディストリビューションはCloudFrontの配信設定の単位になるので、CloudFrontの使用にはまずディストリビューションを作成する必要がある。
-ディストリビューション配信種類はWebとRTMPがある。 - Web: ウェブ配信専用（基本的にこちらの種類を使う） - RTMP: メディアのストリーミング配信専用
- Alternate Domain Names (CNAMEs) CloudFront によって割り当てられたドメイン名（例 https://hogehoge.cloudfront.net）の代わりに、使用したい代替ドメイン名（例 https://example.com）をここに指定する。
- SSL Certificate デフォルトのCloudFrontのSSL証明書を使用するか、独自SSL証明書（ACMで登録したもの）を選択する。
-  Origin Settings（オリジンドメイン設定）  Origin Domain Name
+<meta name='description' content='CloudFrontとは  AWSが提供するCDN（コンテンツ配信サービス）である。 世界中に設置されているエッジサーバを利用し、ユーザの最寄りエッジサーバからキャッシュを送ることでユーザへ高速な配信を実現できるサービスである。  ![CloudFrontのコンテンツをユーザーに配信する方法] (https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/how-cloudfront-delivers-content.png)
+CloudFrontの設定 Distribution Settings（ディストリビューション設定） ディストリビューションはCloudFrontの配信設定の単位になるので、CloudFrontの使用にはまずディストリビューションを作成する必要がある。
+ディストリビューション配信種類はWebとRTMPがある。
+ Web: ウェブ配信専用（基本的にこちらの種類を使う） RTMP: メディアのストリーミング配信専用    Alternate Domain Names (CNAMEs) CloudFront によって割り当てられたドメイン名（例 https://hogehoge.cloudfront.net）の代わりに、使用したい代替ドメイン名（例 https://example.com）をここに指定する。
+  SSL Certificate デフォルトのCloudFrontのSSL証明書を使用するか、独自SSL証明書（ACMで登録したもの）を選択する。
+  Origin Settings（オリジンドメイン設定）   Origin Domain Name
 オリジンドメインを選択する。 フロントエンドをS3バケットに格納した場合は、オリジンドメインにS3バケットを選択すると良い。
 ※オリジンドメインとは、コンテンツの提供元のことを表す。オリジンドメインには、AWSのリソース（S3バケットやELBやAWS MediaPackageエンドポイントや AWS MediaStoreContainerエンドポイント）か、もしくはそれ以外のリソース（どこかのウェブサーバのドメイン等）でも指定できる。
- Origin Path オリジン内のディレクトリからコンテンツが配信されるようにしたい場合は、オリジンパスを入力することで実現できる。 例えば、オリジンパスに/greenを入力した場合、ユーザーがブラウザでexample.com/index.htmlとリクエストすると、CloudFrontは s3bucket/green/index.html を返答する。
- Origin ID ディストリビューション内でこのオリジンをユニークで区別する為の文字列である。 オリジンドメインを入力したら、自動的に生成されるオリジンIDをそのまま使っても良い。
- Restrict Bucket Access CloudFrontのURLでしかS3バケット内のコンテンツがアクセスできないように制御をしたい場合、この設定をYESにする。 ユーザーがCloudFrontのURLでもS3バケットのURLでもアクセスできるようにしたい場合は、[No]にする。
- Origin Access Identity [Restrict Bucket Access] で [Yes] にした場合、オリジンアクセスアイデンティティが必要になる。 新しいアイデンティティを作成するか、既存のアイデンティティを使用するかを下の [Your Identities] 設定項目で選択する。'>
+  Origin Path オリジン内のディレクトリからコンテンツが配信されるようにしたい場合は、オリジンパスを入力することで実現できる。 例えば、オリジンパスに/greenを入力した場合、ユーザーがブラウザでexample.com/index.htmlとリクエストすると、CloudFrontは s3bucket/green/index.html を返答する。
+  Origin ID ディストリビューション内でこのオリジンをユニークで区別する為の文字列である。 オリジンドメインを入力したら、自動的に生成されるオリジンIDをそのまま使っても良い。
+  Restrict Bucket Access CloudFrontのURLでしかS3バケット内のコンテンツがアクセスできないように制御をしたい場合、この設定をYESにする。 ユーザーがCloudFrontのURLでもS3バケットのURLでもアクセスできるようにしたい場合は、[No]にする。
+  Origin Access Identity [Restrict Bucket Access] で [Yes] にした場合、オリジンアクセスアイデンティティが必要になる。 新しいアイデンティティを作成するか、既存のアイデンティティを使用するかを下の [Your Identities] 設定項目で選択する。'>
 <meta name='theme-color' content='#ffcd00'>
 
 <meta property='og:title' content='Tất Tần Tật Về Cloudfront(日本語) | Chien Kira'>
-<meta property='og:description' content='CloudFrontとは  AWSが提供するCDN（コンテンツ配信サービス）である。 世界中に設置されているエッジサーバを利用し、ユーザの最寄りエッジサーバからキャッシュを送ることでユーザへ高速な配信を実現できるサービスである。  CloudFrontの設定 Distribution Settings（ディストリビューション設定） ディストリビューションはCloudFrontの配信設定の単位になるので、CloudFrontの使用にはまずディストリビューションを作成する必要がある。
-ディストリビューション配信種類はWebとRTMPがある。 - Web: ウェブ配信専用（基本的にこちらの種類を使う） - RTMP: メディアのストリーミング配信専用
- Alternate Domain Names (CNAMEs) CloudFront によって割り当てられたドメイン名（例 https://hogehoge.cloudfront.net）の代わりに、使用したい代替ドメイン名（例 https://example.com）をここに指定する。
- SSL Certificate デフォルトのCloudFrontのSSL証明書を使用するか、独自SSL証明書（ACMで登録したもの）を選択する。
-  Origin Settings（オリジンドメイン設定）  Origin Domain Name
+<meta property='og:description' content='CloudFrontとは  AWSが提供するCDN（コンテンツ配信サービス）である。 世界中に設置されているエッジサーバを利用し、ユーザの最寄りエッジサーバからキャッシュを送ることでユーザへ高速な配信を実現できるサービスである。  ![CloudFrontのコンテンツをユーザーに配信する方法] (https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/how-cloudfront-delivers-content.png)
+CloudFrontの設定 Distribution Settings（ディストリビューション設定） ディストリビューションはCloudFrontの配信設定の単位になるので、CloudFrontの使用にはまずディストリビューションを作成する必要がある。
+ディストリビューション配信種類はWebとRTMPがある。
+ Web: ウェブ配信専用（基本的にこちらの種類を使う） RTMP: メディアのストリーミング配信専用    Alternate Domain Names (CNAMEs) CloudFront によって割り当てられたドメイン名（例 https://hogehoge.cloudfront.net）の代わりに、使用したい代替ドメイン名（例 https://example.com）をここに指定する。
+  SSL Certificate デフォルトのCloudFrontのSSL証明書を使用するか、独自SSL証明書（ACMで登録したもの）を選択する。
+  Origin Settings（オリジンドメイン設定）   Origin Domain Name
 オリジンドメインを選択する。 フロントエンドをS3バケットに格納した場合は、オリジンドメインにS3バケットを選択すると良い。
 ※オリジンドメインとは、コンテンツの提供元のことを表す。オリジンドメインには、AWSのリソース（S3バケットやELBやAWS MediaPackageエンドポイントや AWS MediaStoreContainerエンドポイント）か、もしくはそれ以外のリソース（どこかのウェブサーバのドメイン等）でも指定できる。
- Origin Path オリジン内のディレクトリからコンテンツが配信されるようにしたい場合は、オリジンパスを入力することで実現できる。 例えば、オリジンパスに/greenを入力した場合、ユーザーがブラウザでexample.com/index.htmlとリクエストすると、CloudFrontは s3bucket/green/index.html を返答する。
- Origin ID ディストリビューション内でこのオリジンをユニークで区別する為の文字列である。 オリジンドメインを入力したら、自動的に生成されるオリジンIDをそのまま使っても良い。
- Restrict Bucket Access CloudFrontのURLでしかS3バケット内のコンテンツがアクセスできないように制御をしたい場合、この設定をYESにする。 ユーザーがCloudFrontのURLでもS3バケットのURLでもアクセスできるようにしたい場合は、[No]にする。
- Origin Access Identity [Restrict Bucket Access] で [Yes] にした場合、オリジンアクセスアイデンティティが必要になる。 新しいアイデンティティを作成するか、既存のアイデンティティを使用するかを下の [Your Identities] 設定項目で選択する。'>
+  Origin Path オリジン内のディレクトリからコンテンツが配信されるようにしたい場合は、オリジンパスを入力することで実現できる。 例えば、オリジンパスに/greenを入力した場合、ユーザーがブラウザでexample.com/index.htmlとリクエストすると、CloudFrontは s3bucket/green/index.html を返答する。
+  Origin ID ディストリビューション内でこのオリジンをユニークで区別する為の文字列である。 オリジンドメインを入力したら、自動的に生成されるオリジンIDをそのまま使っても良い。
+  Restrict Bucket Access CloudFrontのURLでしかS3バケット内のコンテンツがアクセスできないように制御をしたい場合、この設定をYESにする。 ユーザーがCloudFrontのURLでもS3バケットのURLでもアクセスできるようにしたい場合は、[No]にする。
+  Origin Access Identity [Restrict Bucket Access] で [Yes] にした場合、オリジンアクセスアイデンティティが必要になる。 新しいアイデンティティを作成するか、既存のアイデンティティを使用するかを下の [Your Identities] 設定項目で選択する。'>
 <meta property='og:url' content='https://chienkira.github.io/blog/posts/t%E1%BA%A5t-t%E1%BA%A7n-t%E1%BA%ADt-v%E1%BB%81-cloudfront/'>
 <meta property='og:site_name' content='Chienkira my blog'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/00e439e7376596f2760b4ef9a28df93b?s=256'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='aws'><meta property='article:tag' content='cloudfront'><meta property='article:published_time' content='2019-02-21T16:33:07&#43;09:00'/><meta property='article:modified_time' content='2019-02-21T16:33:07&#43;09:00'/><meta name='twitter:card' content='summary'><meta name='twitter:creator' content='@chienkira'>
 
-<meta name="generator" content="Hugo 0.50" />
+<meta name="generator" content="Hugo 0.61.0" />
 
   <title>Tất Tần Tật Về Cloudfront(日本語) | Chien Kira</title>
   <link rel='canonical' href='https://chienkira.github.io/blog/posts/t%E1%BA%A5t-t%E1%BA%A7n-t%E1%BA%ADt-v%E1%BB%81-cloudfront/'>
@@ -75,9 +77,7 @@ if (!doNotTrack) {
     </h2>
     <div class='desc'>
     <p>a web &lsquo;full snack&rsquo; developer</p>
-
 <p>a Papa engineer</p>
-
 <p>at Tokyo</p>
 
     </div>
@@ -91,24 +91,6 @@ if (!doNotTrack) {
 
   <div class='container list-container'>
   <ul class='list taxonomy-cloud'><li>
-        <a href='/blog/tags/ci/' style='font-size:1em'>CI</a>
-      </li><li>
-        <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
-      </li><li>
-        <a href='/blog/tags/https/' style='font-size:1em'>HTTPS</a>
-      </li><li>
-        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
-      </li><li>
-        <a href='/blog/tags/sam/' style='font-size:1.1428571428571428em'>SAM</a>
-      </li><li>
-        <a href='/blog/tags/sre/' style='font-size:1em'>SRE</a>
-      </li><li>
-        <a href='/blog/tags/ssl/' style='font-size:1em'>SSL</a>
-      </li><li>
-        <a href='/blog/tags/softbank/' style='font-size:1em'>Softbank</a>
-      </li><li>
-        <a href='/blog/tags/til/' style='font-size:1em'>TIL</a>
-      </li><li>
         <a href='/blog/tags/api-gateway/' style='font-size:1em'>api gateway</a>
       </li><li>
         <a href='/blog/tags/aws/' style='font-size:2em'>aws</a>
@@ -116,6 +98,10 @@ if (!doNotTrack) {
         <a href='/blog/tags/blue-green-deploy/' style='font-size:1em'>blue green deploy</a>
       </li><li>
         <a href='/blog/tags/career/' style='font-size:1em'>career</a>
+      </li><li>
+        <a href='/blog/tags/ci/' style='font-size:1em'>CI</a>
+      </li><li>
+        <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
       </li><li>
         <a href='/blog/tags/cli/' style='font-size:1em'>cli</a>
       </li><li>
@@ -135,9 +121,13 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/dynamodb-local/' style='font-size:1em'>dynamodb local</a>
       </li><li>
+        <a href='/blog/tags/https/' style='font-size:1em'>HTTPS</a>
+      </li><li>
         <a href='/blog/tags/infra/' style='font-size:1.4285714285714286em'>infra</a>
       </li><li>
         <a href='/blog/tags/japan/' style='font-size:1em'>japan</a>
+      </li><li>
+        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
       </li><li>
         <a href='/blog/tags/lambda/' style='font-size:1.1428571428571428em'>lambda</a>
       </li><li>
@@ -169,15 +159,21 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/ruby/' style='font-size:1.1428571428571428em'>ruby</a>
       </li><li>
+        <a href='/blog/tags/sam/' style='font-size:1.1428571428571428em'>SAM</a>
+      </li><li>
         <a href='/blog/tags/serverless/' style='font-size:1.2857142857142856em'>serverless</a>
       </li><li>
-        <a href='/blog/tags/sre/' style='font-size:1em'>sre</a>
+        <a href='/blog/tags/softbank/' style='font-size:1em'>Softbank</a>
+      </li><li>
+        <a href='/blog/tags/sre/' style='font-size:1.1428571428571428em'>sre</a>
+      </li><li>
+        <a href='/blog/tags/ssl/' style='font-size:1em'>SSL</a>
       </li><li>
         <a href='/blog/tags/tech/' style='font-size:1.4285714285714286em'>tech</a>
       </li><li>
         <a href='/blog/tags/terraform/' style='font-size:1.1428571428571428em'>terraform</a>
       </li><li>
-        <a href='/blog/tags/til/' style='font-size:1.1428571428571428em'>til</a>
+        <a href='/blog/tags/til/' style='font-size:1.2857142857142856em'>til</a>
       </li></ul>
 </div>
 
@@ -408,187 +404,180 @@ if (!doNotTrack) {
     <span>Table of contents</span>
   </summary>
   <nav id="TableOfContents">
-<ul>
-<li><a href="#cloudfrontとは">CloudFrontとは</a></li>
-<li><a href="#cloudfrontの設定">CloudFrontの設定</a>
-<ul>
-<li><a href="#distribution-settings-ディストリビューション設定">Distribution Settings（ディストリビューション設定）</a></li>
-<li><a href="#origin-settings-オリジンドメイン設定">Origin Settings（オリジンドメイン設定）</a></li>
-<li><a href="#cache-behavior-settings-キャッシュ動作設定">Cache Behavior Settings（キャッシュ動作設定）</a></li>
-<li><a href="#invalidation-settings-キャッシュ無効化設定">Invalidation Settings（キャッシュ無効化設定）</a></li>
-<li><a href="#custom-error-response-settings-カスタムエラーレスポンス設定">Custom Error Response Settings（カスタムエラーレスポンス設定）</a></li>
-<li><a href="#geo-restriction-settings-地域制限設定">Geo-Restriction Settings（地域制限設定）</a></li>
-</ul></li>
-<li><a href="#cloudfrontの料金">CloudFrontの料金</a>
-<ul>
-<li><a href="#cloudfrontの料金-1">CloudFrontの料金</a></li>
-<li><a href="#lambda-edgeの料金">Lambda @Edgeの料金</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#distribution-settings">Distribution Settings（ディストリビューション設定）</a></li>
+    <li><a href="#origin-settings">Origin Settings（オリジンドメイン設定）</a></li>
+    <li><a href="#cache-behavior-settings">Cache Behavior Settings（キャッシュ動作設定）</a></li>
+    <li><a href="#invalidation-settings">Invalidation Settings（キャッシュ無効化設定）</a></li>
+    <li><a href="#custom-error-response-settings">Custom Error Response Settings（カスタムエラーレスポンス設定）</a></li>
+    <li><a href="#geo-restriction-settings">Geo-Restriction Settings（地域制限設定）</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#cloudfront-3">CloudFrontの料金</a></li>
+    <li><a href="#lambda-edge">Lambda @Edgeの料金</a></li>
+  </ul>
 </nav>
 </details>
 
 
   <div class='container entry-content'>
-  
-
-<h1 id="cloudfrontとは">CloudFrontとは</h1>
-
+  <h1 id="cloudfront">CloudFrontとは</h1>
 <ul>
 <li>AWSが提供するCDN（コンテンツ配信サービス）である。</li>
 <li>世界中に設置されているエッジサーバを利用し、ユーザの最寄りエッジサーバからキャッシュを送ることでユーザへ高速な配信を実現できるサービスである。</li>
 </ul>
-
-<p><img src="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/how-cloudfront-delivers-content.png" alt="CloudFrontのコンテンツをユーザーに配信する方法" /></p>
-
-<h1 id="cloudfrontの設定">CloudFrontの設定</h1>
-
-<h2 id="distribution-settings-ディストリビューション設定">Distribution Settings（ディストリビューション設定）</h2>
-
+<p>![CloudFrontのコンテンツをユーザーに配信する方法]
+(<a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/how-cloudfront-delivers-content.png">https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/how-cloudfront-delivers-content.png</a>)</p>
+<h1 id="cloudfront-1">CloudFrontの設定</h1>
+<h2 id="distribution-settings">Distribution Settings（ディストリビューション設定）</h2>
 <p>ディストリビューションはCloudFrontの配信設定の単位になるので、CloudFrontの使用にはまずディストリビューションを作成する必要がある。</p>
-
-<p>ディストリビューション配信種類はWebとRTMPがある。
-- Web: ウェブ配信専用（基本的にこちらの種類を使う）
-- RTMP: メディアのストリーミング配信専用</p>
-
+<p>ディストリビューション配信種類はWebとRTMPがある。</p>
+<ul>
+<li>Web: ウェブ配信専用（基本的にこちらの種類を使う）</li>
+<li>RTMP: メディアのストリーミング配信専用</li>
+</ul>
 <ol>
-<li><p>Alternate Domain Names (CNAMEs)
-CloudFront によって割り当てられたドメイン名（例 <code>https://hogehoge.cloudfront.net</code>）の代わりに、使用したい代替ドメイン名（例 <code>https://example.com</code>）をここに指定する。</p></li>
-
-<li><p>SSL Certificate
-デフォルトのCloudFrontのSSL証明書を使用するか、独自SSL証明書（ACMで登録したもの）を選択する。</p></li>
+<li>
+<p>Alternate Domain Names (CNAMEs)
+CloudFront によって割り当てられたドメイン名（例 <code>https://hogehoge.cloudfront.net</code>）の代わりに、使用したい代替ドメイン名（例 <code>https://example.com</code>）をここに指定する。</p>
+</li>
+<li>
+<p>SSL Certificate
+デフォルトのCloudFrontのSSL証明書を使用するか、独自SSL証明書（ACMで登録したもの）を選択する。</p>
+</li>
 </ol>
-
-<h2 id="origin-settings-オリジンドメイン設定">Origin Settings（オリジンドメイン設定）</h2>
-
+<h2 id="origin-settings">Origin Settings（オリジンドメイン設定）</h2>
 <ol>
-<li><p>Origin Domain Name<br />
+<li>
+<p>Origin Domain Name<br>
 オリジンドメインを選択する。
 フロントエンドをS3バケットに格納した場合は、オリジンドメインにS3バケットを選択すると良い。</p>
-
-<p>※オリジンドメインとは、コンテンツの提供元のことを表す。オリジンドメインには、AWSのリソース（S3バケットやELBやAWS MediaPackageエンドポイントや AWS MediaStoreContainerエンドポイント）か、もしくはそれ以外のリソース（どこかのウェブサーバのドメイン等）でも指定できる。</p></li>
-
-<li><p>Origin Path
+<p>※オリジンドメインとは、コンテンツの提供元のことを表す。オリジンドメインには、AWSのリソース（S3バケットやELBやAWS MediaPackageエンドポイントや AWS MediaStoreContainerエンドポイント）か、もしくはそれ以外のリソース（どこかのウェブサーバのドメイン等）でも指定できる。</p>
+</li>
+<li>
+<p>Origin Path
 オリジン内のディレクトリからコンテンツが配信されるようにしたい場合は、オリジンパスを入力することで実現できる。
-例えば、オリジンパスに<code>/green</code>を入力した場合、ユーザーがブラウザで<code>example.com/index.html</code>とリクエストすると、CloudFrontは <code>s3bucket/green/index.html</code> を返答する。</p></li>
-
-<li><p>Origin ID
+例えば、オリジンパスに<code>/green</code>を入力した場合、ユーザーがブラウザで<code>example.com/index.html</code>とリクエストすると、CloudFrontは <code>s3bucket/green/index.html</code> を返答する。</p>
+</li>
+<li>
+<p>Origin ID
 ディストリビューション内でこのオリジンをユニークで区別する為の文字列である。
-オリジンドメインを入力したら、自動的に生成されるオリジンIDをそのまま使っても良い。</p></li>
-
-<li><p>Restrict Bucket Access
+オリジンドメインを入力したら、自動的に生成されるオリジンIDをそのまま使っても良い。</p>
+</li>
+<li>
+<p>Restrict Bucket Access
 CloudFrontのURLでしかS3バケット内のコンテンツがアクセスできないように制御をしたい場合、この設定をYESにする。
-ユーザーがCloudFrontのURLでもS3バケットのURLでもアクセスできるようにしたい場合は、[No]にする。</p></li>
-
-<li><p>Origin Access Identity
+ユーザーがCloudFrontのURLでもS3バケットのURLでもアクセスできるようにしたい場合は、[No]にする。</p>
+</li>
+<li>
+<p>Origin Access Identity
 [Restrict Bucket Access] で [Yes] にした場合、オリジンアクセスアイデンティティが必要になる。
-新しいアイデンティティを作成するか、既存のアイデンティティを使用するかを下の [Your Identities] 設定項目で選択する。</p></li>
-
-<li><p>Grant Read Permissions on Bucket
+新しいアイデンティティを作成するか、既存のアイデンティティを使用するかを下の [Your Identities] 設定項目で選択する。</p>
+</li>
+<li>
+<p>Grant Read Permissions on Bucket
 CloudFront で、S3 バケット内のオブジェクトの読み取りアクセス許可を自動的に付与するには、[Yes, Update Bucket Policy] を選択する。
-アクセス許可を手動で更新する場合は、[No, I will Update Permissions] を選択する。</p></li>
-
-<li><p>Origin Custom Headers
-CloudFront がオリジンにリクエストを転送するときに、常にプラスのカスタムヘッダーを含めるように設定する。</p></li>
+アクセス許可を手動で更新する場合は、[No, I will Update Permissions] を選択する。</p>
+</li>
+<li>
+<p>Origin Custom Headers
+CloudFront がオリジンにリクエストを転送するときに、常にプラスのカスタムヘッダーを含めるように設定する。</p>
+</li>
 </ol>
-
-<h2 id="cache-behavior-settings-キャッシュ動作設定">Cache Behavior Settings（キャッシュ動作設定）</h2>
-
+<h2 id="cache-behavior-settings">Cache Behavior Settings（キャッシュ動作設定）</h2>
 <p>キャッシュ動作設定を使用すると、URLパスパターンに対して、様々な機能が設定できる。</p>
-
 <ol>
-<li><p>Path Pattern
+<li>
+<p>Path Pattern
 このキャッシュ動作をどのようなリクエストに割り当てるかを指定する。
 パスパターンの例：<code>images/*</code> や <code>*.gif</code> など
 デフォルトは <code>*</code> (すべてのファイル) に設定される。
 パスパターンには、以下のワイルドカード文字を使用できる。
 <code>* は、0 個以上の文字に一致</code>
-<code>? は、正確に 1 個の文字に一致</code></p></li>
-
-<li><p>Origin or Origin Group
+<code>? は、正確に 1 個の文字に一致</code></p>
+</li>
+<li>
+<p>Origin or Origin Group
 オリジン（ユニークなオリジンID）を選択する。
-例えば、複数のオリジンを設定している場合に、パスパターンで判断しリクエストを違うオリジンに転送することができる。</p></li>
-
-<li><p>Viewer Protocol Policy</p></li>
-</ol>
-
-<p>[Redirect HTTP to HTTPS]: ユーザがHTTPでアクセスした場合、自動的に HTTPS リクエストにリダイレクトさせる。</p>
-
-<ol>
-<li><p>Allowed HTTP Methods
-CloudFrontが処理してオリジンに転送可能なHTTPメソッドを設定する。</p></li>
-
-<li><p>Lambda Function Associations
+例えば、複数のオリジンを設定している場合に、パスパターンで判断しリクエストを違うオリジンに転送することができる。</p>
+</li>
+<li>
+<p>Viewer Protocol Policy
+[HTTP and HTTPS]: ユーザはHTTPでもHTTPSでもコンテンツアクセスを許可する。
+[Redirect HTTP to HTTPS]: ユーザがHTTPでアクセスした場合、自動的に HTTPS リクエストにリダイレクトさせる。
+[HTTPS Only]: ユーザはHTTPSでしかコンテンツアクセスできないようにする。</p>
+</li>
+<li>
+<p>Allowed HTTP Methods
+CloudFrontが処理してオリジンに転送可能なHTTPメソッドを設定する。</p>
+</li>
+<li>
+<p>Lambda Function Associations
 CloudFront が配信するコンテンツをカスタマイズするLambda @Edge関数を実行できる。
-(<a href="https://docs.aws.amazon.com/ja_jp/AmazonCloudFront/latest/DeveloperGuide/lambda-at-the-edge.html" target="_blank">https://docs.aws.amazon.com/ja_jp/AmazonCloudFront/latest/DeveloperGuide/lambda-at-the-edge.html</a>)
+(<a href="https://docs.aws.amazon.com/ja_jp/AmazonCloudFront/latest/DeveloperGuide/lambda-at-the-edge.html">https://docs.aws.amazon.com/ja_jp/AmazonCloudFront/latest/DeveloperGuide/lambda-at-the-edge.html</a>)
 Lambda @Edge関数は、次の4つのCloudFrontイベントの発生時に実行することが可能である。</p>
-
 <ul>
 <li>Viewer Request：CloudFront がユーザからのリクエストを受信したとき</li>
 <li>Origin Request：CloudFront がリクエストをオリジンに転送する前</li>
 <li>Origin Response：CloudFront がオリジンからレスポンスを受信したとき</li>
 <li>Viewer Response：CloudFront がユーザにレスポンスを返す前</li>
 </ul>
-
 <p>Lambda @Edgeを使用すれば、様々なことが実現可能になる。
 例）
 ・Origin Requestのトリガーを使い、Cookie を検査して異なるオリジン（S3バケット等）からコンテンツを配信させることができる。
 ・デバイスに関する情報が含まれている User-Agent ヘッダーを確認し、異なるコンテンツ（画像など）をユーザに返すことができる。
 ・等々
 なお、普通のLambda関数と違う実行環境や制御がある。詳細はこちらのリンクご参照ください。
-(<a href="https://docs.aws.amazon.com/ja_jp/AmazonCloudFront/latest/DeveloperGuide/lambda-requirements-limits.html#lambda-requirements-lambda-function-configuration" target="_blank">https://docs.aws.amazon.com/ja_jp/AmazonCloudFront/latest/DeveloperGuide/lambda-requirements-limits.html#lambda-requirements-lambda-function-configuration</a>)</p></li>
+(<a href="https://docs.aws.amazon.com/ja_jp/AmazonCloudFront/latest/DeveloperGuide/lambda-requirements-limits.html#lambda-requirements-lambda-function-configuration">https://docs.aws.amazon.com/ja_jp/AmazonCloudFront/latest/DeveloperGuide/lambda-requirements-limits.html#lambda-requirements-lambda-function-configuration</a>)</p>
+</li>
 </ol>
-
-<h2 id="invalidation-settings-キャッシュ無効化設定">Invalidation Settings（キャッシュ無効化設定）</h2>
-
+<h2 id="invalidation-settings">Invalidation Settings（キャッシュ無効化設定）</h2>
 <p>有効期限切れになる前にCloudFrontのエッジサーバから、キャッシュを削除したい場合、この「キャッシュの無効化」設定をする。
 ※キャッシュが無効化された後、エッジサーバにリクエストがあるとエッジサーバがオリジンから最新コンテンツを取得して配信する。</p>
-
 <ol>
-<li><p>Distribution ID（参照のみ）
-対象のディストリビューションのIDが表示される。</p></li>
-
-<li><p>Object Paths
+<li>
+<p>Distribution ID（参照のみ）
+対象のディストリビューションのIDが表示される。</p>
+</li>
+<li>
+<p>Object Paths
 無効化したファイルのパス+ファイル名を入力する。
-ワイルドカードを使用することで（<code>/*</code>）一括指定することも可能である。</p></li>
+ワイルドカードを使用することで（<code>/*</code>）一括指定することも可能である。</p>
+</li>
 </ol>
-
-<h2 id="custom-error-response-settings-カスタムエラーレスポンス設定">Custom Error Response Settings（カスタムエラーレスポンス設定）</h2>
-
-<p>オリジンが HTTP 4xx または 5xx のステータスコードを CloudFront に返した場合に、ユーザにカスタムエラーページ (HTML ファイルなど) を返すことができる。
-1. HTTP Error Code
-オリジンから返ってきたステータスコード（ドロップダウンから4xxと5xxのエラーが選択可能）</p>
-
+<h2 id="custom-error-response-settings">Custom Error Response Settings（カスタムエラーレスポンス設定）</h2>
+<p>オリジンが HTTP 4xx または 5xx のステータスコードを CloudFront に返した場合に、ユーザにカスタムエラーページ (HTML ファイルなど) を返すことができる。</p>
 <ol>
-<li><p>Error Caching Minimum TTL (seconds)
+<li>
+<p>HTTP Error Code
+オリジンから返ってきたステータスコード（ドロップダウンから4xxと5xxのエラーが選択可能）</p>
+</li>
+<li>
+<p>Error Caching Minimum TTL (seconds)
 エラーレスポンスをキャッシュする最小時間（秒）
-※この時間が過ぎていない限りにはオリジンに新しくリクエストを送らず、キャッシュされたエラーレスポンスを使ってユーザに返す。</p></li>
-
-<li><p>Response Page Path
-CloudFront がユーザに返すカスタムエラーページのパス (例: /errors/403-forbidden.html)</p></li>
-
-<li><p>HTTP Response Code
-カスタムエラーページとともにユーザに返す HTTP ステータスコード</p></li>
+※この時間が過ぎていない限りにはオリジンに新しくリクエストを送らず、キャッシュされたエラーレスポンスを使ってユーザに返す。</p>
+</li>
+<li>
+<p>Response Page Path
+CloudFront がユーザに返すカスタムエラーページのパス (例: /errors/403-forbidden.html)</p>
+</li>
+<li>
+<p>HTTP Response Code
+カスタムエラーページとともにユーザに返す HTTP ステータスコード</p>
+</li>
 </ol>
-
-<h2 id="geo-restriction-settings-地域制限設定">Geo-Restriction Settings（地域制限設定）</h2>
-
+<h2 id="geo-restriction-settings">Geo-Restriction Settings（地域制限設定）</h2>
 <p>特定の国のユーザーに対して、コンテンツのアクセスを許可するしないことがでこいる。</p>
-
-<h1 id="cloudfrontの料金">CloudFrontの料金</h1>
-
-<h2 id="cloudfrontの料金-1">CloudFrontの料金</h2>
-
+<h1 id="cloudfront-2">CloudFrontの料金</h1>
+<h2 id="cloudfront-3">CloudFrontの料金</h2>
 <p>合計料金 = インターネットへのデータ転送アウト料金 + オリジンへのデータ転送アウト料金 + リクエスト料金</p>
-
 <p>各料金はリージョン別で異なる。
 以下はJapanリージョンの場合の料金情報となる。</p>
-
 <ul>
 <li>インターネットへのデータ転送アウト料金
 月の転送データ量によって、1 GBあたりの料金が異なる。</li>
 </ul>
-
 <table>
 <thead>
 <tr>
@@ -596,45 +585,37 @@ CloudFront がユーザに返すカスタムエラーページのパス (例: /e
 <th>1GBあたりの料</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>月10 TB まで</td>
 <td>0.114 USD</td>
 </tr>
-
 <tr>
 <td>月10 TB 超 50 TB まで</td>
 <td>0.089 USD</td>
 </tr>
-
 <tr>
 <td>月50 TB 超 150 TB まで</td>
 <td>0.086 USD</td>
 </tr>
-
 <tr>
 <td>月150 TB 超 500 TB まで</td>
 <td>0.084 USD</td>
 </tr>
-
 <tr>
 <td>月500 TB 超 1,024 TB まで</td>
 <td>0.080 USD</td>
 </tr>
-
 <tr>
 <td>月1 PB 超 5 PB まで</td>
 <td>0.070 USD</td>
 </tr>
-
 <tr>
 <td>月 5 PB 超</td>
 <td>0.060 USD</td>
 </tr>
 </tbody>
 </table>
-
 <ul>
 <li>オリジンへのデータ転送アウト料金
 1 GBあたり0.060USD</li>
@@ -642,11 +623,8 @@ CloudFront がユーザに返すカスタムエラーページのパス (例: /e
 HTTP リクエスト1 万件あたり0.0090 USD
 HTTPS リクエスト1 万件あたり0.0125 USD</li>
 </ul>
-
-<h2 id="lambda-edgeの料金">Lambda @Edgeの料金</h2>
-
+<h2 id="lambda-edge">Lambda @Edgeの料金</h2>
 <p>合計料金 = コンピューティング料金 ＋ リクエスト料金</p>
-
 <ul>
 <li>コンピューティング料金
 128MB-秒 ごとに 0.00000625125 USD</li>

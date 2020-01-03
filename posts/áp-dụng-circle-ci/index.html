@@ -13,7 +13,7 @@ Giới thiệu CI và Circle CI CI CI viết tắt của Continuous Integration 
 <meta property='og:site_name' content='Chienkira my blog'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://circleci.com/circleci-logo-horizontal-twitter.png'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='CI'><meta property='article:tag' content='Circle CI'><meta property='article:tag' content='docker'><meta property='article:published_time' content='2019-03-23T21:40:43&#43;09:00'/><meta property='article:modified_time' content='2019-03-23T21:40:43&#43;09:00'/><meta name='twitter:card' content='summary_large_image'><meta name='twitter:creator' content='@chienkira'><meta property='twitter:image' content='https://circleci.com/circleci-logo-horizontal-twitter.png'>
 
-<meta name="generator" content="Hugo 0.50" />
+<meta name="generator" content="Hugo 0.61.0" />
 
   <title>Giới thiệu CI và áp dụng thực tế tool Circle CI | Chien Kira</title>
   <link rel='canonical' href='https://chienkira.github.io/blog/posts/%C3%A1p-d%E1%BB%A5ng-circle-ci/'>
@@ -57,9 +57,7 @@ if (!doNotTrack) {
     </h2>
     <div class='desc'>
     <p>a web &lsquo;full snack&rsquo; developer</p>
-
 <p>a Papa engineer</p>
-
 <p>at Tokyo</p>
 
     </div>
@@ -73,24 +71,6 @@ if (!doNotTrack) {
 
   <div class='container list-container'>
   <ul class='list taxonomy-cloud'><li>
-        <a href='/blog/tags/ci/' style='font-size:1em'>CI</a>
-      </li><li>
-        <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
-      </li><li>
-        <a href='/blog/tags/https/' style='font-size:1em'>HTTPS</a>
-      </li><li>
-        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
-      </li><li>
-        <a href='/blog/tags/sam/' style='font-size:1.1428571428571428em'>SAM</a>
-      </li><li>
-        <a href='/blog/tags/sre/' style='font-size:1em'>SRE</a>
-      </li><li>
-        <a href='/blog/tags/ssl/' style='font-size:1em'>SSL</a>
-      </li><li>
-        <a href='/blog/tags/softbank/' style='font-size:1em'>Softbank</a>
-      </li><li>
-        <a href='/blog/tags/til/' style='font-size:1em'>TIL</a>
-      </li><li>
         <a href='/blog/tags/api-gateway/' style='font-size:1em'>api gateway</a>
       </li><li>
         <a href='/blog/tags/aws/' style='font-size:2em'>aws</a>
@@ -98,6 +78,10 @@ if (!doNotTrack) {
         <a href='/blog/tags/blue-green-deploy/' style='font-size:1em'>blue green deploy</a>
       </li><li>
         <a href='/blog/tags/career/' style='font-size:1em'>career</a>
+      </li><li>
+        <a href='/blog/tags/ci/' style='font-size:1em'>CI</a>
+      </li><li>
+        <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
       </li><li>
         <a href='/blog/tags/cli/' style='font-size:1em'>cli</a>
       </li><li>
@@ -117,9 +101,13 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/dynamodb-local/' style='font-size:1em'>dynamodb local</a>
       </li><li>
+        <a href='/blog/tags/https/' style='font-size:1em'>HTTPS</a>
+      </li><li>
         <a href='/blog/tags/infra/' style='font-size:1.4285714285714286em'>infra</a>
       </li><li>
         <a href='/blog/tags/japan/' style='font-size:1em'>japan</a>
+      </li><li>
+        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
       </li><li>
         <a href='/blog/tags/lambda/' style='font-size:1.1428571428571428em'>lambda</a>
       </li><li>
@@ -151,15 +139,21 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/ruby/' style='font-size:1.1428571428571428em'>ruby</a>
       </li><li>
+        <a href='/blog/tags/sam/' style='font-size:1.1428571428571428em'>SAM</a>
+      </li><li>
         <a href='/blog/tags/serverless/' style='font-size:1.2857142857142856em'>serverless</a>
       </li><li>
-        <a href='/blog/tags/sre/' style='font-size:1em'>sre</a>
+        <a href='/blog/tags/softbank/' style='font-size:1em'>Softbank</a>
+      </li><li>
+        <a href='/blog/tags/sre/' style='font-size:1.1428571428571428em'>sre</a>
+      </li><li>
+        <a href='/blog/tags/ssl/' style='font-size:1em'>SSL</a>
       </li><li>
         <a href='/blog/tags/tech/' style='font-size:1.4285714285714286em'>tech</a>
       </li><li>
         <a href='/blog/tags/terraform/' style='font-size:1.1428571428571428em'>terraform</a>
       </li><li>
-        <a href='/blog/tags/til/' style='font-size:1.1428571428571428em'>til</a>
+        <a href='/blog/tags/til/' style='font-size:1.2857142857142856em'>til</a>
       </li></ul>
 </div>
 
@@ -395,49 +389,36 @@ if (!doNotTrack) {
     <span>Table of contents</span>
   </summary>
   <nav id="TableOfContents">
-<ul>
-<li><a href="#giới-thiệu-ci-và-circle-ci">Giới thiệu CI và Circle CI</a>
-<ul>
-<li><a href="#ci">CI</a></li>
-<li><a href="#circle-ci">Circle CI</a></li>
-</ul></li>
-<li><a href="#áp-dụng-circle-ci-cho-chienkira-blog">Áp dụng Circle CI cho chienkira/blog</a>
-<ul>
-<li><a href="#chọn-docker-image-để-làm-việc">Chọn docker image để làm việc</a></li>
-<li><a href="#cài-đặt-circle-ci">Cài đặt Circle CI</a>
-<ul>
-<li><a href="#1-đăng-nhập-vào-circle-ci">1. Đăng nhập vào Circle CI</a></li>
-<li><a href="#2-setup-circle-ci-cho-project">2. Setup Circle CI cho project</a></li>
-<li><a href="#3-cấu-hình-circle-ci">3. Cấu hình Circle CI</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#ci">CI</a></li>
+    <li><a href="#circle-ci">Circle CI</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#chn-docker-image--lm-vic">Chọn docker image để làm việc</a></li>
+    <li><a href="#ci-t-circle-ci">Cài đặt Circle CI</a>
+      <ul>
+        <li><a href="#1-ng-nhp-vo-circle-ci">1. Đăng nhập vào Circle CI</a></li>
+        <li><a href="#2-setup-circle-ci-cho-project">2. Setup Circle CI cho project</a></li>
+        <li><a href="#3-cu-hnh-circle-ci">3. Cấu hình Circle CI</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 </details>
 
 
   <div class='container entry-content'>
-  
-
-<p><strong>Lúc đầu trang blog này mình định deploy bằng tay vì nó đơn giản, thao tác cũng chẳng có gì - chạy cái shell script xong trong nháy mắt thôi. Nhưng mà tuần này chưa có gì hay ho để viết nên mình quyết định cài đặt CI cho em nó rồi lấy ý để viết bài này giới thiệu về CI luôn.</strong></p>
-
-<h1 id="giới-thiệu-ci-và-circle-ci">Giới thiệu CI và Circle CI</h1>
-
+  <p><strong>Lúc đầu trang blog này mình định deploy bằng tay vì nó đơn giản, thao tác cũng chẳng có gì - chạy cái shell script xong trong nháy mắt thôi. Nhưng mà tuần này chưa có gì hay ho để viết nên mình quyết định cài đặt CI cho em nó rồi lấy ý để viết bài này giới thiệu về CI luôn.</strong></p>
+<h1 id="gii-thiu-ci-v-circle-ci">Giới thiệu CI và Circle CI</h1>
 <h2 id="ci">CI</h2>
-
 <p><em>CI viết tắt của Continuous Integration (Tích hợp liên tục)</em>
 Trong quy trình làm phần mềm, lỗi lầm lớn nhất có thể xảy ra không phải là khi developer code ra cái gì tởm lợm! Ta biết nó tởm lợm, ta sửa lại nó vậy là xong. Nhưng một thao tác sai dù nhỏ trong lúc deloy có thể dẫn đến tai nạn khôn lường. Không có hai em gái nào xinh giống hệt được nhau :)) tương tự vậy không có gì đảm bảo rằng trong hàng ngàn hàng vạn lần bạn thực hiện deploy, không có một lỗi lầm thao tác nào xảy ra.</p>
-
 <p>Vì lý do đó, nhà nhà người người hướng đến một cách thức triển khai phần mềm ưu việt hơn. Với lợi thế là an toàn hơn, quá trình lại được tự động hóa, CI (và cả CD nữa) đang là xu thế thực sự. Nói đến đây thì cũng chưa thể rõ CI thực tế nó là cái gì cả phải không ạ? CI nó giống như kiểu design pattern là lý thuyết thôi áp dụng nó ra sao quan trọng với ta hơn. Vậy nên mình sẽ giải thích tiếp thông qua việc giới thiệu tool Circle CI ở ngay bên dưới nhé.</p>
-
 <h2 id="circle-ci">Circle CI</h2>
-
 <p>Như ở trên đề cập, nó là 1 tool để giúp ta hiện thực hóa CI. Có nhiều tool CI khác cũng nổi tiếng nữa (Travis CI, Jenkins&hellip;), lý do mình chọn Circle CI chỉ đơn giản vì trên công ty làm với nó nhiều rồi nên có kinh nghiệm thôi.</p>
-
 <p>Bản chất Circle CI là sử dụng docker, trong cấu hình Circle CI ta sẽ chỉ định các docker <code>image</code> sẽ sử dụng và các <code>job</code>, trong các job lại có các <code>step</code>, trong các step là cụ thể các <code>command</code>. Ngoài ra còn có cấu hình <code>filter</code> giúp ta linh hoạt điều chỉnh sao cho chỉ run các job khi có merge/push vào 1 số branch nhất định vân vân.</p>
-
 <p>Mô tả quá trình run 1 job trên Circle CI:</p>
-
 <ol>
 <li>Developer chỉ cần push hoặc merge vào 1 branch, Circle CI tự động biết event đó và khởi động lên job đã được cài đặt tương ứng.</li>
 <li>Ban đầu Circle CI pull docker image về và run lên trên môi trường cloud của nó</li>
@@ -445,82 +426,57 @@ Trong quy trình làm phần mềm, lỗi lầm lớn nhất có thể xảy ra 
 <li>Các step tiếp theo được chạy tùy vào độ sáng tạo của bạn, ví dụ job để build thì thường là <code>npm install</code> rồi <code>npm run abcxyz</code> hay job để deploy thì có thể là <code>aws s3 sync</code> hay <code>serverless deploy</code>&hellip;</li>
 <li>Sau khi tất cả các step đã chạy xong, job kết thúc. Nếu exit code của job là error thì mặc định ta sẽ nhận được mail thông báo failed nữa.</li>
 </ol>
-
 <p>Nói tóm lại, sau khi cài đặt và cấu hình ta chỉ việc dev còn các công việc như build, chạy test, deploy vân vân được tự động hóa hoàn toàn và chạy tức thì trên môi trường cloud mạnh mẽ miễn phí của Circle CI.</p>
-
-<h1 id="áp-dụng-circle-ci-cho-chienkira-blog">Áp dụng Circle CI cho chienkira/blog</h1>
-
+<h1 id="p-dng-circle-ci-cho-chienkirablog">Áp dụng Circle CI cho chienkira/blog</h1>
 <p>Sau đây mình sẽ sử dụng Circle CI để cài đặt CI giúp mình tự động deploy và publish trang blog mỗi khi có push thay đổi gì đó lên github.</p>
-
 <p><em>※ Blog của mình viết bằng hugo, publish thông qua github pages</em></p>
-
-<h2 id="chọn-docker-image-để-làm-việc">Chọn docker image để làm việc</h2>
-
+<h2 id="chn-docker-image--lm-vic">Chọn docker image để làm việc</h2>
 <p>Đầu tiên là phải tìm em docker image ngon ngon để xài.</p>
-
 <p>Chúng ta nên tránh lấy mấy image offical hào nhoáng kiểu linux hay node vân vân. Bọn nó xịn xò thật, tin tưởng được thật nhưng mà &ldquo;nguyên thủy&rdquo; thấy ghê. Nếu dùng mấy image đó thì để dùng được việc ta lại phải cài thêm ông A anh B, dẫn đến mỗi job trên Circle CI chỉ riêng đoạn pull docker image xong install các tool thì cũng đến mấy phút rồi&hellip; 😱</p>
-
-<p>Kinh nghiệm của mình là lên thẳng <a href="https://hub.docker.com/" target="_blank">docker hub</a> rồi tìm cái image nào có sẵn các hàng mình cần kéo về xài. Cẩn thận hơn thì check qua dockerfile của nó xem base từ image nào, run các lệnh gì cho đảm bảo.</p>
-
+<p>Kinh nghiệm của mình là lên thẳng <a href="https://hub.docker.com/">docker hub</a> rồi tìm cái image nào có sẵn các hàng mình cần kéo về xài. Cẩn thận hơn thì check qua dockerfile của nó xem base từ image nào, run các lệnh gì cho đảm bảo.</p>
 <p>Yêu cầu của image lần này là phải có hugo và git. (nhiều image trên thị trường ko có git nên phải cẩn thận, ko có git là lệnh <code>checkout</code> của Circle CI chết ngay ✋)</p>
-
-<p>Ok search thôi, từ khóa &lsquo;hugo git&rsquo; và link trang kết quả search đây: <a href="https://hub.docker.com/search?q=hugo%20git&amp;type=image" target="_blank">https://hub.docker.com/search?q=hugo%20git&amp;type=image</a>.<br />
+<p>Ok search thôi, từ khóa &lsquo;hugo git&rsquo; và link trang kết quả search đây: <a href="https://hub.docker.com/search?q=hugo%20git&amp;type=image">https://hub.docker.com/search?q=hugo%20git&amp;type=image</a>.<br>
 Image đầu tiên trong danh sách kết quả mình nhìn thấy là ưng cái bụng liền.</p>
-
 <blockquote>
 <p>Container with Hugo, Git &amp; Bash installed. Made to work with wercker.</p>
 </blockquote>
-
 <p>Check qua thử docker file, base là <code>alpine</code> =&gt; rất nhẹ nữa. Ok để chắc nữa thì mình sẽ pull image này về trên máy check hàng em nó!</p>
-
 <ul>
-<li><p>Run em nó:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run --rm -it andthensome/alpine-hugo-git-bash /bin/sh</code></pre></div></li>
-
-<li><p>Vào trong em nó rồi thì check hàng:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/ <span style="color:#75715e"># git --version
-</span><span style="color:#75715e"></span>git version <span style="color:#ae81ff">2</span>.13.5
-/ <span style="color:#75715e"># hugo version
-</span><span style="color:#75715e"></span>Hugo Static Site Generator v0.31.1 linux/amd64 BuildDate: <span style="color:#ae81ff">2017</span>-11-27T11:26:24Z</code></pre></div></li>
+<li>
+<p>Run em nó:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run --rm -it andthensome/alpine-hugo-git-bash /bin/sh
+</code></pre></div></li>
+<li>
+<p>Vào trong em nó rồi thì check hàng:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/ <span style="color:#75715e"># git --version</span>
+git version 2.13.5
+/ <span style="color:#75715e"># hugo version</span>
+Hugo Static Site Generator v0.31.1 linux/amd64 BuildDate: 2017-11-27T11:26:24Z
+</code></pre></div></li>
 </ul>
-
 <p>Cái version hugo hơi cũ chắc phải upgrade lên nhưng mà tổng thể có vẻ ổn rồi, quyết định dùng image này!</p>
-
-<h2 id="cài-đặt-circle-ci">Cài đặt Circle CI</h2>
-
-<h3 id="1-đăng-nhập-vào-circle-ci">1. Đăng nhập vào Circle CI</h3>
-
+<h2 id="ci-t-circle-ci">Cài đặt Circle CI</h2>
+<h3 id="1-ng-nhp-vo-circle-ci">1. Đăng nhập vào Circle CI</h3>
 <p>Đầu tiên cần phải đăng ký/đăng nhập vào Circle CI.</p>
-
-<p>Mở link <a href="https://circleci.com/vcs-authorize/" target="_blank">https://circleci.com/vcs-authorize/</a> và chọn <strong>Login with github</strong>, đăng nhập xong màn hình giao diện web của Circle CI sẽ được mở ra.
+<p>Mở link <a href="https://circleci.com/vcs-authorize/">https://circleci.com/vcs-authorize/</a> và chọn <strong>Login with github</strong>, đăng nhập xong màn hình giao diện web của Circle CI sẽ được mở ra.
 Trên giao diện này ta có thể browse các project trên tài khoản github của mình và team, setup Circle CI cho các em nó, theo dõi các job đã chạy vân vân và vân vân. Mình đánh giá giao diện trực quan và dễ sử dụng, đầy đủ thông tin.</p>
-
 <h3 id="2-setup-circle-ci-cho-project">2. Setup Circle CI cho project</h3>
-
 <p>Chọn menu &ldquo;ADD PROJECTS&rdquo; ở bên tay trái, trong list các repositories được hiển thị ra mình chọn blog vì lần này mình muốn cài đặt Circle CI cho nó.
-<img src="/blog/images/ci_1.png" alt="" /></p>
-
+<img src="/blog/images/ci_1.png" alt=""></p>
 <p>Ở màn hình tiếp theo, trong mục language nếu như không có ngôn ngữ project bạn sử dụng thì cũng đừng lo lắng. Việc chọn lấy một ngôn ngữ chỉ là để web nó gợi ý ra nội dung sample cho file <code>config.yml</code> thôi. Mình luôn chọn ngôn ngữ <code>Other</code>.</p>
-
 <p>Nhìn tiếp xuống bên dưới có thể thấy hướng dẫn các bước tiếp theo cần làm để hoàn tất cài đặt Circle CI. Tóm tắt lại là nó bảo ta hãy tạo file <code>.Circleci/config.yml</code> ở trong thư mục gốc của repository, tham khảo nội dung sample dưới đây và chỉnh sửa file config.yml rồi cuối cùng ấn nút <code>Start building</code>.</p>
-
 <p>Hướng dẫn là thế nhưng mà dại gì làm y như lời nó, mình vừa làm vừa mò mà. Thế nên các bạn cứ tự tin ấn luôn nút <code>Start building</code> để hoàn tất việc setup Circle CI cho project nhé. Mình luôn làm thế, dĩ nhiên lần đầu build Circle CI sẽ báo ngay ra lỗi sau, nhưng không sao cả.</p>
-
 <blockquote>
-<p>No configuration was found in your project. Please refer to <a href="https://Circleci.com/docs/2.0/" target="_blank">https://Circleci.com/docs/2.0/</a> to get started with your configuration.</p>
+<p>No configuration was found in your project. Please refer to <a href="https://Circleci.com/docs/2.0/">https://Circleci.com/docs/2.0/</a> to get started with your configuration.</p>
 </blockquote>
-
-<p><img src="/blog/images/ci_2.png" alt="" /></p>
-
+<p><img src="/blog/images/ci_2.png" alt=""></p>
 <p>Từ bây giờ mỗi khi push code lên github, CI job sẽ tự động được khởi động lên rồi.
 Vậy chờ gì nữa, qua bước tiếp theo cấu hình cụ thể các job và step cho Circle CI thôi.</p>
-
-<h3 id="3-cấu-hình-circle-ci">3. Cấu hình Circle CI</h3>
-
+<h3 id="3-cu-hnh-circle-ci">3. Cấu hình Circle CI</h3>
 <p>Trước hết tạo file config.yml như Circle CI đã dạy.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir .circleci
-touch .circleci/config.yml</code></pre></div>
-<p>Nội dung ban đầu file config.yml mình sẽ để như sample của Circle CI:</p>
+touch .circleci/config.yml
+</code></pre></div><p>Nội dung ban đầu file config.yml mình sẽ để như sample của Circle CI:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">version: <span style="color:#ae81ff">2</span>
 jobs:
   build:
@@ -530,50 +486,45 @@ jobs:
       - checkout
       - run:
           name: Greeting
-          command: echo Hello, world.</code></pre></div>
-<p>Tiếp theo mình sẽ sửa lại chỗ docker image, mình thay thế vào cái image mình tìm thấy ở trên.</p>
+          command: echo Hello, world.
+</code></pre></div><p>Tiếp theo mình sẽ sửa lại chỗ docker image, mình thay thế vào cái image mình tìm thấy ở trên.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">    docker:
-      - image: andthensome/alpine-hugo-git-bash</code></pre></div>
-<p>Mình chỉ muốn chạy job khi có push lên branch master thôi nên mình sẽ thêm cấu hình này vào job:</p>
+      - image: andthensome/alpine-hugo-git-bash
+</code></pre></div><p>Mình chỉ muốn chạy job khi có push lên branch master thôi nên mình sẽ thêm cấu hình này vào job:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">jobs:
   build:
     branches:
       only:
-        - master</code></pre></div>
-<p>Blog của mình được publish thông qua github pages, chỉ cần push nội dung lên branch cố định mà github đã quy định là <code>gh-pages</code> thì tự khắc content sẽ được serve ở domain <a href="https://chienkira.github.io/blog" target="_blank">https://chienkira.github.io/blog</a>.<br />
-Hiện tại, việc build blog (sinh ra nội dung html tĩnh của blog) và push nó lên branch <code>gh-pages</code> đã được script hóa trong file <a href="https://github.com/chienkira/blog/blob/master/publish.sh" target="_blank">publish.sh</a> rồi. Do đó trong Circle CI mình hi vọng chỉ cần chạy file script này là xong luôn. Thêm step vào <code>config.yml</code> như sau:</p>
+        - master
+</code></pre></div><p>Blog của mình được publish thông qua github pages, chỉ cần push nội dung lên branch cố định mà github đã quy định là <code>gh-pages</code> thì tự khắc content sẽ được serve ở domain <a href="https://chienkira.github.io/blog">https://chienkira.github.io/blog</a>.<br>
+Hiện tại, việc build blog (sinh ra nội dung html tĩnh của blog) và push nó lên branch <code>gh-pages</code> đã được script hóa trong file <a href="https://github.com/chienkira/blog/blob/master/publish.sh">publish.sh</a> rồi. Do đó trong Circle CI mình hi vọng chỉ cần chạy file script này là xong luôn. Thêm step vào <code>config.yml</code> như sau:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">...
     docker:
       - image: andthensome/alpine-hugo-git-bash
     steps:
       - run:
           name: build site and push to github-pages
-          command: sh publish.sh</code></pre></div>
-<p>Rồi thử commit và xem Circle CI chạy ra sao nhé.
+          command: sh publish.sh
+</code></pre></div><p>Rồi thử commit và xem Circle CI chạy ra sao nhé.
 <code>git commit -am &quot;add circle ci&quot; &amp;&amp; git push</code></p>
-
 <p>Check trên màn hình Circle CI có thể thấy job được khởi động như nó được thiết kế nhưng nó đã failed.
-<img src="/blog/images/ci_3.png" alt="" />
+<img src="/blog/images/ci_3.png" alt="">
 Click vào xem chi tiết kiểm tra có thể biết chuyện gì đã xảy ra trong docker container.
 Ở đây mình gặp lỗi như bên dưới - blog của mình dùng theme <em>chảnh</em>, nó đòi phải có hugo version cao hơn. 😃</p>
-
 <blockquote>
 <p>ERROR 2019/03/23 14:44:12 Current theme does not support Hugo version 0.31.1. Minimum version required is 0.45</p>
 </blockquote>
-
 <p>Google một hồi mình thêm được step sau để nâng cấp hugo lên version 0.50 vào cái image alpine này.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">      - run:
           name: upgrade hugo
           command: <span style="color:#e6db74">|
-</span><span style="color:#e6db74">            apk update &amp;&amp; apk add ca-certificates &amp;&amp; update-ca-certificates &amp;&amp; apk add openssl &amp;&amp; apk add openssh-client
-</span><span style="color:#e6db74">            wget https://github.com/gohugoio/hugo/releases/download/v0.50/hugo_0.50_linux-64bit.tar.gz
-</span><span style="color:#e6db74">            tar xzf hugo_0.50_linux-64bit.tar.gz -C /usr/local/bin/ </span></code></pre></div>
-<p>Và thêm 1 step để config git nữa là mình hoàn chỉnh xong cấu hình Circle CI.
-<em>Các bạn cần có thể tham khảo file config.yml cuối cùng ở đây: <a href="https://github.com/chienkira/blog" target="_blank">https://github.com/chienkira/blog</a>.</em></p>
-
+</span><span style="color:#e6db74">           </span><span style="color:#e6db74"> </span><span style="color:#e6db74">apk update &amp;&amp; apk add ca-certificates &amp;&amp; update-ca-certificates &amp;&amp; apk add openssl &amp;&amp; apk add openssh-client</span>
+            wget https://github.com/gohugoio/hugo/releases/download/v0<span style="color:#ae81ff">.50</span>/hugo_0.50_linux-64bit.tar.gz
+            tar xzf hugo_0.50_linux-64bit.tar.gz -C /usr/local/bin/ 
+</code></pre></div><p>Và thêm 1 step để config git nữa là mình hoàn chỉnh xong cấu hình Circle CI.
+<em>Các bạn cần có thể tham khảo file config.yml cuối cùng ở đây: <a href="https://github.com/chienkira/blog">https://github.com/chienkira/blog</a>.</em></p>
 <p>Commit lần nữa rồi kiểm tra web Circle CI, job đã chạy thành công xanh lè. 😃
-<img src="/blog/images/ci_4.png" alt="" /></p>
-
+<img src="/blog/images/ci_4.png" alt=""></p>
 <p>Kể từ bài này là blog của mình đã được publish tự động rồi. Mặc dù lần này, blog đơn giản nên công việc CI không có gì nhiều và phức tạp nhưng mục đích tự động hóa thì đã thành công.
 Circle CI là công cụ miễn phí và tuyệt vời, nếu bạn có project nào có thể áp dụng hãy trải nghiệm thử một lần nhé.</p>
 
@@ -587,7 +538,7 @@ Circle CI là công cụ miễn phí và tuyệt vời, nếu bạn có project 
   <line x1="7" y1="7" x2="7" y2="7"/>
   
 </svg>
-<span class='screen-reader-text'>Tags: </span><a class='tag' href='/blog/tags/ci/'>CI</a>, <a class='tag' href='/blog/tags/circle-ci/'>Circle CI</a>, <a class='tag' href='/blog/tags/docker/'>docker</a></div>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/blog/tags/ci/'>CI</a>, <a class='tag' href='/blog/tags/docker/'>docker</a></div>
 
   <div><span>Share on: </span>
 

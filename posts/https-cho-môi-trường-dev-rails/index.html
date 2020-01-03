@@ -13,7 +13,7 @@ Tại sao cần HTTPS cho môi trường dev? Đúng rồi! Chắc sẽ có ngư
 <meta property='og:site_name' content='Chienkira my blog'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://chienkira.github.io/blog/images/https_done.png'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='rails'><meta property='article:tag' content='HTTPS'><meta property='article:tag' content='SSL'><meta property='article:tag' content='docker'><meta property='article:published_time' content='2019-08-18T21:47:30&#43;09:00'/><meta property='article:modified_time' content='2019-08-18T21:47:30&#43;09:00'/><meta name='twitter:card' content='summary_large_image'><meta name='twitter:creator' content='@chienkira'><meta property='twitter:image' content='https://chienkira.github.io/blog/images/https_done.png'>
 
-<meta name="generator" content="Hugo 0.50" />
+<meta name="generator" content="Hugo 0.61.0" />
 
   <title>Cài đặt HTTPS hoàn chỉnh cho môi trường dev Rails | Chien Kira</title>
   <link rel='canonical' href='https://chienkira.github.io/blog/posts/https-cho-m%C3%B4i-tr%C6%B0%E1%BB%9Dng-dev-rails/'>
@@ -57,9 +57,7 @@ if (!doNotTrack) {
     </h2>
     <div class='desc'>
     <p>a web &lsquo;full snack&rsquo; developer</p>
-
 <p>a Papa engineer</p>
-
 <p>at Tokyo</p>
 
     </div>
@@ -73,24 +71,6 @@ if (!doNotTrack) {
 
   <div class='container list-container'>
   <ul class='list taxonomy-cloud'><li>
-        <a href='/blog/tags/ci/' style='font-size:1em'>CI</a>
-      </li><li>
-        <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
-      </li><li>
-        <a href='/blog/tags/https/' style='font-size:1em'>HTTPS</a>
-      </li><li>
-        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
-      </li><li>
-        <a href='/blog/tags/sam/' style='font-size:1.1428571428571428em'>SAM</a>
-      </li><li>
-        <a href='/blog/tags/sre/' style='font-size:1em'>SRE</a>
-      </li><li>
-        <a href='/blog/tags/ssl/' style='font-size:1em'>SSL</a>
-      </li><li>
-        <a href='/blog/tags/softbank/' style='font-size:1em'>Softbank</a>
-      </li><li>
-        <a href='/blog/tags/til/' style='font-size:1em'>TIL</a>
-      </li><li>
         <a href='/blog/tags/api-gateway/' style='font-size:1em'>api gateway</a>
       </li><li>
         <a href='/blog/tags/aws/' style='font-size:2em'>aws</a>
@@ -98,6 +78,10 @@ if (!doNotTrack) {
         <a href='/blog/tags/blue-green-deploy/' style='font-size:1em'>blue green deploy</a>
       </li><li>
         <a href='/blog/tags/career/' style='font-size:1em'>career</a>
+      </li><li>
+        <a href='/blog/tags/ci/' style='font-size:1em'>CI</a>
+      </li><li>
+        <a href='/blog/tags/circle-ci/' style='font-size:1em'>Circle CI</a>
       </li><li>
         <a href='/blog/tags/cli/' style='font-size:1em'>cli</a>
       </li><li>
@@ -117,9 +101,13 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/dynamodb-local/' style='font-size:1em'>dynamodb local</a>
       </li><li>
+        <a href='/blog/tags/https/' style='font-size:1em'>HTTPS</a>
+      </li><li>
         <a href='/blog/tags/infra/' style='font-size:1.4285714285714286em'>infra</a>
       </li><li>
         <a href='/blog/tags/japan/' style='font-size:1em'>japan</a>
+      </li><li>
+        <a href='/blog/tags/kubernetes/' style='font-size:1em'>Kubernetes</a>
       </li><li>
         <a href='/blog/tags/lambda/' style='font-size:1.1428571428571428em'>lambda</a>
       </li><li>
@@ -151,15 +139,21 @@ if (!doNotTrack) {
       </li><li>
         <a href='/blog/tags/ruby/' style='font-size:1.1428571428571428em'>ruby</a>
       </li><li>
+        <a href='/blog/tags/sam/' style='font-size:1.1428571428571428em'>SAM</a>
+      </li><li>
         <a href='/blog/tags/serverless/' style='font-size:1.2857142857142856em'>serverless</a>
       </li><li>
-        <a href='/blog/tags/sre/' style='font-size:1em'>sre</a>
+        <a href='/blog/tags/softbank/' style='font-size:1em'>Softbank</a>
+      </li><li>
+        <a href='/blog/tags/sre/' style='font-size:1.1428571428571428em'>sre</a>
+      </li><li>
+        <a href='/blog/tags/ssl/' style='font-size:1em'>SSL</a>
       </li><li>
         <a href='/blog/tags/tech/' style='font-size:1.4285714285714286em'>tech</a>
       </li><li>
         <a href='/blog/tags/terraform/' style='font-size:1.1428571428571428em'>terraform</a>
       </li><li>
-        <a href='/blog/tags/til/' style='font-size:1.1428571428571428em'>til</a>
+        <a href='/blog/tags/til/' style='font-size:1.2857142857142856em'>til</a>
       </li></ul>
 </div>
 
@@ -392,117 +386,117 @@ if (!doNotTrack) {
   
 
   <div class='container entry-content'>
-  
-
-<p><strong>Hướng dẫn cấu hình tạo môi trường dev rails hỗ trợ giao thức HTTPS hoàn chỉnh nhanh và đơn giản nhất. Https &ldquo;hiểu đơn giản kiểu đà điểu&rdquo; là giao thức được secured, không trần truồng và lộ liễu như http thông thường.</strong></p>
-
-<h2 id="tại-sao-cần-https-cho-môi-trường-dev">Tại sao cần HTTPS cho môi trường dev?</h2>
-
+  <p><strong>Hướng dẫn cấu hình tạo môi trường dev rails hỗ trợ giao thức HTTPS hoàn chỉnh nhanh và đơn giản nhất. Https &ldquo;hiểu đơn giản kiểu đà điểu&rdquo; là giao thức được secured, không trần truồng và lộ liễu như http thông thường.</strong></p>
+<h2 id="ti-sao-cn-https-cho-mi-trng-dev">Tại sao cần HTTPS cho môi trường dev?</h2>
 <p>Đúng rồi! Chắc sẽ có người thắc mắc vậy, &ldquo;Ông dỗi hơi hay sao mà phải tạo môi trường dev hỗ trợ HTTPS, dev thì http là được rồi còn gì??&rdquo;</p>
-
 <p>Bình tĩnh nhé, để mình kể ra vài lý do cho.</p>
-
 <ul>
-<li><p>First rule, môi trường dev và môi trường production nên giống nhau hết sức có thể. Kể cả bạn chưa hiểu HTTPS với http khác nhau cái khỉ gì đi nữa, kệ bạn! Rule trên là rule trước hết bạn phải hiểu và tuân theo một khi bạn làm phát triển phần mềm. Thế các service hiện nay đang hoạt động trên giao thức nào là chính? Ngó qua báo cáo của Google ở đây <a href="HTTPS://transparencyreport.google.com/HTTPS/overview?hl=en" target="_blank">Percentage of HTTPS browsing time</a> thử đi. Trên 90% và tiếp tục tăng lên là tỉ lệ của HTTPS browsing. Ở thời điểm này chắc bạn không muốn develop một thứ mà dự định sẽ chỉ chạy với giao thức http đâu.</p></li>
-
-<li><p>Rất nhiều third-party api bảo mật cao ví dụ liên quan đến Payment, hay Authentication đã cập nhật quy định, chỉ cho phép bạn sử dụng api của họ khi ứng dụng của bạn hoạt động trên giao thức HTTPS. Cho nên đôi khi không đơn thuần là good practise mà cuộc đời éo le ép bạn phải dev với HTTPS environment ấy! 😂</p></li>
-
-<li><p>Các browser ngày nay đối xử khá &ldquo;tệ nhạt&rdquo; với http, ví dụ với trình duyệt phổ biến nhất hiện nay - Chrome, bạn sẽ gặp khá nhiều trouble khiến bạn mệt mỏi và mất thời gian nếu như môi trường dev của bạn không phải là HTTPS. Điền hình mình thấy mọi người hay gặp nhất là vụ <a href="https://developers.google.com/web/fundamentals/security/prevent-mixed-content/what-is-mixed-content" target="_blank">mixed-content</a>.</p></li>
-
-<li><p>Vân vân mình nghĩ còn nhiều lắm, chưa gặp hết các vấn đề thôi.</p></li>
+<li>
+<p>First rule, môi trường dev và môi trường production nên giống nhau hết sức có thể. Kể cả bạn chưa hiểu HTTPS với http khác nhau cái khỉ gì đi nữa, kệ bạn! Rule trên là rule trước hết bạn phải hiểu và tuân theo một khi bạn làm phát triển phần mềm. Thế các service hiện nay đang hoạt động trên giao thức nào là chính? Ngó qua báo cáo của Google ở đây <a href="HTTPS://transparencyreport.google.com/HTTPS/overview?hl=en">Percentage of HTTPS browsing time</a> thử đi. Trên 90% và tiếp tục tăng lên là tỉ lệ của HTTPS browsing. Ở thời điểm này chắc bạn không muốn develop một thứ mà dự định sẽ chỉ chạy với giao thức http đâu.</p>
+</li>
+<li>
+<p>Rất nhiều third-party api bảo mật cao ví dụ liên quan đến Payment, hay Authentication đã cập nhật quy định, chỉ cho phép bạn sử dụng api của họ khi ứng dụng của bạn hoạt động trên giao thức HTTPS. Cho nên đôi khi không đơn thuần là good practise mà cuộc đời éo le ép bạn phải dev với HTTPS environment ấy! 😂</p>
+</li>
+<li>
+<p>Các browser ngày nay đối xử khá &ldquo;tệ nhạt&rdquo; với http, ví dụ với trình duyệt phổ biến nhất hiện nay - Chrome, bạn sẽ gặp khá nhiều trouble khiến bạn mệt mỏi và mất thời gian nếu như môi trường dev của bạn không phải là HTTPS. Điền hình mình thấy mọi người hay gặp nhất là vụ <a href="https://developers.google.com/web/fundamentals/security/prevent-mixed-content/what-is-mixed-content">mixed-content</a>.</p>
+</li>
+<li>
+<p>Vân vân mình nghĩ còn nhiều lắm, chưa gặp hết các vấn đề thôi.</p>
+</li>
 </ul>
-
-<h2 id="yêu-cầu-đặt-ra">Yêu cầu đặt ra</h2>
-
+<h2 id="yu-cu-t-ra">Yêu cầu đặt ra</h2>
 <p>Giờ cùng định nghĩ môi trường dev hỗ trợ HTTPS lý tưởng mà chúng ta cần là như thế nào nhé.</p>
-
 <ul>
-<li><p>Hỗ trợ HTTPS hoàn chỉnh. Hoàn chỉnh tức là không chơi kiểu HTTPS nhưng browser vẫn warning là invalid như thế này nhé.</p>
-
-<p><img src="https://user-images.githubusercontent.com/12954909/32688013-6b09c95e-c6d1-11e7-9501-aa952f232bbc.png" alt="" /></p>
-
+<li>
+<p>Hỗ trợ HTTPS hoàn chỉnh. Hoàn chỉnh tức là không chơi kiểu HTTPS nhưng browser vẫn warning là invalid như thế này nhé.</p>
+<p><img src="https://user-images.githubusercontent.com/12954909/32688013-6b09c95e-c6d1-11e7-9501-aa952f232bbc.png" alt=""></p>
 <p>Sau một thời gian thực tế dùng kiểu tạm bợ thế này, mình nhận ra có khá nhiều vấn đề không ổn. Nhức nhối nhất là vụ Chrome sẽ coi trang web là Not secure, bỏ qua không cache requests và hiện cảnh báo &ldquo;Form submission&rdquo; rất khó chịu mỗi lần back - previous.</p>
-
 <p>Hỗ trợ giao thức HTTPS hoàn chỉnh thì nó phải kiểu như sau.</p>
-
-<p><img src="https://cdn-media-1.freecodecamp.org/images/1*89r7TnYG49V3zMoUnfOP7Q.png" alt="" /></p></li>
-
-<li><p>Môi trường dev được sử dụng bởi nhiều thành viên trong team, vì vậy tính năng HTTPS này nên được áp dụng một cách dễ dàng. Tốt nhất là &ldquo;ship&rdquo; 1 phát ăn liền, mọi người đồng loạt được update từ http lên HTTPS! Chúng ta không muốn phải cài đặt cấu hình này nọ phức tạp cho từng máy từng người để hỗ trợ HTTPS cho cả team phải không?!</p></li>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/1*89r7TnYG49V3zMoUnfOP7Q.png" alt=""></p>
+</li>
+<li>
+<p>Môi trường dev được sử dụng bởi nhiều thành viên trong team, vì vậy tính năng HTTPS này nên được áp dụng một cách dễ dàng. Tốt nhất là &ldquo;ship&rdquo; 1 phát ăn liền, mọi người đồng loạt được update từ http lên HTTPS! Chúng ta không muốn phải cài đặt cấu hình này nọ phức tạp cho từng máy từng người để hỗ trợ HTTPS cho cả team phải không?!</p>
+</li>
 </ul>
-
-<h2 id="thực-hiện">Thực hiện</h2>
-
+<h2 id="thc-hin">Thực hiện</h2>
 <p>Sau đây, mình muốn giới thiệu combo mà mình thấy đơn giản và nhanh gọn nhất, đảm bảo trong 10 phút bạn có thể cài đặt được hoàn chỉnh HTTPS!</p>
-
 <p><em>Hướng dẫn cụ thể bên dưới là cho Rails, nhưng các framework khác mình nghĩ cũng áp dụng tương tự được.</em></p>
-
 <ol>
-<li><p>Bước 1: Tạo SSL certificate</p>
-
+<li>
+<p>Bước 1: Tạo SSL certificate</p>
 <ul>
-<li><p>Giao thức HTTPS cần gì đầu tiên? chính là cần một <strong>SSL certificate</strong> hợp lệ, được ký và xác thực bởi một <strong>Certificate Authorities</strong> gọi tắt là CA đủ tin tưởng. Nếu như không đủ những điều kiện trên, trình duyệt sẽ báo lỗi &ldquo;Not Secure&rdquo; mình nói ở trên.</p></li>
-
-<li><p>Vì ở đây chúng ta đang xử lý cho môi trường dev, không phải production nên SSL cert sẽ là self-signed SSL cert và CA cũng là CA &ldquo;dỏm&rdquo; ta tự lập ra.</p></li>
-
-<li><p>Bạn có thể đầu tư thời gian Google tìm hiểu và tự tạo SSL cert, rồi cách cài đặt để máy trust cái CA &ldquo;dỏm&rdquo; đã tạo ra. Nhưng mất thời gian lắm, làm thế hết xừ 10 phút rồi 😂 Xin giới thiệu và chào mời bạn dùng tool <a href="https://github.com/FiloSottile/mkcert" target="_blank">https://github.com/FiloSottile/mkcert</a> nhé.</p>
-
+<li>
+<p>Giao thức HTTPS cần gì đầu tiên? chính là cần một <strong>SSL certificate</strong> hợp lệ, được ký và xác thực bởi một <strong>Certificate Authorities</strong> gọi tắt là CA đủ tin tưởng. Nếu như không đủ những điều kiện trên, trình duyệt sẽ báo lỗi &ldquo;Not Secure&rdquo; mình nói ở trên.</p>
+</li>
+<li>
+<p>Vì ở đây chúng ta đang xử lý cho môi trường dev, không phải production nên SSL cert sẽ là self-signed SSL cert và CA cũng là CA &ldquo;dỏm&rdquo; ta tự lập ra.</p>
+</li>
+<li>
+<p>Bạn có thể đầu tư thời gian Google tìm hiểu và tự tạo SSL cert, rồi cách cài đặt để máy trust cái CA &ldquo;dỏm&rdquo; đã tạo ra. Nhưng mất thời gian lắm, làm thế hết xừ 10 phút rồi 😂 Xin giới thiệu và chào mời bạn dùng tool <a href="https://github.com/FiloSottile/mkcert">https://github.com/FiloSottile/mkcert</a> nhé.</p>
 <blockquote>
-<p>A simple zero-config tool to make locally trusted development certificates with any names you&rsquo;d like.</p>
-</blockquote></li>
-
-<li><p>Bắt tay vào làm như bên dưới. Sau khi tạo xong bạn có thể mở Keychain lên kiểm tra Cert đã được import và trust thành công như hình dưới.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ brew install mkcert  <span style="color:#75715e"># cài đặt mkcert
-</span><span style="color:#75715e"></span>$ mkcert -install      <span style="color:#75715e"># tạo CA
-</span><span style="color:#75715e"></span>$ mkcert localhost     # tạo SSL cert cho domain localhost</code></pre></div>
-<p><img src="/blog/images/https_keychain.png" alt="" /></p></li>
-</ul></li>
-
-<li><p>Bước 2: Cấu hình Rails/Puma hoạt động với SSL cert đã tạo ở bước 1</p>
-
+<p>A simple zero-config tool to make locally trusted development certificates with any names you'd like.</p>
+</blockquote>
+</li>
+<li>
+<p>Bắt tay vào làm như bên dưới. Sau khi tạo xong bạn có thể mở Keychain lên kiểm tra Cert đã được import và trust thành công như hình dưới.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ brew install mkcert  <span style="color:#75715e"># cài đặt mkcert</span>
+$ mkcert -install      <span style="color:#75715e"># tạo CA</span>
+$ mkcert localhost     <span style="color:#75715e"># tạo SSL cert cho domain localhost</span>
+</code></pre></div></li>
+</ul>
+<p><img src="/blog/images/https_keychain.png" alt=""></p>
+</li>
+<li>
+<p>Bước 2: Cấu hình Rails/Puma hoạt động với SSL cert đã tạo ở bước 1</p>
 <ul>
-<li><p>Khi tạo SSL cert bằng lệnh <code>mkcert localhost</code> ở trên, để ý output ta sẽ thấy 2 files gồm 1 file là cert file và 1 file là key đã được tạo ra.</p>
+<li>
+<p>Khi tạo SSL cert bằng lệnh <code>mkcert localhost</code> ở trên, để ý output ta sẽ thấy 2 files gồm 1 file là cert file và 1 file là key đã được tạo ra.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    $ mkcert localhost
     Using the local CA at <span style="color:#e6db74">&#34;/Users/kira/Library/Application Support/mkcert&#34;</span> ✨
 
     Created a new certificate valid <span style="color:#66d9ef">for</span> the following names 📜
     - <span style="color:#e6db74">&#34;localhost&#34;</span>
 
-    The certificate is at <span style="color:#e6db74">&#34;./localhost.pem&#34;</span> and the key at <span style="color:#e6db74">&#34;./localhost-key.pem&#34;</span> ✅</code></pre></div></li>
-
-<li><p>Tạo 1 thư mục ví dụ <code>config/certs</code> rồi copy 2 files trên. <em>Đây là cert cho domain localhost - môi trường dev, nên không cần đưa vào .gitignore. Nhưng nếu là file cert xịn thì đừng quên bỏ nó ra khỏi git repository nhé!</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cp localhost* /path/to/your_rails_app/config/certs/</code></pre></div></li>
-
-<li><p>Mở file <code>config/puma.rb</code> thêm vào đoạn code sau để cấu hình puma khởi động web server với SSL cert bên trên. Ở đây để linh hoạt mình sẽ để puma khởi động với giao thức http thường nếu như kiểm tra không có files trong folder certs.</p>
+    The certificate is at <span style="color:#e6db74">&#34;./localhost.pem&#34;</span> and the key at <span style="color:#e6db74">&#34;./localhost-key.pem&#34;</span> ✅
+</code></pre></div></li>
+<li>
+<p>Tạo 1 thư mục ví dụ <code>config/certs</code> rồi copy 2 files trên. <em>Đây là cert cho domain localhost - môi trường dev, nên không cần đưa vào .gitignore. Nhưng nếu là file cert xịn thì đừng quên bỏ nó ra khỏi git repository nhé!</em></p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cp localhost* /path/to/your_rails_app/config/certs/
+</code></pre></div><ul>
+<li>
+<p>Mở file <code>config/puma.rb</code> thêm vào đoạn code sau để cấu hình puma khởi động web server với SSL cert bên trên. Ở đây để linh hoạt mình sẽ để puma khởi động với giao thức http thường nếu như kiểm tra không có files trong folder certs.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">if</span> <span style="color:#66d9ef">Rails</span><span style="color:#f92672">.</span>env<span style="color:#f92672">.</span>development?
-    key_file <span style="color:#f92672">=</span> <span style="color:#66d9ef">Rails</span><span style="color:#f92672">.</span>root<span style="color:#f92672">.</span>join(<span style="color:#e6db74">&#34;config&#34;</span>, <span style="color:#e6db74">&#34;certs&#34;</span>, <span style="color:#e6db74">&#34;localhost-key.pem&#34;</span>)
-    cert_file <span style="color:#f92672">=</span> <span style="color:#66d9ef">Rails</span><span style="color:#f92672">.</span>root<span style="color:#f92672">.</span>join(<span style="color:#e6db74">&#34;config&#34;</span>, <span style="color:#e6db74">&#34;certs&#34;</span>, <span style="color:#e6db74">&#34;localhost.pem&#34;</span>)
+    key_file <span style="color:#f92672">=</span> <span style="color:#66d9ef">Rails</span><span style="color:#f92672">.</span>root<span style="color:#f92672">.</span>join(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">config</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">certs</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">localhost-key.pem</span><span style="color:#e6db74">&#34;</span>)
+    cert_file <span style="color:#f92672">=</span> <span style="color:#66d9ef">Rails</span><span style="color:#f92672">.</span>root<span style="color:#f92672">.</span>join(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">config</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">certs</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">localhost.pem</span><span style="color:#e6db74">&#34;</span>)
 
     <span style="color:#66d9ef">if</span> key_file<span style="color:#f92672">.</span>exist?
-        ssl_bind <span style="color:#e6db74">&#34;0.0.0.0&#34;</span>, <span style="color:#e6db74">&#34;3000&#34;</span>, {
+        ssl_bind <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">0.0.0.0</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">3000</span><span style="color:#e6db74">&#34;</span>, {
             <span style="color:#e6db74">key</span>: key_file<span style="color:#f92672">.</span>to_path,
             <span style="color:#e6db74">cert</span>: cert_file<span style="color:#f92672">.</span>to_path,
             <span style="color:#e6db74">verify_mode</span>: <span style="color:#e6db74">&#39;none&#39;</span>
         }
     <span style="color:#66d9ef">else</span>
-        bind <span style="color:#e6db74">&#34;tcp://0.0.0.0:3000&#34;</span>
+        bind <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">tcp://0.0.0.0:3000</span><span style="color:#e6db74">&#34;</span>
     <span style="color:#66d9ef">end</span>
-<span style="color:#66d9ef">end</span></code></pre></div></li>
-</ul></li>
-
-<li><p>Bước 3: Thực ra là xong rồi, chỉ kiểm tra lại để thấy rails app đã chạy với HTTPS thôi.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ bin/rails s   # khởi động dev server</code></pre></div>
-<p>Mở trình duyệt và truy cập thử <a href="https://localhost:3000" target="_blank">https://localhost:3000</a> . Thành công rồi ta sẽ thấy giống hình bên dưới. Nếu bạn nhanh, mình nghĩ còn không tốn đến 5 phút!</p>
-
-<p><img src="/blog/images/https_done.png" alt="" /></p></li>
-
-<li><p>Bước 4: Đến đây thì thực ra mọi thứ mới chỉ hoạt động tốt trên máy của bạn. Nếu bạn thử truy cập từ máy khác, lỗi &ldquo;Not Secure&rdquo; sẽ lại hiện lên. Vì sao ư? Vì hiện tại ta đang xài đồ self-signed, không phải là một cert valid được xác thực bởi một CA thực sự. Do đó chỉ những thiết bị nào được cài đặt trust cert trên thì mới không báo lỗi &ldquo;Not Secure&rdquo;.</p>
-
+<span style="color:#66d9ef">end</span>
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>Bước 3: Thực ra là xong rồi, chỉ kiểm tra lại để thấy rails app đã chạy với HTTPS thôi.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ bin/rails s   <span style="color:#75715e"># khởi động dev server</span>
+</code></pre></div><p>Mở trình duyệt và truy cập thử https://localhost:3000 . Thành công rồi ta sẽ thấy giống hình bên dưới. Nếu bạn nhanh, mình nghĩ còn không tốn đến 5 phút!</p>
+<p><img src="/blog/images/https_done.png" alt=""></p>
+</li>
+<li>
+<p>Bước 4: Đến đây thì thực ra mọi thứ mới chỉ hoạt động tốt trên máy của bạn. Nếu bạn thử truy cập từ máy khác, lỗi &ldquo;Not Secure&rdquo; sẽ lại hiện lên. Vì sao ư? Vì hiện tại ta đang xài đồ self-signed, không phải là một cert valid được xác thực bởi một CA thực sự. Do đó chỉ những thiết bị nào được cài đặt trust cert trên thì mới không báo lỗi &ldquo;Not Secure&rdquo;.</p>
 <p>Vậy thì để các máy của các thành viên khác trong team chịu &ldquo;nhận&rdquo; self-signed này, bạn cần bảo mọi người chạy command sau. <em>Chỉ 1 command thôi, là đâu vào đấy</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo security add-trusted-cert -d -r trustAsRoot -k /Library/Keychains/System.keychain /path/to/your_rails_app/config/certs/localhost.pem</code></pre></div></li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo security add-trusted-cert -d -r trustAsRoot -k /Library/Keychains/System.keychain /path/to/your_rails_app/config/certs/localhost.pem
+</code></pre></div></li>
 </ol>
-
-<hr />
-
+<hr>
 <p>Đã một thời gian hơn 1 tháng mình không update blog, một chút thay đổi trong cuộc sống và công việc công ty làm mình bị khá bận và mệt. Thời gian tới dự là học được nhiều cái hay ho nữa, nếu có thời gian nhất định sẽ update tiếp blog!</p>
 
 </div>

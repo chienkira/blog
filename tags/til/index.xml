@@ -1,14 +1,34 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>til on Chienkira my blog</title>
     <link>https://chienkira.github.io/blog/tags/til/</link>
     <description>Recent content in til on Chienkira my blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 05 Apr 2019 10:38:57 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 24 Oct 2019 09:52:45 +0900</lastBuildDate>
     
 	<atom:link href="https://chienkira.github.io/blog/tags/til/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Code Ruby Của Bạn Đã Dễ Đọc Chưa</title>
+      <link>https://chienkira.github.io/blog/posts/code-ruby-c%E1%BB%A7a-b%E1%BA%A1n-%C4%91%C3%A3-d%E1%BB%85-%C4%91%E1%BB%8Dc-ch%C6%B0a/</link>
+      <pubDate>Thu, 24 Oct 2019 09:52:45 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/code-ruby-c%E1%BB%A7a-b%E1%BA%A1n-%C4%91%C3%A3-d%E1%BB%85-%C4%91%E1%BB%8Dc-ch%C6%B0a/</guid>
+      <description>Do you care about writing readable code? Bài này mình muốn giới thiệu tới các bạn vài mẹo mà thời gian gần đây mình mới học được, giúp cho code Ruby trông chuyên nghiệp, dễ đọc hơn. Đây đều là những tip mà cá nhân mình thấy rất hay nhưng lại không nhiều người biết đến hoặc áp dụng thực tế. Nếu bạn cũng có tips muốn chia sẻ, comment bên dưới nhé ↓↓↓ 😃</description>
+    </item>
+    
+    <item>
+      <title>Giới Hạn Code Storage Trong Aws Lambda</title>
+      <link>https://chienkira.github.io/blog/posts/gi%E1%BB%9Bi-h%E1%BA%A1n-code-storage-trong-aws-lambda/</link>
+      <pubDate>Mon, 15 Apr 2019 17:37:58 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/gi%E1%BB%9Bi-h%E1%BA%A1n-code-storage-trong-aws-lambda/</guid>
+      <description>Cọ xát thực tế mới ngộ ra được bản chất của cái limit code storage trong AWS lambda. Bài này muốn chia sẻ lại một chút kiến thức biết được với mọi người.
+Bối cảnh Công ty đang làm service chủ yếu theo kiến trúc serverless, nên dùng tương đối nhiều AWS Lambda functions.
+ Số lượng Lambda: 238 Code size của Lambda: average 20MB ~ max 50MB  Diễn biến Ngày đẹp trời nhận được thông báo CI job failed.</description>
+    </item>
     
     <item>
       <title>Thủ Thuật Unpack Trong Python</title>
@@ -18,7 +38,8 @@
       <guid>https://chienkira.github.io/blog/posts/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python/</guid>
       <description>Ký tự * ngoài là toán tử multiplication (phép nhân) và string replication ra, trong Python nó còn có một tác dụng khác khá xịn xò - unpack (một số người còn gọi là splat).
 Ký hiệu * Unpack chỉ có thể áp dụng lên một object loại iterable, để áp dụng việc cần làm là đặt ký hiệu * lên liền ngay trước object đó.
- Ví dụ:</description>
+ Ví dụ:
+Dùng trực tiếp với biến: *list_variable</description>
     </item>
     
   </channel>

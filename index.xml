@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Chienkira my blog</title>
@@ -17,13 +17,15 @@
       
       <guid>https://chienkira.github.io/blog/posts/guide-to-integrate-softbank-payment-service/</guid>
       <description>この間、決済代行サービス（SoftBankペイメント）を案件に導入したので、実際に実装して分かったことをこの記事にまとめてシェアしたいと思います。
-バックグラウンド  私はこれまで決済代行サービスとの連携を実装したことがありません。 この案件は、クレジットカード支払いに対応しなければなりません。今後キャリア決済も対応する可能性があります。 Railsで実装されたWebアプリケーションからの連携となります。  決済代行サービスとは  加盟店と各決済会社（カード会社やオンライ決済）の間に入り、多種の決済方法を対応してくれるサービスです。 決済代行サービスを使わない場合、どうなるか？  各決済会社と個別契約をしないといけない　→　審査が大変厳しくなってしまう、工数もかなり掛かってしまう 決済会社によって、入金サイクルや手数料率が異なるので、事務処理に大変手間が掛かってしまう カード情報保管など、加盟店側が行わなければならない為、セキュリティー面の対応のハドルは高い  上のような不便を解決するために、決済代行サービスが存在しています。  SoftBankペイメントについてのまとめ 1. 導入の大きな流れ  まずは、エントリーシートを記入してSoftBankペイメント（SBペイメント）へ提出する SB側が各決済会社への審査を行ってくれる 審査が通過したら、私たち（加盟店）の環境が構築される
-※ キャリア決済の審査が遅い傾向にある為、各カード会社の審査がOKになったら、途中で環境構築が始められるそうです。急いでる方はSBの営業担当者へ依頼してください。 環境構築が終わり次第、試験と本番環境の接続情報がもらえる  連携時に必要な情報 管理画面のログイン情報  審査に時間はかかる為、基本的には「共用試験環境」を使って実装を先に進めてください！と営業担当者から案内される
+バックグラウンド   私はこれまで決済代行サービスとの連携を実装したことがありません。 この案件は、クレジットカード支払いに対応しなければなりません。今後キャリア決済も対応する可能性があります。 Railsで実装されたWebアプリケーションからの連携となります。  決済代行サービスとは   加盟店と各決済会社（カード会社やオンライ決済）の間に入り、多種の決済方法を対応してくれるサービスです。 決済代行サービスを使わない場合、どうなるか？  各決済会社と個別契約をしないといけない　→　審査が大変厳しくなってしまう、工数もかなり掛かってしまう 決済会社によって、入金サイクルや手数料率が異なるので、事務処理に大変手間が掛かってしまう カード情報保管など、加盟店側が行わなければならない為、セキュリティー面の対応のハドルは高い   上のような不便を解決するために、決済代行サービスが存在しています。  ![](/blog/images/SB payment-payment gateway.png)
+SoftBankペイメントについてのまとめ  1. 導入の大きな流れ  まずは、エントリーシートを記入してSoftBankペイメント（SBペイメント）へ提出する SB側が各決済会社への審査を行ってくれる 審査が通過したら、私たち（加盟店）の環境が構築される
+※ キャリア決済の審査が遅い傾向にある為、各カード会社の審査がOKになったら、途中で環境構築が始められるそうです。急いでる方はSBの営業担当者へ依頼してください。 環境構築が終わり次第、試験と本番環境の接続情報がもらえる  連携時に必要な情報 管理画面のログイン情報   審査に時間はかかる為、基本的には「共用試験環境」を使って実装を先に進めてください！と営業担当者から案内される
 ※ 共用試験環境は、SBペイメントの導入を検討している人々がシェアして使う環境である。実装を確認する為に、使えるテストカード情報なども共有される。  2. システム接続方式 SBペイメントは以下の2つの接続方法を対応しています。
 契約する時、どちらかしか選択できないという訳ではありません。API＋リンク両方使用することも可能です。
  リンク型：エンドユーザーをSBペイメントの画面に誘導して、決済させるというイメージ API型：加盟店の画面がSBペイメントのAPIを呼び出して決済処理を行うというイメージ  2.1 リンク型 SBペイメントが提供する決済手続きの各画面を利用する方式です。 決済処理が終わた後、任意の加盟店側のページに画面遷移されます。
+![SB payment リンク型](/blog/images/SB payment-Link.svg)
 2.2 API型 SBペイメントの画面を使わず、APIでサーバー間の連携を行う方式です。 決済画面全部が自由にカスタマイズできます。
-2.3 リンク型とAPI型の比較    項目 リンク型 API型     決済画面のカスタマイズ プラス料金を出せば、デザインのカスタマイズはできるが、 リンク追加など出来ない内容もある 自由に   決済処理フロー 決済代行サービスの仕様に依存 自由に   開発容易度と工数 低 高   利用可能な決済手段の差 豊富 一部の決済手段はAPI型対応しない    3.</description>
+![SB payment API型](/blog/images/SB payment-API.svg)</description>
     </item>
     
     <item>
@@ -42,7 +44,7 @@ Prerequisite  OS môi trường là Amazon linux Database sử dụng là Postgr
       <pubDate>Sun, 03 Nov 2019 16:56:11 +0900</pubDate>
       
       <guid>https://chienkira.github.io/blog/posts/minimum-web-app-terraform-skeleton/</guid>
-      <description>I made a Skeleton for Terraform code. Basically I&amp;rsquo;m supposed to use it for future projects, but then just thought it might be useful for others so that want to share it with you. Also I tried to avoid having to copy and paste codes when deploye in multiple environments for same app. Hopefully, you will be able to reuse at least a part or an idea to help you with your work.</description>
+      <description>I made a Skeleton for Terraform code. Basically I&#39;m supposed to use it for future projects, but then just thought it might be useful for others so that want to share it with you. Also I tried to avoid having to copy and paste codes when deploye in multiple environments for same app. Hopefully, you will be able to reuse at least a part or an idea to help you with your work.</description>
     </item>
     
     <item>
@@ -89,7 +91,7 @@ TL;DR  Các lệnh của terraform mặc định chỉ xử lý các file *.</de
       <pubDate>Sat, 15 Jun 2019 09:35:23 +0900</pubDate>
       
       <guid>https://chienkira.github.io/blog/posts/coolbiz-trang-ph%E1%BB%A5c-c%C3%B4ng-s%E1%BB%9F-cho-ng%C3%A0y-h%C3%A8/</guid>
-      <description>Cool Biz là quy định về trang phục công sở được đặt ra tại Nhật Bản nhằm tiết kiệm điện sau khi thảm họa động đất sóng thần ngày 11&amp;frasl;3 xảy ra. Bình thường các công ty Nhật rất chỉn chu về trang phục khi đi làm, đi gặp đối tác trong kinh doanh : mặc áo vest, thắt cà vạt. Tuy nhiên để tiết kiệm điện, nhà nước kêu gọi mọi người không cần cà vạt, không cần áo vest trong thời gian từ cuối mùa xuân đến đầu mùa thu, nhằm giảm lượng điện sử dụng cho máy lạnh.</description>
+      <description>Cool Biz là quy định về trang phục công sở được đặt ra tại Nhật Bản nhằm tiết kiệm điện sau khi thảm họa động đất sóng thần ngày 11/3 xảy ra. Bình thường các công ty Nhật rất chỉn chu về trang phục khi đi làm, đi gặp đối tác trong kinh doanh : mặc áo vest, thắt cà vạt. Tuy nhiên để tiết kiệm điện, nhà nước kêu gọi mọi người không cần cà vạt, không cần áo vest trong thời gian từ cuối mùa xuân đến đầu mùa thu, nhằm giảm lượng điện sử dụng cho máy lạnh.</description>
     </item>
     
     <item>
@@ -98,11 +100,11 @@ TL;DR  Các lệnh của terraform mặc định chỉ xử lý các file *.</de
       <pubDate>Sat, 08 Jun 2019 11:12:01 +0900</pubDate>
       
       <guid>https://chienkira.github.io/blog/posts/hi%E1%BB%83u-kh%C3%A1i-ni%E1%BB%87m-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-kubernetes/</guid>
-      <description> Kubernetesとは Dockerは開発環境として使うのがすごく便利ですが、本番環境で使うと色々な問題が考えられます。
+      <description>Kubernetesとは Dockerは開発環境として使うのがすごく便利ですが、本番環境で使うと色々な問題が考えられます。
  コンテナがもし死んだら直ちに検知してコンテナを再起動したりして回復しないといけない リクエストが大量になる時、スケールをしないといけない 複数コンテナがあるなら、ロードバランシングをしないといけない 等々  ↑の問題を解決してくれるのがKubernetesの役割です。
 Kubernetes（K8s）はコンテナオーケストレーションシステムです。
- Googleが2014年に公開しました。 Googleの長きにわたるコンテナ運用の知見が詰まっているらしいです。 K8sのメイン機能としては、コンテナ化されたアプリケーションを以下のこと自動的に行うことです。  デプロイ コンテナ管理 スケール   イメージは、K8sがコンテナの管理をいい感じにやってくれるので、 私たちはただK8sに「こんな感じでシステムを運用して」と注文書（マニフェスト）を投げつけるだけです。 それ以外はK8sに任せて良いです。
-Kubernetesの構成を理解 クラスター  クラスター本体  ノード  クラスターに属するマシンを表すオブジェクト クラスターには、Masterノード１個と複数Workerノードがある Workerノードは私たちが開発したアプリケーションの実行環境となる（コンテナ群の実行環境） Masterノードは、私たちの命令に従って、各Workerノードにコンテナをデプロイしたりして、いい感じに監視・維持してくれる Masterノードは１つ、Workerノードは複数がある  Pod  Workerノード上に生成されるオブジェクト K8sの最小デプロイ単位であり、スケールする時はPod単位で生成／破棄される Pod内にコンテナが１つ以上ある  ReplicaSet（RS）とDeployment  RS  同じ仕様のPodが指定した数だけ存在するよう生成・管理する 例えば、Podが死んだ時マニフェストで指定した数になるよう自動回復してくれる  Deployment  新しいバージョンのリリースを管理するための仕組み   Service  クラスター内外からのリクエストをPodにルーティングするオブジェクト 複数のPodに対するロードバランシングの役割を持つ  </description>
+ Googleが2014年に公開しました。 Googleの長きにわたるコンテナ運用の知見が詰まっているらしいです。 K8sのメイン機能としては、コンテナ化されたアプリケーションを以下のこと自動的に行うことです。  デプロイ コンテナ管理 スケール    イメージは、K8sがコンテナの管理をいい感じにやってくれるので、 私たちはただK8sに「こんな感じでシステムを運用して」と注文書（マニフェスト）を投げつけるだけです。 それ以外はK8sに任せて良いです。
+Kubernetesの構成を理解 クラスター  クラスター本体  ノード  クラスターに属するマシンを表すオブジェクト クラスターには、Masterノード１個と複数Workerノードがある Workerノードは私たちが開発したアプリケーションの実行環境となる（コンテナ群の実行環境） Masterノードは、私たちの命令に従って、各Workerノードにコンテナをデプロイしたりして、いい感じに監視・維持してくれる Masterノードは１つ、Workerノードは複数がある  Pod  Workerノード上に生成されるオブジェクト K8sの最小デプロイ単位であり、スケールする時はPod単位で生成／破棄される Pod内にコンテナが１つ以上ある  ReplicaSet（RS）とDeployment  RS  同じ仕様のPodが指定した数だけ存在するよう生成・管理する 例えば、Podが死んだ時マニフェストで指定した数になるよう自動回復してくれる   Deployment  新しいバージョンのリリースを管理するための仕組み    Service  クラスター内外からのリクエストをPodにルーティングするオブジェクト 複数のPodに対するロードバランシングの役割を持つ  </description>
     </item>
     
     <item>
@@ -134,7 +136,8 @@ Bối cảnh Công ty đang làm service chủ yếu theo kiến trúc serverles
       <guid>https://chienkira.github.io/blog/posts/th%E1%BB%A7-thu%E1%BA%ADt-unpack-trong-python/</guid>
       <description>Ký tự * ngoài là toán tử multiplication (phép nhân) và string replication ra, trong Python nó còn có một tác dụng khác khá xịn xò - unpack (một số người còn gọi là splat).
 Ký hiệu * Unpack chỉ có thể áp dụng lên một object loại iterable, để áp dụng việc cần làm là đặt ký hiệu * lên liền ngay trước object đó.
- Ví dụ:</description>
+ Ví dụ:
+Dùng trực tiếp với biến: *list_variable</description>
     </item>
     
     <item>
@@ -174,7 +177,7 @@ CLI: command line interface
       
       <guid>https://chienkira.github.io/blog/posts/am-hi%E1%BB%83u-blue-green-deployment-trong-5-ph%C3%BAt/</guid>
       <description>Blue green deployment là cái khỉ ho gì? Nó có gì hay và có &amp;ldquo;ngon&amp;rdquo; không? Nếu bạn đang có câu hỏi tương tự trong đầu thì hãy thử đọc hết bài viết này nhé. Đây cũng là chia sẻ thực tế của mình sau khi được giao cho task thiết kế Blue green deployment áp dụng lên hệ thống trong công ty.
-1. Giới thiệu Blue Green deployment ※ Từ giờ viết gọn là B/G deploy</description>
+1. Giới thiệu Blue Green deployment  ※ Từ giờ viết gọn là B/G deploy</description>
     </item>
     
     <item>
@@ -204,7 +207,7 @@ Các loại dịch vụ thuê xe ở Nhật Hiện tại ở Nhật tồn tại 
       <guid>https://chienkira.github.io/blog/posts/kinh-nghi%E1%BB%87m-xin-v%C3%A0o-nh%C3%A0-tr%E1%BA%BB-%E1%BB%9F-nh%E1%BA%ADt/</guid>
       <description>Kể chuyện đi nộp hồ sơ xin vào nhà trẻ ở Nhật.
 Hôm trước (1 tháng trước rồi mà lười viết quá) em đi nộp hồ sơ xin vào nhà trẻ cho con, mà thấy giống thi đại học, vui quá nên muốn chia sẻ với các anh chị cô bác.
-bài viết ở thời điểm tháng 12&amp;frasl;2018
+bài viết ở thời điểm tháng 12/2018
 Các nhà trẻ, mẫu giáo ở Nhật đồng loạt nhập học kỳ tháng 4 (mùa anh đào) và nộp hồ sơ tháng 11 hàng năm.</description>
     </item>
     
@@ -224,17 +227,18 @@ Các nhà trẻ, mẫu giáo ở Nhật đồng loạt nhập học kỳ tháng 
       <pubDate>Thu, 21 Feb 2019 16:33:07 +0900</pubDate>
       
       <guid>https://chienkira.github.io/blog/posts/t%E1%BA%A5t-t%E1%BA%A7n-t%E1%BA%ADt-v%E1%BB%81-cloudfront/</guid>
-      <description>CloudFrontとは  AWSが提供するCDN（コンテンツ配信サービス）である。 世界中に設置されているエッジサーバを利用し、ユーザの最寄りエッジサーバからキャッシュを送ることでユーザへ高速な配信を実現できるサービスである。  CloudFrontの設定 Distribution Settings（ディストリビューション設定） ディストリビューションはCloudFrontの配信設定の単位になるので、CloudFrontの使用にはまずディストリビューションを作成する必要がある。
-ディストリビューション配信種類はWebとRTMPがある。 - Web: ウェブ配信専用（基本的にこちらの種類を使う） - RTMP: メディアのストリーミング配信専用
- Alternate Domain Names (CNAMEs) CloudFront によって割り当てられたドメイン名（例 https://hogehoge.cloudfront.net）の代わりに、使用したい代替ドメイン名（例 https://example.com）をここに指定する。
- SSL Certificate デフォルトのCloudFrontのSSL証明書を使用するか、独自SSL証明書（ACMで登録したもの）を選択する。
-  Origin Settings（オリジンドメイン設定）  Origin Domain Name
+      <description>CloudFrontとは  AWSが提供するCDN（コンテンツ配信サービス）である。 世界中に設置されているエッジサーバを利用し、ユーザの最寄りエッジサーバからキャッシュを送ることでユーザへ高速な配信を実現できるサービスである。  ![CloudFrontのコンテンツをユーザーに配信する方法] (https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/how-cloudfront-delivers-content.png)
+CloudFrontの設定 Distribution Settings（ディストリビューション設定） ディストリビューションはCloudFrontの配信設定の単位になるので、CloudFrontの使用にはまずディストリビューションを作成する必要がある。
+ディストリビューション配信種類はWebとRTMPがある。
+ Web: ウェブ配信専用（基本的にこちらの種類を使う） RTMP: メディアのストリーミング配信専用    Alternate Domain Names (CNAMEs) CloudFront によって割り当てられたドメイン名（例 https://hogehoge.cloudfront.net）の代わりに、使用したい代替ドメイン名（例 https://example.com）をここに指定する。
+  SSL Certificate デフォルトのCloudFrontのSSL証明書を使用するか、独自SSL証明書（ACMで登録したもの）を選択する。
+  Origin Settings（オリジンドメイン設定）   Origin Domain Name
 オリジンドメインを選択する。 フロントエンドをS3バケットに格納した場合は、オリジンドメインにS3バケットを選択すると良い。
 ※オリジンドメインとは、コンテンツの提供元のことを表す。オリジンドメインには、AWSのリソース（S3バケットやELBやAWS MediaPackageエンドポイントや AWS MediaStoreContainerエンドポイント）か、もしくはそれ以外のリソース（どこかのウェブサーバのドメイン等）でも指定できる。
- Origin Path オリジン内のディレクトリからコンテンツが配信されるようにしたい場合は、オリジンパスを入力することで実現できる。 例えば、オリジンパスに/greenを入力した場合、ユーザーがブラウザでexample.com/index.htmlとリクエストすると、CloudFrontは s3bucket/green/index.html を返答する。
- Origin ID ディストリビューション内でこのオリジンをユニークで区別する為の文字列である。 オリジンドメインを入力したら、自動的に生成されるオリジンIDをそのまま使っても良い。
- Restrict Bucket Access CloudFrontのURLでしかS3バケット内のコンテンツがアクセスできないように制御をしたい場合、この設定をYESにする。 ユーザーがCloudFrontのURLでもS3バケットのURLでもアクセスできるようにしたい場合は、[No]にする。
- Origin Access Identity [Restrict Bucket Access] で [Yes] にした場合、オリジンアクセスアイデンティティが必要になる。 新しいアイデンティティを作成するか、既存のアイデンティティを使用するかを下の [Your Identities] 設定項目で選択する。</description>
+  Origin Path オリジン内のディレクトリからコンテンツが配信されるようにしたい場合は、オリジンパスを入力することで実現できる。 例えば、オリジンパスに/greenを入力した場合、ユーザーがブラウザでexample.com/index.htmlとリクエストすると、CloudFrontは s3bucket/green/index.html を返答する。
+  Origin ID ディストリビューション内でこのオリジンをユニークで区別する為の文字列である。 オリジンドメインを入力したら、自動的に生成されるオリジンIDをそのまま使っても良い。
+  Restrict Bucket Access CloudFrontのURLでしかS3バケット内のコンテンツがアクセスできないように制御をしたい場合、この設定をYESにする。 ユーザーがCloudFrontのURLでもS3バケットのURLでもアクセスできるようにしたい場合は、[No]にする。
+  Origin Access Identity [Restrict Bucket Access] で [Yes] にした場合、オリジンアクセスアイデンティティが必要になる。 新しいアイデンティティを作成するか、既存のアイデンティティを使用するかを下の [Your Identities] 設定項目で選択する。</description>
     </item>
     
     <item>
@@ -244,8 +248,7 @@ Các nhà trẻ, mẫu giáo ở Nhật đồng loạt nhập học kỳ tháng 
       
       <guid>https://chienkira.github.io/blog/posts/th%C3%B4ng-m%E1%BA%A1ng-cho-aws-sam-v%C3%A0-dynamodb-local/</guid>
       <description>Dynamodb localを使いローカルで開発時 SAM localのstart-apiやinvokeコマンドを使い、Lambda関数をローカルで実行する時は、
-- Lambda関数がSAMのDockerコンテナ上で実行され - Dynamodb localが別のDockerコンテナ上で動く
-そのため、Lambda関数がDynamodb localへアクセルできるように、 2つのDockerコンテナを同じネットワークに繋がせる必要があります。
+ Lambda関数がSAMのDockerコンテナ上で実行され Dynamodb localが別のDockerコンテナ上で動く  そのため、Lambda関数がDynamodb localへアクセルできるように、 2つのDockerコンテナを同じネットワークに繋がせる必要があります。
 対応方法は以下の通りです。
 まずはDynamodb localのDockerセットアップ file: docker-compose.yml
 services: dynamodb: container_name: dynamodb #重要：コンテナ名を指定 image: amazon/dynamodb-local networks: - aws_local_network #繋がるネットワークを指定 &amp;lt;省略&amp;gt; networks: aws_local_network: name: aws_local_network #重要：ネットワーク名を強制的に指定 そして、モデルのソースコードを以下のように修正
@@ -277,18 +280,13 @@ Lambda 関数の入力形式 以下のようにHTTPリクエスト全体をLambd
       <guid>https://chienkira.github.io/blog/posts/tips-c%C3%A0i-%C4%91%E1%BA%B7t-pycharm-%C4%91%E1%BB%83-code-python/</guid>
       <description>PycharmのInterpreterの設定方法 python仮想環境を使い、開発する際にはPycharmがそのpython仮想環境を認識させる必要があります。
 ※ 認識させないと、Pycharmの方がインストールされているライブラリが分からずimportのエラーなどが出てしまいます。
- ① Python仮想環境の場所を確認
-pipenvの場合はこのコマンドで確認できます。 pipenv --venv
-output例： /Users/kira/.local/share/virtualenvs/project_name-Qr43IEm2
- ② Pycharmの方でプロジェクトのInterpreterを設定
- PycharmのPreferences画面を開く
- 左側のメニューから「Project: プロジェクト名」=&amp;gt;「Project Interpreter」を選択
- Project Interpreterのドロップダウンから「Show All」を選択し、「+」の追加ボタンを押す
- 左側のメニューから「System Interpreter」を選択し、「&amp;hellip;」ボタンをクリックして①で確認できたパスを指定
-※ 注意：bin/pythonX.Xまで指定してください。   PycharmのSources Root設定方法 開発ソースコードがプロジェクトの直下にはなく、srcフォルダーなどの中に置かれる場合が多いです。
+ ① Python仮想環境の場所を確認 pipenvの場合はこのコマンドで確認できます。 pipenv --venv
+output例： /Users/kira/.local/share/virtualenvs/project_name-Qr43IEm2 ② Pycharmの方でプロジェクトのInterpreterを設定  PycharmのPreferences画面を開く 左側のメニューから「Project: プロジェクト名」=&amp;gt;「Project Interpreter」を選択 Project Interpreterのドロップダウンから「Show All」を選択し、「+」の追加ボタンを押す 左側のメニューから「System Interpreter」を選択し、「&amp;hellip;」ボタンをクリックして①で確認できたパスを指定
+※ 注意：bin/pythonX.Xまで指定してください。    PycharmのSources Root設定方法 開発ソースコードがプロジェクトの直下にはなく、srcフォルダーなどの中に置かれる場合が多いです。
 ※ CodeUriが./srcで設定される場合が多いです。
 例えば以下のようなファイル構成の場合
-|--template.yaml |--src | |--app | | |--__init__.py | | |--common | | | |--__init__.py | | | |--helper.py | | |--handlers | | | |--__init__.py | | | |--purchase.py purchase.pyファイルでapp/common/helper.pyのモジュールなどをimportするところのfrom app.common.helper import some_helper にPycharmがエラーを表示します。</description>
+|--template.yaml |--src | |--app | | |--__init__.py | | |--common | | | |--__init__.py | | | |--helper.py | | |--handlers | | | |--__init__.py | | | |--purchase.py purchase.pyファイルでapp/common/helper.pyのモジュールなどをimportするところのfrom app.common.helper import some_helper にPycharmがエラーを表示します。
+エラー解消にはソースコードのルートフォルダーをsrcでPycharmに認識させる必要があります。</description>
     </item>
     
     <item>

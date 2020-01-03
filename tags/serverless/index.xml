@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>serverless on Chienkira my blog</title>
@@ -28,8 +28,7 @@ Bối cảnh Công ty đang làm service chủ yếu theo kiến trúc serverles
       
       <guid>https://chienkira.github.io/blog/posts/th%C3%B4ng-m%E1%BA%A1ng-cho-aws-sam-v%C3%A0-dynamodb-local/</guid>
       <description>Dynamodb localを使いローカルで開発時 SAM localのstart-apiやinvokeコマンドを使い、Lambda関数をローカルで実行する時は、
-- Lambda関数がSAMのDockerコンテナ上で実行され - Dynamodb localが別のDockerコンテナ上で動く
-そのため、Lambda関数がDynamodb localへアクセルできるように、 2つのDockerコンテナを同じネットワークに繋がせる必要があります。
+ Lambda関数がSAMのDockerコンテナ上で実行され Dynamodb localが別のDockerコンテナ上で動く  そのため、Lambda関数がDynamodb localへアクセルできるように、 2つのDockerコンテナを同じネットワークに繋がせる必要があります。
 対応方法は以下の通りです。
 まずはDynamodb localのDockerセットアップ file: docker-compose.yml
 services: dynamodb: container_name: dynamodb #重要：コンテナ名を指定 image: amazon/dynamodb-local networks: - aws_local_network #繋がるネットワークを指定 &amp;lt;省略&amp;gt; networks: aws_local_network: name: aws_local_network #重要：ネットワーク名を強制的に指定 そして、モデルのソースコードを以下のように修正
