@@ -429,7 +429,7 @@ if (!doNotTrack) {
 
 <p>Ref: <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL.html" target="_blank">docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL</a></p>
 
-<p>Với 1 URL bình thường kiểu <code>https://foobar-bucket.aws/a_hot_image.png</code>, sẽ hoạt động với chỉ một điều kiện duy nhất - object a_hot_image.png là public. Nghĩa là chỉ cần biết url thì ai cũng có thể truy cập được nội dung bên trong. Trong thế giới web điều này được coi là hiển nhiên, vì web sinh ra là để public nội dung cho nào là browser nào là api client vân vân mây mây&hellip; truy cập vào mà. Tuy nhiên không cẩn thận bạn có thể bị dính vào những vấn đề security nghiêm trọng nếu như nội dung các object đó là loại &ldquo;nhạy cảm&rdquo; - sentive data đấy!</p>
+<p>Với 1 URL bình thường kiểu <code>https://foobar-bucket.aws/a_hot_image.png</code>, sẽ hoạt động với chỉ một điều kiện duy nhất - object a_hot_image.png là public. Nghĩa là chỉ cần biết url thì ai cũng có thể truy cập được nội dung bên trong. Trong thế giới web điều này được coi là hiển nhiên, vì web sinh ra là để public nội dung cho nào là browser nào là api client vân vân mây mây&hellip; truy cập vào mà. Tuy nhiên không cẩn thận bạn có thể bị dính vào những vấn đề security nghiêm trọng nếu như nội dung các object đó là loại &ldquo;nhạy cảm&rdquo; - sensitive data đấy!</p>
 
 <p>Ví dụ, hệ thống của bạn có chức năng cho phép người dùng đăng ảnh xác thực cá nhân (ảnh bằng lái xe chẳng hạn) lên, nếu bạn không secure những dữ liệu ấy, bên thứ 3 bằng cách có được url (qua đánh cắp log trình duyệt, qua nghe lén network&hellip;) sẽ có thể xem được những dữ liệu vô cùng là riêng tư đó 😱</p>
 
@@ -443,10 +443,14 @@ Các tham số truyền vào này chỉ AWS mới decode và validate được (
 
 <h3 id="tại-sao-có-tình-huống-như-thế">Tại sao có tình huống như thế?</h3>
 
-<p>Càng ngày việc dùng S3 để làm storage cho hệ thống web càng phổ biến. Vì nó rẻ, nhanh, đỡ 1 phần load cho web server của bạn, bạn cũng không phải lo quản lý storage size&hellip;
-Dữ liệu trong hệ thống web thì chia ra làm hai loại.
-- Loại public được và cần phải public, ví dụ như ảnh sản phẩm, ảnh banner, logo vân vân, web để thiên hạ xem mà có phải giấu kín đâu phải không ạ.
-- Loại sensitive, cần bảo mật. Như ví dụ ở trên mình đã đưa ra, các dữ liệu mà người dùng thành viên upload lên, đặc biệt là mấy thứ có liên quan đến thông tin cá nhân hay thanh toán!</p>
+<p>Càng ngày việc dùng S3 để làm storage cho hệ thống web càng phổ biến. Vì nó rẻ, nhanh, đỡ 1 phần load cho web server của bạn, bạn cũng không phải lo quản lý storage size&hellip;</p>
+
+<p>Dữ liệu trong hệ thống web thì chia ra làm hai loại.</p>
+
+<ul>
+<li>Loại public được và cần phải public, ví dụ như ảnh sản phẩm, ảnh banner, logo vân vân, web để thiên hạ xem mà có phải giấu kín đâu phải không ạ.</li>
+<li>Loại sensitive, cần bảo mật. Như ví dụ ở trên mình đã đưa ra, các dữ liệu mà người dùng thành viên upload lên, đặc biệt là mấy thứ có liên quan đến thông tin cá nhân hay thanh toán!</li>
+</ul>
 
 <p>Để đáp ứng thỏa mãn yêu cầu lưu trữ cho 2 loại dữ liệu trên, cách chân phương nhất có lẽ là sử dụng 2 buckets. Một bucket để public và bucket còn lại để private, truy cập object thông qua presigned url. Cách làm này không có vấn đề gì nhưng theo mình trong quá trình vận hành sẽ gặp đôi chút khó khăn và không &ldquo;clean&rdquo; lắm vì mỗi môi trường lúc nào cũng cần tới 2 buckets.</p>
 
