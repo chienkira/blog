@@ -97,9 +97,9 @@ Tiếp theo giả sử ta cần bảo mật các files trong thư mục identity
 }
 ```
 
-Giải thích ra thì statement mới thêm `secure_sensitive_files` làm nhiệm vụ `Deny` hành động `s3:GetObject` cho các objects trong 2 folders trên nếu như AWS không validate được là presigned url version `AWS4-HMAC-SHA256` hợp lệ (presigned url version 4 - mới nhất hiện nay)
+Giải thích ra thì statement mới thêm `secure_sensitive_files` làm nhiệm vụ `Deny` hành động `s3:GetObject` cho các objects trong 2 folders trên nếu như AWS không validate được là url là url có chữ ký hợp lệ, và version của presigned url phải là `AWS4-HMAC-SHA256` (presigned url version 4 - mới nhất hiện nay)
 
-Sau khi áp dụng policy, các objects trong thư mục identity_images hay personal_images khi truy cập với URL bình thường sẽ bị trả về lỗi. Chỉ khi access bằng presigned url thì nội dung ảnh mới được download về. Còn các objects còn lại trong bucket vẫn được public như bình thường! 
+Sau khi áp dụng policy, các objects trong thư mục identity_images hay personal_images sẽ được bảo mật không thể truy cập với URL bình thường (aws sẽ trả về lỗi như hình). Chỉ khi access bằng presigned url thì nội dung ảnh mới download được. Các objects còn lại trong bucket vẫn được public như bình thường!
 ![](/blog/images/s3_access_deny.png)
 
 23:51 rồi, suýt chút nữa là hết ngày mồng 3 - hết tết. Bài viết này kết thúc ở đây để nó còn kịp là bài viết khai phím tết 2020 :))
