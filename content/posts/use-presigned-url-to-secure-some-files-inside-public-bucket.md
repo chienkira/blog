@@ -1,7 +1,7 @@
 ---
 title: "Use Presigned Url to Secure Only Some Files Inside A Public S3 Bucket"
 date: 2020-01-03T21:17:52+09:00
-draft: true
+draft: no
 tags: []
 language: vi
 toc: true
