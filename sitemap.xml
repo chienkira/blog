@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chienkira.github.io/blog/posts/ecs-fargate/</loc>
+    <lastmod>2020-01-09T17:50:27+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/posts/use-presigned-url-to-secure-some-files-inside-public-bucket/</loc>
     <lastmod>2020-01-03T21:17:52+09:00</lastmod>
   </url>
@@ -163,13 +168,19 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/</loc>
-    <lastmod>2020-01-03T21:17:52+09:00</lastmod>
+    <lastmod>2020-01-09T17:50:27+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/circle-ci/</loc>
     <lastmod>2019-03-23T21:40:43+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/ecs/</loc>
+    <lastmod>2020-01-09T17:50:27+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -187,7 +198,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/posts/</loc>
-    <lastmod>2020-01-03T21:17:52+09:00</lastmod>
+    <lastmod>2020-01-09T17:50:27+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -240,7 +251,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/aws/</loc>
-    <lastmod>2020-01-03T21:17:52+09:00</lastmod>
+    <lastmod>2020-01-09T17:50:27+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -294,7 +305,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/docker/</loc>
-    <lastmod>2019-08-18T21:47:30+09:00</lastmod>
+    <lastmod>2020-01-09T17:50:27+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -312,7 +323,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/infra/</loc>
-    <lastmod>2019-11-12T15:24:47+09:00</lastmod>
+    <lastmod>2020-01-09T17:50:27+09:00</lastmod>
     <priority>0</priority>
   </url>
   

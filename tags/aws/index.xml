@@ -5,10 +5,20 @@
     <link>https://chienkira.github.io/blog/tags/aws/</link>
     <description>Recent content in aws on Chienkira my blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 03 Jan 2020 21:17:52 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 09 Jan 2020 17:50:27 +0900</lastBuildDate>
     
 	<atom:link href="https://chienkira.github.io/blog/tags/aws/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cấu thành 1 hệ thống API sử dụng ECS Fargate</title>
+      <link>https://chienkira.github.io/blog/posts/ecs-fargate/</link>
+      <pubDate>Thu, 09 Jan 2020 17:50:27 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/ecs-fargate/</guid>
+      <description>Mới đầu năm 2020 nhưng lại có cơ hội được tham khảo một hệ thống xài docker container vào môi trường prod. Ở đây họ dùng ECS và Fargate của AWS. Mình vẽ lại sơ đồ cấu thành của nó lưu lại làm tham khảo và ôn tập lại ECS luôn.
+Cấu thành của 1 hệ thống API dùng ECS Fargate ↓ Ảnh svg, có thể tải về và phóng to ra.</description>
+    </item>
     
     <item>
       <title>Use Presigned Url to Secure Only Some Files Inside A Public S3 Bucket</title>
