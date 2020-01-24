@@ -5,10 +5,30 @@
     <link>https://chienkira.github.io/blog/tags/programing/</link>
     <description>Recent content in programing on Chienkira my blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 08 Dec 2019 09:36:35 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jan 2020 14:46:24 +0900</lastBuildDate>
     
 	<atom:link href="https://chienkira.github.io/blog/tags/programing/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rails Single Table Inheritance and DRY Code</title>
+      <link>https://chienkira.github.io/blog/posts/rails-single-table-inheritance-and-dry-code/</link>
+      <pubDate>Fri, 24 Jan 2020 14:46:24 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/rails-single-table-inheritance-and-dry-code/</guid>
+      <description>STI（Single Table Inheritance/単一テーブル継承）をRailsでどう実装するかについて、情報をまとめて残したいと思います。
+STIの概要  英語：Single Table Inheritance 日本語：単一テーブル継承  OOPプログラミングの世界でよく知られている「継承」技術の一つです。
+共通項目、共通振る舞いを折り出してスーパークラスを作り、 非共通項目や振る舞いはそのスーパークラスの継承したサブクラスで定義するというやり方ですね。
+こうすることで、コードの重複を防げます。メンテナンスもやりやすいコードになります。
+データベースの設計にも適用しようというのがSTIです。 特に、モデル間の共通データがほとんどだが、振る舞いが異なる場合はSTIが一番適切です。
+RailsでSTIを実装してみる 例のシステム  スマホを販売している会社がスマホのデータを管理したい スマホの種類は、iPhoneとAndroidの2種類がある 種類に関係なく、製造番号やメモリや画面サイズなどのデータが共通となる（→ STIに適切ヒントですね） なお、スマホの種類によって異なるアクションができるようにする必要がある。 例えば、スマホの最新OSバージョンチェック機能があるとして、  iPhoneの場合AppleのAPIを叩く必要がある、 対して、Androidの場合GoogleのAPIを叩かないといけない   Rails実装 何にも気にしないで作ると、iphone/androidそれぞれのテーブル、モデルを作成しますよね。 そして、共通のデータやメソッドもあるので、 似たような記述・コピペが増えそうな予感を感じますよね！
+それを避ける為に、STIを適用してみしょう。 ↓の図をご覧ください。
+一見どうということもないように見えますが、実は
+ iPhoneとAndroidテーブルは存在しない 全てのスマホのデータが、smartphoneテーブル一つだけに保存される  スーパーテーブルを用意して、継承のサブテーブルを作成するということです。
+データレベルでは、スマホのデータしか実在しませんが、 アプリケーションレベル（Rails上）では、スマホを継承したiPhoneとAndroidモデルが存在します。
+Railsで実際に実装する 1. マイグレーションを作成 スマホのテーブルしか存在しないので、マイグレーションファイルは1個になります。
+class CreateSmartphoneTables &amp;lt; ActiveRecord::Migration[5.2] def change create_table :smartphones do |t| t.string :type, null: false t.string :serial_no t.float :screen_size t.integer :memory t.timestamps null: false end end end ポイントは、typeカラムを必須で用意する必要があることです。 RailsにSTIを使っているよって伝えるためです。</description>
+    </item>
     
     <item>
       <title>Softbank決済代行サービス導入についてのまとめ、実装メモ</title>
