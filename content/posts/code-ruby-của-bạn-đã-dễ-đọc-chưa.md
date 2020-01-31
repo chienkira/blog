@@ -1,5 +1,5 @@
 ---
-title: "Code Ruby Của Bạn Đã Dễ Đọc Chưa"
+title: "Care about writing readable Ruby code?"
 date: 2019-10-24T09:52:45+09:00
 draft: false
 tags: [ruby, rails, code-style, programing, tech, til]

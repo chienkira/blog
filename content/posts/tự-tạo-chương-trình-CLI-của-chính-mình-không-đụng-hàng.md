@@ -1,5 +1,5 @@
 ---
-title: "Tự Tạo Chương Trình CLI Của Chính Mình Không Đụng Hàng"
+title: "Make your own CLI program with Python"
 date: 2019-03-13T23:04:57+09:00
 draft: no
 tags: [cli, python]

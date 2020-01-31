@@ -1,5 +1,5 @@
 baseURL = "https://chienkira.github.io/blog"
-title = "Chienkira my blog"
+title = "Chienkira full stack web developer"
 copyright = "" # for smart copyright line, leave this blank and check [params.copyright]
 
 theme = "minimo"
@@ -14,8 +14,8 @@ enableEmoji = true
 defaultContentLanguage = "en"
 
 [params.info]
-description = "chienkira | a web full stack engineer | personal blog about tech and life in Japan"
-title404 = "a web full stack engineer | personal blog about tech and life in Japan"
+description = "chienkira | a full stack web developer | personal blog about tech and life in Japan"
+title404 = "a full stack web developer | personal blog about tech and life in Japan"
 
 [params.assets]
 favicon = "favicon.ico"

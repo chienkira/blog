@@ -1,5 +1,5 @@
 ---
-title: "Giới Hạn Code Storage Trong Aws Lambda"
+title: "Code Storage limit of AWS Lambda"
 date: 2019-04-15T17:37:58+09:00
 draft: no
 tags: [til, aws, lambda, serverless]

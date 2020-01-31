@@ -1,5 +1,5 @@
 ---
-title: "How to integrate Softbank payment gateway"
+title: "How to integrate Softbank payment gateway (日本語)"
 date: 2019-12-08T09:36:35+09:00
 draft: false
 tags: [rails, ruby, payment, programing, Softbank]
