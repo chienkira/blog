@@ -11,7 +11,7 @@
     
     
     <item>
-      <title>&#34;Thông&#34; Mạng Cho Aws SAM Và Dynamodb Local(日本語)</title>
+      <title>&#34;Thông&#34; Mạng Cho Aws SAM Và Dynamodb Local (日本語)</title>
       <link>https://chienkira.github.io/blog/posts/th%C3%B4ng-m%E1%BA%A1ng-cho-aws-sam-v%C3%A0-dynamodb-local/</link>
       <pubDate>Wed, 13 Feb 2019 15:50:07 +0900</pubDate>
       
@@ -31,7 +31,7 @@ sam local start-api --docker-network aws_local_network
     </item>
     
     <item>
-      <title>Tìm Hiểu Về Api Gateway(日本語)</title>
+      <title>Understand AWS API Gateway(日本語)</title>
       <link>https://chienkira.github.io/blog/posts/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway/</link>
       <pubDate>Tue, 12 Feb 2019 15:45:04 +0900</pubDate>
       

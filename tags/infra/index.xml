@@ -11,7 +11,7 @@
     
     
     <item>
-      <title>Cấu thành 1 hệ thống API sử dụng ECS Fargate</title>
+      <title>Memo about AWS ECS Fargate</title>
       <link>https://chienkira.github.io/blog/posts/ecs-fargate/</link>
       <pubDate>Thu, 09 Jan 2020 17:50:27 +0900</pubDate>
       
@@ -21,7 +21,7 @@ Cấu thành của 1 hệ thống API dùng ECS Fargate ↓ Ảnh svg, có thể
     </item>
     
     <item>
-      <title>Cài Đặt Server Chạy Rails App Trên Production Sử Dụng Puma &#43; Nginx</title>
+      <title>Set up production environment for Rails app using Puma and Nginx</title>
       <link>https://chienkira.github.io/blog/posts/h%C6%B0%E1%BB%9Bng-d%E1%BA%ABn-c%C3%A0i-%C4%91%E1%BA%B7t-server-rails-puma-nginx/</link>
       <pubDate>Tue, 12 Nov 2019 15:24:47 +0900</pubDate>
       
@@ -31,7 +31,7 @@ Prerequisite  OS môi trường là Amazon linux Database sử dụng là Postgr
     </item>
     
     <item>
-      <title>Minimum Web App Terraform Skeleton [English]</title>
+      <title>Minimum Web App Terraform Skeleton (English)</title>
       <link>https://chienkira.github.io/blog/posts/minimum-web-app-terraform-skeleton/</link>
       <pubDate>Sun, 03 Nov 2019 16:56:11 +0900</pubDate>
       
@@ -40,7 +40,7 @@ Prerequisite  OS môi trường là Amazon linux Database sử dụng là Postgr
     </item>
     
     <item>
-      <title>Áp Dụng Terraform Module deploy lên nhiều môi trường</title>
+      <title>Terraform Module and DRY infra code for multiple environments</title>
       <link>https://chienkira.github.io/blog/posts/deploy-nhi%E1%BB%81u-m%C3%B4i-tr%C6%B0%E1%BB%9Dng-v%E1%BB%9Bi-terraform/</link>
       <pubDate>Sat, 15 Jun 2019 10:28:15 +0900</pubDate>
       

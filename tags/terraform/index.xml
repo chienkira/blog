@@ -11,7 +11,7 @@
     
     
     <item>
-      <title>Minimum Web App Terraform Skeleton [English]</title>
+      <title>Minimum Web App Terraform Skeleton (English)</title>
       <link>https://chienkira.github.io/blog/posts/minimum-web-app-terraform-skeleton/</link>
       <pubDate>Sun, 03 Nov 2019 16:56:11 +0900</pubDate>
       
@@ -20,7 +20,7 @@
     </item>
     
     <item>
-      <title>Áp Dụng Terraform Module deploy lên nhiều môi trường</title>
+      <title>Terraform Module and DRY infra code for multiple environments</title>
       <link>https://chienkira.github.io/blog/posts/deploy-nhi%E1%BB%81u-m%C3%B4i-tr%C6%B0%E1%BB%9Dng-v%E1%BB%9Bi-terraform/</link>
       <pubDate>Sat, 15 Jun 2019 10:28:15 +0900</pubDate>
       
