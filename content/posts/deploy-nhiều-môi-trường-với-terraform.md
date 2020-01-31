@@ -1,5 +1,5 @@
 ---
-title: "Áp Dụng Terraform Module deploy lên nhiều môi trường"
+title: "Terraform Module and DRY infra code for multiple environments"
 date: 2019-06-15T10:28:15+09:00
 draft: false
 tags: [aws, terraform, SRE, infra]

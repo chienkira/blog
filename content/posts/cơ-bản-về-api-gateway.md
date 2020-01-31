@@ -1,5 +1,5 @@
 ---
-title: "Tìm Hiểu Về Api Gateway(日本語)"
+title: "Understand AWS API Gateway(日本語)"
 date: 2019-02-12T15:45:04+09:00
 draft: no
 tags: [aws, serverless, SAM, api gateway, lambda]

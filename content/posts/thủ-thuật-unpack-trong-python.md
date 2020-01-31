@@ -1,5 +1,5 @@
 ---
-title: "Thủ Thuật Unpack Trong Python"
+title: "Unpack with Python"
 date: 2019-04-05T10:38:57+09:00
 draft: no
 tags: [tech, python, programing, TIL]

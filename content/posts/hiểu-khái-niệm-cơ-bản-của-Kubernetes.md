@@ -1,5 +1,5 @@
 ---
-title: "Hiểu Khái Niệm Cơ Bản Của Kubernetes(日本語)"
+title: "Basic knowledge about Kubernetes(日本語)"
 date: 2019-06-08T11:12:01+09:00
 draft: false
 tags: [Kubernetes, aws, docker]

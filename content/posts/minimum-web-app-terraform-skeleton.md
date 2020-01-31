@@ -1,5 +1,5 @@
 ---
-title: "Minimum Web App Terraform Skeleton [English]"
+title: "Minimum Web App Terraform Skeleton (English)"
 date: 2019-11-03T16:56:11+09:00
 draft: false
 tags: [terraform, tech, infra, aws]

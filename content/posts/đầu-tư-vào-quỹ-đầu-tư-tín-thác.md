@@ -4,7 +4,7 @@ date: 2020-01-27T11:49:04+09:00
 draft: true
 tags: [money, investing]
 language: vi
-toc: true
+toc: false
 authors: [chienkira]
 ---
 
@@ -31,6 +31,8 @@ Có các loại đầu tư là:
 Người ta khuyên là nên kết hợp nhiều loại lại với nhau.
 
 ## Step 2: Chọn cụ thể quỹ đầu tư tín thác bằng cách xem xét nhiều yếu tố
+git remote set-url origin https://chienkira@github.com/chienkira/blog.git
+
 
 Xem xét 6 yếu tố sau để cân bằng và lựa chọn quỹ đầu tư tín thác thích hợp.
 

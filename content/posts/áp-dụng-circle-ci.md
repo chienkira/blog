@@ -1,5 +1,5 @@
 ---
-title: "Giới thiệu CI và áp dụng thực tế tool Circle CI"
+title: "What is CI and how to set up CI using Circle CI service"
 date: 2019-03-23T21:40:43+09:00
 draft: no
 tags: [CI, Circle CI, docker]

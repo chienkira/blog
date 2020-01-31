@@ -1,5 +1,5 @@
 ---
-title: "Giải thích Mixin và sử dụng Mixin với Python"
+title: "Explain Mixin and How to use it with Python"
 date: 2019-06-25T10:25:00+09:00
 draft: no
 tags: [python, programing, mixin]

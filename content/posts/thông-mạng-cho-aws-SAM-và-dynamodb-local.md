@@ -1,5 +1,5 @@
 ---
-title: "\"Thông\" Mạng Cho Aws SAM Và Dynamodb Local(日本語)"
+title: "\"Thông\" Mạng Cho Aws SAM Và Dynamodb Local (日本語)"
 date: 2019-02-13T15:50:07+09:00
 draft: no
 tags: [aws, serverless, SAM, dynamodb local, docker]

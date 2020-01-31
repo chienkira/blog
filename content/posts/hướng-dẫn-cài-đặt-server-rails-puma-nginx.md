@@ -1,5 +1,5 @@
 ---
-title: "Cài Đặt Server Chạy Rails App Trên Production Sử Dụng Puma + Nginx"
+title: "Set up production environment for Rails app using Puma and Nginx"
 date: 2019-11-12T15:24:47+09:00
 draft: no
 tags: [infra, rails, tech, nginx, deploy]

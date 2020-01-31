@@ -1,5 +1,5 @@
 ---
-title: "Cấu thành 1 hệ thống API sử dụng ECS Fargate"
+title: "Memo about AWS ECS Fargate"
 date: 2020-01-09T17:50:27+09:00
 draft: no
 tags: [aws, infra, docker, ECS]

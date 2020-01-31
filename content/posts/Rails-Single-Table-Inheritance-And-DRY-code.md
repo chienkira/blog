@@ -1,5 +1,5 @@
 ---
-title: "Rails Single Table Inheritance and DRY Code"
+title: "Rails Single Table Inheritance and DRY Code (日本語)"
 date: 2020-01-24T14:46:24+09:00
 draft: false
 tags: [rails, DRY, programing, ruby, design]
