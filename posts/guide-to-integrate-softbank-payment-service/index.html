@@ -12,7 +12,7 @@
 2.3 リンク型とAPI型の比較    項目 リンク型 API型     決済画面のカスタマイズ プラス料金を出せば、デザインのカスタマイズはできるが、 リンク追加など出来ない内容もある 自由に   決済処理フロー 決済代行サービスの仕様に依存 自由に   開発容易度と工数 低 高   利用可能な決済手段の差 豊富 一部の決済手段はAPI型対応しない    3.'>
 <meta name='theme-color' content='#ffcd00'>
 
-<meta property='og:title' content='How to integrate Softbank payment gateway | Chien Kira'>
+<meta property='og:title' content='How to integrate Softbank payment gateway (日本語) | Chien Kira'>
 <meta property='og:description' content='この間、決済代行サービス（SoftBankペイメント）を案件に導入したので、実際に実装して分かったことをこの記事にまとめてシェアしたいと思います。
 バックグラウンド  私はこれまで決済代行サービスとの連携を実装したことがありません。 この案件は、クレジットカード支払いに対応しなければなりません。今後キャリア決済も対応する可能性があります。 Railsで実装されたWebアプリケーションからの連携となります。  決済代行サービスとは  加盟店と各決済会社（カード会社やオンライ決済）の間に入り、多種の決済方法を対応してくれるサービスです。 決済代行サービスを使わない場合、どうなるか？  各決済会社と個別契約をしないといけない　→　審査が大変厳しくなってしまう、工数もかなり掛かってしまう 決済会社によって、入金サイクルや手数料率が異なるので、事務処理に大変手間が掛かってしまう カード情報保管など、加盟店側が行わなければならない為、セキュリティー面の対応のハドルは高い  上のような不便を解決するために、決済代行サービスが存在しています。  SoftBankペイメントについてのまとめ 1. 導入の大きな流れ  まずは、エントリーシートを記入してSoftBankペイメント（SBペイメント）へ提出する SB側が各決済会社への審査を行ってくれる 審査が通過したら、私たち（加盟店）の環境が構築される
 ※ キャリア決済の審査が遅い傾向にある為、各カード会社の審査がOKになったら、途中で環境構築が始められるそうです。急いでる方はSBの営業担当者へ依頼してください。 環境構築が終わり次第、試験と本番環境の接続情報がもらえる  連携時に必要な情報 管理画面のログイン情報  審査に時間はかかる為、基本的には「共用試験環境」を使って実装を先に進めてください！と営業担当者から案内される
@@ -22,12 +22,12 @@
 2.2 API型 SBペイメントの画面を使わず、APIでサーバー間の連携を行う方式です。 決済画面全部が自由にカスタマイズできます。
 2.3 リンク型とAPI型の比較    項目 リンク型 API型     決済画面のカスタマイズ プラス料金を出せば、デザインのカスタマイズはできるが、 リンク追加など出来ない内容もある 自由に   決済処理フロー 決済代行サービスの仕様に依存 自由に   開発容易度と工数 低 高   利用可能な決済手段の差 豊富 一部の決済手段はAPI型対応しない    3.'>
 <meta property='og:url' content='https://chienkira.github.io/blog/posts/guide-to-integrate-softbank-payment-service/'>
-<meta property='og:site_name' content='Chienkira my blog'>
+<meta property='og:site_name' content='Chienkira full stack web developer'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/00e439e7376596f2760b4ef9a28df93b?s=256'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='rails'><meta property='article:tag' content='ruby'><meta property='article:tag' content='payment'><meta property='article:tag' content='programing'><meta property='article:tag' content='Softbank'><meta property='article:published_time' content='2019-12-08T09:36:35&#43;09:00'/><meta property='article:modified_time' content='2019-12-08T09:36:35&#43;09:00'/><meta name='twitter:card' content='summary'><meta name='twitter:creator' content='@chienkira'>
 
 <meta name="generator" content="Hugo 0.50" />
 
-  <title>How to integrate Softbank payment gateway | Chien Kira</title>
+  <title>How to integrate Softbank payment gateway (日本語) | Chien Kira</title>
   <link rel='canonical' href='https://chienkira.github.io/blog/posts/guide-to-integrate-softbank-payment-service/'>
   
   
@@ -230,14 +230,14 @@ if (!doNotTrack) {
     <style>.widget-breadcrumbs li:after{content:'　\3e\3e　'}</style>
   <section class='widget widget-breadcrumbs sep-after'>
     <nav id='breadcrumbs'>
-      <ol><li><a href='/blog/'>Chienkira my blog</a></li><li><a href='/blog/posts/'>Posts</a></li><li><span>How to integrate Softbank payment gateway</span></li></ol>
+      <ol><li><a href='/blog/'>Chienkira full stack web developer</a></li><li><a href='/blog/posts/'>Posts</a></li><li><span>How to integrate Softbank payment gateway (日本語)</span></li></ol>
     </nav>
   </section></div>
       </div>
 
       <header id='header' class='header site-header'>
         <div class='container sep-after'>
-          <div class='header-info'><p class='site-title title'>Chienkira my blog</p><p class='desc site-desc'>chienkira | a web full stack engineer | personal blog about tech and life in Japan</p>
+          <div class='header-info'><p class='site-title title'>Chienkira full stack web developer</p><p class='desc site-desc'>chienkira | a full stack web developer | personal blog about tech and life in Japan</p>
           </div>
         </div>
       </header>
@@ -249,7 +249,7 @@ if (!doNotTrack) {
   <header class='header entry-header'>
   <div class='container sep-after'>
     <div class='header-info'>
-      <h1 class='title'>How to integrate Softbank payment gateway</h1>
+      <h1 class='title'>How to integrate Softbank payment gateway (日本語)</h1>
       
 
     </div>
@@ -384,10 +384,10 @@ if (!doNotTrack) {
         onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/guide-to-integrate-softbank-payment-service\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z" /></svg></div>
     <div class="twitter" title="Share this on Twitter"
-        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/guide-to-integrate-softbank-payment-service\/&amp;text=How to integrate Softbank payment gateway&amp;via=');">
+        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/guide-to-integrate-softbank-payment-service\/&amp;text=How to integrate Softbank payment gateway (日本語)&amp;via=');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z" /></svg></div>
     <div class="linkedin" title="Share this on Linkedin"
-        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/guide-to-integrate-softbank-payment-service\/&amp;title=How to integrate Softbank payment gateway');"><svg
+        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/guide-to-integrate-softbank-payment-service\/&amp;title=How to integrate Softbank payment gateway (日本語)');"><svg
             viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z" /></svg></div>
     
     <div class="gplus" title="Share this on Google Plus"
@@ -800,10 +800,10 @@ APIのレスポンスが正常だったのに、なんで管理画面で確認�
         onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/guide-to-integrate-softbank-payment-service\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z" /></svg></div>
     <div class="twitter" title="Share this on Twitter"
-        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/guide-to-integrate-softbank-payment-service\/&amp;text=How to integrate Softbank payment gateway&amp;via=');">
+        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/guide-to-integrate-softbank-payment-service\/&amp;text=How to integrate Softbank payment gateway (日本語)&amp;via=');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z" /></svg></div>
     <div class="linkedin" title="Share this on Linkedin"
-        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/guide-to-integrate-softbank-payment-service\/&amp;title=How to integrate Softbank payment gateway');"><svg
+        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/guide-to-integrate-softbank-payment-service\/&amp;title=How to integrate Softbank payment gateway (日本語)');"><svg
             viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z" /></svg></div>
     
     <div class="gplus" title="Share this on Google Plus"

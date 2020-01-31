@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>programing on Chienkira my blog</title>
+    <title>programing on Chienkira full stack web developer</title>
     <link>https://chienkira.github.io/blog/tags/programing/</link>
-    <description>Recent content in programing on Chienkira my blog</description>
+    <description>Recent content in programing on Chienkira full stack web developer</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 24 Jan 2020 14:46:24 +0900</lastBuildDate>
     
@@ -31,7 +31,7 @@ class CreateSmartphoneTables &amp;lt; ActiveRecord::Migration[5.2] def change cr
     </item>
     
     <item>
-      <title>How to integrate Softbank payment gateway</title>
+      <title>How to integrate Softbank payment gateway (日本語)</title>
       <link>https://chienkira.github.io/blog/posts/guide-to-integrate-softbank-payment-service/</link>
       <pubDate>Sun, 08 Dec 2019 09:36:35 +0900</pubDate>
       
@@ -47,7 +47,7 @@ class CreateSmartphoneTables &amp;lt; ActiveRecord::Migration[5.2] def change cr
     </item>
     
     <item>
-      <title>Code Ruby Của Bạn Đã Dễ Đọc Chưa</title>
+      <title>Care about writing readable Ruby code?</title>
       <link>https://chienkira.github.io/blog/posts/code-ruby-c%E1%BB%A7a-b%E1%BA%A1n-%C4%91%C3%A3-d%E1%BB%85-%C4%91%E1%BB%8Dc-ch%C6%B0a/</link>
       <pubDate>Thu, 24 Oct 2019 09:52:45 +0900</pubDate>
       

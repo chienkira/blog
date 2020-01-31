@@ -30,7 +30,7 @@ RailsでSTIを実装してみる 例のシステム  スマホを販売してい
 Railsで実際に実装する 1. マイグレーションを作成 スマホのテーブルしか存在しないので、マイグレーションファイルは1個になります。
 class CreateSmartphoneTables &lt; ActiveRecord::Migration[5.2] def change create_table :smartphones do |t| t.string :type, null: false t.string :serial_no t.float :screen_size t.integer :memory t.timestamps null: false end end end ポイントは、typeカラムを必須で用意する必要があることです。 RailsにSTIを使っているよって伝えるためです。'>
 <meta property='og:url' content='https://chienkira.github.io/blog/posts/rails-single-table-inheritance-and-dry-code/'>
-<meta property='og:site_name' content='Chienkira my blog'>
+<meta property='og:site_name' content='Chienkira full stack web developer'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/00e439e7376596f2760b4ef9a28df93b?s=256'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='rails'><meta property='article:tag' content='DRY'><meta property='article:tag' content='programing'><meta property='article:tag' content='ruby'><meta property='article:tag' content='design'><meta property='article:published_time' content='2020-01-24T14:46:24&#43;09:00'/><meta property='article:modified_time' content='2020-01-24T14:46:24&#43;09:00'/><meta name='twitter:card' content='summary'><meta name='twitter:creator' content='@chienkira'>
 
 <meta name="generator" content="Hugo 0.50" />
@@ -238,14 +238,14 @@ if (!doNotTrack) {
     <style>.widget-breadcrumbs li:after{content:'　\3e\3e　'}</style>
   <section class='widget widget-breadcrumbs sep-after'>
     <nav id='breadcrumbs'>
-      <ol><li><a href='/blog/'>Chienkira my blog</a></li><li><a href='/blog/posts/'>Posts</a></li><li><span>Rails Single Table Inheritance and DRY Code (日本語)</span></li></ol>
+      <ol><li><a href='/blog/'>Chienkira full stack web developer</a></li><li><a href='/blog/posts/'>Posts</a></li><li><span>Rails Single Table Inheritance and DRY Code (日本語)</span></li></ol>
     </nav>
   </section></div>
       </div>
 
       <header id='header' class='header site-header'>
         <div class='container sep-after'>
-          <div class='header-info'><p class='site-title title'>Chienkira my blog</p><p class='desc site-desc'>chienkira | a web full stack engineer | personal blog about tech and life in Japan</p>
+          <div class='header-info'><p class='site-title title'>Chienkira full stack web developer</p><p class='desc site-desc'>chienkira | a full stack web developer | personal blog about tech and life in Japan</p>
           </div>
         </div>
       </header>

@@ -14,7 +14,7 @@ Lambda 関数の入力形式 以下のようにHTTPリクエスト全体をLambd
 Lambda 関数の入力形式 以下のようにHTTPリクエスト全体をLambda 関数のevent変数にマッピングされます。 よく使うのは：
  headers: リクエストのヘッダデータ httpMethod: リクエストのメソッド情報 pathParameters: GETリクエストのパスパラメータ 例）/hoge/{group}/{user}のようなリクエストの場合、pathParameters には、groupとuserが入ってきます。 queryStringParameters: GETリクエストのクエリパラメータ 例）/hoge/{user}?page=5のようなリクエストの場合、queryStringParameters には、pageが入ってきます。 body: POSTリクエストのPostデータ  { &#34;resource&#34;: &#34;Resource path&#34;, &#34;path&#34;: &#34;Path parameter&#34;, &#34;httpMethod&#34;: &#34;Incoming request&#39;s method name&#34; &#34;headers&#34;: {String containing incoming request headers} &#34;multiValueHeaders&#34;: {List of strings containing incoming request headers} &#34;queryStringParameters&#34;: {query string parameters } &#34;multiValueQueryStringParameters&#34;: {List of query string parameters} &#34;pathParameters&#34;: {path parameters} &#34;stageVariables&#34;: {Applicable stage variables} &#34;requestContext&#34;: {Request context, including authorizer-returned key-value pairs} &#34;body&#34;: &#34;A JSON string of the request payload.'>
 <meta property='og:url' content='https://chienkira.github.io/blog/posts/c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-api-gateway/'>
-<meta property='og:site_name' content='Chienkira my blog'>
+<meta property='og:site_name' content='Chienkira full stack web developer'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/00e439e7376596f2760b4ef9a28df93b?s=256'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='aws'><meta property='article:tag' content='serverless'><meta property='article:tag' content='SAM'><meta property='article:tag' content='api gateway'><meta property='article:tag' content='lambda'><meta property='article:published_time' content='2019-02-12T15:45:04&#43;09:00'/><meta property='article:modified_time' content='2019-02-12T15:45:04&#43;09:00'/><meta name='twitter:card' content='summary'><meta name='twitter:creator' content='@chienkira'>
 
 <meta name="generator" content="Hugo 0.50" />
@@ -222,14 +222,14 @@ if (!doNotTrack) {
     <style>.widget-breadcrumbs li:after{content:'　\3e\3e　'}</style>
   <section class='widget widget-breadcrumbs sep-after'>
     <nav id='breadcrumbs'>
-      <ol><li><a href='/blog/'>Chienkira my blog</a></li><li><a href='/blog/posts/'>Posts</a></li><li><span>Understand AWS API Gateway(日本語)</span></li></ol>
+      <ol><li><a href='/blog/'>Chienkira full stack web developer</a></li><li><a href='/blog/posts/'>Posts</a></li><li><span>Understand AWS API Gateway(日本語)</span></li></ol>
     </nav>
   </section></div>
       </div>
 
       <header id='header' class='header site-header'>
         <div class='container sep-after'>
-          <div class='header-info'><p class='site-title title'>Chienkira my blog</p><p class='desc site-desc'>chienkira | a web full stack engineer | personal blog about tech and life in Japan</p>
+          <div class='header-info'><p class='site-title title'>Chienkira full stack web developer</p><p class='desc site-desc'>chienkira | a full stack web developer | personal blog about tech and life in Japan</p>
           </div>
         </div>
       </header>

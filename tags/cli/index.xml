@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>cli on Chienkira my blog</title>
+    <title>cli on Chienkira full stack web developer</title>
     <link>https://chienkira.github.io/blog/tags/cli/</link>
-    <description>Recent content in cli on Chienkira my blog</description>
+    <description>Recent content in cli on Chienkira full stack web developer</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 13 Mar 2019 23:04:57 +0900</lastBuildDate>
     
@@ -11,7 +11,7 @@
     
     
     <item>
-      <title>Tự Tạo Chương Trình CLI Của Chính Mình Không Đụng Hàng</title>
+      <title>Make your own CLI program with Python</title>
       <link>https://chienkira.github.io/blog/posts/t%E1%BB%B1-t%E1%BA%A1o-ch%C6%B0%C6%A1ng-tr%C3%ACnh-cli-c%E1%BB%A7a-ch%C3%ADnh-m%C3%ACnh-kh%C3%B4ng-%C4%91%E1%BB%A5ng-h%C3%A0ng/</link>
       <pubDate>Wed, 13 Mar 2019 23:04:57 +0900</pubDate>
       

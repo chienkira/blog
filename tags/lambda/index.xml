@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>lambda on Chienkira my blog</title>
+    <title>lambda on Chienkira full stack web developer</title>
     <link>https://chienkira.github.io/blog/tags/lambda/</link>
-    <description>Recent content in lambda on Chienkira my blog</description>
+    <description>Recent content in lambda on Chienkira full stack web developer</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 15 Apr 2019 17:37:58 +0900</lastBuildDate>
     
@@ -11,7 +11,7 @@
     
     
     <item>
-      <title>Giới Hạn Code Storage Trong Aws Lambda</title>
+      <title>Code Storage limit of AWS Lambda</title>
       <link>https://chienkira.github.io/blog/posts/gi%E1%BB%9Bi-h%E1%BA%A1n-code-storage-trong-aws-lambda/</link>
       <pubDate>Mon, 15 Apr 2019 17:37:58 +0900</pubDate>
       

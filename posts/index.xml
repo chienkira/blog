@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Chienkira my blog</title>
+    <title>Posts on Chienkira full stack web developer</title>
     <link>https://chienkira.github.io/blog/posts/</link>
-    <description>Recent content in Posts on Chienkira my blog</description>
+    <description>Recent content in Posts on Chienkira full stack web developer</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 24 Jan 2020 14:46:24 +0900</lastBuildDate>
     
@@ -51,7 +51,7 @@ Presigned URL là?</description>
     </item>
     
     <item>
-      <title>How to integrate Softbank payment gateway</title>
+      <title>How to integrate Softbank payment gateway (日本語)</title>
       <link>https://chienkira.github.io/blog/posts/guide-to-integrate-softbank-payment-service/</link>
       <pubDate>Sun, 08 Dec 2019 09:36:35 +0900</pubDate>
       
@@ -86,7 +86,7 @@ Prerequisite  OS môi trường là Amazon linux Database sử dụng là Postgr
     </item>
     
     <item>
-      <title>Code Ruby Của Bạn Đã Dễ Đọc Chưa</title>
+      <title>Care about writing readable Ruby code?</title>
       <link>https://chienkira.github.io/blog/posts/code-ruby-c%E1%BB%A7a-b%E1%BA%A1n-%C4%91%C3%A3-d%E1%BB%85-%C4%91%E1%BB%8Dc-ch%C6%B0a/</link>
       <pubDate>Thu, 24 Oct 2019 09:52:45 +0900</pubDate>
       
@@ -156,7 +156,7 @@ Giảm cân là giảm cái gì ?</description>
     </item>
     
     <item>
-      <title>Giới Hạn Code Storage Trong Aws Lambda</title>
+      <title>Code Storage limit of AWS Lambda</title>
       <link>https://chienkira.github.io/blog/posts/gi%E1%BB%9Bi-h%E1%BA%A1n-code-storage-trong-aws-lambda/</link>
       <pubDate>Mon, 15 Apr 2019 17:37:58 +0900</pubDate>
       
@@ -197,7 +197,7 @@ Giới thiệu CI và Circle CI CI CI viết tắt của Continuous Integration 
     </item>
     
     <item>
-      <title>Tự Tạo Chương Trình CLI Của Chính Mình Không Đụng Hàng</title>
+      <title>Make your own CLI program with Python</title>
       <link>https://chienkira.github.io/blog/posts/t%E1%BB%B1-t%E1%BA%A1o-ch%C6%B0%C6%A1ng-tr%C3%ACnh-cli-c%E1%BB%A7a-ch%C3%ADnh-m%C3%ACnh-kh%C3%B4ng-%C4%91%E1%BB%A5ng-h%C3%A0ng/</link>
       <pubDate>Wed, 13 Mar 2019 23:04:57 +0900</pubDate>
       

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>dynamodb local on Chienkira my blog</title>
+    <title>dynamodb local on Chienkira full stack web developer</title>
     <link>https://chienkira.github.io/blog/tags/dynamodb-local/</link>
-    <description>Recent content in dynamodb local on Chienkira my blog</description>
+    <description>Recent content in dynamodb local on Chienkira full stack web developer</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 13 Feb 2019 15:50:07 +0900</lastBuildDate>
     

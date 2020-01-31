@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Softbank on Chienkira my blog</title>
+    <title>Softbank on Chienkira full stack web developer</title>
     <link>https://chienkira.github.io/blog/tags/softbank/</link>
-    <description>Recent content in Softbank on Chienkira my blog</description>
+    <description>Recent content in Softbank on Chienkira full stack web developer</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sun, 08 Dec 2019 09:36:35 +0900</lastBuildDate>
     
@@ -11,7 +11,7 @@
     
     
     <item>
-      <title>How to integrate Softbank payment gateway</title>
+      <title>How to integrate Softbank payment gateway (日本語)</title>
       <link>https://chienkira.github.io/blog/posts/guide-to-integrate-softbank-payment-service/</link>
       <pubDate>Sun, 08 Dec 2019 09:36:35 +0900</pubDate>
       

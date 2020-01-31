@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>aws on Chienkira my blog</title>
+    <title>aws on Chienkira full stack web developer</title>
     <link>https://chienkira.github.io/blog/tags/aws/</link>
-    <description>Recent content in aws on Chienkira my blog</description>
+    <description>Recent content in aws on Chienkira full stack web developer</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 09 Jan 2020 17:50:27 +0900</lastBuildDate>
     
@@ -63,7 +63,7 @@ Kubernetesの構成を理解 クラスター  クラスター本体  ノード  
     </item>
     
     <item>
-      <title>Giới Hạn Code Storage Trong Aws Lambda</title>
+      <title>Code Storage limit of AWS Lambda</title>
       <link>https://chienkira.github.io/blog/posts/gi%E1%BB%9Bi-h%E1%BA%A1n-code-storage-trong-aws-lambda/</link>
       <pubDate>Mon, 15 Apr 2019 17:37:58 +0900</pubDate>
       
