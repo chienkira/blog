@@ -6,6 +6,7 @@ tags: []
 language: vi
 toc: true
 authors: [chienkira]
+cover: /blog/images/xxx.png
 ---
 
 **Insert Lead paragraph here.**
