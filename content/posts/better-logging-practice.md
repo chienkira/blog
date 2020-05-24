@@ -6,7 +6,7 @@ tags: [rails, logging, tech]
 language: vi
 toc: true
 authors: [chienkira]
-cover: /blog/images/__Better__ logging practice with __Lograge__ _chienkira.github.io_blog_.png
+cover: /blog/images/Better_logging_practice.png
 ---
 
 **Ruby là một ngôn ngữ đẹp, gems lại giống những món trang sức vừa xứng tầm vừa sang chảnh của ả.**
