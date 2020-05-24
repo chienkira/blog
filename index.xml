@@ -5,10 +5,19 @@
     <link>https://chienkira.github.io/blog/</link>
     <description>Recent content on Chienkira full stack web developer</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 24 Jan 2020 14:46:24 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 24 May 2020 13:17:39 +0900</lastBuildDate>
     
 	<atom:link href="https://chienkira.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Better Logging Practice (Part 1)</title>
+      <link>https://chienkira.github.io/blog/posts/better-logging-practice/</link>
+      <pubDate>Sun, 24 May 2020 13:17:39 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/better-logging-practice/</guid>
+      <description>Ruby là một ngôn ngữ đẹp, gems lại giống những món trang sức vừa xứng tầm vừa sang chảnh của ả. Và cá nhân mình cảm nhận thấy gu của những dev làm việc với Ruby cũng ít nhiều ở một level khá ổn, mọi người khá &amp;ldquo;sạch sẽ&amp;rdquo; và &amp;ldquo;tinh tế&amp;rdquo; :)) ngay cả trong chuyện logging nhé! Qua bài này, xin giới thiệu 1 gem và 1 AWS tool hữu ích cho việc quản lý logs đến các thánh thần!</description>
+    </item>
     
     <item>
       <title>Rails Single Table Inheritance and DRY Code (日本語)</title>

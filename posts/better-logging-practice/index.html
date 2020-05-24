@@ -2,21 +2,19 @@
 <html lang='en'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='Như đã giới thiệu ở bài viết trước [chia sẻ kinh nghiệm học lấy bằng lái xe ô tô], hôm nay mình sẽ viết về các dịch vụ thuê xe ô tô ở Nhật. Các bạn sau khi có bằng, không mua xe thì hãy tham khảo thử nhé!
-Các loại dịch vụ thuê xe ở Nhật Hiện tại ở Nhật tồn tại 2 hình thức thuê xe chứ không phải là một.'>
+<meta name='description' content='Ruby là một ngôn ngữ đẹp, gems lại giống những món trang sức vừa xứng tầm vừa sang chảnh của ả. Và cá nhân mình cảm nhận thấy gu của những dev làm việc với Ruby cũng ít nhiều ở một level khá ổn, mọi người khá &ldquo;sạch sẽ&rdquo; và &ldquo;tinh tế&rdquo; :)) ngay cả trong chuyện logging nhé! Qua bài này, xin giới thiệu 1 gem và 1 AWS tool hữu ích cho việc quản lý logs đến các thánh thần!'>
 <meta name='theme-color' content='#ffcd00'>
 
-<meta property='og:title' content='Review Các Dịch Vụ Thuê Xe Ở Nhật | Chien Kira'>
-<meta property='og:description' content='Như đã giới thiệu ở bài viết trước [chia sẻ kinh nghiệm học lấy bằng lái xe ô tô], hôm nay mình sẽ viết về các dịch vụ thuê xe ô tô ở Nhật. Các bạn sau khi có bằng, không mua xe thì hãy tham khảo thử nhé!
-Các loại dịch vụ thuê xe ở Nhật Hiện tại ở Nhật tồn tại 2 hình thức thuê xe chứ không phải là một.'>
-<meta property='og:url' content='https://chienkira.github.io/blog/posts/c%C3%A1c-d%E1%BB%8Bch-v%E1%BB%A5-thu%C3%AA-xe-%E1%BB%9F-nh%E1%BA%ADt/'>
+<meta property='og:title' content='Better Logging Practice (Part 1) | Chien Kira'>
+<meta property='og:description' content='Ruby là một ngôn ngữ đẹp, gems lại giống những món trang sức vừa xứng tầm vừa sang chảnh của ả. Và cá nhân mình cảm nhận thấy gu của những dev làm việc với Ruby cũng ít nhiều ở một level khá ổn, mọi người khá &ldquo;sạch sẽ&rdquo; và &ldquo;tinh tế&rdquo; :)) ngay cả trong chuyện logging nhé! Qua bài này, xin giới thiệu 1 gem và 1 AWS tool hữu ích cho việc quản lý logs đến các thánh thần!'>
+<meta property='og:url' content='https://chienkira.github.io/blog/posts/better-logging-practice/'>
 <meta property='og:site_name' content='Chienkira full stack web developer'>
-<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/00e439e7376596f2760b4ef9a28df93b?s=256'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='driving'><meta property='article:tag' content='review'><meta property='article:published_time' content='2019-03-03T09:18:57&#43;09:00'/><meta property='article:modified_time' content='2019-03-03T09:18:57&#43;09:00'/><meta name='twitter:card' content='summary'><meta name='twitter:creator' content='@chienkira'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://chienkira.github.io/blog/images/__Better__%20logging%20practice%20with%20__Lograge__%20_chienkira.github.io_blog_.png'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='rails'><meta property='article:tag' content='logging'><meta property='article:tag' content='tech'><meta property='article:published_time' content='2020-05-24T13:17:39&#43;09:00'/><meta property='article:modified_time' content='2020-05-24T13:17:39&#43;09:00'/><meta name='twitter:card' content='summary_large_image'><meta name='twitter:creator' content='@chienkira'><meta property='twitter:image' content='https://chienkira.github.io/blog/images/__Better__%20logging%20practice%20with%20__Lograge__%20_chienkira.github.io_blog_.png'>
 
 <meta name="generator" content="Hugo 0.50" />
 
-  <title>Review Các Dịch Vụ Thuê Xe Ở Nhật | Chien Kira</title>
-  <link rel='canonical' href='https://chienkira.github.io/blog/posts/c%C3%A1c-d%E1%BB%8Bch-v%E1%BB%A5-thu%C3%AA-xe-%E1%BB%9F-nh%E1%BA%ADt/'>
+  <title>Better Logging Practice (Part 1) | Chien Kira</title>
+  <link rel='canonical' href='https://chienkira.github.io/blog/posts/better-logging-practice/'>
   
   
   <link rel='icon' href='/blog/favicon.ico'>
@@ -38,7 +36,7 @@ if (!doNotTrack) {
   
 
 </head>
-<body class='page type-posts has-sidebar'>
+<body class='page type-posts has-cover has-sidebar'>
 
   <div class='site'><div id='sidebar' class='sidebar'>
   <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
@@ -220,7 +218,7 @@ if (!doNotTrack) {
     <style>.widget-breadcrumbs li:after{content:'　\3e\3e　'}</style>
   <section class='widget widget-breadcrumbs sep-after'>
     <nav id='breadcrumbs'>
-      <ol><li><a href='/blog/'>Chienkira full stack web developer</a></li><li><a href='/blog/posts/'>Posts</a></li><li><span>Review Các Dịch Vụ Thuê Xe Ở Nhật</span></li></ol>
+      <ol><li><a href='/blog/'>Chienkira full stack web developer</a></li><li><a href='/blog/posts/'>Posts</a></li><li><span>Better Logging Practice (Part 1)</span></li></ol>
     </nav>
   </section></div>
       </div>
@@ -239,7 +237,7 @@ if (!doNotTrack) {
   <header class='header entry-header'>
   <div class='container sep-after'>
     <div class='header-info'>
-      <h1 class='title'>Review Các Dịch Vụ Thuê Xe Ở Nhật</h1>
+      <h1 class='title'>Better Logging Practice (Part 1)</h1>
       
 
     </div>
@@ -253,7 +251,7 @@ if (!doNotTrack) {
   
 </svg>
 <span class='screen-reader-text'>Posted on </span>
-  <time class='entry-date' datetime='2019-03-03T09:18:57&#43;09:00'>2019-03-03</time>
+  <time class='entry-date' datetime='2020-05-24T13:17:39&#43;09:00'>2020-05-24</time>
 </span>
 
   <span class='byline'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
@@ -270,7 +268,7 @@ if (!doNotTrack) {
   <polyline points="12 6 12 12 15 15"/>
   
 </svg>
-5 mins read
+6 mins read
 </span>
 
 
@@ -371,21 +369,21 @@ if (!doNotTrack) {
 
 <div id="share-buttons">
     <div class="facebook" title="Share this on Facebook"
-        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/c%C3%A1c-d%E1%BB%8Bch-v%E1%BB%A5-thu%C3%AA-xe-%E1%BB%9F-nh%E1%BA%ADt\/');">
+        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/better-logging-practice\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z" /></svg></div>
     <div class="twitter" title="Share this on Twitter"
-        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/c%C3%A1c-d%E1%BB%8Bch-v%E1%BB%A5-thu%C3%AA-xe-%E1%BB%9F-nh%E1%BA%ADt\/&amp;text=Review Các Dịch Vụ Thuê Xe Ở Nhật&amp;via=');">
+        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/better-logging-practice\/&amp;text=Better Logging Practice (Part 1)&amp;via=');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z" /></svg></div>
     <div class="linkedin" title="Share this on Linkedin"
-        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/c%C3%A1c-d%E1%BB%8Bch-v%E1%BB%A5-thu%C3%AA-xe-%E1%BB%9F-nh%E1%BA%ADt\/&amp;title=Review Các Dịch Vụ Thuê Xe Ở Nhật');"><svg
+        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/better-logging-practice\/&amp;title=Better Logging Practice (Part 1)');"><svg
             viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z" /></svg></div>
     
     <div class="gplus" title="Share this on Google Plus"
-        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/c%C3%A1c-d%E1%BB%8Bch-v%E1%BB%A5-thu%C3%AA-xe-%E1%BB%9F-nh%E1%BA%ADt\/');"><svg viewBox="0 0 2304 1792"
+        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/better-logging-practice\/');"><svg viewBox="0 0 2304 1792"
             xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z" /></svg>
     </div>
     <div class="mail" title="Share this through Email"
-        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/c%C3%A1c-d%E1%BB%8Bch-v%E1%BB%A5-thu%C3%AA-xe-%E1%BB%9F-nh%E1%BA%ADt\/');">
+        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/better-logging-practice\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z" /></svg>
     </div>
 </div>
@@ -395,117 +393,197 @@ if (!doNotTrack) {
   </div>
 </header>
 
+  <div class='entry-cover'>
+  <figure class='container cover-normal'>
+    <img src='/blog/images/__Better__%20logging%20practice%20with%20__Lograge__%20_chienkira.github.io_blog_.png'/>
+    
+  </figure>
+</div>
   
-  
+<details class='container entry-toc'>
+  <summary class='title'>
+    <span>Table of contents</span>
+  </summary>
+  <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#khoan-sao-cần-better-logging-pratice">Khoan, sao cần better logging pratice?</a></li>
+<li><a href="#giới-thiệu-gem-lograge">Giới thiệu gem lograge</a>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#link-github-https-github-com-roidrage-lograge">Link Github <a href="https://github.com/roidrage/lograge" target="_blank">https://github.com/roidrage/lograge</a></a></li>
+<li><a href="#lograge-cho-bạn-những-dòng-log-có-tổ-chức-và-parsable">Lograge cho bạn những dòng log có tổ chức và parsable!</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#hướng-dẫn-cài-đặt-lograge">Hướng dẫn cài đặt Lograge</a></li>
+</ul></li>
+<li><a href="#giới-thiệu-aws-tool-cloudwatch-logs-agent">Giới thiệu AWS tool: CloudWatch Logs Agent</a></li>
+</ul></li>
+</ul>
+</nav>
+</details>
+
 
   <div class='container entry-content'>
   
 
-<p><strong>Như đã giới thiệu ở bài viết trước <a href="https://chienkira.github.io/blog/posts/h%E1%BB%8Dc-b%E1%BA%B1ng-l%C3%A1i-xe-oto-%E1%BB%9F-nh%E1%BA%ADt/" target="_blank">[chia sẻ kinh nghiệm học lấy bằng lái xe ô tô]</a>, hôm nay mình sẽ viết về các dịch vụ thuê xe ô tô ở Nhật. Các bạn sau khi có bằng, không mua xe thì hãy tham khảo thử nhé!</strong></p>
+<p><strong>Ruby là một ngôn ngữ đẹp, gems lại giống những món trang sức vừa xứng tầm vừa sang chảnh của ả.</strong>
+<strong>Và cá nhân mình cảm nhận thấy gu của những dev làm việc với Ruby cũng ít nhiều ở một level khá ổn, mọi người khá &ldquo;sạch sẽ&rdquo; và &ldquo;tinh tế&rdquo; :)) ngay cả trong chuyện logging nhé! Qua bài này, xin giới thiệu 1 gem và 1 AWS tool hữu ích cho việc quản lý logs đến các thánh thần! 2 3 Zô 🍺!</strong></p>
 
-<p><img src="/blog/images/driving_honda_vezel.png" alt="" /></p>
+<h2 id="khoan-sao-cần-better-logging-pratice">Khoan, sao cần better logging pratice?</h2>
 
-<h2 id="các-loại-dịch-vụ-thuê-xe-ở-nhật">Các loại dịch vụ thuê xe ở Nhật</h2>
+<p>Các cụ ngày trước cứ dạy là <em>tốt gỗ hơn tốt nước sơn</em> đúng không?</p>
 
-<p>Hiện tại ở Nhật tồn tại 2 hình thức thuê xe chứ không phải là một. Vì thế mà chúng ta hay nghe được thấy hai từ là <code>レンタカー</code> (gọi tắt của Rental car) và <code>カーシェア</code> (Car share).</p>
+<p>Nước sơn thì giống UI của hệ thống, còn gỗ tốt hay không thì cái vụ logging này nó cũng quyết định lắm nè!
+Nếu không coi trọng logging, khi hệ thống bị bug hay bị attack (gọi là gỗ bị sâu)
+thì, hoặc là chả coi được log hoặc là log có đó mà không xài được dẫn đến hoàn cảnh bế tắc,
+lâu dần càng ngày gỗ càng mục nát mà! Cuối cùng người đau khổ và phải hấng chịu nhiều nhất vẫn chính là các bạn - người làm ra hệ thống.</p>
 
-<p>Bản chất hai dịch vụ này khác nhau ở chỗ có hay không có &ldquo;đại lý&rdquo;.</p>
+<p>※ Ở đây xin phép chỉ đề cập đến better chứ không phải best vì mình chả phải là một chuyên gia Devops.
+Tuy nhiên với những hệ thống quy mô trung bình, được thiết kế scale ngang nhiều server chẳng hạn đi nữa, mình nghĩ pratice này vẫn dư sức đáp ứng được. Vì thế rất recommend mọi người cài đặt và cải thiện hệ thống để nó ngày càng &ldquo;tốt gỗ&rdquo; hơn nhé.</p>
 
+<h2 id="giới-thiệu-gem-lograge">Giới thiệu gem lograge</h2>
+
+<h6 id="link-github-https-github-com-roidrage-lograge">Link Github <a href="https://github.com/roidrage/lograge" target="_blank">https://github.com/roidrage/lograge</a></h6>
+
+<blockquote>
+<p>Lograge is an attempt to bring sanity to Rails&rsquo; noisy and unusable, unparsable and, in the context of running multiple processes and servers, unreadable default logging output. Rails&rsquo; default approach to log everything is great during development, it&rsquo;s terrible when running it in production. It pretty much renders Rails logs useless to me.</p>
+</blockquote>
+
+<h6 id="lograge-cho-bạn-những-dòng-log-có-tổ-chức-và-parsable">Lograge cho bạn những dòng log có tổ chức và parsable!</h6>
+
+<p>Ai đã làm việc với Rails thì không 1 lần cũng là vô số lần thấy những dòng log mặc định như bên dưới nhỉ.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Started GET <span style="color:#e6db74">&#34;/&#34;</span> <span style="color:#66d9ef">for</span> <span style="color:#ae81ff">127</span>.0.0.1 at <span style="color:#ae81ff">2012</span>-03-10 <span style="color:#ae81ff">14</span>:28:14 +0100
+Processing by HomeController#index as HTML
+  Rendered text template within layouts/application <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span>.0ms<span style="color:#f92672">)</span>
+  Rendered layouts/_assets.html.erb <span style="color:#f92672">(</span><span style="color:#ae81ff">2</span>.0ms<span style="color:#f92672">)</span>
+  Rendered layouts/_top.html.erb <span style="color:#f92672">(</span><span style="color:#ae81ff">2</span>.6ms<span style="color:#f92672">)</span>
+  Rendered layouts/_about.html.erb <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span>.3ms<span style="color:#f92672">)</span>
+  Rendered layouts/_google_analytics.html.erb <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span>.4ms<span style="color:#f92672">)</span>
+Completed <span style="color:#ae81ff">200</span> OK in 79ms <span style="color:#f92672">(</span>Views: <span style="color:#ae81ff">78</span>.8ms | ActiveRecord: <span style="color:#ae81ff">0</span>.0ms<span style="color:#f92672">)</span></code></pre></div>
+<p>Rất nhiều thông tin chi tiết, rất hữu ích cho&hellip; <strong>lúc đang development</strong> thôi các thánh thần ạ!
+Trong môi trường production, log mặc định này ngược lại trở thành cồng kềnh và đồ xộ không cần thiết.
+Ngoài ra như bạn đã nhận ra, nội dung log không có cấu trúc nên không phải parsable. Thế thì làm sao bạn phân tích được log bằng tool hay script do bạn viết?</p>
+
+<p>Chưa kể thử hình dung hệ thống có nhiều process cùng đồng thời log theo format trên, các dòng log sẽ bị mix vào nhau 😱 và thế là&hellip; không có cơ hội nào cho bạn xử lý file log đó nữa. Giống như mụ Gì Ghẻ trộn gạo và đỗ xanh rồi bắt cô Tấm nhặt đằng nào ra đằng nấy ấy, tiếc là hông có Bụt cứu ta đâu :))</p>
+
+<p>Vậy thì Lograge đề xuất lên 1 format log mới, cô đọng hơn và quan trọng nhất là parsable.
+Nó hỗ trợ vài format log khác nhau, dưới đây sample 1 dòng log với format mặc định của Lograge.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">method<span style="color:#f92672">=</span>GET path<span style="color:#f92672">=</span>/jobs/833552.json format<span style="color:#f92672">=</span>json controller<span style="color:#f92672">=</span>JobsController  action<span style="color:#f92672">=</span>show status<span style="color:#f92672">=</span><span style="color:#ae81ff">200</span> duration<span style="color:#f92672">=</span><span style="color:#ae81ff">58</span>.33 view<span style="color:#f92672">=</span><span style="color:#ae81ff">40</span>.43 db<span style="color:#f92672">=</span><span style="color:#ae81ff">15</span>.26</code></pre></div>
+<p>Log đã được tóm lược lại trên 1 dòng, định dạng key=value và được rút gọn bỏ đi rất nhiều thông tin rườm rà trước đó.
+Vì cũng chưa có timestamp nên trong thực tế khi sử dụng lograge người ta thường chọn 1 format khác - JSON và thêm nhiều thông tin log cần thiết khác.
+Sau đây hướng dẫn các bạn cách cài đặt và giới thiệu cấu hình lograge mình từng sử dụng cho các bạn tham khảo.</p>
+
+<h3 id="hướng-dẫn-cài-đặt-lograge">Hướng dẫn cài đặt Lograge</h3>
+
+<ol>
+<li>Cài đặt lograge
+<br /></li>
+</ol>
+
+<p>Thêm vào Gemfile và chạy lại bundle install</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">gem <span style="color:#e6db74">&#34;lograge&#34;</span></code></pre></div>
+<ol>
+<li>Cấu hình lograge
+<br /></li>
+</ol>
+
+<p>Tạo file cấu hình cho lograge riêng ở đây cho dễ quản lý:
+<code>config/initializers/lograge.rb</code></p>
+
+<p>Nội dung cấu hình mình hay sử dụng thì như sau. (Mình sẽ giải thích cụ thể hơn ở bên dưới)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">Rails</span><span style="color:#f92672">.</span>application<span style="color:#f92672">.</span>configure <span style="color:#66d9ef">do</span>
+  config<span style="color:#f92672">.</span>lograge<span style="color:#f92672">.</span>enabled <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+
+  config<span style="color:#f92672">.</span>lograge<span style="color:#f92672">.</span>ignore_actions <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#39;StatusController#index&#39;</span><span style="color:#f92672">]</span>
+  config<span style="color:#f92672">.</span>lograge<span style="color:#f92672">.</span>formatter <span style="color:#f92672">=</span> <span style="color:#66d9ef">Lograge</span><span style="color:#f92672">::</span><span style="color:#66d9ef">Formatters</span><span style="color:#f92672">::</span><span style="color:#66d9ef">Logstash</span><span style="color:#f92672">.</span>new
+  config<span style="color:#f92672">.</span>lograge<span style="color:#f92672">.</span>keep_original_rails_log <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+  config<span style="color:#f92672">.</span>lograge<span style="color:#f92672">.</span>logger <span style="color:#f92672">=</span> <span style="color:#66d9ef">ActiveSupport</span><span style="color:#f92672">::</span><span style="color:#66d9ef">Logger</span><span style="color:#f92672">.</span>new <span style="color:#66d9ef">Rails</span><span style="color:#f92672">.</span>root<span style="color:#f92672">.</span>join(<span style="color:#e6db74">&#39;log/lograge.log&#39;</span>)
+
+  config<span style="color:#f92672">.</span>lograge<span style="color:#f92672">.</span>custom_payload <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>controller<span style="color:#f92672">|</span>
+    {
+      <span style="color:#e6db74">host</span>: controller<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>host,
+      <span style="color:#e6db74">request_id</span>: controller<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>request_id,
+      <span style="color:#e6db74">remote_ip</span>: controller<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>remote_ip,
+      <span style="color:#e6db74">user_agent</span>: controller<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>user_agent,
+      <span style="color:#e6db74">referer</span>: controller<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>referer
+    }
+  <span style="color:#66d9ef">end</span>
+
+  config<span style="color:#f92672">.</span>lograge<span style="color:#f92672">.</span>custom_options <span style="color:#f92672">=</span> lambda <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>event<span style="color:#f92672">|</span>
+    exceptions <span style="color:#f92672">=</span> <span style="color:#e6db74">%w[controller action format authenticity_token]</span>
+    log_data <span style="color:#f92672">=</span> {
+      <span style="color:#e6db74">host</span>: event<span style="color:#f92672">.</span>payload<span style="color:#f92672">[</span><span style="color:#e6db74">:host</span><span style="color:#f92672">]</span>,
+      <span style="color:#e6db74">request_id</span>: event<span style="color:#f92672">.</span>payload<span style="color:#f92672">[</span><span style="color:#e6db74">:request_id</span><span style="color:#f92672">]</span>,
+      <span style="color:#e6db74">remote_ip</span>: event<span style="color:#f92672">.</span>payload<span style="color:#f92672">[</span><span style="color:#e6db74">:remote_ip</span><span style="color:#f92672">]</span>,
+      <span style="color:#e6db74">user_agent</span>: event<span style="color:#f92672">.</span>payload<span style="color:#f92672">[</span><span style="color:#e6db74">:user_agent</span><span style="color:#f92672">]</span>,
+      <span style="color:#e6db74">referer</span>: event<span style="color:#f92672">.</span>payload<span style="color:#f92672">[</span><span style="color:#e6db74">:referer</span><span style="color:#f92672">]</span>,
+      <span style="color:#e6db74">exception</span>: <span style="color:#66d9ef">nil</span>,
+      <span style="color:#e6db74">params</span>: event<span style="color:#f92672">.</span>payload<span style="color:#f92672">[</span><span style="color:#e6db74">:params</span><span style="color:#f92672">].</span>except(<span style="color:#f92672">*</span>exceptions)
+    }
+    <span style="color:#66d9ef">if</span> (e <span style="color:#f92672">=</span> event<span style="color:#f92672">.</span>payload<span style="color:#f92672">[</span><span style="color:#e6db74">:exception_object</span><span style="color:#f92672">]</span>)
+      exception_log <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>e<span style="color:#f92672">.</span>message<span style="color:#f92672">]</span>
+      exception_log <span style="color:#f92672">+=</span> e<span style="color:#f92672">.</span>backtrace <span style="color:#66d9ef">if</span> e<span style="color:#f92672">.</span>backtrace<span style="color:#f92672">.</span>present?
+      log_data<span style="color:#f92672">[</span><span style="color:#e6db74">:exception</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> exception_log<span style="color:#f92672">.</span>join(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+    <span style="color:#66d9ef">end</span>
+    log_data
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span></code></pre></div>
 <ul>
-<li><code>レンタカー</code> vận hành thông qua các đại lý trên cả nước, xe được để ở đại lý, và đại lý thì phải có nhân viên, phải thuê mặt bằng. Nói chung có thể gọi là mô hình truyền thống rườm rà.</li>
-<li><code>カーシェア</code> thì vận hành hoàn toàn qua hệ thống IT ( 💪 💪 nghề của mềnh đó ) các xe được bố trí ở các bãi đỗ xe thông thường, không có người quản lý mà người sử dụng sẽ thông qua app qua thẻ từ (IC card) đến mở xe lấy xe.</li>
+<li>Sử dụng format JSON để dễ thu thập phân tích xử lý log, và mình sẽ vẫn giữ log mặc định của Rails song song với lograge.</li>
 </ul>
 
-<p>Giờ hãy cùng so sánh chi tiết hơn các điểm khác nhau giữa 2 dịch vụ này.</p>
-
-<h4 id="bảng-so-sánh-レンタカー-và-カーシェア">Bảng so sánh <code>レンタカー</code> và <code>カーシェア</code></h4>
-
-<table>
-<thead>
-<tr>
-<th><em>Tiêu chí</em></th>
-<th align="left"><code>レンタカー</code></th>
-<th align="left"><code>カーシェア</code></th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>Thời gian lấy/trả xe</td>
-<td align="left">thường là đến ~20h tối (thời gian đại lý đóng cửa)</td>
-<td align="left">24h luôn vì hoàn toàn qua hệ thống, không qua đại lý</td>
-</tr>
-
-<tr>
-<td>Phương thức đặt xe</td>
-<td align="left">qua internet/điện thoại/hoặc làm thủ tục trực tiếp ở đại lý</td>
-<td align="left">qua internet</td>
-</tr>
-
-<tr>
-<td>Phương thức lấy xe</td>
-<td align="left">phải đến đại lý, thông qua nhân viên lấy xe rồi xuất phát</td>
-<td align="left">chỉ cần đến station có xe đã đặt và đi, không cần thông qua người nào cả</td>
-</tr>
-
-<tr>
-<td>Loại xe</td>
-<td align="left">nhiều, đa dạng dễ chọn</td>
-<td align="left">ít hơn so với レンタカー và không thể chọn những mẫu xe cao cấp sang chảnh</td>
-</tr>
-
-<tr>
-<td>Tiền xăng</td>
-<td align="left">nguyên tắc phải đổ đầy bình mỗi khi sử dụng xong hoặc có thể trả tiền xăng cho đại lý</td>
-<td align="left">miễn phí (trong xe có thẻ để đổ xăng, khi cần thì dùng thẻ đó đổ xăng nên không mất tiền)</td>
-</tr>
-
-<tr>
-<td>Tiền phí thành viên</td>
-<td align="left">không có</td>
-<td align="left">0 hoặc khoảng 1000 yen 1 tháng</td>
-</tr>
-
-<tr>
-<td>Tiền bảo hiểm</td>
-<td align="left">mỗi lần thuê cần tốn tiền mua bảo hiểm</td>
-<td align="left">miễn phí (nằm trong tiền phí thành viên rồi)</td>
-</tr>
-
-<tr>
-<td>Tiền phí sử dụng</td>
-<td align="left">ví dụ so sánh khi thuê 12h thì là trung bình 10,500 yen</td>
-<td align="left">12h ứng với khoảng 6,500 yen</td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="tóm-lại">Tóm lại</h4>
-
-<p>Theo cá nhân của mình, dịch vụ <code>カーシェア</code> có ưu điểm hơn cả. Nhờ hệ thống hóa mà phí sử dụng được cắt giảm, dễ chịu với người dùng hơn nhiều so với hình thức thuê xe truyền thống. Việc lấy xe, trả xe tuyệt vời hơn nữa vì bạn có thể tự do đến lấy xe đi lúc nào bạn muốn (24h), nhanh gọn mà lại không phải qua nhân viên và thủ tục rắc rối.</p>
-
-<p>Dịch vụ <code>レンタカー</code> chỉ có lợi thế trong những trường hợp sau:</p>
+<pre><code>  config.lograge.formatter = Lograge::Formatters::Logstash.new
+  config.lograge.keep_original_rails_log = true
+  config.lograge.logger = ActiveSupport::Logger.new Rails.root.join('log/lograge.log')
+</code></pre>
 
 <ul>
-<li>Bạn muốn 乗り捨て, tức là bạn có việc ra sân bay hay đi đến đâu xa mà lại chỉ muốn đi một chiều, không muốn phải trả xe lại điểm đã lấy xe. Bạn có thể dùng rental car, chỉ cần trả xe ở đại lý bất kỳ của hãng chứ không nhất thiết là phải đúng đại lý đã xuất phát.</li>
-<li>Bạn muốn thuê 1 chiếc xe sang chảnh, ví dụ như xe điện Tesla của anh Elon Musk chẳng hạn (có thể ví dụ hơn bị quá đáng 😬), hay nói chung là 1 cái xe cao cấp hay xe tải xe truck to, thì <code>カーシェア</code> không có. Mình thấy nó đều cung cấp những xe quốc nội, 4 đến 7 chỗ phù hợp đi hàng ngày thôi.</li>
+<li>Hệ thống thường có endpoint để LB check status, và vì không cần thiết log cho endpoint này nên ta sẽ ignore nó ra khỏi log như sau</li>
 </ul>
 
-<h2 id="mách-các-hãng-カーシェア-tiện-lợi">Mách các hãng カーシェア tiện lợi</h2>
-
-<p>Ở Nhật, có 3 hãng <code>カーシェア</code> đứng đầu cả nước là:</p>
+<pre><code>  config.lograge.ignore_actions = ['StatusController#index']
+</code></pre>
 
 <ul>
-<li>Careco <img src="https://www.careco.jp/campaign_common/img/cp/201804lp/head_logo.png" alt="" /></li>
-<li>Times car plus <img src="https://plus.timescar.jp/common/images/logo_text.png" alt="" /></li>
-<li>Orix car share <img src="https://www.orix-carshare.com/campaign/a-plan/img/head_logo.gif" alt="" /></li>
+<li>Những thông tin như host, ip của nguồn truy cập cũng rất giá trị nên ta sẽ lấy và log thêm chúng sử dụng custom_payload và custom_options! Ngoài ra message và trace của exception cũng quan trọng nữa.</li>
 </ul>
 
-<p>Trong đó Careco là hãng mình muốn recommend nhất, bởi vì số lượng station và phí sử dụng của nó áp đảo tất các hãng còn lại. Orix thì cũng rẻ (thậm chí pack 6h, 12h còn rẻ hơn Careco) nhưng station không phổ biến bằng 2 đối thủ còn lại. Times car plus thì trung hòa giữa cả hai, station cũng nhiều và giá cũng trung bình, nhưng mà mấy chỗ gần nhà mình của Times đều xe cũ xấu nên mình không có cảm tình.</p>
+<pre><code>  config.lograge.custom_payload do |controller|
+    {
+      host: controller.request.host,
+      ...
+    }
+  end
 
-<p>Tuy nhiên Careco thì đáng tiếc là không cho phép bằng lái dưới 1 năm đăng ký thành viên. Rất buồn! Ở thời điểm hiện tại mình cũng không dùng được mặc dù có 1 cái station ngay gần nhà và nhiều xe ổn nữa. Thay vào đó mình đang dùng Orix thông qua service <a href="https://carshare.dmkt-sp.jp/portal/" target="_blank">D-カーシェア</a>. Dùng cái này rất tiện lợi ở chỗ là thông qua 1 mình nó thôi nhưng mà check xe và thuê được của nhiều công ty khác nhau (Careco, Orix&hellip;) luôn. Ngoài ra phí thành viên hàng tháng cũng được miễn phí luôn 👍</p>
+  config.lograge.custom_options = lambda do |event|
+    exceptions = %w[controller action format authenticity_token]
+    log_data = {
+      host: event.payload[:host],
+      ...
+    }
+    if (e = event.payload[:exception_object])
+      exception_log = [e.message]
+      exception_log += e.backtrace if e.backtrace.present?
+      log_data[:exception] = exception_log.join(&quot;\n&quot;)
+    end
+    log_data
+  end
+</code></pre>
 
-<p>Kết thúc ở đây cho ngắn gọn. Nếu có thông tin hữu ích hoặc câu hỏi, các bạn hãy comment ở bên dưới nhé!</p>
+<h2 id="giới-thiệu-aws-tool-cloudwatch-logs-agent">Giới thiệu AWS tool: CloudWatch Logs Agent</h2>
+
+<p>Giả sử trong hệ thống bạn có N server, vì log được ghi ra file trên mỗi server nên suy ra bạn sẽ có N file logs.
+Giờ bạn cần phân tích log đến hệ thống trong khoảng thời gian đêm qua đến sáng nay chẳng hạn, bạn sẽ đi tải về xử lý N files à? Nếu bạn định làm như vậy thì thật là quá thiếu tinh tế.</p>
+
+<p>Giải quyết ra sao? Xin chia sẻ tiếp với mọi người ở part 2 với chủ đề Centralized logging.</p>
 
 </div>
 
@@ -517,7 +595,7 @@ if (!doNotTrack) {
   <line x1="7" y1="7" x2="7" y2="7"/>
   
 </svg>
-<span class='screen-reader-text'>Tags: </span><a class='tag' href='/blog/tags/driving/'>driving</a>, <a class='tag' href='/blog/tags/review/'>review</a></div>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/blog/tags/rails/'>rails</a>, <a class='tag' href='/blog/tags/logging/'>logging</a>, <a class='tag' href='/blog/tags/tech/'>tech</a></div>
 
   <div><span>Share on: </span>
 
@@ -616,21 +694,21 @@ if (!doNotTrack) {
 
 <div id="share-buttons">
     <div class="facebook" title="Share this on Facebook"
-        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/c%C3%A1c-d%E1%BB%8Bch-v%E1%BB%A5-thu%C3%AA-xe-%E1%BB%9F-nh%E1%BA%ADt\/');">
+        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/better-logging-practice\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z" /></svg></div>
     <div class="twitter" title="Share this on Twitter"
-        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/c%C3%A1c-d%E1%BB%8Bch-v%E1%BB%A5-thu%C3%AA-xe-%E1%BB%9F-nh%E1%BA%ADt\/&amp;text=Review Các Dịch Vụ Thuê Xe Ở Nhật&amp;via=');">
+        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/better-logging-practice\/&amp;text=Better Logging Practice (Part 1)&amp;via=');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z" /></svg></div>
     <div class="linkedin" title="Share this on Linkedin"
-        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/c%C3%A1c-d%E1%BB%8Bch-v%E1%BB%A5-thu%C3%AA-xe-%E1%BB%9F-nh%E1%BA%ADt\/&amp;title=Review Các Dịch Vụ Thuê Xe Ở Nhật');"><svg
+        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/better-logging-practice\/&amp;title=Better Logging Practice (Part 1)');"><svg
             viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z" /></svg></div>
     
     <div class="gplus" title="Share this on Google Plus"
-        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/c%C3%A1c-d%E1%BB%8Bch-v%E1%BB%A5-thu%C3%AA-xe-%E1%BB%9F-nh%E1%BA%ADt\/');"><svg viewBox="0 0 2304 1792"
+        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/better-logging-practice\/');"><svg viewBox="0 0 2304 1792"
             xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z" /></svg>
     </div>
     <div class="mail" title="Share this through Email"
-        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/c%C3%A1c-d%E1%BB%8Bch-v%E1%BB%A5-thu%C3%AA-xe-%E1%BB%9F-nh%E1%BA%ADt\/');">
+        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/better-logging-practice\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z" /></svg>
     </div>
 </div></div>
@@ -642,7 +720,7 @@ if (!doNotTrack) {
 
 <nav class='entry-nav'>
   <div class='container'><div class='prev-entry sep-before'>
-      <a href='/blog/posts/b%E1%BA%AFt-%C4%91%E1%BA%A7u-vi%E1%BA%BFt-blog/'>
+      <a href='/blog/posts/rails-single-table-inheritance-and-dry-code/'>
         <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="20" y1="12" x2="4" y2="12"/>
@@ -650,17 +728,7 @@ if (!doNotTrack) {
   
 </svg>
  Previous</span>
-        <span class='screen-reader-text'>Previous post: </span>Bắt Đầu Viết Blog</a>
-    </div><div class='next-entry sep-before'>
-      <a href='/blog/posts/am-hi%E1%BB%83u-blue-green-deployment-trong-5-ph%C3%BAt/'>
-        <span class='screen-reader-text'>Next post: </span>Am Hiểu Blue Green Deployment Trong 5 Phút<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <line x1="4" y1="12" x2="20" y2="12"/>
-  <polyline points="14 6 20 12 14 18"/>
-  
-</svg>
-</span>
-      </a>
+        <span class='screen-reader-text'>Previous post: </span>Rails Single Table Inheritance and DRY Code (日本語)</a>
     </div></div>
 </nav>
 
