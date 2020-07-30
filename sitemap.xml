@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chienkira.github.io/blog/posts/better-logging-practice-part2/</loc>
+    <lastmod>2020-07-30T10:00:38+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/posts/better-logging-practice/</loc>
     <lastmod>2020-05-24T13:17:39+09:00</lastmod>
   </url>
@@ -178,7 +183,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/</loc>
-    <lastmod>2020-05-24T13:17:39+09:00</lastmod>
+    <lastmod>2020-07-30T10:00:38+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -214,7 +219,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/posts/</loc>
-    <lastmod>2020-05-24T13:17:39+09:00</lastmod>
+    <lastmod>2020-07-30T10:00:38+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -267,7 +272,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/aws/</loc>
-    <lastmod>2020-01-09T17:50:27+09:00</lastmod>
+    <lastmod>2020-07-30T10:00:38+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -375,7 +380,13 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/logging/</loc>
-    <lastmod>2020-05-24T13:17:39+09:00</lastmod>
+    <lastmod>2020-07-30T10:00:38+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/lograge/</loc>
+    <lastmod>2020-07-30T10:00:38+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -435,7 +446,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/rails/</loc>
-    <lastmod>2020-05-24T13:17:39+09:00</lastmod>
+    <lastmod>2020-07-30T10:00:38+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -477,7 +488,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/tech/</loc>
-    <lastmod>2020-05-24T13:17:39+09:00</lastmod>
+    <lastmod>2020-07-30T10:00:38+09:00</lastmod>
     <priority>0</priority>
   </url>
   

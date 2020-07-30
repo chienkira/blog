@@ -5,10 +5,19 @@
     <link>https://chienkira.github.io/blog/posts/</link>
     <description>Recent content in Posts on Chienkira full stack web developer</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 24 May 2020 13:17:39 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 30 Jul 2020 10:00:38 +0900</lastBuildDate>
     
 	<atom:link href="https://chienkira.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Better Logging Practice (Part 2)</title>
+      <link>https://chienkira.github.io/blog/posts/better-logging-practice-part2/</link>
+      <pubDate>Thu, 30 Jul 2020 10:00:38 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/better-logging-practice-part2/</guid>
+      <description>Đại dịch covid-19 tiến hóa thành covid-20 và cả ở Nhật hay ở Việt Nam thì tình hình đều đang rất đáng lo ngại. Bên Nhật còn vài tháng nữa là lại vào mùa lạnh, mùa cúm infu nữa&amp;hellip; không biết sẽ ra sao. Thôi không đánh trống lảng nữa, lý do mãi mới viết nốt part 2 là do lười ham chơi thôi! 😄 🙏 Let&amp;rsquo;s get start!!</description>
+    </item>
     
     <item>
       <title>Better Logging Practice (Part 1)</title>
