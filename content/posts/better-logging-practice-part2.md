@@ -1,7 +1,7 @@
 ---
 title: "Better Logging Practice (Part 2)"
 date: 2020-07-30T10:00:38+09:00
-draft: true
+draft: false
 tags: [rails, logging, tech, lograge, aws]
 language: vi
 toc: true
