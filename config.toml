@@ -101,6 +101,11 @@ weight = -30
 url = "/posts"
 
 [[menu.main]]
+name = "~/Tool ⌘　"
+weight = -25
+url = "https://chienkira.github.io/tool/"
+
+[[menu.main]]
 name = "Musyc ♪　"
 weight = -20
 url = "https://chienkira.github.io/musyc/dist/"
