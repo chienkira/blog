@@ -67,7 +67,7 @@ Lợi ích thứ hai là nắm bắt được giá thị trường, làm căn c�
 
 Cụ thể mình xin mô tả lại quá trình mình tìm xe trên carsensor để mọi người dễ hình dung.
 
-##### 1. Tìm thử với chỉ các điều kiện kiên quyết trước
+##### Step 1: Tìm thử với chỉ các điều kiện kiên quyết trước
 
 - **Model xe** muốn mua: trang tìm kiếm cho phép chỉ định nhiều hơn 1 model nên bạn cứ nhập vào các model xe bạn để ý/thích. Ví dụ mình thích compact car nên chọn Honda fit và Toyota Aqua.
 - **Khu vực**: với người chưa có oto việc di chuyển đi xa để xem rất vất vả cho nên chọn tỉnh mình đang ở thôi sẽ dễ dàng hơn. Trường hợp của mình thì mình nhập vào Saitama.
@@ -79,7 +79,7 @@ Cụ thể mình xin mô tả lại quá trình mình tìm xe trên carsensor đ
 
 Sau khi tìm với các điều kiện kiên quyết ở trên, hãy cố gắng xem hết 1 lượt kết quả tìm kiếm. Không cần phải xem chi tiết từng xe nhưng hãy cố gắng lướt mắt qua 1 lượt để hình dung ra trên thị trường với mức giá này thì sẽ có những xe như thế nào. Bước đầu này chỉ cần cảm nhận được thị trường là ok thôi nhé!
 
-##### 2. "Định nghĩa" chiếc xe trong bạn nhắm mua
+##### Step 2: "Định nghĩa" chiếc xe trong bạn nhắm mua
 
 Qua lần đầu tìm kiếm, chúng ta thường sẽ có được khoảng 10 ~ 30 kết quả. Bước này là bước chúng ta phải 絞り込み tiếp để lọc ra khoảng 4, 5 ứng cử phù hợp nhất để đi xem.
 
