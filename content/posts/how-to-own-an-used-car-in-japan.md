@@ -119,6 +119,7 @@ Ngoài ra lúc xem xe cũng là cơ hội để mặc cả cửa hàng trang b�
 Phần này mình xem phân tích trên youtube nhiều nhất. Không chỉ chuyện mua xe, chuyện mặc cả nói chung là mình thấy mình rất kém. Thế mà lần này áp dụng technical học được trên youtube và áp dụng khá thành công, mặc cả giảm giá được tới gần 4man đó mọi người :clap: :smiley:
 
 Cách hay được mọi người nhắc đến đầu tiên là, đi lấy estimate vài cửa hàng rồi show estimate ra làm lý lẽ đòi giảm giá. Chắc mọi người cũng như mình, thoạt nghe thấy ổn lắm, nhưng mà có 2 điểm sau làm cho nó rất khó áp dụng thực tế.
+
 - Phải tìm được 2 cửa hàng trở lên bán cùng 1 model xe mà các thông số tương tự nhau. Xe oto cũ giống như con người, rất khó để tìm 2 xe giống nhau vì có xe được lắp thêm cái này có xe không, rồi thì màu xe, nhiều hay ít vết xước vân vân làm cho chúng khác nhau.
 - Đi xem xe và lấy estimate các cửa hàng cần phải di chuyển và bỏ thời gian công sức không ít.
 
