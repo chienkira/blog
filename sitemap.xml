@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chienkira.github.io/blog/posts/how-to-own-an-used-car-in-japan/</loc>
+    <lastmod>2020-08-17T10:45:49+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/posts/better-logging-practice-part2/</loc>
     <lastmod>2020-07-30T10:00:38+09:00</lastmod>
   </url>
@@ -183,7 +188,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/</loc>
-    <lastmod>2020-07-30T10:00:38+09:00</lastmod>
+    <lastmod>2020-08-17T10:45:49+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -219,7 +224,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/posts/</loc>
-    <lastmod>2020-07-30T10:00:38+09:00</lastmod>
+    <lastmod>2020-08-17T10:45:49+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -283,6 +288,12 @@
   </url>
   
   <url>
+    <loc>https://chienkira.github.io/blog/tags/car/</loc>
+    <lastmod>2020-08-17T10:45:49+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/tags/career/</loc>
     <lastmod>2019-02-28T16:07:28+09:00</lastmod>
     <priority>0</priority>
@@ -338,7 +349,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/driving/</loc>
-    <lastmod>2019-03-03T09:18:57+09:00</lastmod>
+    <lastmod>2020-08-17T10:45:49+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -374,7 +385,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/life/</loc>
-    <lastmod>2019-06-15T09:35:23+09:00</lastmod>
+    <lastmod>2020-08-17T10:45:49+09:00</lastmod>
     <priority>0</priority>
   </url>
   
