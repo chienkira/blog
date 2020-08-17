@@ -67,7 +67,7 @@ Lợi ích thứ hai là nắm bắt được giá thị trường, làm căn c�
 
 Cụ thể mình xin mô tả lại quá trình mình tìm xe trên carsensor để mọi người dễ hình dung.
 
-1. Tìm thử với chỉ các điều kiện kiên quyết trước
+##### 1. Tìm thử với chỉ các điều kiện kiên quyết trước
 
 - **Model xe** muốn mua: trang tìm kiếm cho phép chỉ định nhiều hơn 1 model nên bạn cứ nhập vào các model xe bạn để ý/thích. Ví dụ mình thích compact car nên chọn Honda fit và Toyota Aqua.
 - **Khu vực**: với người chưa có oto việc di chuyển đi xa để xem rất vất vả cho nên chọn tỉnh mình đang ở thôi sẽ dễ dàng hơn. Trường hợp của mình thì mình nhập vào Saitama.
@@ -79,7 +79,7 @@ Cụ thể mình xin mô tả lại quá trình mình tìm xe trên carsensor đ
 
 Sau khi tìm với các điều kiện kiên quyết ở trên, hãy cố gắng xem hết 1 lượt kết quả tìm kiếm. Không cần phải xem chi tiết từng xe nhưng hãy cố gắng lướt mắt qua 1 lượt để hình dung ra trên thị trường với mức giá này thì sẽ có những xe như thế nào. Bước đầu này chỉ cần cảm nhận được thị trường là ok thôi nhé!
 
-2. "Định nghĩa" chiếc xe trong bạn nhắm mua
+##### 2. "Định nghĩa" chiếc xe trong bạn nhắm mua
 
 Qua lần đầu tìm kiếm, chúng ta thường sẽ có được khoảng 10 ~ 30 kết quả. Bước này là bước chúng ta phải 絞り込み tiếp để lọc ra khoảng 4, 5 ứng cử phù hợp nhất để đi xem.
 
@@ -110,7 +110,7 @@ Việc kiểm tra xe theo như quan điểm của mình thì chỉ là bước �
 Cho nên sau 2 lần đi xem xe lần cuối chốt mua thực ra mình chỉ để ý xem kỹ nhất 2 cái sau mà thôi.
 
 1. Check mùi xe: vào xe bật gió hết cỡ điều hòa rồi kề mũi ngửi xem có bị mùi hôi thuốc lá/mùi mốc không. Xe bị ám mùi thì không tài nào clean hết được nên cái này theo mình rất quan trọng chứ không phải không.
-1. Check độ han gỉ (サビ) ống bô, gầm xe: cùng xấp xỉ đời xe mà xe nào bị han nhiều hơn thì chứng tỏ bị sử dụng nhiều, hoặc xe đó ở gần biển, hay bị để nhiều ở ngoài trời vân vân... Nói chung đấy là dấu hiệu cho thấy toàn bộ xe đã bị oxy hóa, tuổi thọ bị rút ngắn rồi.
+2. Check độ han gỉ (サビ) ống bô, gầm xe: cùng xấp xỉ đời xe mà xe nào bị han nhiều hơn thì chứng tỏ bị sử dụng nhiều, hoặc xe đó ở gần biển, hay bị để nhiều ở ngoài trời vân vân... Nói chung đấy là dấu hiệu cho thấy toàn bộ xe đã bị oxy hóa, tuổi thọ bị rút ngắn rồi.
 
 Ngoài ra lúc xem xe cũng là cơ hội để mặc cả cửa hàng trang bị cho xe của chúng ta. Hãy xác nhận với cửa hàng các vị trí mà các bạn thấy có vấn đề,rồi cửa hàng sẽ xử lý cho chúng ta ra sao. Ví dụ như lúc mình đi chốt xe thì mình đòi được họ sơn xóa mấy vết xước ở trên thân xe mình check thấy, kêu họ thay lốp mới vì cái lốp hiện tại đã mòn đáng kể, họ cũng bọc lại cho vô lăng bị sờn và thay cho 1 bên gương bị xước. Những cái này chỉ cần bạn check thấy và bảo họ thì họ sẽ đề nghị cho cách xử lý ngay thôi, nhưng mà hình dung nếu không bảo gì xem, chúng ta sẽ thiệt không ít đúng không!
 
@@ -138,6 +138,7 @@ Trên youtube thì mọi người có nói là phải ép được họ giảm g
 ## 3. Hoàn thành thủ tục cần thiết với bên cửa hàng
 
 Sau khi chốt mua, có rất nhiều thủ tục cần phải hoàn thành để chiếc xe có thể lăn bánh. Ví dụ như:
+
 - Đăng ký xe
 - Đăng ký biển số
 - Đăng kiểm (trường hợp xe đang hết đăng kiểm)
@@ -147,6 +148,7 @@ Sau khi chốt mua, có rất nhiều thủ tục cần phải hoàn thành đ�
 - ...
 
 Thường thì cửa hàng sẽ nhận làm thay chúng ta các thủ tục trên và thu thêm tiền công. Mình nghe nói có người tự đi làm để tiết kiệm tiền nhưng thú thực là nhờ cửa hàng làm sẽ đơn giản và chắc là nhanh hơn nhiều nên mình không tự đi làm :)) Trong trường hợp nhờ cửa hàng thì chúng ta chỉ cần cung cấp cho họ 3 giấy tờ sau.
+
 1. Giấy 委任状 - ủy quyền (cửa hàng thường sẽ chuẩn bị sẵn cho)
 2. Giấy 印鑑証明書 - chứng minh con dấu (chúng ta phải tự lên 役所 lấy)
 3. Giấy 車庫証明書 - chứng minh có bãi đỗ xe (cửa hàng thường sẽ hướng dẫn cho và chúng ta sẽ đi xin)
