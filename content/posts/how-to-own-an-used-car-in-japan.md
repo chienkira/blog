@@ -1,5 +1,5 @@
 ---
-title: "Kinh nghiệm mua xe oto ở Nhật"
+title: "Kinh nghiệm mua xe oto cũ ở Nhật"
 date: 2020-08-17T10:45:49+09:00
 draft: no
 tags: [life, driving, car]
