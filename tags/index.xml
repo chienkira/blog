@@ -137,15 +137,6 @@
     </item>
     
     <item>
-      <title>car</title>
-      <link>https://chienkira.github.io/blog/tags/car/</link>
-      <pubDate>Mon, 17 Aug 2020 10:45:49 +0900</pubDate>
-      
-      <guid>https://chienkira.github.io/blog/tags/car/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>career</title>
       <link>https://chienkira.github.io/blog/tags/career/</link>
       <pubDate>Thu, 28 Feb 2019 16:07:28 +0900</pubDate>
@@ -400,7 +391,7 @@
     <item>
       <title>review</title>
       <link>https://chienkira.github.io/blog/tags/review/</link>
-      <pubDate>Sun, 03 Mar 2019 09:18:57 +0900</pubDate>
+      <pubDate>Mon, 17 Aug 2020 10:45:49 +0900</pubDate>
       
       <guid>https://chienkira.github.io/blog/tags/review/</guid>
       <description></description>
@@ -475,6 +466,15 @@
       <pubDate>Fri, 05 Apr 2019 10:38:57 +0900</pubDate>
       
       <guid>https://chienkira.github.io/blog/tags/til/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>used-car</title>
+      <link>https://chienkira.github.io/blog/tags/used-car/</link>
+      <pubDate>Mon, 17 Aug 2020 10:45:49 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/tags/used-car/</guid>
       <description></description>
     </item>
     
