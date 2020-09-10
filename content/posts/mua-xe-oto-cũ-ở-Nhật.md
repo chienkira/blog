@@ -6,7 +6,7 @@ tags: [life, driving, used-car, review]
 language: vietnamese
 toc: true
 authors: [chienkira]
-cover: /blog/images/honda_fit_used.png
+cover: /blog/images/used_honda_fit.jpg
 ---
 
 *※ Ảnh trên là ảnh minh họa!*
