@@ -1,9 +1,9 @@
 ---
-title: "Kinh nghiệm mua xe oto cũ ở Nhật"
+title: "Kinh nghiệm chọn và mua xe oto cũ ở Nhật"
 date: 2020-08-17T10:45:49+09:00
 draft: no
-tags: [life, driving, car]
-language: vi
+tags: [life, driving, used-car, review]
+language: vietnamese
 toc: true
 authors: [chienkira]
 cover: /blog/images/honda_fit_used.png
