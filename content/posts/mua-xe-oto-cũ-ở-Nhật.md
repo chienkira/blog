@@ -9,8 +9,6 @@ authors: [chienkira]
 cover: /blog/images/used_honda_fit.jpg
 ---
 
-*※ Ảnh trên là ảnh minh họa!*
-
 **Năm 2020 - năm chi tiêu, sau khi vay LOAN mua nhà, gia đình mình lại mới mua cả xe :smiley: Dù chỉ là 1 chiếc xe đã qua sử dụng, nhỏ nhắn và giá trị cũng khiêm tốn thôi, nhưng đó là cả một quyết định rất đắn đo và cũng là một bước đi xa hơn của 2 vợ chồng. Trong quá trình chọn xe và mua, vợ mình giao cho mình hết, duy nhất buổi đi xem lần cuối và chốt hợp đồng thì bà xã mới lê mông đi cùng thôi :)) Mình thấy có khá nhiều thông tin đáng chia sẻ nên hi vọng bài viết này sẽ giúp ích cho những ai cũng đang có ý định "tậu trâu" nha!**
 
 ## Đại khái quá trình mua xe
