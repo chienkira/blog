@@ -493,7 +493,7 @@ Nó yêu cầu tất cả các key mã hóa phải được rotate định kỳ!
 <h3 id="dỡ-bỏ-cơ-chế-mã-hóa-credentials-mặc-định-của-rails">Dỡ bỏ cơ chế mã hóa credentials mặc định của Rails</h3>
 
 <ol>
-<li><p>Đầu tiên là xóa bỏ file config/credentials.yml.enc và config/master.key đi</p></li>
+<li>Đầu tiên là xóa bỏ file config/credentials.yml.enc và config/master.key đi</li>
 
 <li><p>Nói Rails không cần file master.key nữa vì chúng ta không sử dụng nó làm encrypt key nữa, bằng cách thêm dòng sau vào config/application.rb</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">config<span style="color:#f92672">.</span>require_master_key <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span></code></pre></div></li>
