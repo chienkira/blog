@@ -28,6 +28,7 @@ development:
 Đây chính là file mà Rails tạo sẵn ra để làm chỗ cho bạn lưu những thông tin nhạy cảm vào. Rất đen là file này chỉ là file yaml bình thường, không được cung cấp chức năng mã hóa nên việc có nên sử dụng, có an toàn để commit nó lên git không là một dấu hỏi lớn!!
 
 Tiện đây, có thể có người sẽ thắc mắc là "việc commit cả những file này lên git có tác dụng gì?", thì xin trả lời là nó có 2 merits chính:
+
 - Commit trong git thì sẽ quản lý được version và rollback được.
 - Vì ở trong git nên thay đổi trong credentials và source code ứng dụng sẽ đảm bảo được đồng bộ - tức được deploy đồng thời cùng nhau mỗi khi có release.
 
@@ -38,6 +39,7 @@ Rails luôn cải tiến vì thế từ version 5.2 trở đi file yaml sẽ đ�
 Tên của file yaml cũng được đổi từ `secrets.yml` thành `credentials.yml.enc` cho meaningful hơn. (*Đuôi .enc thể hiện là file này đã được encrypted!*)
 
 Nguyên tắc hoạt động của nó như sau:
+
 - Rails sẽ sử dụng file master.key để làm encrypt key, mã hóa nội dung credentials vào trong file credentials.yml.enc
 - File master.key (ban đầu Rails sẽ sinh ra ngỗng nhiên) theo nguyên tắc là bị ignore khỏi git - hiển nhiên rồi
 - Còn file credentials.yml.enc thì giờ đã an toàn để chúng ta commit lên git
