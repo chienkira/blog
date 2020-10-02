@@ -457,9 +457,12 @@ if (!doNotTrack) {
   your_key: SOME_VALUE</code></pre></div>
 <p>Đây chính là file mà Rails tạo sẵn ra để làm chỗ cho bạn lưu những thông tin nhạy cảm vào. Rất đen là file này chỉ là file yaml bình thường, không được cung cấp chức năng mã hóa nên việc có nên sử dụng, có an toàn để commit nó lên git không là một dấu hỏi lớn!!</p>
 
-<p>Tiện đây, có thể có người sẽ thắc mắc là &ldquo;việc commit cả những file này lên git có tác dụng gì?&rdquo;, thì xin trả lời là nó có 2 merits chính:
-- Commit trong git thì sẽ quản lý được version và rollback được.
-- Vì ở trong git nên thay đổi trong credentials và source code ứng dụng sẽ đảm bảo được đồng bộ - tức được deploy đồng thời cùng nhau mỗi khi có release.</p>
+<p>Tiện đây, có thể có người sẽ thắc mắc là &ldquo;việc commit cả những file này lên git có tác dụng gì?&rdquo;, thì xin trả lời là nó có 2 merits chính:</p>
+
+<ul>
+<li>Commit trong git thì sẽ quản lý được version và rollback được.</li>
+<li>Vì ở trong git nên thay đổi trong credentials và source code ứng dụng sẽ đảm bảo được đồng bộ - tức được deploy đồng thời cùng nhau mỗi khi có release.</li>
+</ul>
 
 <h3 id="rails-version-5-2-1">Rails version &gt;= 5.2</h3>
 
@@ -467,12 +470,15 @@ if (!doNotTrack) {
 
 <p>Tên của file yaml cũng được đổi từ <code>secrets.yml</code> thành <code>credentials.yml.enc</code> cho meaningful hơn. (<em>Đuôi .enc thể hiện là file này đã được encrypted!</em>)</p>
 
-<p>Nguyên tắc hoạt động của nó như sau:
-- Rails sẽ sử dụng file master.key để làm encrypt key, mã hóa nội dung credentials vào trong file credentials.yml.enc
-- File master.key (ban đầu Rails sẽ sinh ra ngỗng nhiên) theo nguyên tắc là bị ignore khỏi git - hiển nhiên rồi
-- Còn file credentials.yml.enc thì giờ đã an toàn để chúng ta commit lên git
-- Ứng dụng rails khi khởi động, chỉ cần có file master.key Rails sẽ tự động tiến hành decrypt lại thông tin credentials cho chúng ta
-- Khi muốn cập nhật thông tin credentials, Rails chuẩn bị cho chúng ta command <code>EDITOR=&quot;vi&quot; bin/rails credentials:edit</code> để mở và edit credentials với editor</p>
+<p>Nguyên tắc hoạt động của nó như sau:</p>
+
+<ul>
+<li>Rails sẽ sử dụng file master.key để làm encrypt key, mã hóa nội dung credentials vào trong file credentials.yml.enc</li>
+<li>File master.key (ban đầu Rails sẽ sinh ra ngỗng nhiên) theo nguyên tắc là bị ignore khỏi git - hiển nhiên rồi</li>
+<li>Còn file credentials.yml.enc thì giờ đã an toàn để chúng ta commit lên git</li>
+<li>Ứng dụng rails khi khởi động, chỉ cần có file master.key Rails sẽ tự động tiến hành decrypt lại thông tin credentials cho chúng ta</li>
+<li>Khi muốn cập nhật thông tin credentials, Rails chuẩn bị cho chúng ta command <code>EDITOR=&quot;vi&quot; bin/rails credentials:edit</code> để mở và edit credentials với editor</li>
+</ul>
 
 <h2 id="2-nếu-một-ngày-yêu-cầu-hệ-thống-đòi-hỏi-một-thứ-phức-tạp-hơn">2. Nếu một ngày yêu cầu hệ thống đòi hỏi một thứ phức tạp hơn?</h2>
 
