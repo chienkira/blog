@@ -63,7 +63,6 @@ Vì hệ thống sử dụng AWS rồi, service KMS của AWS lại có chức n
 ### Dỡ bỏ cơ chế mã hóa credentials mặc định của Rails
 
 1. Đầu tiên là xóa bỏ file config/credentials.yml.enc và config/master.key đi
-
 2. Nói Rails không cần file master.key nữa vì chúng ta không sử dụng nó làm encrypt key nữa, bằng cách thêm dòng sau vào config/application.rb
 
     ```ruby
