@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>KMS on Chienkira full stack web developer</title>
+    <link>https://chienkira.github.io/blog/tags/kms/</link>
+    <description>Recent content in KMS on Chienkira full stack web developer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 02 Oct 2020 15:30:52 +0900</lastBuildDate>
+    
+	<atom:link href="https://chienkira.github.io/blog/tags/kms/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Encrypt credentials yaml file in your own way!</title>
+      <link>https://chienkira.github.io/blog/posts/encrypt-credentials-yaml-file-with-aws-kms/</link>
+      <pubDate>Fri, 02 Oct 2020 15:30:52 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/encrypt-credentials-yaml-file-with-aws-kms/</guid>
+      <description>Bình thường các bạn hay quản lý những thông tin nhạy (credentials) cảm như access key, api token&amp;hellip; trong ứng dụng Rails ra sao? Rails có sẵn những chức năng gì giúp bạn làm việc đó? Và làm ra sao nếu một ngày, bạn gặp phải yêu cầu hệ thống quá khó và chức năng của framework không thể cứu vãn bạn??
+1. Các cách quản lý credentials có thể sử dụng trong Rails Rails version &amp;lt; 5.</description>
+    </item>
+    
+  </channel>
+</rss>

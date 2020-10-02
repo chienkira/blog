@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://chienkira.github.io/blog/posts/encrypt-credentials-yaml-file-with-aws-kms/</loc>
+    <lastmod>2020-10-02T15:30:52+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/posts/mua-xe-oto-c%C5%A9-%E1%BB%9F-nh%E1%BA%ADt/</loc>
     <lastmod>2020-08-17T10:45:49+09:00</lastmod>
   </url>
@@ -166,6 +171,12 @@
   </url>
   
   <url>
+    <loc>https://chienkira.github.io/blog/tags/aws/</loc>
+    <lastmod>2020-10-02T15:30:52+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/authors/</loc>
     <priority>0</priority>
   </url>
@@ -188,7 +199,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/</loc>
-    <lastmod>2020-08-17T10:45:49+09:00</lastmod>
+    <lastmod>2020-10-02T15:30:52+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -217,6 +228,12 @@
   </url>
   
   <url>
+    <loc>https://chienkira.github.io/blog/tags/kms/</loc>
+    <lastmod>2020-10-02T15:30:52+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://chienkira.github.io/blog/tags/kubernetes/</loc>
     <lastmod>2019-06-08T11:12:01+09:00</lastmod>
     <priority>0</priority>
@@ -224,7 +241,13 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/posts/</loc>
-    <lastmod>2020-08-17T10:45:49+09:00</lastmod>
+    <lastmod>2020-10-02T15:30:52+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chienkira.github.io/blog/tags/rails/</loc>
+    <lastmod>2020-10-02T15:30:52+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -265,7 +288,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/</loc>
-    <lastmod>2019-03-23T21:40:43+09:00</lastmod>
+    <lastmod>2020-10-02T15:30:52+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -475,7 +498,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/security/</loc>
-    <lastmod>2020-01-03T21:17:52+09:00</lastmod>
+    <lastmod>2020-10-02T15:30:52+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -493,7 +516,7 @@
   
   <url>
     <loc>https://chienkira.github.io/blog/tags/tech/</loc>
-    <lastmod>2020-07-30T10:00:38+09:00</lastmod>
+    <lastmod>2020-10-02T15:30:52+09:00</lastmod>
     <priority>0</priority>
   </url>
   
