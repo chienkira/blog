@@ -5,10 +5,19 @@
     <link>https://chienkira.github.io/blog/posts/</link>
     <description>Recent content in Posts on Chienkira full stack web developer</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 02 Oct 2020 15:30:52 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2020 12:58:10 +0900</lastBuildDate>
     
 	<atom:link href="https://chienkira.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Virus scan with ClamAV | Docker setup guide</title>
+      <link>https://chienkira.github.io/blog/posts/file-virus-scan-docker/</link>
+      <pubDate>Sat, 24 Oct 2020 12:58:10 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/file-virus-scan-docker/</guid>
+      <description>Có lẽ hơi low-tech nên đợt vừa rồi mình mới lần đầu phải làm 1 hệ thống mà có yêu cần scan virus cho file. Cụ thể là sau khi được upload lên, phía server phải scan xem file có nhiễm virus không, nếu không thì mới đọc file và bắt đầu xử lý import vân vân mây mây&amp;hellip; Thấy khá hay ho và là lạ nên bài viết này mình sẽ memo lại solution và hướng dẫn setup docker để dev nhé!</description>
+    </item>
     
     <item>
       <title>Encrypt credentials yaml file in your own way!</title>
@@ -292,7 +301,7 @@ Các nhà trẻ, mẫu giáo ở Nhật đồng loạt nhập học kỳ tháng 
       
       <guid>https://chienkira.github.io/blog/posts/h%E1%BB%8Dc-b%E1%BA%B1ng-l%C3%A1i-xe-oto-%E1%BB%9F-nh%E1%BA%ADt/</guid>
       <description>Mình mới lấy xong bằng lái oto ở Nhật (thực ra là lấy được 1 tháng rồi 😄), nhận ra có nhiều thông tin hữu ích có thể chia sẻ với ai đó đang cũng có ý định học nên chờ gì nữa nhỉ viết bài này thôi.
-↓↓↓ Ảnh khu vực học thực hành lái ở trong trường ↓↓↓    View this post on Instagram         A post shared by Kira Chien (@chienkira) on Jan 10, 2019 at 9:32pm PST</description>
+↓↓↓ Ảnh khu vực học thực hành lái ở trong trường ↓↓↓ Mình sẽ trình bày theo kiểu top-down nhé. Các bước chính, các thông tin cần thiết trước rồi luyên thuyên ở bên dưới sau.</description>
     </item>
     
     <item>

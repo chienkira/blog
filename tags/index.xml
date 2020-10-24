@@ -173,6 +173,15 @@
     </item>
     
     <item>
+      <title>clamav</title>
+      <link>https://chienkira.github.io/blog/tags/clamav/</link>
+      <pubDate>Sat, 24 Oct 2020 12:58:10 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/tags/clamav/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>cli</title>
       <link>https://chienkira.github.io/blog/tags/cli/</link>
       <pubDate>Wed, 13 Mar 2019 23:04:57 +0900</pubDate>
@@ -409,7 +418,7 @@
     <item>
       <title>rails</title>
       <link>https://chienkira.github.io/blog/tags/rails/</link>
-      <pubDate>Thu, 30 Jul 2020 10:00:38 +0900</pubDate>
+      <pubDate>Sat, 24 Oct 2020 12:58:10 +0900</pubDate>
       
       <guid>https://chienkira.github.io/blog/tags/rails/</guid>
       <description></description>
@@ -445,7 +454,7 @@
     <item>
       <title>security</title>
       <link>https://chienkira.github.io/blog/tags/security/</link>
-      <pubDate>Fri, 02 Oct 2020 15:30:52 +0900</pubDate>
+      <pubDate>Sat, 24 Oct 2020 12:58:10 +0900</pubDate>
       
       <guid>https://chienkira.github.io/blog/tags/security/</guid>
       <description></description>

@@ -5,10 +5,19 @@
     <link>https://chienkira.github.io/blog/tags/rails/</link>
     <description>Recent content in rails on Chienkira full stack web developer</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 30 Jul 2020 10:00:38 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2020 12:58:10 +0900</lastBuildDate>
     
 	<atom:link href="https://chienkira.github.io/blog/tags/rails/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Virus scan with ClamAV | Docker setup guide</title>
+      <link>https://chienkira.github.io/blog/posts/file-virus-scan-docker/</link>
+      <pubDate>Sat, 24 Oct 2020 12:58:10 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/file-virus-scan-docker/</guid>
+      <description>Có lẽ hơi low-tech nên đợt vừa rồi mình mới lần đầu phải làm 1 hệ thống mà có yêu cần scan virus cho file. Cụ thể là sau khi được upload lên, phía server phải scan xem file có nhiễm virus không, nếu không thì mới đọc file và bắt đầu xử lý import vân vân mây mây&amp;hellip; Thấy khá hay ho và là lạ nên bài viết này mình sẽ memo lại solution và hướng dẫn setup docker để dev nhé!</description>
+    </item>
     
     <item>
       <title>Better Logging Practice (Part 2)</title>

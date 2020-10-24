@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>clamav on Chienkira full stack web developer</title>
+    <link>https://chienkira.github.io/blog/tags/clamav/</link>
+    <description>Recent content in clamav on Chienkira full stack web developer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 24 Oct 2020 12:58:10 +0900</lastBuildDate>
+    
+	<atom:link href="https://chienkira.github.io/blog/tags/clamav/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Virus scan with ClamAV | Docker setup guide</title>
+      <link>https://chienkira.github.io/blog/posts/file-virus-scan-docker/</link>
+      <pubDate>Sat, 24 Oct 2020 12:58:10 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/file-virus-scan-docker/</guid>
+      <description>Có lẽ hơi low-tech nên đợt vừa rồi mình mới lần đầu phải làm 1 hệ thống mà có yêu cần scan virus cho file. Cụ thể là sau khi được upload lên, phía server phải scan xem file có nhiễm virus không, nếu không thì mới đọc file và bắt đầu xử lý import vân vân mây mây&amp;hellip; Thấy khá hay ho và là lạ nên bài viết này mình sẽ memo lại solution và hướng dẫn setup docker để dev nhé!</description>
+    </item>
+    
+  </channel>
+</rss>
