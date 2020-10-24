@@ -11,7 +11,7 @@ authors: [chienkira]
 **Mình mới lấy xong bằng lái oto ở Nhật (thực ra là lấy được 1 tháng rồi :smile:), nhận ra có nhiều thông tin hữu ích có thể chia sẻ với ai đó đang cũng có ý định học nên chờ gì nữa nhỉ viết bài này thôi.**
 
 *↓↓↓ Ảnh khu vực học thực hành lái ở trong trường ↓↓↓*
-{{< instagram Bse48UkB6M8 hidecaption >}}
+![](/blog/images/truong_lai_xe.jpg)
 
 **Mình sẽ trình bày theo kiểu top-down nhé. Các bước chính, các thông tin cần thiết trước rồi luyên thuyên ở bên dưới sau.**
 
