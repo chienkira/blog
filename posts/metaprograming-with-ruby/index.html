@@ -2,19 +2,21 @@
 <html lang='en'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='Từ trước tới giờ mình luôn là người lười viết lách, ví dụ như hồi học cấp 3 mình vẫn nhớ những tiết kiểm tra môn văn, kiểu gì mình cũng viết rất mất thời gian mà bài văn lại ngắn cũn ngắn cỡn, chỉ khoảng 2 trang giấy trong khi bọn nó (nhất là mấy đứa con gái) chúng cứ phải tuôn ra hàng tràng dài đến nỗi cần xin cô thêm giấy @@.'>
+<meta name='description' content='Bài viết cuối năm 2020, mình muốn giới thiệu đến với các bạn kỹ thuật metaprogramming thông qua 1 ví dụ thực tiễn - viết Rest API nhé. Viết code ruby đã fun, có metaprogramming lại còn fun hơn!
+What is metaprogramming? Một cách ngắn gọn, metaprogramming là kỹ thuật để làm sourcecode - bản thân nó tự định nghĩa ra thêm code mới trong lúc runtime. Tưởng tượng như bạn đang code để lập trình ra thêm những đoạn code khác vậy.'>
 <meta name='theme-color' content='#ffcd00'>
 
-<meta property='og:title' content='Bắt Đầu Viết Blog | Chien Kira'>
-<meta property='og:description' content='Từ trước tới giờ mình luôn là người lười viết lách, ví dụ như hồi học cấp 3 mình vẫn nhớ những tiết kiểm tra môn văn, kiểu gì mình cũng viết rất mất thời gian mà bài văn lại ngắn cũn ngắn cỡn, chỉ khoảng 2 trang giấy trong khi bọn nó (nhất là mấy đứa con gái) chúng cứ phải tuôn ra hàng tràng dài đến nỗi cần xin cô thêm giấy @@.'>
-<meta property='og:url' content='https://chienkira.github.io/blog/posts/b%E1%BA%AFt-%C4%91%E1%BA%A7u-vi%E1%BA%BFt-blog/'>
+<meta property='og:title' content='Metaprogramming In Ruby | Chien Kira'>
+<meta property='og:description' content='Bài viết cuối năm 2020, mình muốn giới thiệu đến với các bạn kỹ thuật metaprogramming thông qua 1 ví dụ thực tiễn - viết Rest API nhé. Viết code ruby đã fun, có metaprogramming lại còn fun hơn!
+What is metaprogramming? Một cách ngắn gọn, metaprogramming là kỹ thuật để làm sourcecode - bản thân nó tự định nghĩa ra thêm code mới trong lúc runtime. Tưởng tượng như bạn đang code để lập trình ra thêm những đoạn code khác vậy.'>
+<meta property='og:url' content='https://chienkira.github.io/blog/posts/metaprograming-with-ruby/'>
 <meta property='og:site_name' content='Chienkira full stack web developer'>
-<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/00e439e7376596f2760b4ef9a28df93b?s=256'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='life'><meta property='article:tag' content='career'><meta property='article:published_time' content='2019-02-28T16:07:28&#43;09:00'/><meta property='article:modified_time' content='2019-02-28T16:07:28&#43;09:00'/><meta name='twitter:card' content='summary'><meta name='twitter:creator' content='@chienkira'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://chienkira.github.io/blog/images/__Metaprograming__%20in%20__Ruby__.png'><meta property='article:author' content='https://facebook.com/chienkira'><meta property='article:section' content='posts'><meta property='article:tag' content='ruby'><meta property='article:tag' content='programing'><meta property='article:tag' content='tech'><meta property='article:tag' content='rails'><meta property='article:published_time' content='2020-12-29T22:24:49&#43;09:00'/><meta property='article:modified_time' content='2020-12-29T22:24:49&#43;09:00'/><meta name='twitter:card' content='summary_large_image'><meta name='twitter:creator' content='@chienkira'><meta property='twitter:image' content='https://chienkira.github.io/blog/images/__Metaprograming__%20in%20__Ruby__.png'>
 
 <meta name="generator" content="Hugo 0.50" />
 
-  <title>Bắt Đầu Viết Blog | Chien Kira</title>
-  <link rel='canonical' href='https://chienkira.github.io/blog/posts/b%E1%BA%AFt-%C4%91%E1%BA%A7u-vi%E1%BA%BFt-blog/'>
+  <title>Metaprogramming In Ruby | Chien Kira</title>
+  <link rel='canonical' href='https://chienkira.github.io/blog/posts/metaprograming-with-ruby/'>
   
   
   <link rel='icon' href='/blog/favicon.ico'>
@@ -36,7 +38,7 @@ if (!doNotTrack) {
   
 
 </head>
-<body class='page type-posts has-sidebar'>
+<body class='page type-posts has-cover has-sidebar'>
 
   <div class='site'><div id='sidebar' class='sidebar'>
   <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
@@ -232,7 +234,7 @@ if (!doNotTrack) {
     <style>.widget-breadcrumbs li:after{content:'　\3e\3e　'}</style>
   <section class='widget widget-breadcrumbs sep-after'>
     <nav id='breadcrumbs'>
-      <ol><li><a href='/blog/'>Chienkira full stack web developer</a></li><li><a href='/blog/posts/'>Posts</a></li><li><span>Bắt Đầu Viết Blog</span></li></ol>
+      <ol><li><a href='/blog/'>Chienkira full stack web developer</a></li><li><a href='/blog/posts/'>Posts</a></li><li><span>Metaprogramming In Ruby</span></li></ol>
     </nav>
   </section></div>
       </div>
@@ -251,7 +253,7 @@ if (!doNotTrack) {
   <header class='header entry-header'>
   <div class='container sep-after'>
     <div class='header-info'>
-      <h1 class='title'>Bắt Đầu Viết Blog</h1>
+      <h1 class='title'>Metaprogramming In Ruby</h1>
       
 
     </div>
@@ -265,7 +267,7 @@ if (!doNotTrack) {
   
 </svg>
 <span class='screen-reader-text'>Posted on </span>
-  <time class='entry-date' datetime='2019-02-28T16:07:28&#43;09:00'>2019-02-28</time>
+  <time class='entry-date' datetime='2020-12-29T22:24:49&#43;09:00'>2020-12-29</time>
 </span>
 
   <span class='byline'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
@@ -282,7 +284,7 @@ if (!doNotTrack) {
   <polyline points="12 6 12 12 15 15"/>
   
 </svg>
-2 mins read
+5 mins read
 </span>
 
 
@@ -383,21 +385,21 @@ if (!doNotTrack) {
 
 <div id="share-buttons">
     <div class="facebook" title="Share this on Facebook"
-        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/b%E1%BA%AFt-%C4%91%E1%BA%A7u-vi%E1%BA%BFt-blog\/');">
+        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/metaprograming-with-ruby\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z" /></svg></div>
     <div class="twitter" title="Share this on Twitter"
-        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/b%E1%BA%AFt-%C4%91%E1%BA%A7u-vi%E1%BA%BFt-blog\/&amp;text=Bắt Đầu Viết Blog&amp;via=');">
+        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/metaprograming-with-ruby\/&amp;text=Metaprogramming In Ruby&amp;via=');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z" /></svg></div>
     <div class="linkedin" title="Share this on Linkedin"
-        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/b%E1%BA%AFt-%C4%91%E1%BA%A7u-vi%E1%BA%BFt-blog\/&amp;title=Bắt Đầu Viết Blog');"><svg
+        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/metaprograming-with-ruby\/&amp;title=Metaprogramming In Ruby');"><svg
             viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z" /></svg></div>
     
     <div class="gplus" title="Share this on Google Plus"
-        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/b%E1%BA%AFt-%C4%91%E1%BA%A7u-vi%E1%BA%BFt-blog\/');"><svg viewBox="0 0 2304 1792"
+        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/metaprograming-with-ruby\/');"><svg viewBox="0 0 2304 1792"
             xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z" /></svg>
     </div>
     <div class="mail" title="Share this through Email"
-        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/b%E1%BA%AFt-%C4%91%E1%BA%A7u-vi%E1%BA%BFt-blog\/');">
+        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/metaprograming-with-ruby\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z" /></svg>
     </div>
 </div>
@@ -407,17 +409,204 @@ if (!doNotTrack) {
   </div>
 </header>
 
+  <div class='entry-cover'>
+  <figure class='container cover-normal'>
+    <img src='/blog/images/__Metaprograming__%20in%20__Ruby__.png'/>
+    
+  </figure>
+</div>
   
-  
+<details class='container entry-toc'>
+  <summary class='title'>
+    <span>Table of contents</span>
+  </summary>
+  <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#what-is-metaprogramming">What is metaprogramming?</a></li>
+<li><a href="#what-ruby-has-for-metaprogramming">What Ruby has for metaprogramming?</a></li>
+<li><a href="#use-metaprogramming-when-implement-rest-apis">Use metaprogramming when implement Rest APIs</a>
+<ul>
+<li><a href="#before-metaprogramming">Before metaprogramming</a></li>
+<li><a href="#after-metaprogramming">After metaprogramming</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+</details>
+
 
   <div class='container entry-content'>
-  <p>Từ trước tới giờ mình luôn là người lười viết lách, ví dụ như hồi học cấp 3 mình vẫn nhớ những tiết kiểm tra môn văn, kiểu gì mình cũng viết rất mất thời gian mà bài văn lại ngắn cũn ngắn cỡn, chỉ khoảng 2 trang giấy trong khi bọn nó (nhất là mấy đứa con gái) chúng cứ phải tuôn ra hàng tràng dài đến nỗi cần xin cô thêm giấy @@.</p>
+  
 
-<p>Lý do thì mình nghĩ bản thân mình cũng hiểu, 1 là đầu óc khô khan + dốt văn sẵn nên không có ý tưởng dẫn đến suy nghĩ mất nhiều thời gian, ngoài ra tốn cả thời gian vào việc mở sách tham khảo văn mẫu nữa :)) . 2 là tính trau truốt, cầu toàn thái quá của mình thực sự là liều thuốc độc với khoản viết lách. Cứ viết được một hai câu lại đọc đi đọc lại sửa từ vựng, sửa cách diễn đạt&hellip; Ôi thôi nhận ra là chính lúc này đây mình cũng đang làm trò mèo đó. <em>Hết thuốc chữa!!</em></p>
+<p><strong>Bài viết cuối năm 2020, mình muốn giới thiệu đến với các bạn kỹ thuật metaprogramming thông qua 1 ví dụ thực tiễn - viết Rest API nhé. Viết code ruby đã fun, có metaprogramming lại còn fun hơn!</strong></p>
 
-<p>Vậy thì đang lười viết lách như vậy, động lực nào giúp mình bắt đầu viết blog? Chả là mình mới chuyển qua công ty mới, khác với công ty trước làm outsource phần mềm（tiếng Nhật gọi hoa mỹ là 開発受託）việc tạo ra thời gian để viết lách khó hơn, thì ở công ty mới làm service mọi người có văn hóa coi trọng knowhow và chia sẻ. Trong công ty có các buổi 勉強会 đều đặn, cộng với việc engineer lại không bị quản lý quá khắt khe nên vô hình cho mình động lực để triển khai blog.</p>
+<h2 id="what-is-metaprogramming">What is metaprogramming?</h2>
 
-<p>Blog sẽ không chỉ có các bài viết liên quan đến kiến thức trong nghề, mà sẽ có cả những post của mình và vợ viết về trải nghiệm về cuộc sống mà phần lớn là ở Nhật bản. Hi vọng những chia sẻ dù nhỏ bé ỏ đây cũng lúc nào đó trở thành thông tin tham khảo cho người khác.</p>
+<p>Một cách ngắn gọn, metaprogramming là kỹ thuật để làm sourcecode - bản thân nó tự định nghĩa ra thêm code mới trong lúc runtime.
+Tưởng tượng như bạn đang code để lập trình ra thêm những đoạn code khác vậy.
+Nói như vậy nhưng không phải áp dụng nó để chúng ta tạo ra thứ gì bất biến, khó kiểm soát đâu! Sứ mệnh của nó là giúp chúng ta gom lại tất cả các xử lý tương tự nhau về làm một, viết code tối thiểu nhất có thể!
+Kỹ thuật này là 1 cái gì đó rất trick/hacking nên khuyến cáo trước là làm rồi dễ ghiền lắm nhé! :))</p>
+
+<p>Không phải tất cả các ngôn ngữ đều hỗ trợ metaprogramming, trong số những ngôn ngữ hỗ trợ thì cũng chỉ 1 số ít là được sử dụng rộng rãi trong thực tế.
+Mình biết đến kỹ thuật này nhờ vào Ruby. Bởi vì nó khá là phổ biến ở đó, chúng ta có thể bắt gặp metaprogramming ở hầu hết các ruby repository trên Github!</p>
+
+<p>See more at wikipedia
+&gt; <a href="https://en.wikipedia.org/wiki/Metaprogramming" target="_blank">https://en.wikipedia.org/wiki/Metaprogramming</a></p>
+
+<h2 id="what-ruby-has-for-metaprogramming">What Ruby has for metaprogramming?</h2>
+
+<p>Ngoài việc với thiết kế Metaclass - mọi thứ kể cả Class cũng thực chất là instance của 1 class cấp trên nào đó,
+theo mình yếu tố chính đưa metaprogramming trở lên phổ biến trong Ruby là nhờ vào các helper methods dưới đây.</p>
+
+<ul>
+<li><strong>instance_variable_set/instance_variable_get</strong></li>
+</ul>
+
+<p>cho phép set/get biến instance dynamically</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">  instance_variable_set(<span style="color:#e6db74">&#34;@foo</span><span style="color:#e6db74">#{</span><span style="color:#e6db74">&#39;bar&#39;</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#ae81ff">123</span>)
+<span style="color:#75715e"># give us same result as</span>
+  @foobar <span style="color:#f92672">=</span> <span style="color:#ae81ff">123</span>
+
+  puts instance_variable_get(<span style="color:#e6db74">&#34;@foo</span><span style="color:#e6db74">#{</span><span style="color:#e6db74">&#39;bar&#39;</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+<span style="color:#75715e"># give us same result as</span>
+  puts @foobar</code></pre></div>
+<ul>
+<li><strong>send</strong></li>
+</ul>
+
+<p>cho phép gọi method với tên bất kỳ</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">  obj<span style="color:#f92672">.</span>send(<span style="color:#e6db74">&#34;foo</span><span style="color:#e6db74">#{</span><span style="color:#e6db74">&#39;bar&#39;</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+<span style="color:#75715e"># give us same result as</span>
+  obj<span style="color:#f92672">.</span>foobar</code></pre></div>
+<ul>
+<li><strong>define_method</strong></li>
+</ul>
+
+<p>cho phép định nghĩa method dynamically</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">  define_method <span style="color:#e6db74">&#34;foo</span><span style="color:#e6db74">#{</span><span style="color:#e6db74">&#39;bar&#39;</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#66d9ef">do</span>
+    <span style="color:#75715e"># do something</span>
+  <span style="color:#66d9ef">end</span>
+<span style="color:#75715e"># give us same result as</span>
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">foobar</span> <span style="color:#66d9ef">do</span>
+    <span style="color:#75715e"># do something</span>
+  <span style="color:#66d9ef">end</span></code></pre></div>
+<h2 id="use-metaprogramming-when-implement-rest-apis">Use metaprogramming when implement Rest APIs</h2>
+
+<h3 id="before-metaprogramming">Before metaprogramming</h3>
+
+<p>Giả sử bạn cần viết Rest API cho 2 resource là Car và Bike.
+Làm như bình thường thì sẽ viết ra CarsController và BikesController kiểu như sau.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CarsController</span> <span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">Api</span><span style="color:#f92672">::</span><span style="color:#66d9ef">BaseController</span>
+  before_action <span style="color:#e6db74">:set_car</span>, <span style="color:#e6db74">only</span>: <span style="color:#f92672">%</span>i<span style="color:#f92672">[</span>show update destroy<span style="color:#f92672">]</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">create</span>
+    <span style="color:#f92672">...</span>
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">show</span>
+    <span style="color:#f92672">...</span>
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">update</span>
+    <span style="color:#f92672">...</span>
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">destroy</span>
+    <span style="color:#f92672">...</span>
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">private</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">set_car</span>
+    @car <span style="color:#f92672">=</span> <span style="color:#66d9ef">Car</span><span style="color:#f92672">.</span>find(params<span style="color:#f92672">[</span><span style="color:#e6db74">:id</span><span style="color:#f92672">]</span>)
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BikesController</span> <span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">Api</span><span style="color:#f92672">::</span><span style="color:#66d9ef">BaseController</span>
+  before_action <span style="color:#e6db74">:set_bike</span>, <span style="color:#e6db74">only</span>: <span style="color:#f92672">%</span>i<span style="color:#f92672">[</span>show update destroy<span style="color:#f92672">]</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">create</span>
+    <span style="color:#f92672">...</span>
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">show</span>
+    <span style="color:#f92672">...</span>
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">update</span>
+    <span style="color:#f92672">...</span>
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">destroy</span>
+    <span style="color:#f92672">...</span>
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">private</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">set_bike</span>
+    @bike <span style="color:#f92672">=</span> <span style="color:#66d9ef">Bike</span><span style="color:#f92672">.</span>find(params<span style="color:#f92672">[</span><span style="color:#e6db74">:id</span><span style="color:#f92672">]</span>)
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span></code></pre></div>
+<p>Mình không trích dẫn ra tất cả logic, nhưng ít nhất bạn cũng đã nhận ra phần logic tương tự bị lặp lại ở chỗ set_car/set_bike rồi chứ?
+Tất cả chỉ là vì muốn tạo thêm 1 Rest API mới, nhưng mà class model cần tham chiếu đến thay đổi tùy từng API, và tên biến instance cũng cần thay đổi theo từng resource mà ta không thể làm class rồi kế thừa hay dùng kỹ thuật mixin để xử lý chung ở 1 chỗ được.</p>
+
+<p>Trong công việc lập trình hàng ngày của chúng ta, có rất nhiều khi như vậy - chúng ta copy code từ class này qua class khác, rồi sau đó đổi tên biến, đổi tiên class vân vân đúng không?</p>
+
+<h3 id="after-metaprogramming">After metaprogramming</h3>
+
+<p>Giờ mình sẽ demo metaprogramming để gom tất cả những đoạn code có shared behavior đó lại.</p>
+
+<p>Đầu tiên, trong mỗi controller của 1 Rest API, ta cần suy diễn ra tên resource đang cần xử lý là gì.
+Ví dụ cars_controller.rb thì resource sẽ là car, và bikes_controller.rb thì là bike =&gt; có nghĩa là có thể lấy tên controller để suy ra tên resource!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#75715e"># Ex: cars_controller.rb will return &#34;car&#34; string</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">resource_name</span>
+  @resource_name <span style="color:#f92672">||=</span> controller_name<span style="color:#f92672">.</span>singularize
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#75715e"># Ex: cars_controller.rb will return &#34;Car&#34; class</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">resource_class</span>
+  @resource_class <span style="color:#f92672">||=</span> resource_name<span style="color:#f92672">.</span>classify<span style="color:#f92672">.</span>constantize
+<span style="color:#66d9ef">end</span></code></pre></div>
+<p>Có 2 methods trên rồi, tiếp theo phần truy cập database lấy ra dữ liệu của record tương ứng với id rồi set vào biến instance sẽ rất đơn giản. Mình sẽ sử dụng instance_variable_set/instance_variable_get ở đây.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">before_action <span style="color:#e6db74">:auto_set_resource</span>, <span style="color:#e6db74">only</span>: <span style="color:#f92672">%</span>i<span style="color:#f92672">[</span>show update destroy<span style="color:#f92672">]</span>
+
+<span style="color:#75715e"># Ex: cars_controller.rb will set up &#34;@car&#34; instance variable newly</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">auto_set_resource</span>(resource <span style="color:#f92672">=</span> <span style="color:#66d9ef">nil</span>)
+  resource <span style="color:#f92672">||=</span> resource_class<span style="color:#f92672">.</span>find_by!(id: params<span style="color:#f92672">[</span><span style="color:#e6db74">:id</span><span style="color:#f92672">]</span>)
+  instance_variable_set(<span style="color:#e6db74">&#34;@</span><span style="color:#e6db74">#{</span>resource_name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>, resource)
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#75715e"># Ex: cars_controller.rb will return &#34;@car&#34; instance variable</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">resource_object</span>
+  instance_variable_get(<span style="color:#e6db74">&#34;@</span><span style="color:#e6db74">#{</span>resource_name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+<span style="color:#66d9ef">end</span></code></pre></div>
+<p>Như vậy chúng ta chỉ cần tạo controller, công việc còn lại như gọi đến model class, rồi set biến instance vân vân thì metaprograming sẽ dynamically thực hiện cho! Tất cả được tự điều chỉnh dựa theo tên của controller! Toẹt vời phải không.</p>
+
+<p>Logic cơ bản cho 4 actions CRUD cũng có thể nhóm lại bằng metaprogramming theo cách tương tự. Các bạn xem chi tiết implementation ở đây nhé.
+<a href="https://gist.github.com/chienkira/b6cb119912b2a90abbe34e8c4240d691" target="_blank">https://gist.github.com/chienkira/b6cb119912b2a90abbe34e8c4240d691</a></p>
+
+<p>Thành quả cuối cùng là code controller của Rest API sẽ rút gọn được đến mức &ldquo;cực tiểu&rdquo; như dưới đây.
+Mỗi khi cần thay đổi common behavior của toàn bộ Rest API, công việc cũng trở lên dễ dàng vì chỉ cần sửa duy nhất module RestfulResponsable.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">module</span> Api
+  <span style="color:#66d9ef">module</span> V1
+    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CarsController</span> <span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">Api</span><span style="color:#f92672">::</span><span style="color:#66d9ef">V1</span><span style="color:#f92672">::</span><span style="color:#66d9ef">BaseController</span>
+      <span style="color:#66d9ef">include</span> <span style="color:#f92672">::</span><span style="color:#66d9ef">RestfulResponsable</span>
+
+      <span style="color:#75715e"># CRUD (create/show/update/destroy) logics are implemented inside RestfulResponable module</span>
+
+      <span style="color:#66d9ef">private</span>
+
+      <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">car_params</span>
+        params<span style="color:#f92672">.</span>permit(<span style="color:#e6db74">:code</span>, <span style="color:#e6db74">:maker</span>, <span style="color:#e6db74">:number</span>)
+      <span style="color:#66d9ef">end</span>
+    <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span></code></pre></div>
+<hr />
+
+<p>Metaprogramming mang lại nhiều lợi ích như rút gọn code cho chúng ta, đóng băng các common behavior đảm bảo logic là duy nhất và thống nhất. Tuy nhiên đánh đổi lại, code readability sẽ bị giảm xuống chẳng hạn. Mình nghĩ áp dụng nó quá nhiều chưa chắc đã là ý tưởng hay, nên là chúng ta cũng nên chú ý đừng làm lố quá, kẻo bị thằng khác trong team nó chửi cho nha. 😃</p>
+
+<p><strong>Happy metaprogramming!</strong></p>
 
 </div>
 
@@ -429,7 +618,7 @@ if (!doNotTrack) {
   <line x1="7" y1="7" x2="7" y2="7"/>
   
 </svg>
-<span class='screen-reader-text'>Tags: </span><a class='tag' href='/blog/tags/life/'>life</a>, <a class='tag' href='/blog/tags/career/'>career</a></div>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/blog/tags/ruby/'>ruby</a>, <a class='tag' href='/blog/tags/programing/'>programing</a>, <a class='tag' href='/blog/tags/tech/'>tech</a>, <a class='tag' href='/blog/tags/rails/'>rails</a></div>
 
   <div><span>Share on: </span>
 
@@ -528,21 +717,21 @@ if (!doNotTrack) {
 
 <div id="share-buttons">
     <div class="facebook" title="Share this on Facebook"
-        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/b%E1%BA%AFt-%C4%91%E1%BA%A7u-vi%E1%BA%BFt-blog\/');">
+        onclick="window.open('//www.facebook.com/sharer/sharer.php?u=https:\/\/chienkira.github.io\/blog\/posts\/metaprograming-with-ruby\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z" /></svg></div>
     <div class="twitter" title="Share this on Twitter"
-        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/b%E1%BA%AFt-%C4%91%E1%BA%A7u-vi%E1%BA%BFt-blog\/&amp;text=Bắt Đầu Viết Blog&amp;via=');">
+        onclick="window.open('//twitter.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/metaprograming-with-ruby\/&amp;text=Metaprogramming In Ruby&amp;via=');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z" /></svg></div>
     <div class="linkedin" title="Share this on Linkedin"
-        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/b%E1%BA%AFt-%C4%91%E1%BA%A7u-vi%E1%BA%BFt-blog\/&amp;title=Bắt Đầu Viết Blog');"><svg
+        onclick="window.open('//www.linkedin.com/shareArticle?url=https:\/\/chienkira.github.io\/blog\/posts\/metaprograming-with-ruby\/&amp;title=Metaprogramming In Ruby');"><svg
             viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z" /></svg></div>
     
     <div class="gplus" title="Share this on Google Plus"
-        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/b%E1%BA%AFt-%C4%91%E1%BA%A7u-vi%E1%BA%BFt-blog\/');"><svg viewBox="0 0 2304 1792"
+        onclick="window.open('//plus.google.com/share?url=https:\/\/chienkira.github.io\/blog\/posts\/metaprograming-with-ruby\/');"><svg viewBox="0 0 2304 1792"
             xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z" /></svg>
     </div>
     <div class="mail" title="Share this through Email"
-        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/b%E1%BA%AFt-%C4%91%E1%BA%A7u-vi%E1%BA%BFt-blog\/');">
+        onclick="window.open('mailto:?subject=Check out this post by &amp;body=https:\/\/chienkira.github.io\/blog\/posts\/metaprograming-with-ruby\/');">
         <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z" /></svg>
     </div>
 </div></div>
@@ -554,7 +743,7 @@ if (!doNotTrack) {
 
 <nav class='entry-nav'>
   <div class='container'><div class='prev-entry sep-before'>
-      <a href='/blog/posts/kinh-nghi%E1%BB%87m-xin-v%C3%A0o-nh%C3%A0-tr%E1%BA%BB-%E1%BB%9F-nh%E1%BA%ADt/'>
+      <a href='/blog/posts/file-virus-scan-docker/'>
         <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="20" y1="12" x2="4" y2="12"/>
@@ -562,17 +751,7 @@ if (!doNotTrack) {
   
 </svg>
  Previous</span>
-        <span class='screen-reader-text'>Previous post: </span>Kinh Nghiệm Xin Vào Nhà Trẻ Ở Nhật</a>
-    </div><div class='next-entry sep-before'>
-      <a href='/blog/posts/c%C3%A1c-d%E1%BB%8Bch-v%E1%BB%A5-thu%C3%AA-xe-%E1%BB%9F-nh%E1%BA%ADt/'>
-        <span class='screen-reader-text'>Next post: </span>Review Các Dịch Vụ Thuê Xe Ở Nhật<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <line x1="4" y1="12" x2="20" y2="12"/>
-  <polyline points="14 6 20 12 14 18"/>
-  
-</svg>
-</span>
-      </a>
+        <span class='screen-reader-text'>Previous post: </span>Virus scan with ClamAV | Docker setup guide</a>
     </div></div>
 </nav>
 

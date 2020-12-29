@@ -5,10 +5,20 @@
     <link>https://chienkira.github.io/blog/</link>
     <description>Recent content on Chienkira full stack web developer</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 24 Oct 2020 12:58:10 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 29 Dec 2020 22:24:49 +0900</lastBuildDate>
     
 	<atom:link href="https://chienkira.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Metaprogramming In Ruby</title>
+      <link>https://chienkira.github.io/blog/posts/metaprograming-with-ruby/</link>
+      <pubDate>Tue, 29 Dec 2020 22:24:49 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/metaprograming-with-ruby/</guid>
+      <description>Bài viết cuối năm 2020, mình muốn giới thiệu đến với các bạn kỹ thuật metaprogramming thông qua 1 ví dụ thực tiễn - viết Rest API nhé. Viết code ruby đã fun, có metaprogramming lại còn fun hơn!
+What is metaprogramming? Một cách ngắn gọn, metaprogramming là kỹ thuật để làm sourcecode - bản thân nó tự định nghĩa ra thêm code mới trong lúc runtime. Tưởng tượng như bạn đang code để lập trình ra thêm những đoạn code khác vậy.</description>
+    </item>
     
     <item>
       <title>Virus scan with ClamAV | Docker setup guide</title>
