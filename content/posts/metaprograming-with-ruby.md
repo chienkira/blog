@@ -6,7 +6,7 @@ tags: [ruby, programing, tech, rails]
 language: vietnamese
 toc: true
 authors: [chienkira]
-cover: /blog/images/__Metaprograming__ in __Ruby__.png
+cover: /blog/images/Metaprograming_in_Ruby.png
 ---
 
 **Bài viết cuối năm 2020, mình muốn giới thiệu đến với các bạn kỹ thuật metaprogramming thông qua 1 ví dụ thực tiễn - viết Rest API nhé. Viết code ruby đã fun, có metaprogramming lại còn fun hơn!**
