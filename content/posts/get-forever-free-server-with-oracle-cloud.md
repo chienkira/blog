@@ -2,7 +2,7 @@
 title: "Forever free servers with Oracle Cloud"
 date: 2021-01-28T16:17:05+09:00
 draft: false
-tags: []
+tags: [cloud, infra]
 language: vietnamese
 toc: true
 authors: [chienkira]
