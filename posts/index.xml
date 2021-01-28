@@ -5,10 +5,19 @@
     <link>https://chienkira.github.io/blog/posts/</link>
     <description>Recent content in Posts on Chienkira full stack web developer</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 29 Dec 2020 22:24:49 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 28 Jan 2021 16:17:05 +0900</lastBuildDate>
     
 	<atom:link href="https://chienkira.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Forever free servers with Oracle Cloud</title>
+      <link>https://chienkira.github.io/blog/posts/get-forever-free-server-with-oracle-cloud/</link>
+      <pubDate>Thu, 28 Jan 2021 16:17:05 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/get-forever-free-server-with-oracle-cloud/</guid>
+      <description>Như các bạn đã biết, các nền tảng IaaS phổ biến thì đều có chương trình trial hay free credits để cho người dùng dễ dàng tiếp cận cũng như trải nghiệm thử dịch vụ của họ (thu hút người dùng) Thế nhưng cho sử dụng miễn phí mãi mãi thì hiện tại chỉ có Oracle cloud và Google cloud platform (theo như mình biết). Tuy nhiên so sánh nội dung và phạm vi miễn phí thì anh Oracle cloud chơi lớn hơi hẳn!</description>
+    </item>
     
     <item>
       <title>Metaprogramming In Ruby</title>
