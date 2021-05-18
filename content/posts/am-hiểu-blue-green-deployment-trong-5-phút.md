@@ -2,7 +2,7 @@
 title: "Am Hiểu Blue Green Deployment Trong 5 Phút"
 date: 2019-03-06T09:29:32+09:00
 draft: no
-tags: [aws, sre, infra, blue green deploy]
+tags: [aws, sre, infra, blue green deploy, devops]
 language: vi
 toc: true
 authors: [chienkira]
