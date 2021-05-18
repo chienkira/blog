@@ -1,5 +1,5 @@
 ---
-title: "Centralize .env file manegement"
+title: "Centralize .env file management"
 date: 2021-05-18T13:03:41+09:00
 draft: false
 tags: [aws, codebuild, parameter store, devops]
