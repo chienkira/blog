@@ -6,7 +6,7 @@ tags: [aws, codebuild, parameter store, devops]
 language: vietnamese
 toc: true
 authors: [chienkira]
-cover: /blog/images/__Centralize__ .env file management.png
+cover: /blog/images/Centralize_env_file_management.png
 ---
 
 **Như các bạn đã biết rồi, đa số các ứng dụng backend lẫn frontend hiện nay đều sử dụng .env file để lưu trữ các biến số phụ thuộc vào môi trường (môi trường prd or stg or dev or local). Khi bắt tay vào cài đặt CI/CD chúng ta mới nhận ra là, làm sao để load được .env file một cách tự động ngay trong pipeline CI/CD?? Bài viết này xin chia sẻ cách làm của mình, các bạn tham khảo thử nhé!**
