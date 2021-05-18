@@ -5,10 +5,19 @@
     <link>https://chienkira.github.io/blog/tags/aws/</link>
     <description>Recent content in aws on Chienkira full stack web developer</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 30 Jul 2020 10:00:38 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 18 May 2021 13:03:41 +0900</lastBuildDate>
     
 	<atom:link href="https://chienkira.github.io/blog/tags/aws/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Centralize .env file manegement</title>
+      <link>https://chienkira.github.io/blog/posts/quan-ly-tap-trung-.env-file/</link>
+      <pubDate>Tue, 18 May 2021 13:03:41 +0900</pubDate>
+      
+      <guid>https://chienkira.github.io/blog/posts/quan-ly-tap-trung-.env-file/</guid>
+      <description>Như các bạn đã biết rồi, đa số các ứng dụng backend lẫn frontend hiện nay đều sử dụng .env file để lưu trữ các biến số phụ thuộc vào môi trường (môi trường prd or stg or dev or local). Khi bắt tay vào cài đặt CI/CD chúng ta mới nhận ra là, làm sao để load được .env file một cách tự động ngay trong pipeline CI/CD?? Bài viết này xin chia sẻ cách làm của mình, các bạn tham khảo thử nhé!</description>
+    </item>
     
     <item>
       <title>Better Logging Practice (Part 2)</title>
