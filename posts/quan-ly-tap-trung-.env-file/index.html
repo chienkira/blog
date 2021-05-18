@@ -503,7 +503,7 @@ Ex:</p>
     commands:
       - GIT_BRANCH=$(echo $CODEBUILD_WEBHOOK_HEAD_REF | cut -c 12-)
       - |
-        if [ $GIT_BRANCH == &quot;master&quot; ] then
+        if [ $GIT_BRANCH == &quot;master&quot; ]; then
           echo Target environment is PRODUCTION
           PARAMTER_PREFIX=/seminar-web/env/prd/
         else
