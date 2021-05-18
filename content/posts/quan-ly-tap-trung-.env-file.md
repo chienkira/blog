@@ -66,7 +66,7 @@ phases:
     commands:
       - GIT_BRANCH=$(echo $CODEBUILD_WEBHOOK_HEAD_REF | cut -c 12-)
       - |
-        if [ $GIT_BRANCH == "master" ] then
+        if [ $GIT_BRANCH == "master" ]; then
           echo Target environment is PRODUCTION
           PARAMTER_PREFIX=/seminar-web/env/prd/
         else
