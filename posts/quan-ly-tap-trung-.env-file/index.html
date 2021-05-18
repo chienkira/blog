@@ -465,7 +465,7 @@ Cách làm này đơn giản nên có ưu điểm là lấy ra và phục hồi 
 
 <p>Giả sử nếu chúng ta lưu file .env cho môi trường staging dưới key path là <code>/service-name/env/stg</code>, chỉ cần 1 câu lệnh sau là có thể khôi phục ra file .env rồi.</p>
 
-<pre><code>$ aws ssm get-parameters-by-path --path /service-name/env/stg --with-decryption &gt; .env
+<pre><code>$ aws ssm get-parameter --name /service-name/env/stg --region ap-northeast-1 --query Parameter.Value --with-decryption &gt; .env
 </code></pre>
 
 <p>Tuy nhiên nếu như file .env của dự án của bạn quá lớn thì khả năng sẽ không thể xài cách này được nữa. Lý do là parameter store có áp đặt upper limit 4096 characters cho 1 param, không thể lưu 1 đoạn text dài hơn giới hạn đó được.</p>
